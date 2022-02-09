@@ -19,7 +19,7 @@ module.exports = {
     ]
   ],
   themeConfig: {
-    logo: '/fox_header.png', // 注意图片放在 public 文件夹下
+    logo: '/logo_1.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
     editLinks: true,
     sidebarDepth: 0,
