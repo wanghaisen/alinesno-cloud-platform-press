@@ -5,7 +5,7 @@ var utils = require('./utils.js')
 var { genNav, getComponentSidebar, deepClone } = utils
 
 module.exports = {
-  title: '企业级数字化底座社区建设',
+  title: '企业级数字化中台规划',
   description:
     '能够灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，进而形成企业的业务和数据中台。通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。',
   base: '/',
@@ -105,8 +105,8 @@ module.exports = {
             ]
           },
           {
-            text: '关于',
-            link: '/about/'
+            text: 'Github',
+            link: 'https://github.com/alinesno-cloud/alinesno-platform-press'
           }
         ],
         sidebar: {
