@@ -189,7 +189,7 @@ $accentColor = #005bd4;
     padding: 4rem 0px;
 
     >img {
-      max-height: 230px;
+      max-height: 330px;
       display: block;
       margin: 2rem auto 1.5rem;
     }

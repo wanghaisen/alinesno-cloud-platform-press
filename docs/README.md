@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /home.png
+heroImage: /banner_01.png
 title: a
 actionText: 查看文档 →
 actionLink: /design/overview/
