@@ -346,9 +346,19 @@ $accentColor = #005bd4;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 
+    .footer-section li{
+      width: 100% ;
+      list-style: none;
+    }
+
+    .footer-page .container .col-md-3 {
+      width: 100% ; 
+      margin-bottom: 20px;
+    }
+
     .hero {
       img {
-        max-height: 210px;
+        width: 100%;
         margin: 2rem auto 1.2rem;
       }
 
