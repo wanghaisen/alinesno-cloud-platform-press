@@ -107,16 +107,16 @@ module.exports = {
             link: '/learn/'
           },
           {
-            text: '解决方案',
-            link: '/solution/'
-          },
-          {
             text: '使用手册',
             items: [
               { text: '中台连接器', link: '/connect/' },
               { text: '前端手册', link: '/front/' },
               { text: '后端手册', link: '/technique/' }
             ]
+          },
+          {
+            text: '中台演示',
+            link: '/solution/'
           },
           {
             text: 'Github',
@@ -126,37 +126,12 @@ module.exports = {
         sidebar: {
           '/solution/': [
             {
-              title: '解决方案',
+              title: '演示地址',
               collapsable: true,
               children: genSolutionSidebar()
             },
             {
-              title: '智慧政务',
-              collapsable: true,
-              children: genAdvancedSidebar('/')
-            },
-            {
-              title: '智慧社区',
-              collapsable: true,
-              children: genAdvancedSidebar('/')
-            },
-            {
-              title: '企业数字化',
-              collapsable: true,
-              children: genAdvancedSidebar('/')
-            },
-            {
-              title: '智慧农业',
-              collapsable: true,
-              children: genAdvancedSidebar('/')
-            },
-            {
-              title: '智慧校园',
-              collapsable: true,
-              children: genAdvancedSidebar('/')
-            },
-            {
-              title: '数据中台',
+              title: '其它',
               collapsable: true,
               children: genAdvancedSidebar('/')
             }
@@ -1197,8 +1172,7 @@ function genDesignSidebar(menus) {
   if (menus == 1) {
     // 平台介绍
     const mapArr = [
-      '/design/overview/01_数字化方案概述.md',
-      '/design/overview/03_当前行业发展.md',
+      '/design/overview/',
       '/design/overview/03_1_企业发展建设意义.md',
       '/design/overview/02_项目执行计划.md'
     ]
@@ -1348,7 +1322,7 @@ function genTechniqueSidebar() {
  */
 function genSolutionSidebar() {
   const mapArr = [
-    '/solution/01_方案概述.md',
+    '/solution/',
     '/solution/02_文档计划.md'
 
     // '/solution/03_数字化政务解决方案.md',
