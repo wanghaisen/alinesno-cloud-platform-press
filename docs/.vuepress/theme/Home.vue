@@ -188,6 +188,10 @@ $accentColor = #005bd4;
     text-align: center;
     padding: 4rem 0px;
 
+    background: url(https://www.leancloud.cn/assets/imgs/index/banner1.8c601b20.svg) center bottom / 1600px no-repeat;
+    background-repeat: no-repeat;
+    background-position: center;
+
     >img {
       max-height: 330px;
       display: block;
@@ -324,7 +328,8 @@ $accentColor = #005bd4;
   .description {
     font-size: 1.25rem;
     line-height: 1.3;
-    color: #333;
+    color: #015bd4;
+    font-weight: bold;
   }
 }
 
@@ -357,6 +362,7 @@ $accentColor = #005bd4;
     }
 
     .hero {
+      background: none ;
       img {
         width: 100%;
         margin: 2rem auto 1.2rem;
@@ -372,6 +378,8 @@ $accentColor = #005bd4;
 
       .description {
         font-size: 1.2rem;
+        color: #015bd4;
+        font-weight: bold;
       }
 
       .action-button {

@@ -11,10 +11,24 @@ module.exports = {
   base: '/',
   head: [
     [
+      'meta',
+      {
+        name: 'keywords',
+        content: '数字化、数字中台、业务中台、技术中台、微服务、业务架构'
+      }
+    ],
+    [
       'link',
       {
         rel: 'icon',
         href: '/favicon.ico'
+      }
+    ],
+    // 添加cnzz统计
+    [
+      'script',
+      {
+        src: 'https://s9.cnzz.com/z_stat.php?id=1280849718&web_id=1280849718'
       }
     ]
   ],
