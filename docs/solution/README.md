@@ -6,9 +6,11 @@
 
 这里列的是开源环境的演示地址，一般也使用于开发环境使用，通过租户注册成为成员，基于中台环境进一步进行开发项目
 
+<iframeVideo ihtml="https://player.bilibili.com/player.html?aid=90992146&cid=155380603&page=1&danmaku=0&high_quality=1"></iframeVideo >
+
 ## 演示地址
 
-演示地址只为演示使用，属于 SaaS 平台，非专业用户切勿用于生产环境
+演示地址只为演示使用，属于 SaaS 平台，非专业用户切勿用于生产环境，平台演示视频预览：
 
 #### 研发中台后台:
 
