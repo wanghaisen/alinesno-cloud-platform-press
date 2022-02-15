@@ -15,7 +15,10 @@ module.exports = {
       {
         name: 'keywords',
         content: '数字化、数字中台、业务中台、技术中台、微服务、业务架构'
-      }
+      },
+      'style',
+      {},
+      `a[title="站长统计"]{display:none}` // 屏蔽文字
     ],
     [
       'link',
