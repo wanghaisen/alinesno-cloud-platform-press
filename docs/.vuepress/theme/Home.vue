@@ -104,8 +104,8 @@ export default {
   },
   data() {
     return {
-      title: '全新一代企业级数字化底座',
-      saasTitle: '新狐云数字化平台',
+      title: '全新一代企业级数字化PaaS平台',
+      saasTitle: '企业级数字化平台',
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       featuresAll: [
         {

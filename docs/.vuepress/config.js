@@ -5,7 +5,7 @@ var utils = require('./utils.js')
 var { genNav, getComponentSidebar, deepClone } = utils
 
 module.exports = {
-  title: '企业级数字化中台规划',
+  title: '企业级数字化中台',
   description:
     '能够灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，进而形成企业的业务和数据中台。通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。',
   base: '/',
@@ -106,7 +106,7 @@ module.exports = {
             link: '/business/'
           },
           {
-            text: '建设教程',
+            text: '建设材料',
             link: '/learn/'
           },
           {
@@ -857,7 +857,6 @@ function genGroupDeptSidebar() {
   const mapArr = [
     '/group/01_部门建设/01_研发部门概述.md',
     '/group/01_部门建设/02_部门愿景.md',
-    '/group/01_部门建设/03_部门架构.md',
     '/group/01_部门建设/04_组织结构.md'
   ]
   return mapArr.map(i => {
