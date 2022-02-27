@@ -965,7 +965,7 @@ function genPlatformBusinessSidebar(type) {
   var mapArr = ['/platform/01_方案概述.md']
 
   if (type == 1) {
-    mapArr = ['/platform/business/02_产品体系.md']
+    // mapArr = ['/platform/business/02_产品体系.md']
   } else if (type == 2) {
     mapArr = [
       '/platform/business/12_技术中台/01_微服务研发引擎.md',
