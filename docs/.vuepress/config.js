@@ -453,6 +453,11 @@ module.exports = {
               title: '分布式技术',
               collapsable: true,
               children: genDubboSidebar()
+            },
+            {
+              title: '单点登陆技术',
+              collapsable: true,
+              children: genSSOSidebar()
             }
           ],
           '/learn/': [
@@ -770,6 +775,21 @@ function genConfigSidebar() {
   const mapArr = [
     '/technique/04_配置中心/01_使用场景.md',
     '/technique/04_配置中心/02_使用方式.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 单点登陆
+function genSSOSidebar() {
+  const mapArr = [
+    '/technique/14_单点登陆/01_统一账号登陆.md',
+    '/technique/14_单点登陆/02_企业品牌化配置.md',
+    '/technique/14_单点登陆/03_微服务网关认证.md',
+    '/technique/14_单点登陆/04_OpenId集成认证.md',
+    '/technique/14_单点登陆/05_第三方账号同步.md',
+    '/technique/14_单点登陆/06_系统登陆配置.md'
   ]
   return mapArr.map(i => {
     return i
