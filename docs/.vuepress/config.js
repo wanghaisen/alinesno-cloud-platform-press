@@ -632,12 +632,11 @@ function genFirestLearnSidebar(type) {
       '/firstlearn/10_快速入门.md',
       '/firstlearn/11_用户手册.md',
       '/firstlearn/12_课程培训.md',
-      '/firstlearn/13_Demo案例.md',
-      '/firstlearn/14_快速入门.md'
+      '/firstlearn/13_Demo案例.md'
     ]
   } else if (type == 4) {
     mapArr = [
-      '/firstlearn/15_用户手册.md',
+      '/firstlearn/14_快速入门.md',
       '/firstlearn/16_数据集成示例.md',
       '/firstlearn/17_学习课程.md'
     ]
