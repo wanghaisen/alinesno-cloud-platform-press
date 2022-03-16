@@ -118,6 +118,10 @@ module.exports = {
             ]
           },
           {
+            text: '新手入门',
+            link: '/firstlearn/'
+          },
+          {
             text: '中台演示',
             link: '/solution/'
           },
@@ -127,6 +131,33 @@ module.exports = {
           }
         ],
         sidebar: {
+          '/firstlearn/': [
+            // {
+            //   title: '入门概述',
+            //   collapsable: true,
+            //   children: genFirestLearnSidebar(0)
+            // },
+            {
+              title: '新手入门',
+              collapsable: true,
+              children: genFirestLearnSidebar(1)
+            },
+            {
+              title: '开发服务云',
+              collapsable: true,
+              children: genFirestLearnSidebar(2)
+            },
+            {
+              title: '流程服务云',
+              collapsable: true,
+              children: genFirestLearnSidebar(3)
+            },
+            {
+              title: '数据服务云',
+              collapsable: true,
+              children: genFirestLearnSidebar(4)
+            }
+          ],
           '/solution/': [
             {
               title: '演示地址',
@@ -564,6 +595,54 @@ function genLearnSidebar(menus) {
  */
 function genSectorDemandSidebar() {
   const mapArr = ['/iot/', '/iot/plan.md']
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+/**
+ *
+ * @param {概述} type
+ * @returns
+ */
+function genFirestLearnSidebar(type) {
+  var mapArr = []
+
+  if (type == 0) {
+    // mapArr = [
+    //   '/firstlearn/RAEDME.md' ,
+    // ]
+  } else if (type == 1) {
+    mapArr = [
+      '/firstlearn/01_新手入门指南.md',
+      '/firstlearn/02_学习成长中心.md',
+      '/firstlearn/03_中台示例中心.md',
+      '/firstlearn/04_中台公开课.md'
+    ]
+  } else if (type == 2) {
+    mapArr = [
+      '/firstlearn/05_快速入门.md',
+      '/firstlearn/06_开发指南.md',
+      '/firstlearn/07_开发资源与工具.md',
+      '/firstlearn/08_开发文档.md',
+      '/firstlearn/09_开发者认证.md'
+    ]
+  } else if (type == 3) {
+    mapArr = [
+      '/firstlearn/10_快速入门.md',
+      '/firstlearn/11_用户手册.md',
+      '/firstlearn/12_课程培训.md',
+      '/firstlearn/13_Demo案例.md',
+      '/firstlearn/14_快速入门.md'
+    ]
+  } else if (type == 4) {
+    mapArr = [
+      '/firstlearn/15_用户手册.md',
+      '/firstlearn/16_数据集成示例.md',
+      '/firstlearn/17_学习课程.md'
+    ]
+  }
+
   return mapArr.map(i => {
     return i
   })
