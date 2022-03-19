@@ -112,7 +112,7 @@ module.exports = {
           {
             text: '使用手册',
             items: [
-              { text: '中台连接器', link: '/connect/' },
+              // { text: '中台连接器', link: '/connect/' },
               { text: '前端手册', link: '/front/' },
               { text: '后端手册', link: '/technique/' }
             ]
@@ -486,9 +486,14 @@ module.exports = {
               children: genDubboSidebar()
             },
             {
-              title: '单点登陆技术',
+              title: '单点登陆',
               collapsable: true,
               children: genSSOSidebar()
+            },
+            {
+              title: '中台能力',
+              collapsable: true,
+              children: genGatewayOpenSidebar()
             }
           ],
           '/learn/': [
@@ -868,6 +873,21 @@ function genSSOSidebar() {
     '/technique/14_单点登陆/04_OpenId集成认证.md',
     '/technique/14_单点登陆/05_第三方账号同步.md',
     '/technique/14_单点登陆/06_系统登陆配置.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 单点登陆
+function genGatewayOpenSidebar() {
+  const mapArr = [
+    '/technique/15_中台开放能力/01_中台能力架构.md',
+    '/technique/15_中台开放能力/02_应用集成说明.md',
+    '/technique/15_中台开放能力/03_网关自定义配置.md',
+    '/technique/15_中台开放能力/04_接口权限管理.md',
+    '/technique/15_中台开放能力/05_集成业务中台.md',
+    '/technique/15_中台开放能力/06_生产发布文档.md'
   ]
   return mapArr.map(i => {
     return i
