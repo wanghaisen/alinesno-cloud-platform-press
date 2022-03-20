@@ -494,6 +494,11 @@ module.exports = {
               title: '中台能力',
               collapsable: true,
               children: genGatewayOpenSidebar()
+            },
+            {
+              title: '网关服务',
+              collapsable: true,
+              children: genGatewaySidebar()
             }
           ],
           '/learn/': [
@@ -879,7 +884,7 @@ function genSSOSidebar() {
   })
 }
 
-// 单点登陆
+// 中台能力
 function genGatewayOpenSidebar() {
   const mapArr = [
     '/technique/15_中台开放能力/01_中台能力架构.md',
@@ -888,6 +893,18 @@ function genGatewayOpenSidebar() {
     '/technique/15_中台开放能力/04_接口权限管理.md',
     '/technique/15_中台开放能力/05_集成业务中台.md',
     '/technique/15_中台开放能力/06_生产发布文档.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 网关服务
+function genGatewaySidebar() {
+  const mapArr = [
+    '/technique/16_网关服务/01_网关场景构架.md',
+    '/technique/16_网关服务/02_网关配置.md',
+    '/technique/16_网关服务/03_接口策略配置.md'
   ]
   return mapArr.map(i => {
     return i
