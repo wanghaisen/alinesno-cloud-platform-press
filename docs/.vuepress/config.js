@@ -499,6 +499,11 @@ module.exports = {
               title: '网关服务',
               collapsable: true,
               children: genGatewaySidebar()
+            },
+            {
+              title: '通知服务',
+              collapsable: true,
+              children: genNoticeSidebar()
             }
           ],
           '/learn/': [
@@ -893,6 +898,18 @@ function genGatewayOpenSidebar() {
     '/technique/15_中台开放能力/04_接口权限管理.md',
     '/technique/15_中台开放能力/05_集成业务中台.md',
     '/technique/15_中台开放能力/06_生产发布文档.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 通知服务
+function genNoticeSidebar() {
+  const mapArr = [
+    '/technique/17_通知服务/01_通知服务场景.md',
+    '/technique/17_通知服务/02_第三方通知集成.md',
+    '/technique/17_通知服务/03_业务集成使用.md'
   ]
   return mapArr.map(i => {
     return i
