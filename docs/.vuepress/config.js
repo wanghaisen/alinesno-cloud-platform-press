@@ -504,6 +504,11 @@ module.exports = {
               title: '通知服务',
               collapsable: true,
               children: genNoticeSidebar()
+            },
+            {
+              title: '支付服务',
+              collapsable: true,
+              children: genPaymentSidebar()
             }
           ],
           '/learn/': [
@@ -898,6 +903,18 @@ function genGatewayOpenSidebar() {
     '/technique/15_中台开放能力/04_接口权限管理.md',
     '/technique/15_中台开放能力/05_集成业务中台.md',
     '/technique/15_中台开放能力/06_生产发布文档.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 支付服务
+function genPaymentSidebar() {
+  const mapArr = [
+    '/technique/18_支付服务/01_聚合支付架构.md',
+    '/technique/18_支付服务/02_应用集成支付服务.md',
+    '/technique/18_支付服务/03_支付平台操作手册.md'
   ]
   return mapArr.map(i => {
     return i
