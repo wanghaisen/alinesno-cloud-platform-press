@@ -281,7 +281,7 @@ $accentColor = #005bd4;
 .footer-section {
   text-align: center;
   padding: 4rem 0px;
-  background-color: #403f4c;
+  background-color: rgb(37, 37, 37) ; 
   float: left;
   width: 100%;
   margin-bottom: 0px;
@@ -407,7 +407,7 @@ $accentColor = #005bd4;
 
 .td-box--primary {
     color: #fff;
-    background-color: #2ba3de;
+    background-color: #015bd4 ; 
     padding-top: 4rem;
     padding-bottom: 4rem;
     text-align: center!important;
