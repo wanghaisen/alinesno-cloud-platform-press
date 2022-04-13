@@ -170,7 +170,7 @@ export default {
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       helpAll: [
         {
-          title: '开箱即用的技术中台体系',
+          title: '开箱即用的研发中台体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
           icon: '7.png'
