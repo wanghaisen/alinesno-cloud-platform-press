@@ -499,6 +499,11 @@ module.exports = {
               children: genGatewayOpenSidebar()
             },
             {
+              title: '分布式消息',
+              collapsable: true,
+              children: genMessageSidebar()
+            },
+            {
               title: '网关服务',
               collapsable: true,
               children: genGatewaySidebar()
@@ -930,6 +935,20 @@ function genNoticeSidebar() {
     '/technique/17_通知服务/01_通知服务场景.md',
     '/technique/17_通知服务/02_第三方通知集成.md',
     '/technique/17_通知服务/03_业务集成使用.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 分布式消息
+function genMessageSidebar() {
+  const mapArr = [
+    '/technique/19_分布式消息/01_分布式消息架构.md',
+    '/technique/19_分布式消息/02_业务消息集成.md',
+    '/technique/19_分布式消息/04_消息管理平台手册.md',
+    '/technique/19_分布式消息/05_业务集成最佳实践.md',
+    '/technique/19_分布式消息/03_消息异常处理.md'
   ]
   return mapArr.map(i => {
     return i
