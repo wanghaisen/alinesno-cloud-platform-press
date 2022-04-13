@@ -41,11 +41,12 @@ module.exports = {
     editLinks: true,
     sidebarDepth: 0,
     algolia: {
-      apiKey: 'ffce0083d0830de5f562c045a481410b',
-      indexName: 'vue_element_admin'
+      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
+      indexName: 'alinesno-cloud-platform-press'
     },
     plugins: [
-      '@vuepress/nprogress',
+      ['vuepress-plugin-code-copy', true],
+      ['@vuepress/nprogress'],
       {
         seo: {
           siteTitle: (_, $site) => $site.title,
