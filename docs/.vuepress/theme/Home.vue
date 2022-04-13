@@ -18,9 +18,66 @@
     <section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
       <div class="container text-center td-arrow-down">
         <span class="h4 mb-0">
-          <h3>企业数字化转型赋能</h3>
-          <p>云管理体系、研发过程的 DevOps 体系、微服务治理体系和大数据体系，中台架构能力，灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，
-            进而形成企业的业务和数据中台，通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。</p>
+          <h3>中台服务 ACP产品优势</h3>
+          <p>
+            针对于大中小型团队合适的开发平台，支持微服务化、中台化、统一权限和基础能力管理， 统一企业研发业务规范，集成DevOps自动化流程，为业务上层研发提供基础的研发环境，规范化的开发，为后期业务的沉淀 形成基础
+          </p>
+        </span>
+      </div>
+    </section>
+
+    <div class="features-box" style="background-color:rgb(244, 244, 244)">
+      <div v-if="functionAll.length" class="features" style="background-color:rgb(244, 244, 244)">
+        <div
+          v-for="(feature, index) in functionAll"
+          :key="index"
+          class="feature"
+        >
+          <div class="title-icon">
+            <img :src="$withBase('/svg/' + feature.icon)" />
+          </div>
+          <h3>{{ feature.title }}</h3>
+          <p style="text-align:left">{{ feature.details }}</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto" style="background-color:#fff">
+      <div class="container text-center td-arrow-down">
+        <span class="h4 mb-0">
+          <h3 style="color:#555">ACP 可以帮助我做什么</h3>
+          <p style="color:#555">为业务上层研发提供基础的研发环境，规范化的开发，为后期业务的沉淀 形成基础</p>
+        </span>
+      </div>
+    </section>
+
+    <div class="features-box" style="background-color:#fff">
+      <div v-if="helpAll.length" class="features" style="background-color:#fff">
+        <div
+          v-for="(feature, index) in helpAll"
+          :key="index"
+          class="feature"
+        >
+          <div class="title-icon">
+            <img :src="$withBase('/svg/' + feature.icon)" />
+          </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.details }}</p>
+        </div>
+      </div>
+
+      <div data-v-1277a197="" style="position: relative;width: 1024px;margin: auto;">
+        <img data-v-1277a197="" src="https://img.alicdn.com/tfs/TB14Ay4oggP7K4jSZFqXXamhVXa-2360-1324.png" style="width: 100%;margin: auto;">
+      </div>
+
+    </div>
+
+    <section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto" style="background-color:rgb(55, 61, 65)">
+      <div class="container text-center td-arrow-down">
+        <span class="h4 mb-0">
+          <h3>产品功能</h3>
+          <p>为业务上层研发提供基础的研发环境，规范化的开发，为后期业务的沉淀 形成基础，更好的沉淀企业资产,业务架构师的规划， 进行核心业务的改造和各个业务线的整合，形成行业的业务标准和 一套解决方案，形成自己的核心竞争力
+            </p>
         </span>
       </div>
     </section>
@@ -36,7 +93,7 @@
             <img :src="$withBase('/svg/' + feature.icon)" />
           </div>
           <h3>{{ feature.title }}</h3>
-          <p>{{ feature.details }}</p>
+          <p style="text-align:left">{{ feature.details }}</p>
         </div>
       </div>
     </div>
@@ -107,6 +164,64 @@ export default {
       title: '全新一代企业级数字化PaaS平台',
       saasTitle: '企业级数字化平台',
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
+      helpAll: [
+        {
+          title: '开箱即用的技术中台体系',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '快速实现研发中台和业务集成',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '研发中台和团队组快速结合',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
+          icon: 'paper_plane_fill.svg'
+        }
+      ],
+      functionAll: [
+        {
+          title: '完善的微服务体系',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '可视化多团队研发平台',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '通用的业务开发组件',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '技术研发监控体系',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '云原生容器化持续集成',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        },
+        {
+          title: '完善的项目实践文档',
+          details:
+            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
+          icon: 'screen_check.svg'
+        }
+      ],
       featuresAll: [
         {
           title: '企业级PaaS平台',
