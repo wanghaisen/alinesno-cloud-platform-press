@@ -72,7 +72,7 @@
 
     </div>
 
-    <section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto" style="background-color:rgb(55, 61, 65)">
+    <section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto" style="background-color:rgb(255 124 0)">
       <div class="container text-center td-arrow-down">
         <span class="h4 mb-0">
           <h3>产品功能</h3>
@@ -82,7 +82,7 @@
       </div>
     </section>
 
-    <div class="features-box">
+    <div class="features-box" style="padding:6rem 0">
       <div v-if="featuresAll.length" class="features">
         <div
           v-for="(feature, index) in featuresAll"
@@ -97,6 +97,8 @@
         </div>
       </div>
     </div>
+
+    <home-service />
 
     <!-- 案例说明_start -->
     <case-temp />
@@ -149,6 +151,7 @@
 <script>
 import NavLink from '@default-theme/NavLink.vue'
 import CaseTemp from './Case.vue'
+import HomeService from './HomeService.vue'
 import FooterTemp from './Footer.vue'
 
 import { isGitee } from './utils'
@@ -156,6 +159,7 @@ import { isGitee } from './utils'
 export default {
   components: {
     NavLink,
+    HomeService,
     CaseTemp,
     FooterTemp
   },
@@ -169,19 +173,19 @@ export default {
           title: '开箱即用的技术中台体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '7.png'
         },
         {
           title: '快速实现研发中台和业务集成',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '8.png'
         },
         {
           title: '研发中台和团队组快速结合',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: 'paper_plane_fill.svg'
+          icon: '9.png'
         }
       ],
       functionAll: [
@@ -189,75 +193,75 @@ export default {
           title: '完善的微服务体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '1.png'
         },
         {
           title: '可视化多团队研发平台',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '2.png'
         },
         {
           title: '通用的业务开发组件',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '3.png'
         },
         {
           title: '技术研发监控体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '4.png'
         },
         {
           title: '云原生容器化持续集成',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '5.png'
         },
         {
           title: '完善的项目实践文档',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+          icon: '6.png'
         }
       ],
       featuresAll: [
         {
-          title: '企业级PaaS平台',
+          title: '一套技术DevOps研发体系',
           details:
-            '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、自动化测试以及运维监控。有效提高企业的管理、研发、运维和运营效率，助力企业快速、高效地响应需求变化，过程自动化流水。',
-          icon: 'screen_check.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '9.png'
         },
         {
-          title: '微服务研发引擎',
+          title: '统一的前端框架和微服务研发引擎',
           details:
-            '一站式的微服务治理，包括服务注册与发现、配置管理、服务网关、APM、日志分析、智能运维等功能，致力于帮助企业快速构建高扩展、低成本、高性能的分布式系统的同时，通过立体式的监控运维体系，确保企业微服务安全、稳定运行。',
-          icon: 'paper_plane_fill.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '8.png'
         },
         {
-          title: '企业级数据平台',
+          title: '成熟的研发组件跨团队多部门',
           details:
-            '平台提供端到端的大数据平台能力，具备数据集成与开发、生产运维调度、离线与实时分析、数据质量治理与资产管理、数据共享与服务、数据应用搭建等全栈数据研发能力，助力企业缩短数据价值的萃取过程，快速指导经营实践',
-          icon: 'screen_check.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '2.png'
         },
         {
-          title: '技术&研发中台',
+          title: '集成权限多个管理基础组件',
           details:
-            '统一工作台作为端点产品和方案的统一呈现平台，整合提供了包含账号、权限、日志、审批等十数种通用能力，快速响应各业务系统的接入和呈现。业务人员可以在同一个工作台内完成全域的工作任务，提高工作效率，同时统一的中后台交互体系也保证一致的用户体验。',
-          icon: 'package.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '4.png'
         },
         {
-          title: 'SaaS业务中台',
+          title: '日志异常监控通知和运维部署实践',
           details:
-            '应对企业间、系统间复杂的对接业务，研发体系为集成开发者提供了以集成流为核心的集成平台，可在线进行协议适配、数据结构构建、逻辑编排、数据映射等，使得业务的对接工作以低代码、可视化的形式完成。同时可将对接的过程沉淀、复用，以最大程度节省交付过程中的对接成本。',
-          icon: 'Logosvg.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '6.png'
         },
         {
-          title: '企业容器云管理平台',
+          title: '技术研发中台和数据中台底座',
           details:
-            '基于Kubernetes的容器云平台，解决开发、测试、运行环境统一、服务快速部署、运行期服务管理等调度问题。提供物理机、虚拟机、私有云、公有云统一接入的能力，屏蔽应用对基础设施层的依赖。让企业轻松实现资源灵活调度、跨云迁移、环境隔离和资产的运营分析。',
-          icon: 'application_group.svg'
+            '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
+          icon: '5.png'
         }
       ]
     }
@@ -368,6 +372,7 @@ $accentColor = #005bd4;
     flex-grow: 1;
     flex-basis: 30%;
     max-width: 30%;
+    margin-bottom: 30px;
 
     &:hover {
       cursor: pointer;
