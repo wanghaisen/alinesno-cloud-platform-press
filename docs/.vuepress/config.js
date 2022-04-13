@@ -45,7 +45,6 @@ module.exports = {
       indexName: 'alinesno-cloud-platform-press'
     },
     plugins: [
-      ['vuepress-plugin-code-copy', true],
       ['@vuepress/nprogress'],
       {
         seo: {
