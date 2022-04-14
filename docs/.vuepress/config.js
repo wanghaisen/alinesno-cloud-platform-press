@@ -877,7 +877,8 @@ function genDevTechniqueSidebar() {
     '/technique/01_开发技术/33_部署教程.md',
     '/technique/01_开发技术/35_代码转换和规范.md',
     '/technique/01_开发技术/36_初始化应用.md',
-    '/technique/01_开发技术/38_组件转SDK.md'
+    '/technique/01_开发技术/38_组件转SDK.md',
+    '/technique/01_开发技术/41_自定义登陆主题.md'
   ]
   return mapArr.map(i => {
     return i
