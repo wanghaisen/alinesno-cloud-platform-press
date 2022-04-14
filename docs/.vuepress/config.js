@@ -38,8 +38,8 @@ module.exports = {
   themeConfig: {
     logo: '/logo_1.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
-    repo: 'https://github.com/alinesno-cloud/alinesno-cloud-platform-press.git',
-    repoLabel: '查看源码',
+    repo: 'https://github.com/alinesno-cloud/alinesno-cloud-platform-press',
+    repoLabel: 'Github',
     editLinks: true,
     // 默认为 "Edit this page"
     editLinkText: '帮助我们改善此页面！',
@@ -50,7 +50,9 @@ module.exports = {
       indexName: 'alinesno-cloud-platform-press'
     },
     plugins: [
+      ['@vuepress/back-to-top'],
       ['@vuepress/nprogress'],
+      ['fulltext-search'],
       {
         seo: {
           siteTitle: (_, $site) => $site.title,
@@ -132,11 +134,11 @@ module.exports = {
           {
             text: '中台演示',
             link: '/solution/'
-          },
-          {
-            text: 'Github',
-            link: 'https://github.com/alinesno-cloud/alinesno-platform-press'
           }
+          // {
+          //   text: 'Github',
+          //   link: 'https://github.com/alinesno-cloud/alinesno-platform-press'
+          // }
         ],
         sidebar: {
           '/firstlearn/': [
