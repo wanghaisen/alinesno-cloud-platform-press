@@ -38,8 +38,13 @@ module.exports = {
   themeConfig: {
     logo: '/logo_1.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
+    repo: 'https://github.com/alinesno-cloud/alinesno-cloud-platform-press.git',
+    repoLabel: '查看源码',
     editLinks: true,
+    // 默认为 "Edit this page"
+    editLinkText: '帮助我们改善此页面！',
     sidebarDepth: 0,
+    lastUpdated: 'Last Updated', // string | boolean
     algolia: {
       apiKey: 'b0df382dd6e02495ccca231de710a0c3',
       indexName: 'alinesno-cloud-platform-press'
