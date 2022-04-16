@@ -483,7 +483,7 @@ IndexOutOfBoundsException / NullPointerException，这类异常由程序员预�
 6） 级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。
 ```
 
-11.【推荐】在代码中使用“抛异常”还是“返回错误码”，对于公司外的 http/api 开放接口必须
+11.【推荐】在代码中使用“抛异常”还是“返回错误码”，对于团队外的 http/api 开放接口必须
 使用“错误码”；而应用内部推荐异常抛出；跨应用间 RPC 调用优先考虑使用 Result 方式，封
 装 isSuccess、“错误码”、“错误简短信息”。
 

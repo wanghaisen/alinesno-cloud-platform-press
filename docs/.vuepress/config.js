@@ -142,15 +142,15 @@ module.exports = {
         ],
         sidebar: {
           '/firstlearn/': [
-            // {
-            //   title: '入门概述',
-            //   collapsable: true,
-            //   children: genFirestLearnSidebar(0)
-            // },
             {
               title: '新手入门',
               collapsable: true,
               children: genFirestLearnSidebar(1)
+            },
+            {
+              title: '分布式入门',
+              collapsable: true,
+              children: genDistributedLearnSidebar(0)
             },
             {
               title: '开发服务云',
@@ -1069,16 +1069,16 @@ function genGroupRuleSidebar(type) {
     '/group/02_管理体系/10_项目管理.md',
     '/group/02_管理体系/12_岗位职责.md',
     '/group/02_管理体系/19_能力模型.md',
-    '/group/02_管理体系/13_面试流程.md',
+    // '/group/02_管理体系/13_面试流程.md',
     '/group/02_管理体系/03_入职流程.md',
-    '/group/02_管理体系/16_新人培训.md',
+    // '/group/02_管理体系/16_新人培训.md',
     '/group/02_管理体系/08_培训体系.md',
-    '/group/02_管理体系/15_请假制度.md',
-    '/group/02_管理体系/09_离职流程.md',
+    // '/group/02_管理体系/15_请假制度.md',
+    // '/group/02_管理体系/09_离职流程.md',
     '/group/02_管理体系/05_成长梯度.md',
     '/group/02_管理体系/04_汇报制度.md',
     '/group/02_管理体系/07_绩效考核.md',
-    '/group/02_管理体系/17_工作规范.md',
+    // '/group/02_管理体系/17_工作规范.md',
     '/group/02_管理体系/18_晋升定级.md'
   ]
 
@@ -1553,6 +1553,24 @@ function genAboutSidebar() {
 
 function genAdvancedSidebar() {
   const mapArr = ['/solution/01_方案概述.md']
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 分布式新手入门
+function genDistributedLearnSidebar(type) {
+  const mapArr = [
+    '/firstlearn/dubbo/00_学习计划.md',
+    '/firstlearn/dubbo/01_安装软件并建立开发工程.md',
+    '/firstlearn/dubbo/02_建表使用jdbc对表进行增删查改.md',
+    '/firstlearn/dubbo/03_单元测试.md',
+    '/firstlearn/dubbo/04_Jenkins安装.md',
+    '/firstlearn/dubbo/06_html转成jsp文件以后前后端显示.md',
+    '/firstlearn/dubbo/07_如何实现前后端数据交互.md',
+    '/firstlearn/dubbo/08_dubbo框架和zookeeper的注册.md'
+  ]
+
   return mapArr.map(i => {
     return i
   })

@@ -4,7 +4,7 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 
 ## Swagger
 
-在公司的项目中通常使用 [swagger](https://swagger.io/)， 由后端来模拟业务数据。
+在团队的项目中通常使用 [swagger](https://swagger.io/)， 由后端来模拟业务数据。
 **swagger** 是一个 REST APIs 文档生成工具，它从代码注释中自动生成文档，可以跨平台，开源，支持大部分语言，社区好，总之非常不错，强烈推荐。
 [线上 demo](http://petstore.swagger.io/?_ga=2.222649619.983598878.1509960455-2044209180.1509960455#/pet/addPet)
 
