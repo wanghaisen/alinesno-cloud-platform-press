@@ -410,17 +410,17 @@ module.exports = {
           ],
           '/group/': [
             {
-              title: '中台部门建设',
+              title: '团队建设',
               collapsable: true,
               children: genGroupDeptSidebar()
             },
             {
-              title: '中台组织架构',
+              title: '组织架构',
               collapsable: true,
               children: genGroupRuleSidebar(0)
             },
             {
-              title: '组织考核标准',
+              title: '考核标准',
               collapsable: true,
               children: genGroupRuleSidebar(1)
             }
