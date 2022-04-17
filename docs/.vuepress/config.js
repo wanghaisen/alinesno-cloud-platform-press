@@ -1188,7 +1188,7 @@ function genConnectListSidebar() {
  */
 function genPlatformPaaSSidebar() {
   const mapArr = [
-    '/platform/01_方案概述.md',
+    // '/platform/01_方案概述.md',
     '/platform/paas/01_持续集成平台.md',
     '/platform/paas/02_分布式缓存.md',
     '/platform/paas/03_代码管理平台.md',
