@@ -170,14 +170,19 @@ module.exports = {
           ],
           '/solution/': [
             {
-              title: '演示地址',
+              title: '中台演示',
               collapsable: true,
               children: genSolutionSidebar()
             },
             {
-              title: '其它',
+              title: '组件演示',
               collapsable: true,
-              children: genAdvancedSidebar('/')
+              children: genSolutionComponentSidebar()
+            },
+            {
+              title: '运维演示',
+              collapsable: true,
+              children: genSolutionOperationSidebar()
             }
           ],
           '/design/overview': [
@@ -204,8 +209,13 @@ module.exports = {
           ],
           '/design/business': [
             {
-              title: '平台介绍',
-              collapsable: false,
+              title: '业务中台架构',
+              collapsable: true,
+              children: genBusinessSidebar(1)
+            },
+            {
+              title: '业务解决方案',
+              collapsable: true,
               children: genBusinessSidebar(1)
             }
           ],
@@ -219,22 +229,22 @@ module.exports = {
           '/iot/': [
             {
               title: '行业需求',
-              collapsable: false,
+              collapsable: true,
               children: genSectorDemandSidebar()
             },
             {
               title: '物联网架构设计',
-              collapsable: false,
+              collapsable: true,
               children: genIotSystemSidebar()
             },
             {
               title: '功能架构规划',
-              collapsable: false,
+              collapsable: true,
               children: genFunctionPlanSidebar()
             },
             {
               title: '场景集成',
-              collapsable: false,
+              collapsable: true,
               children: genSceneSidebar()
             }
           ],
@@ -317,6 +327,45 @@ module.exports = {
               title: '基础软件',
               collapsable: true,
               children: genBaseSoftwareSidebar()
+            }
+          ],
+          '/env/development/': [
+            {
+              title: '基础服务',
+              collapsable: true,
+              children: genBaseServiceSidebar()
+            },
+            {
+              title: '组件服务',
+              collapsable: true,
+              children: genToolsServiceSidebar()
+            },
+            {
+              title: '业务服务',
+              collapsable: true,
+              children: genBusinessServiceSidebar()
+            },
+            {
+              title: '运维监控',
+              collapsable: true,
+              children: genOperationServiceSidebar()
+            }
+          ],
+          '/data/onedata/': [
+            {
+              title: '数据仓库',
+              collapsable: true,
+              children: genDatahourceSidebar()
+            },
+            {
+              title: '数据治理',
+              collapsable: true,
+              children: genDataToolsSidebar()
+            },
+            {
+              title: '运维监控',
+              collapsable: true,
+              children: genDataMonitorSidebar()
             }
           ],
           '/data/framework/': [
@@ -432,15 +481,15 @@ module.exports = {
               children: genBusinessSidebar()
             },
             {
-              title: '业务建设',
-              collapsable: true,
-              children: genBusinessBuildSidebar()
-            },
-            {
-              title: '业务定制',
+              title: '业务集成',
               collapsable: true,
               children: genBusinessBuildSidebar()
             }
+            // {
+            //   title: '业务定制',
+            //   collapsable: true,
+            //   children: genBusinessBuildSidebar()
+            // }
           ],
           '/connect/': [
             {
@@ -735,7 +784,7 @@ function genManagerContainerSidebar() {
   const mapArr = [
     '/operation/35_container/01_镜像规划.md',
     '/operation/35_container/02_制作和使用.md',
-    '/operation/35_container/03_镜像管理.md'
+    '/operation/35_container/03_应用镜像管理.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1388,11 +1437,7 @@ function genDesignSidebar(menus) {
       '/design/overview/05_技术平台架构设计.md',
       '/design/overview/06_业务中台架构设计.md',
       '/design/overview/07_数据中台架构设计.md',
-      '/design/overview/08_服务架构设计.md',
-      '/design/overview/09_容器化架构设计.md',
-      '/design/overview/10_私有云部署架构设计.md',
-      '/design/overview/11_混合云架构设计.md',
-      '/design/overview/12_平台运维架构设计.md'
+      '/design/overview/08_整体方向愿景.md'
     ]
 
     return mapArr.map(i => {
@@ -1523,17 +1568,61 @@ function genTechniqueSidebar() {
  */
 function genSolutionSidebar() {
   const mapArr = [
-    '/solution/',
-    '/solution/02_文档计划.md'
+    // '/solution/',
+    '/solution/platform/04_研发中台服务.md',
+    '/solution/platform/02_数据中台服务.md',
+    '/solution/platform/03_运维平台服务.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
 
-    // '/solution/03_数字化政务解决方案.md',
-    // '/solution/04_数字化校园解决方案.md',
-    // '/solution/05_智慧社区解决方案.md',
-    // '/solution/06_智慧农业解决方案.md',
-    // '/solution/07_企业数字化转型方案.md',
-    // '/solution/08_智慧城市解决方案.md',
-    // '/solution/20_落地实战案例.md'
-    //
+/**
+ * 组件演示
+ * @returns
+ */
+function genSolutionComponentSidebar() {
+  const mapArr = [
+    // '/solution/platform/02_数据中台.md',
+    // '/solution/platform/03_运维平台.md',
+
+    '/solution/component/01_统一权限服务.md',
+    '/solution/component/02_研发门户服务.md',
+    '/solution/component/03_门户管理服务.md',
+    '/solution/component/04_单点登陆服务.md',
+    '/solution/component/05_代码生成器服务.md',
+    '/solution/component/06_基础通知组件.md',
+    '/solution/component/07_公共存储组件.md',
+    '/solution/component/08_可靠消息服务.md',
+    '/solution/component/09_网关管理服务.md',
+    '/solution/component/10_开放平台服务.md',
+    '/solution/component/11_微型工作流服务.md',
+    '/solution/component/12_电子签名打印服务.md',
+    '/solution/component/13_聚合支付服务.md',
+    '/solution/component/14_Oauth2授权服务.md',
+    '/solution/component/15_集团权限管理服务.md',
+    '/solution/component/16_内容管理服务.md',
+    '/solution/component/17_会员管理服务.md',
+    '/solution/component/18_基础电商服务.md'
+
+    // '/solution/platform/04_文档计划.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+/**
+ * 运维组件演示
+ * @returns
+ */
+function genSolutionOperationSidebar() {
+  const mapArr = [
+    '/solution/component/19_审计日志监控服务.md',
+    '/solution/component/20_异常报警监控服务.md'
+
+    // '/solution/platform/04_文档计划.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1569,6 +1658,110 @@ function genDistributedLearnSidebar(type) {
     '/firstlearn/dubbo/06_html转成jsp文件以后前后端显示.md',
     '/firstlearn/dubbo/07_如何实现前后端数据交互.md',
     '/firstlearn/dubbo/08_dubbo框架和zookeeper的注册.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>> 数据环境 >>>>>>>>>>>>>>>>>>.
+
+// 数据仓库
+function genDatahourceSidebar(type) {
+  const mapArr = [
+    '/data/onedata/01_数据仓库.md',
+    '/data/onedata/04_元数据管理.md',
+    '/data/onedata/02_实时环境.md',
+    '/data/onedata/03_监控环境.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 数据治理
+function genDataToolsSidebar(type) {
+  const mapArr = [
+    '/data/onedata/04_数据集成服务.md',
+    '/data/onedata/05_数据开发服务.md',
+    '/data/onedata/06_主数据管理服务.md',
+    '/data/onedata/07_实时计算服务.md',
+    '/data/onedata/08_数据开放服务.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 运维监控
+function genDataMonitorSidebar(type) {
+  const mapArr = [
+    '/data/onedata/09_监控运维服务.md',
+    '/data/onedata/10_集成监控预警服务.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>> 研发中台环境 >>>>>>>>>>>>>>>>>>.
+
+// 基础服务
+function genBaseServiceSidebar() {
+  const mapArr = [
+    '/env/development/01_统一权限服务.md',
+    '/env/development/02_研发门户服务.md',
+    '/env/development/14_Oauth2授权服务.md',
+    '/env/development/05_代码生成器服务.md',
+    '/env/development/03_门户管理服务.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 组件服务
+function genToolsServiceSidebar() {
+  const mapArr = [
+    '/env/development/06_基础通知组件.md',
+    '/env/development/07_公共存储组件.md',
+    '/env/development/08_可靠消息服务.md',
+    '/env/development/09_网关管理服务.md',
+    '/env/development/10_开放平台服务.md',
+    '/env/development/11_微型工作流服务.md',
+    '/env/development/12_电子签名打印服务.md',
+    '/env/development/13_聚合支付服务.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 业务服务
+function genBusinessServiceSidebar() {
+  const mapArr = [
+    '/env/development/15_集团权限管理服务.md',
+    '/env/development/16_内容管理服务.md',
+    '/env/development/17_会员管理服务.md',
+    '/env/development/18_基础电商服务.md'
+  ]
+
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 运维监控
+function genOperationServiceSidebar() {
+  const mapArr = [
+    '/env/development/19_审计日志监控服务.md',
+    '/env/development/20_异常报警监控服务.md'
   ]
 
   return mapArr.map(i => {
