@@ -72,7 +72,7 @@
                     <p class="footer-text-product">
                         <i class="iconfont icon-weizhi1">
                         </i>
-                        南宁市江南区白沙大道38-6号天元国际1号楼1011
+                        南宁市南宁市良庆区凯旋路15号8栋28层
                     </p>
                     <p class="footer-title" style="margin-top: 40px;">
                         付款方式

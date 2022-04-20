@@ -86,15 +86,43 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页',
         nav: [
           {
+            text: '首页',
+            link: '/'
+          },
+          {
+            text: '产品体系',
+            link: '/platform/'
+          },
+          {
+            text: '解决方案',
+            link: '/solution/'
+          },
+          {
             text: '数字规划',
             items: [
               { text: '数字平台规划', link: '/design/overview/' },
               { text: '研发中台规划', link: '/framework/' },
-              { text: '业务中台规划', link: '/design/business/' },
+              // { text: '业务中台规划', link: '/design/business/' },
               { text: '物联网中台规划', link: '/iot/' },
               { text: '数据中台规划', link: '/data/framework/' }
             ]
           },
+          {
+            text: '业务建设',
+            items: [
+              { text: '组织架构', link: '/group/' },
+              { text: '业务中台', link: '/business/' },
+              { text: '建设材料', link: '/learn/' }
+            ]
+          },
+          // {
+          //   text: '组织架构',
+          //   link: '/group/'
+          // },
+          // {
+          //   text: '建设材料',
+          //   link: '/learn/'
+          // },
           {
             text: '环境建设',
             items: [
@@ -104,36 +132,21 @@ module.exports = {
             ]
           },
           {
-            text: '中台建设',
-            link: '/platform/'
-          },
-          {
-            text: '组织架构',
-            link: '/group/'
-          },
-          {
-            text: '业务建设',
-            link: '/business/'
-          },
-          {
-            text: '建设材料',
-            link: '/learn/'
-          },
-          {
-            text: '使用手册',
+            text: '开发者',
             items: [
               // { text: '中台连接器', link: '/connect/' },
+              { text: '新手入门', link: '/firstlearn/' },
               { text: '前端手册', link: '/front/' },
               { text: '后端手册', link: '/technique/' }
             ]
           },
-          {
-            text: '新手入门',
-            link: '/firstlearn/'
-          },
+          // {
+          //   text: '新手入门',
+          //   link: '/firstlearn/'
+          // },
           {
             text: '中台演示',
-            link: '/solution/'
+            link: '/display/'
           }
           // {
           //   text: 'Github',
@@ -168,11 +181,11 @@ module.exports = {
               children: genFirestLearnSidebar(4)
             }
           ],
-          '/solution/': [
+          '/display/': [
             {
               title: '中台演示',
               collapsable: true,
-              children: genSolutionSidebar()
+              children: genSolutionPlatformSidebar()
             },
             {
               title: '组件演示',
@@ -431,11 +444,11 @@ module.exports = {
               collapsable: true,
               children: genPlatformBusinessSidebar(3)
             },
-            {
-              title: '物联网中台',
-              collapsable: true,
-              children: genPlatformBusinessSidebar(4)
-            },
+            // {
+            //   title: '物联网中台',
+            //   collapsable: true,
+            //   children: genPlatformBusinessSidebar(4)
+            // },
             {
               title: '数据中台',
               collapsable: true,
@@ -446,15 +459,37 @@ module.exports = {
               collapsable: true,
               children: genPlatformBusinessSidebar(6)
             },
-            {
-              title: '视觉引擎',
-              collapsable: true,
-              children: genPlatformBusinessSidebar(7)
-            },
+            // {
+            //   title: '视觉引擎',
+            //   collapsable: true,
+            //   children: genPlatformBusinessSidebar(7)
+            // },
             {
               title: '业务中台',
               collapsable: true,
               children: genPlatformBusinessSidebar(8)
+            }
+          ],
+          '/solution/': [
+            {
+              title: '解决方案体系',
+              collapsable: true,
+              children: genSolutionSidebar(0)
+            },
+            {
+              title: '企业成长解决方案',
+              collapsable: true,
+              children: genSolutionSidebar(1)
+            },
+            {
+              title: '通用场景解决方案',
+              collapsable: true,
+              children: genSolutionSidebar(2)
+            },
+            {
+              title: '行业解决方案',
+              collapsable: true,
+              children: genSolutionSidebar(3)
             }
           ],
           '/group/': [
@@ -1190,13 +1225,13 @@ function genPlatformPaaSSidebar() {
   const mapArr = [
     // '/platform/01_方案概述.md',
     '/platform/paas/01_持续集成平台.md',
-    '/platform/paas/02_分布式缓存.md',
+    // '/platform/paas/02_分布式缓存.md',
     '/platform/paas/03_代码管理平台.md',
     '/platform/paas/04_企业私服平台.md',
     '/platform/paas/05_代码自动检测平台.md',
     '/platform/paas/06_项目管理平台.md',
-    '/platform/paas/07_分布式消息平台.md',
-    '/platform/paas/08_分布式注册中心.md',
+    // '/platform/paas/07_分布式消息平台.md',
+    // '/platform/paas/08_分布式注册中心.md',
     '/platform/paas/09_监控预警平台.md',
     '/platform/paas/10_运维转发监控中心.md',
     '/platform/paas/11_企业私有云平台.md'
@@ -1210,7 +1245,7 @@ function genPlatformPaaSSidebar() {
  * 技术平台
  */
 function genPlatformBusinessSidebar(type) {
-  var mapArr = ['/platform/01_方案概述.md']
+  var mapArr = ['/platform/']
 
   if (type == 1) {
     // mapArr = ['/platform/business/02_产品体系.md']
@@ -1566,13 +1601,14 @@ function genTechniqueSidebar() {
  * 处理解决方案菜单列表
  * @returns
  */
-function genSolutionSidebar() {
+function genSolutionPlatformSidebar() {
   const mapArr = [
-    // '/solution/',
-    '/solution/platform/04_研发中台服务.md',
-    '/solution/platform/02_数据中台服务.md',
-    '/solution/platform/03_运维平台服务.md'
+    // '/display/',
+    '/display/platform/04_研发中台服务.md',
+    '/display/platform/02_数据中台服务.md',
+    '/display/platform/03_运维平台.md'
   ]
+
   return mapArr.map(i => {
     return i
   })
@@ -1584,29 +1620,29 @@ function genSolutionSidebar() {
  */
 function genSolutionComponentSidebar() {
   const mapArr = [
-    // '/solution/platform/02_数据中台.md',
-    // '/solution/platform/03_运维平台.md',
+    // '/display/platform/02_数据中台.md',
+    // '/display/platform/03_运维平台.md',
 
-    '/solution/component/01_统一权限服务.md',
-    '/solution/component/02_研发门户服务.md',
-    '/solution/component/03_门户管理服务.md',
-    '/solution/component/04_单点登陆服务.md',
-    '/solution/component/05_代码生成器服务.md',
-    '/solution/component/06_基础通知组件.md',
-    '/solution/component/07_公共存储组件.md',
-    '/solution/component/08_可靠消息服务.md',
-    '/solution/component/09_网关管理服务.md',
-    '/solution/component/10_开放平台服务.md',
-    '/solution/component/11_微型工作流服务.md',
-    '/solution/component/12_电子签名打印服务.md',
-    '/solution/component/13_聚合支付服务.md',
-    '/solution/component/14_Oauth2授权服务.md',
-    '/solution/component/15_集团权限管理服务.md',
-    '/solution/component/16_内容管理服务.md',
-    '/solution/component/17_会员管理服务.md',
-    '/solution/component/18_基础电商服务.md'
+    '/display/component/01_统一权限服务.md',
+    '/display/component/02_研发门户服务.md',
+    '/display/component/03_门户管理服务.md',
+    '/display/component/04_单点登陆服务.md',
+    '/display/component/05_代码生成器服务.md',
+    '/display/component/06_基础通知组件.md',
+    '/display/component/07_公共存储组件.md',
+    '/display/component/08_可靠消息服务.md',
+    '/display/component/09_网关管理服务.md',
+    '/display/component/10_开放平台服务.md',
+    '/display/component/11_微型工作流服务.md',
+    '/display/component/12_电子签名打印服务.md',
+    '/display/component/13_聚合支付服务.md',
+    '/display/component/14_Oauth2授权服务.md',
+    '/display/component/15_集团权限管理服务.md',
+    '/display/component/16_内容管理服务.md',
+    '/display/component/17_会员管理服务.md',
+    '/display/component/18_基础电商服务.md'
 
-    // '/solution/platform/04_文档计划.md'
+    // '/display/platform/04_文档计划.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1619,10 +1655,10 @@ function genSolutionComponentSidebar() {
  */
 function genSolutionOperationSidebar() {
   const mapArr = [
-    '/solution/component/19_审计日志监控服务.md',
-    '/solution/component/20_异常报警监控服务.md'
+    '/display/component/19_审计日志监控服务.md',
+    '/display/component/20_异常报警监控服务.md'
 
-    // '/solution/platform/04_文档计划.md'
+    // '/display/platform/04_文档计划.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1641,7 +1677,7 @@ function genAboutSidebar() {
 }
 
 function genAdvancedSidebar() {
-  const mapArr = ['/solution/01_方案概述.md']
+  const mapArr = ['/display/01_方案概述.md']
   return mapArr.map(i => {
     return i
   })
@@ -1767,4 +1803,61 @@ function genOperationServiceSidebar() {
   return mapArr.map(i => {
     return i
   })
+}
+
+/**
+ * 解决方案
+ * @param {场景类型} menus
+ * @returns
+ */
+function genSolutionSidebar(menus) {
+  if (menus == 0) {
+    // 平台介绍
+    const mapArr = ['/solution/']
+
+    return mapArr.map(i => {
+      return i
+    })
+  } else if (menus == 1) {
+    // 平台介绍
+    const mapArr = [
+      '/solution/01_小型团队中台化方案.md',
+      '/solution/02_中小团队研发自动化方案.md',
+      '/solution/03_自动化运维监控方案.md',
+      '/solution/04_中小型团队研发中台方案.md',
+      '/solution/05_行业软件中台战略方案.md'
+    ]
+
+    return mapArr.map(i => {
+      return i
+    })
+  } else if (menus == 2) {
+    // 平台架构
+    const mapArr = [
+      '/solution/06_团队数字化提升方案.md',
+      '/solution/07_企业一体化PaaS平台.md',
+      '/solution/08_微服务技术管理方案.md',
+      '/solution/09_企业统一身份认证管理方案.md',
+      '/solution/10_数据采集开发治理方案.md',
+      '/solution/16_大数据开放平台管理方案.md',
+      '/solution/11_传统业务中台化转型方案.md',
+      '/solution/12_轻量级数据治理方案.md',
+      '/solution/13_多业务综合管理方案.md'
+    ]
+
+    return mapArr.map(i => {
+      return i
+    })
+  } else if (menus == 3) {
+    // 项目规划
+    const mapArr = [
+      '/solution/14_电商物流管理解决方案.md',
+      '/solution/15_政务集团统一认证.md',
+      '/solution/17_传媒智能内容管理方案.md'
+    ]
+
+    return mapArr.map(i => {
+      return i
+    })
+  }
 }
