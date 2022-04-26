@@ -465,7 +465,7 @@ module.exports = {
             //   children: genPlatformBusinessSidebar(7)
             // },
             {
-              title: '业务中台',
+              title: '辅助工具',
               collapsable: true,
               children: genPlatformBusinessSidebar(8)
             }
@@ -847,7 +847,8 @@ function genBaseSoftwareSidebar() {
     '/operation/08_mysql/04_MySQL网络安装.md',
     '/operation/27_minio/01_MinIO单机安装.md',
     '/operation/14_nexus/01_Nexus安装配置.md',
-    '/operation/24_maven/01_Maven本地安装.md',
+    '/operation/36_gitlab/01_Gitlab安装.md',
+    '/operation/37_gitea/01_Gitea安装.md',
     '/operation/13_jenkins/01_Jenkins安装.md',
     '/operation/13_jenkins/01_Jenkins插件安装配置.md',
     '/operation/16_sonar/01_Sonar安装.md',
@@ -1296,9 +1297,9 @@ function genPlatformBusinessSidebar(type) {
     ]
   } else if (type == 8) {
     mapArr = [
-      '/platform/business/19_业务中台/01_代码生成脚手架.md',
-      '/platform/business/19_业务中台/02_代码快速生成器.md',
-      '/platform/business/19_业务中台/03_低代码开发平台.md'
+      '/platform/business/19_业务中台/01_代码生成脚手架.md'
+      // '/platform/business/19_业务中台/02_代码快速生成器.md',
+      // '/platform/business/19_业务中台/03_低代码开发平台.md'
     ]
   }
 
@@ -1458,6 +1459,7 @@ function genDesignSidebar(menus) {
     // 平台介绍
     const mapArr = [
       '/design/overview/',
+      '/design/overview/01_数字化方案概述.md',
       '/design/overview/03_1_企业发展建设意义.md',
       '/design/overview/02_项目执行计划.md'
     ]
