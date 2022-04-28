@@ -1227,14 +1227,14 @@ function genPlatformPaaSSidebar() {
     // '/platform/01_方案概述.md',
     '/platform/paas/01_持续集成平台.md',
     // '/platform/paas/02_分布式缓存.md',
-    '/platform/paas/03_代码管理平台.md',
-    '/platform/paas/04_企业私服平台.md',
-    '/platform/paas/05_代码自动检测平台.md',
-    '/platform/paas/06_项目管理平台.md',
+    // '/platform/paas/03_代码管理平台.md',
+    // '/platform/paas/04_企业私服平台.md',
+    // '/platform/paas/05_代码自动检测平台.md',
+    // '/platform/paas/06_项目管理平台.md',
     // '/platform/paas/07_分布式消息平台.md',
     // '/platform/paas/08_分布式注册中心.md',
-    '/platform/paas/09_监控预警平台.md',
-    '/platform/paas/10_运维转发监控中心.md',
+    // '/platform/paas/09_监控预警平台.md',
+    // '/platform/paas/10_运维转发监控中心.md',
     '/platform/paas/11_企业私有云平台.md'
   ]
   return mapArr.map(i => {
@@ -1253,7 +1253,7 @@ function genPlatformBusinessSidebar(type) {
   } else if (type == 2) {
     mapArr = [
       '/platform/business/12_技术中台/01_微服务研发引擎.md',
-      '/platform/business/12_技术中台/01_1_前端框架引擎.md',
+      '/platform/business/12_技术中台/01_前端框架引擎.md',
       '/platform/business/12_技术中台/02_DevOps研发体系.md'
     ]
   } else if (type == 3) {
