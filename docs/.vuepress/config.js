@@ -166,6 +166,11 @@ module.exports = {
               children: genDistributedLearnSidebar(0)
             },
             {
+              title: '第一个任务',
+              collapsable: true,
+              children: genFirestLearnSidebar(5)
+            },
+            {
               title: '开发服务云',
               collapsable: true,
               children: genFirestLearnSidebar(2)
@@ -758,6 +763,16 @@ function genFirestLearnSidebar(type) {
       '/firstlearn/14_快速入门.md',
       '/firstlearn/16_数据集成示例.md',
       '/firstlearn/17_学习课程.md'
+    ]
+  } else if (type == 5) {
+    mapArr = [
+      '/firstlearn/task/00_任务内容.md',
+      '/firstlearn/task/01_基础计划.md',
+      '/firstlearn/task/02_开始客户管理系统.md',
+      '/firstlearn/task/03_第一个服务工程.md',
+      '/firstlearn/task/04_第一个前端工程.md',
+      '/firstlearn/task/05_引入其它组件.md',
+      '/firstlearn/task/06_完成第一天任务.md'
     ]
   }
 
