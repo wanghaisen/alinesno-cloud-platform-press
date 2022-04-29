@@ -145,6 +145,10 @@ module.exports = {
           //   link: '/firstlearn/'
           // },
           {
+            text: '商业授权',
+            link: '/prices/'
+          },
+          {
             text: '中台演示',
             link: '/display/'
           }
@@ -184,6 +188,18 @@ module.exports = {
               title: '数据服务云',
               collapsable: true,
               children: genFirestLearnSidebar(4)
+            }
+          ],
+          '/prices/': [
+            {
+              title: '授权说明',
+              collapsable: true,
+              children: genPricesSidebar(0)
+            },
+            {
+              title: '相关内容',
+              collapsable: true,
+              children: genPricesSidebar(1)
             }
           ],
           '/display/': [
@@ -1872,6 +1888,29 @@ function genSolutionSidebar(menus) {
       '/solution/15_政务集团统一认证.md',
       '/solution/17_传媒智能内容管理方案.md'
     ]
+
+    return mapArr.map(i => {
+      return i
+    })
+  }
+}
+
+/**
+ * 商业授权
+ * @param {场景类型} menus
+ * @returns
+ */
+function genPricesSidebar(menus) {
+  if (menus == 0) {
+    // 平台介绍
+    const mapArr = ['/prices/']
+
+    return mapArr.map(i => {
+      return i
+    })
+  } else if (menus == 1) {
+    // 平台介绍
+    const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md']
 
     return mapArr.map(i => {
       return i
