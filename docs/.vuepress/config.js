@@ -482,7 +482,7 @@ module.exports = {
               children: genSolutionSidebar(0)
             },
             {
-              title: '企业成长解决方案',
+              title: '团队成长解决方案',
               collapsable: true,
               children: genSolutionSidebar(1)
             },
@@ -490,12 +490,12 @@ module.exports = {
               title: '通用场景解决方案',
               collapsable: true,
               children: genSolutionSidebar(2)
-            },
-            {
-              title: '行业解决方案',
-              collapsable: true,
-              children: genSolutionSidebar(3)
             }
+            // {
+            //   title: '行业解决方案',
+            //   collapsable: true,
+            //   children: genSolutionSidebar(3)
+            // }
           ],
           '/group/': [
             {
