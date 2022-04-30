@@ -103,7 +103,7 @@ module.exports = {
               { text: '数字平台规划', link: '/design/overview/' },
               { text: '研发中台规划', link: '/framework/' },
               // { text: '业务中台规划', link: '/design/business/' },
-              { text: '物联网中台规划', link: '/iot/' },
+              // { text: '物联网中台规划', link: '/iot/' },
               { text: '数据中台规划', link: '/data/framework/' }
             ]
           },
@@ -127,14 +127,15 @@ module.exports = {
             text: '环境建设',
             items: [
               { text: '技术平台建设', link: '/operation/' },
-              { text: '数据中台建设', link: '/data/onedata/' },
-              { text: '研发中台建设', link: '/env/development/' }
+              { text: '研发中台建设', link: '/env/development/' },
+              { text: '数据中台建设', link: '/data/onedata/' }
             ]
           },
           {
             text: '开发者',
             items: [
               // { text: '中台连接器', link: '/connect/' },
+              { text: '经验分享', link: '/experience/' },
               { text: '新手入门', link: '/firstlearn/' },
               { text: '前端手册', link: '/front/' },
               { text: '后端手册', link: '/technique/' }
@@ -189,6 +190,23 @@ module.exports = {
               collapsable: true,
               children: genFirestLearnSidebar(4)
             }
+            // {
+            // title: '经验分享',
+            // collapsable: true,
+            // children: genFirestLearnSidebar(6)
+            // }
+          ],
+          '/experience/': [
+            {
+              title: '开发者社区',
+              collapsable: true,
+              children: genExperienceSidebar(0)
+            },
+            {
+              title: '经验目录',
+              collapsable: true,
+              children: genExperienceSidebar(1)
+            }
           ],
           '/prices/': [
             {
@@ -197,7 +215,7 @@ module.exports = {
               children: genPricesSidebar(0)
             },
             {
-              title: '相关内容',
+              title: '交付内容',
               collapsable: true,
               children: genPricesSidebar(1)
             }
@@ -642,11 +660,11 @@ module.exports = {
               collapsable: true,
               children: genLearnSidebar(2)
             },
-            {
-              title: '数字化平台建设',
-              collapsable: true,
-              children: genLearnSidebar(4)
-            },
+            // {
+            // title: '数字化平台建设',
+            // collapsable: true,
+            // children: genLearnSidebar(4)
+            // },
             {
               title: '过程培训文档',
               collapsable: true,
@@ -790,6 +808,16 @@ function genFirestLearnSidebar(type) {
       '/firstlearn/task/05_引入其它组件.md',
       '/firstlearn/task/06_完成第一天任务.md'
     ]
+  } else if (type == 6) {
+    mapArr = [
+      '/firstlearn/task/00_任务内容.md',
+      '/firstlearn/task/01_基础计划.md',
+      '/firstlearn/task/02_开始客户管理系统.md',
+      '/firstlearn/task/03_第一个服务工程.md',
+      '/firstlearn/task/04_第一个前端工程.md',
+      '/firstlearn/task/05_引入其它组件.md',
+      '/firstlearn/task/06_完成第一天任务.md'
+    ]
   }
 
   return mapArr.map(i => {
@@ -834,7 +862,7 @@ function genAutoOperationSidebar() {
   const mapArr = [
     '/operation/',
     '/operation/document/01_基础规则.md',
-    '/operation/env.md',
+    // '/operation/env.md',
     '/operation/document/01_自动化操作脚本.md'
   ]
   return mapArr.map(i => {
@@ -1170,9 +1198,10 @@ function genBusinessBuildSidebar() {
  */
 function genGroupDeptSidebar() {
   const mapArr = [
-    '/group/01_部门建设/01_研发部门概述.md',
-    '/group/01_部门建设/02_部门愿景.md',
-    '/group/01_部门建设/04_组织结构.md'
+    '/group/01_部门建设/'
+    // '/group/01_部门建设/01_研发部门概述.md',
+    // '/group/01_部门建设/02_部门愿景.md',
+    // '/group/01_部门建设/04_组织结构.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1489,10 +1518,10 @@ function genDesignSidebar(menus) {
   if (menus == 1) {
     // 平台介绍
     const mapArr = [
-      '/design/overview/',
-      '/design/overview/01_数字化方案概述.md',
-      '/design/overview/03_1_企业发展建设意义.md',
-      '/design/overview/02_项目执行计划.md'
+      '/design/overview/'
+      // '/design/overview/01_数字化方案概述.md',
+      // '/design/overview/03_1_企业发展建设意义.md',
+      // '/design/overview/02_项目执行计划.md'
     ]
 
     return mapArr.map(i => {
@@ -1503,9 +1532,9 @@ function genDesignSidebar(menus) {
     const mapArr = [
       '/design/overview/04_数字化战略架构.md',
       '/design/overview/05_技术平台架构设计.md',
-      '/design/overview/06_业务中台架构设计.md',
-      '/design/overview/07_数据中台架构设计.md',
-      '/design/overview/08_整体方向愿景.md'
+      // '/design/overview/06_业务中台架构设计.md',
+      '/design/overview/07_数据中台架构设计.md'
+      // '/design/overview/08_整体方向愿景.md'
     ]
 
     return mapArr.map(i => {
@@ -1911,6 +1940,30 @@ function genPricesSidebar(menus) {
   } else if (menus == 1) {
     // 平台介绍
     const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md']
+
+    return mapArr.map(i => {
+      return i
+    })
+  }
+}
+
+/**
+ * 经验分享
+ * @param {场景类型} menus
+ * @returns
+ */
+function genExperienceSidebar(menus) {
+  if (menus == 0) {
+    const mapArr = ['/experience/']
+
+    return mapArr.map(i => {
+      return i
+    })
+  } else if (menus == 1) {
+    const mapArr = [
+      '/experience/01_经验目录.md',
+      '/experience/02_沙龙活动计划.md'
+    ]
 
     return mapArr.map(i => {
       return i
