@@ -188,11 +188,11 @@
 
 > 参考了挺多优秀开源项目代码，平台只是一个整合，基于新的思想进一步的调整的开发维护支持，在此说明，如有缺漏，可提醒添加
 
-- 前端工程参考开源项目 [rouyi][rouyi]
-- 代码生成器和查询条件封装参考开源项目 [mybatis-plus][mybatis-plus]
-- 数据开发工具[dolphinscheduler][mybatis-plus]
-- 自动化工具自动安装工具[kubeaz][mybatis-plus]
-- 日志监控工具[plumelog][mybatis-plus]
-- 前端拖拉生成工具[generator][mybatis-plus]
-- 文档参考改造[vue-element-admin][mybatis-plus]
+- 前端工程参考开源项目 [rouyi](rouyi)
+- 代码生成器和查询条件封装参考开源项目 [mybatis-plus](mybatis-plus)
+- 数据开发工具[dolphinscheduler](mybatis-plus)
+- 自动化工具自动安装工具[kubeaz](mybatis-plus)
+- 日志监控工具[plumelog](mybatis-plus)
+- 前端拖拉生成工具[generator](mybatis-plus)
+- 文档参考改造[vue-element-admin](mybatis-plus)
 - ...
