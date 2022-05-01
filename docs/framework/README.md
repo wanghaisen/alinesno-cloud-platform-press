@@ -2,7 +2,7 @@
 
 #### 设计
 
-Aalinesno 是基于 Dubbo SpringBoot 的服务开发平台，产出方向为企业基础架构和统一研发云平台，为企业提供统一研发平台，
+aalinesno-cloud-platform(ACP)是基于 SpringBoot 的服务开发平台，产出方向为企业基础架构和统一研发云平台，为企业提供统一研发平台，
 低代码开发平台 整体平台从
 
 - 基础规范
@@ -19,9 +19,9 @@ Aalinesno 是基于 Dubbo SpringBoot 的服务开发平台，产出方向为企�
 认证后台管理系统，其中包含具备用户管理、资源权限管理、网关 API 管理等多个模块，
 结合多个组件，为开发提供基础开发架构和支持
 
-同时结合多种单点登陆方式(Cookies+SpringSession 和 Cas)，
+同时结合多种单点登陆方式(Cookies+SpringSession/Oauth2/Cas)，
 支持多业务系统并行开发。代码简洁，架构清晰，适合学习和直接项目中使用。
-核心技术采用 Spring Boot 2.1.4 以及 Dubbo SpringBoot 1.7.1 相关核心组件。
+核心技术采用 Spring Boot 2.4.1 相关核心组件。
 
 #### 能力
 
