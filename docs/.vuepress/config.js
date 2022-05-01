@@ -111,8 +111,8 @@ module.exports = {
             text: '业务建设',
             items: [
               { text: '组织架构', link: '/group/' },
-              { text: '业务中台', link: '/business/' },
-              { text: '建设材料', link: '/learn/' }
+              { text: '业务中台', link: '/business/' }
+              // { text: '建设材料', link: '/learn/' }
             ]
           },
           // {
@@ -1518,12 +1518,7 @@ function genDataOperationSidebar() {
 function genDesignSidebar(menus) {
   if (menus == 1) {
     // 平台介绍
-    const mapArr = [
-      '/design/overview/'
-      // '/design/overview/01_数字化方案概述.md',
-      // '/design/overview/03_1_企业发展建设意义.md',
-      // '/design/overview/02_项目执行计划.md'
-    ]
+    const mapArr = ['/design/overview/']
 
     return mapArr.map(i => {
       return i
@@ -1532,10 +1527,7 @@ function genDesignSidebar(menus) {
     // 平台架构
     const mapArr = [
       '/design/overview/04_数字化战略架构.md',
-      '/design/overview/05_技术平台架构设计.md',
-      // '/design/overview/06_业务中台架构设计.md',
-      '/design/overview/07_数据中台架构设计.md'
-      // '/design/overview/08_整体方向愿景.md'
+      '/design/overview/05_技术平台架构设计.md'
     ]
 
     return mapArr.map(i => {
@@ -1544,7 +1536,7 @@ function genDesignSidebar(menus) {
   } else if (menus == 3) {
     // 项目规划
     const mapArr = [
-      '/design/overview/13_中台组织架构设计.md',
+      '/design/overview/13_项目管理架构设计.md',
       '/design/overview/14_项目组织架构设计.md',
       '/design/overview/15_团队管理架构设计.md'
     ]
@@ -1555,11 +1547,13 @@ function genDesignSidebar(menus) {
   } else if (menus == 4) {
     // 建设规划
     const mapArr = [
-      '/design/overview/16_企业建设方案.md',
       '/design/overview/17_建设过程整体方案.md',
       '/design/overview/19_核心业务建设方案.md',
-      '/design/overview/20_多业务整合建设方案.md'
+      '/design/overview/20_多业务整合建设方案.md',
+      '/design/overview/16_新旧业务整合迁移方案.md'
     ]
+
+    debugger
 
     return mapArr.map(i => {
       return i
@@ -1597,8 +1591,8 @@ function genFrameworkSidebar() {
     '/framework/essentials/06_平台运维架构.md',
     '/framework/essentials/07_容器架构设计.md',
     '/framework/essentials/08_网关架构设计.md',
-    '/framework/essentials/09_持续集成设计.md',
-    '/framework/essentials/10_中台战略设计.md'
+    '/framework/essentials/09_持续集成设计.md'
+    // '/framework/essentials/10_中台战略设计.md'
   ]
   return mapArr.map(i => {
     return i
