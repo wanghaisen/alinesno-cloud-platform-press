@@ -10,7 +10,7 @@
 - 地址：[http://alinesno-saas.beta.linesno.com](http://alinesno-saas.beta.linesno.com)
 - 账号密码：自行注册
 
-> 当前只为演示平台，暂时未进入输出开发，计划三季度达到开发使用版本
+<!-- > 当前只为演示平台，暂时未进入输出开发，计划三季度达到开发使用版本 -->
 
 ## 演示地址
 
