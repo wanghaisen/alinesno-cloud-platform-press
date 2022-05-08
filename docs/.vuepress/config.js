@@ -1307,7 +1307,7 @@ function genPlatformPaaSSidebar() {
  * 技术平台
  */
 function genPlatformBusinessSidebar(type) {
-  var mapArr = ['/platform/']
+  var mapArr = ['/platform/', '/platform/CHANGELOG.md']
 
   if (type == 1) {
     // mapArr = ['/platform/business/02_产品体系.md']

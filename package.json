@@ -32,6 +32,7 @@
     "vuepress-plugin-fulltext-search": "^2.2.1"
   },
   "dependencies": {
+    "@renovamen/vuepress-plugin-rss": "^0.2.0",
     "axios": "0.18.1",
     "blockadblock": "3.2.1",
     "sweetalert2": "9.10.9",
