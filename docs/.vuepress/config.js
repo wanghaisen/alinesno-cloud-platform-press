@@ -644,7 +644,7 @@ module.exports = {
               children: genNoticeSidebar()
             },
             {
-              title: '分布存储服务',
+              title: '分布式存储',
               collapsable: true,
               children: genStorageSidebar()
             },
