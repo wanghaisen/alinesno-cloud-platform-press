@@ -644,6 +644,11 @@ module.exports = {
               children: genNoticeSidebar()
             },
             {
+              title: '分布存储服务',
+              collapsable: true,
+              children: genStorageSidebar()
+            },
+            {
               title: '支付服务',
               collapsable: true,
               children: genPaymentSidebar()
@@ -1107,6 +1112,19 @@ function genOperationDevopsSidebar() {
     '/technique/20_自动化操作/03_集成多种自动化操作示例.md'
   ]
 
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 分布式存储
+function genStorageSidebar() {
+  const mapArr = [
+    '/technique/21_存储服务/01_接入存储架构.md',
+    '/technique/21_存储服务/02_前后端接入云存储方式.md',
+    '/technique/21_存储服务/03_多存储在线切换.md',
+    '/technique/21_存储服务/04_接入示例.md'
+  ]
   return mapArr.map(i => {
     return i
   })
