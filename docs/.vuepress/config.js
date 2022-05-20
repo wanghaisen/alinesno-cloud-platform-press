@@ -786,7 +786,9 @@ function genFirestLearnSidebar(type) {
       // '/firstlearn/01_新手入门指南.md',
       '/firstlearn/02_学习成长中心.md',
       '/firstlearn/03_中台示例中心.md',
+      '/firstlearn/04_中台设计视频.md',
       '/firstlearn/04_中台公开课.md'
+        
     ]
   } else if (type == 2) {
     mapArr = [
