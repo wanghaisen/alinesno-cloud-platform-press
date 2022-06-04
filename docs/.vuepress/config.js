@@ -788,7 +788,6 @@ function genFirestLearnSidebar(type) {
       '/firstlearn/03_中台示例中心.md',
       '/firstlearn/04_中台设计视频.md',
       '/firstlearn/04_中台公开课.md'
-        
     ]
   } else if (type == 2) {
     mapArr = [
@@ -1060,7 +1059,8 @@ function genSSOSidebar() {
     '/technique/14_单点登陆/03_微服务网关认证.md',
     '/technique/14_单点登陆/04_OpenId集成认证.md',
     '/technique/14_单点登陆/05_第三方账号同步.md',
-    '/technique/14_单点登陆/06_系统登陆配置.md'
+    '/technique/14_单点登陆/06_系统登陆配置.md',
+    '/technique/14_单点登陆/07_去掉单点登陆集成.md'
   ]
   return mapArr.map(i => {
     return i
