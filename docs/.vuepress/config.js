@@ -1965,7 +1965,7 @@ function genSolutionSidebar(menus) {
 function genPricesSidebar(menus) {
   if (menus == 0) {
     // 平台介绍
-    const mapArr = ['/prices/']
+    const mapArr = ['/prices/', '/prices/03_服务内容.md']
 
     return mapArr.map(i => {
       return i
