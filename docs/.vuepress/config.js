@@ -783,9 +783,9 @@ function genFirestLearnSidebar(type) {
   } else if (type == 1) {
     mapArr = [
       '/firstlearn/',
-      // '/firstlearn/01_新手入门指南.md',
       '/firstlearn/02_学习成长中心.md',
       '/firstlearn/03_中台示例中心.md',
+      '/firstlearn/18_持续集成入门.md',
       '/firstlearn/04_中台设计视频.md',
       '/firstlearn/04_中台公开课.md'
     ]
@@ -1011,7 +1011,7 @@ function genDevTechniqueSidebar() {
     '/technique/01_开发技术/30_登陆配置.md',
     '/technique/01_开发技术/26_按钮权限.md',
     '/technique/01_开发技术/37_Jdbc操作.md',
-    '/technique/01_开发技术/39_Mybatis集成.md',
+    // '/technique/01_开发技术/39_Mybatis集成.md',
     '/technique/01_开发技术/28_租户配置.md',
     '/technique/01_开发技术/22_服务集成教程.md',
     '/technique/01_开发技术/08_前端教程.md',
