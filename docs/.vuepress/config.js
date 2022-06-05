@@ -957,10 +957,10 @@ function genCodeGenSidebar() {
     '/technique/13_代码生成器/',
     '/technique/13_代码生成器/01_低代码生成.md',
     '/technique/13_代码生成器/02_前端代码生成.md',
-    '/technique/13_代码生成器/03_App代码生成.md',
+    // '/technique/13_代码生成器/03_App代码生成.md',
     '/technique/13_代码生成器/04_自动发布集成.md',
-    '/technique/13_代码生成器/05_监控链接集成.md',
-    '/technique/13_代码生成器/06_登陆认证集成.md',
+    // '/technique/13_代码生成器/05_监控链接集成.md',
+    // '/technique/13_代码生成器/06_登陆认证集成.md',
     '/technique/13_代码生成器/07_权限用户集成.md',
     '/technique/13_代码生成器/08_微服务集成.md',
     '/technique/13_代码生成器/09_容器化集成.md',
@@ -968,11 +968,11 @@ function genCodeGenSidebar() {
     '/technique/13_代码生成器/11_示例代码集成.md',
     '/technique/13_代码生成器/12_JWT集成.md',
     '/technique/13_代码生成器/13_版本管理集成.md',
-    '/technique/13_代码生成器/14_容器仓库集成.md',
-    '/technique/13_代码生成器/15_管理后台集成.md',
-    '/technique/13_代码生成器/16_分布式存储集成.md',
-    '/technique/13_代码生成器/17_多种验证码集成.md',
-    '/technique/13_代码生成器/18_多种发布集成.md'
+    // '/technique/13_代码生成器/14_容器仓库集成.md',
+    // '/technique/13_代码生成器/15_管理后台集成.md',
+    '/technique/13_代码生成器/16_分布式存储集成.md'
+    // '/technique/13_代码生成器/17_多种验证码集成.md',
+    // '/technique/13_代码生成器/18_多种发布集成.md'
   ]
   return mapArr.map(i => {
     return i
