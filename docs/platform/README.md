@@ -33,7 +33,7 @@
 
 中台[新中台模型](../design/overview/)的建设规划，研发中台产品架构图，结合团队/组织架构/数据/应用/运营整体体系的产品规划，整体产品架构图如下：
 
-<img src="/framework/01_acp_product_arc.jpg" style="width:880px">
+<img src="/framework/01_acp_product_arc.jpg" style="width:100%;margin-left:-20px">
 
 > 注：这里一定要注意，上面是针对中小团队可支撑范围，大型数字中台需要一定量的人员支撑，人员投入方向是支撑的业务线多
 
