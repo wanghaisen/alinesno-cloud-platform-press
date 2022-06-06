@@ -1,4 +1,4 @@
-# 通用 CURD 集成
+# 通用前端接口
 
 ## 示例工程
 
@@ -11,11 +11,9 @@
 - 与前端界面默认集成的接口
 - rest 接口默认提供的传递对象
 
-## 通用的 curd 工程说明
+## 通用的前端接口工程说明
 
-### 后台的通用方法
-
-### 前端接口的通用方法
+### 后台的 CURD 通用方法
 
 此处为前端工程默认的方法，如下：
 
@@ -81,6 +79,19 @@ public TableDataInfo datatables(HttpServletRequest request, Model model, Datatab
   return this.toPage(model, this.getFeign(), page);
 }
 ```
+
+### 前端接口的默认集成方法
+
+此接口在前端默认就已经集成，具体接口地址位于`alinesno-cloud-common-web-api-starter`下的`rest`模块，
+这里主要包含几个模块：
+
+- 登陆接口的默认集成
+- 配置接口的默认集成
+- 上传下载图片接口的默认集成
+- 字典接口的默认集成
+- 组织机构接口的默认集成
+
+具体较多，可配置 swagger 查看，
 
 ## 其它
 

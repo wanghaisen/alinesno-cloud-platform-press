@@ -35,6 +35,25 @@ module.exports = {
       }
     ]
   ],
+  // TODO 插件不生效的问题
+  plugins: [
+    '@vuepress/back-to-top',
+    '@vuepress/nprogress',
+    'vuepress-plugin-mermaidjs',
+    'fulltext-search',
+    [
+      'one-click-copy', // 代码块复制按钮
+      {
+        copySelector: [
+          'div[class*="language-"] pre',
+          'div[class*="aside-code"] aside'
+        ], // String or Array
+        copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
+        duration: 1000, // prompt message display time.
+        showInMobile: false // whether to display on the mobile side, default: false.
+      }
+    ]
+  ],
   themeConfig: {
     logo: '/logo_1.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
@@ -49,36 +68,6 @@ module.exports = {
       apiKey: 'b0df382dd6e02495ccca231de710a0c3',
       indexName: 'alinesno-cloud-platform-press'
     },
-    plugins: [
-      ['@vuepress/back-to-top'],
-      ['@vuepress/nprogress'],
-      ['fulltext-search'],
-      {
-        seo: {
-          siteTitle: (_, $site) => $site.title,
-          title: $page => $page.title,
-          description: $page => $page.frontmatter.description,
-          author: (_, $site) => $site.themeConfig.author,
-          tags: $page => $page.frontmatter.tags,
-          twitterCard: _ => 'summary_large_image',
-          type: $page =>
-            ['articles', 'posts', 'blog'].some(folder =>
-              $page.regularPath.startsWith('/' + folder)
-            )
-              ? 'article'
-              : 'website',
-          url: (_, $site, path) => ($site.themeConfig.domain || '') + path,
-          image: ($page, $site) =>
-            $page.frontmatter.image &&
-            (($site.themeConfig.domain &&
-              !$page.frontmatter.image.startsWith('http')) ||
-              '') + $page.frontmatter.image,
-          publishedAt: $page =>
-            $page.frontmatter.date && new Date($page.frontmatter.date),
-          modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated)
-        }
-      }
-    ],
     locales: {
       '/': {
         label: '简体中文',
@@ -1034,7 +1023,7 @@ function genDevTechniqueSidebar() {
     '/technique/01_开发技术/35_代码转换和规范.md',
     '/technique/01_开发技术/36_初始化应用.md',
     '/technique/01_开发技术/38_组件转SDK.md',
-    '/technique/01_开发技术/41_自定义登陆主题.md'
+    '/technique/01_开发技术/41_Swagger支持.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1627,7 +1616,7 @@ function genFrameworkSidebar() {
     '/framework/essentials/02_01_平台技术构架.md',
     '/framework/essentials/03_服务架构设计.md',
     '/framework/essentials/06_平台运维架构.md',
-    '/framework/essentials/07_容器架构设计.md',
+    // '/framework/essentials/07_容器架构设计.md',
     '/framework/essentials/08_网关架构设计.md',
     '/framework/essentials/09_持续集成设计.md'
     // '/framework/essentials/10_中台战略设计.md'

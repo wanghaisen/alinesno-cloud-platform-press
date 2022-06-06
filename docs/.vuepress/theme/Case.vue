@@ -74,23 +74,6 @@
                 <img src="https://cdn.mate.vip/matevip340x70.png" />
                 </a>
             </div>
-            <div class="col-md-2 friend">
-                <a
-                target="_blank"
-                href="https://gitee.com/sikadai/quasar-sika-design-admin"
-                >
-                <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/sika-design.png"
-                />
-                </a>
-            </div>
-            <div class="col-md-2 friend">
-                <a target="_blank" href="http://www.ccflow.org/?from=hutool">
-                <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/ccflow.png"
-                />
-                </a>
-            </div>
         </div>
     </div>
   </div>

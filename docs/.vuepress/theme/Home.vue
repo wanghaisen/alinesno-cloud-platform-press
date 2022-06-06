@@ -66,8 +66,8 @@
         </div>
       </div>
 
-      <div data-v-1277a197="" style="position: relative;width: 1024px;margin: auto;">
-        <img data-v-1277a197="" src="https://img.alicdn.com/tfs/TB14Ay4oggP7K4jSZFqXXamhVXa-2360-1324.png" style="width: 100%;margin: auto;">
+      <div style="position: relative;width: 1024px;margin: auto;">
+        <img :src="$withBase('/framework/02_acp_product_arc.jpg')" style="width: 100%;margin: auto;">
       </div>
 
     </div>
