@@ -52,15 +52,15 @@
 
 <img src="./images/platform.jpg">
 
-基础 PaaS 平台架构
+基础 DevOps 技术体系
 
 <img src="./images/paas.jpg">
 
-整体数字化平台功能架构
+整体数字中台产品架构
 
-> 此图来自端点科技架构功能，后期更新
+<!-- > 此图来自端点科技架构功能，后期更新 -->
 
-<img src="./images/tech.webp">
+<img src="./images/01_acp_product_arc.jpg">
 
 组织管理中台架构
 
@@ -194,5 +194,5 @@
 - 自动化工具自动安装工具[kubeaz](mybatis-plus)
 - 日志监控工具[plumelog](mybatis-plus)
 - 前端拖拉生成工具[generator](mybatis-plus)
-- 文档参考改造[vue-element-admin](mybatis-plus) 
+- 文档参考改造[vue-element-admin](mybatis-plus)
 - ...

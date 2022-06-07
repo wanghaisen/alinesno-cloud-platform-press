@@ -8,7 +8,7 @@
 
 ## 组织架构图
 
-> 待补充架构图
+<img src="/group/group.jpg" style="width:600px">
 
 ### 组织人员规划
 

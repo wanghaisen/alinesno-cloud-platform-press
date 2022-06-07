@@ -505,14 +505,14 @@ module.exports = {
               children: genSolutionSidebar(0)
             },
             {
-              title: '团队成长解决方案',
-              collapsable: true,
-              children: genSolutionSidebar(1)
-            },
-            {
-              title: '通用场景解决方案',
+              title: '场景解决方案',
               collapsable: true,
               children: genSolutionSidebar(2)
+            },
+            {
+              title: '成长解决方案',
+              collapsable: true,
+              children: genSolutionSidebar(1)
             }
             // {
             //   title: '行业解决方案',
@@ -878,8 +878,8 @@ function genAutoOperationSidebar() {
 function genManagerContainerSidebar() {
   const mapArr = [
     '/operation/35_container/01_镜像规划.md',
-    '/operation/35_container/02_制作和使用.md',
-    '/operation/35_container/03_应用镜像管理.md'
+    '/operation/35_container/02_制作和使用.md'
+    // '/operation/35_container/03_应用镜像管理.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1504,8 +1504,8 @@ function genMachineLearningSidebar() {
   const mapArr = [
     '/data/framework/07_机器学习/04_推荐系统.md',
     '/data/framework/07_机器学习/01_数据建模.md',
-    '/data/framework/07_机器学习/02_模型学习.md',
-    '/data/framework/07_机器学习/03_人物画像.md'
+    '/data/framework/07_机器学习/02_模型学习.md'
+    // '/data/framework/07_机器学习/03_人物画像.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1514,7 +1514,7 @@ function genMachineLearningSidebar() {
 
 function genDataManagerSidebar() {
   const mapArr = [
-    '/data/framework/08_管理系统/09_产品规划.md',
+    // '/data/framework/08_管理系统/09_产品规划.md',
     '/data/framework/08_管理系统/03_ETL在线调试平台.md',
     // '/data/framework/08_管理系统/07_数据开发平台.md',
     '/data/framework/08_管理系统/05_数据分析平台.md',
