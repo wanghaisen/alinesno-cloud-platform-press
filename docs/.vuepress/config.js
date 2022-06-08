@@ -638,6 +638,11 @@ module.exports = {
               children: genStorageSidebar()
             },
             {
+              title: '流程服务',
+              collapsable: true,
+              children: genWorkflowSidebar()
+            },
+            {
               title: '支付服务',
               collapsable: true,
               children: genPaymentSidebar()
@@ -1077,6 +1082,18 @@ function genPaymentSidebar() {
     '/technique/18_支付服务/01_聚合支付架构.md',
     '/technique/18_支付服务/02_应用集成支付服务.md',
     '/technique/18_支付服务/03_支付平台操作手册.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+// 流程服务
+function genWorkflowSidebar() {
+  const mapArr = [
+    '/technique/22_流程服务/01_流程架构设计.md',
+    '/technique/22_流程服务/02_任务接入流程.md',
+    '/technique/22_流程服务/03_流程接口服务.md'
   ]
   return mapArr.map(i => {
     return i
