@@ -1105,6 +1105,7 @@ function genNoticeSidebar() {
   const mapArr = [
     '/technique/17_通知服务/01_通知服务场景.md',
     '/technique/17_通知服务/02_第三方通知集成.md',
+    '/technique/17_通知服务/04_通知技术构架.md',
     '/technique/17_通知服务/03_业务集成使用.md'
   ]
   return mapArr.map(i => {
