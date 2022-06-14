@@ -34,7 +34,7 @@
           class="feature"
         >
           <div class="title-icon">
-            <img :src="$withBase('/svg/' + feature.icon)" />
+            <i :class="feature.icon"></i>
           </div>
           <h3>{{ feature.title }}</h3>
           <p style="text-align:left">{{ feature.details }}</p>
@@ -59,7 +59,10 @@
           class="feature"
         >
           <div class="title-icon">
+            <!--
             <img :src="$withBase('/svg/' + feature.icon)" />
+            -->
+            <i :class="feature.icon"></i>
           </div>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.details }}</p>
@@ -90,7 +93,7 @@
           class="feature"
         >
           <div class="title-icon">
-            <img :src="$withBase('/svg/' + feature.icon)" />
+            <i :class="feature.icon"></i>
           </div>
           <h3>{{ feature.title }}</h3>
           <p style="text-align:left">{{ feature.details }}</p>
@@ -173,19 +176,19 @@ export default {
           title: '开箱即用的研发中台体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: '7.png'
+          icon: 'fas fa-laptop-code'
         },
         {
           title: '快速实现研发中台和业务集成',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: '8.png'
+          icon: 'fab fa-pinterest-square'
         },
         {
           title: '研发中台和团队组快速结合',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、有效提高企业的管理、研发、过程自动化流水。',
-          icon: '9.png'
+          icon: 'fas fa-shipping-fast'
         }
       ],
       functionAll: [
@@ -193,37 +196,37 @@ export default {
           title: '完善的微服务体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '1.png'
+          icon: 'fab fa-angular'
         },
         {
           title: '可视化多团队研发平台',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '2.png'
+          icon: 'fab fa-artstation'
         },
         {
           title: '通用的业务开发组件',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '3.png'
+          icon: 'fas fa-bus-alt'
         },
         {
           title: '技术研发监控体系',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '4.png'
+          icon: 'fas fa-crop'
         },
         {
           title: '云原生容器化持续集成',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '5.png'
+          icon: 'fas fa-dove'
         },
         {
           title: '完善的项目实践文档',
           details:
             '数字企业的研发效能引擎，功能覆盖了项目应用管理、代码仓库管理、敏捷项目协作管理、CI/CD、高效地响应需求变化，过程自动化流水。',
-          icon: '6.png'
+          icon: 'fab fa-earlybirds'
         }
       ],
       featuresAll: [
@@ -231,37 +234,37 @@ export default {
           title: '一套技术DevOps研发体系',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '9.png'
+          icon: 'fas fa-feather'
         },
         {
           title: '统一的前端框架和微服务研发引擎',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '8.png'
+          icon: 'fas fa-file-csv'
         },
         {
           title: '成熟的研发组件跨团队多部门',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '2.png'
+          icon: 'fas fa-file-word'
         },
         {
           title: '集成权限多个管理基础组件',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '4.png'
+          icon: 'fas fa-gem'
         },
         {
           title: '日志异常监控通知和运维部署实践',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '6.png'
+          icon: 'fab fa-google-drive'
         },
         {
           title: '技术研发中台和数据中台底座',
           details:
             '治理提供服务鉴权、服务测试、无损下线、离群实例摘除、金丝雀灰度发布、临近路由等微服务核心功能 , 支持所有注册中心，可继续使用原注册中心，完整提供所有治理能力',
-          icon: '5.png'
+          icon: 'fas fa-tags'
         }
       ]
     }
@@ -517,7 +520,7 @@ $accentColor = #005bd4;
 }
 
 .title-icon {
-  font-size: 2.2rem;
+  font-size: 2.7rem;
   color: $accentColor;
 
   img {

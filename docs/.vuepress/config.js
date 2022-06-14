@@ -1372,10 +1372,10 @@ function genPlatformBusinessSidebar(type) {
       '/platform/business/13_研发中台/06_存储管理平台.md',
       '/platform/business/13_研发中台/07_工作流管理平台.md',
       '/platform/business/13_研发中台/08_数据开放平台.md',
-      '/platform/business/13_研发中台/09_分布式定时任务平台.md',
+      // '/platform/business/13_研发中台/09_分布式定时任务平台.md',
       '/platform/business/13_研发中台/11_单点登陆管理平台.md',
-      '/platform/business/13_研发中台/12_中台管理平台.md',
-      '/platform/business/13_研发中台/13_数据报表管理平台.md',
+      // '/platform/business/13_研发中台/12_中台管理平台.md',
+      // '/platform/business/13_研发中台/13_数据报表管理平台.md',
       '/platform/business/13_研发中台/14_CMS内容管理平台.md'
     ]
   } else if (type == 4) {
