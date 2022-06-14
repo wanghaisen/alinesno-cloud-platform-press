@@ -1331,7 +1331,7 @@ function genConnectListSidebar() {
 function genPlatformPaaSSidebar() {
   const mapArr = [
     // '/platform/01_方案概述.md',
-    '/platform/paas/01_持续集成平台.md',
+    '/platform/paas/01_持续集成平台.md'
     // '/platform/paas/02_分布式缓存.md',
     // '/platform/paas/03_代码管理平台.md',
     // '/platform/paas/04_企业私服平台.md',
@@ -1341,7 +1341,7 @@ function genPlatformPaaSSidebar() {
     // '/platform/paas/08_分布式注册中心.md',
     // '/platform/paas/09_监控预警平台.md',
     // '/platform/paas/10_运维转发监控中心.md',
-    '/platform/paas/11_企业私有云平台.md'
+    // '/platform/paas/11_企业私有云平台.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1359,8 +1359,8 @@ function genPlatformBusinessSidebar(type) {
   } else if (type == 2) {
     mapArr = [
       '/platform/business/12_技术中台/01_微服务研发引擎.md',
-      '/platform/business/12_技术中台/01_前端框架引擎.md',
-      '/platform/business/12_技术中台/02_DevOps研发体系.md'
+      '/platform/business/12_技术中台/01_前端框架引擎.md'
+      // '/platform/business/12_技术中台/02_DevOps研发体系.md'
     ]
   } else if (type == 3) {
     mapArr = [
@@ -1385,10 +1385,14 @@ function genPlatformBusinessSidebar(type) {
     ]
   } else if (type == 5) {
     mapArr = [
+      '/platform/business/14_数据中台/05_数据中台管理体系.md',
+      '/platform/business/14_数据中台/06_数据上报服务.md',
       '/platform/business/14_数据中台/01_ETL在线调试平台.md',
-      '/platform/business/14_数据中台/02_数据大屏管理平台.md',
-      '/platform/business/14_数据中台/03_实时计算仓库.md',
-      '/platform/business/14_数据中台/04_离线计算仓库.md'
+      '/platform/business/14_数据中台/07_主数据管理服务.md',
+      '/platform/business/14_数据中台/08_数据开发服务.md'
+      // '/platform/business/14_数据中台/02_数据大屏管理平台.md',
+      // '/platform/business/14_数据中台/03_实时计算仓库.md',
+      // '/platform/business/14_数据中台/04_离线计算仓库.md'
     ]
   } else if (type == 6) {
     mapArr = [
