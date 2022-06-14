@@ -1940,15 +1940,24 @@ function genSolutionSidebar(menus) {
   } else if (menus == 2) {
     // 平台架构
     const mapArr = [
-      '/solution/06_团队数字化提升方案.md',
-      '/solution/07_企业一体化PaaS平台.md',
-      '/solution/08_微服务技术管理方案.md',
-      '/solution/09_企业统一身份认证管理方案.md',
-      '/solution/10_数据采集开发治理方案.md',
-      '/solution/16_大数据开放平台管理方案.md',
-      '/solution/11_传统业务中台化转型方案.md',
-      '/solution/12_轻量级数据治理方案.md',
-      '/solution/13_多业务综合管理方案.md'
+      //'/solution/06_团队数字化提升方案.md',
+      //'/solution/07_企业一体化PaaS平台.md',
+      //'/solution/08_微服务技术管理方案.md',
+      //'/solution/09_企业统一身份认证管理方案.md',
+      //'/solution/10_数据采集开发治理方案.md',
+      //'/solution/16_大数据开放平台管理方案.md',
+      //'/solution/11_传统业务中台化转型方案.md',
+      //'/solution/12_轻量级数据治理方案.md',
+      //'/solution/13_多业务综合管理方案.md'
+      '18_SaaS平台解决方案.md',
+      '19_技术中台解决方案.md',
+      '20_企业数字化转型解决方案.md',
+      '21_企业信息孤岛解决方案.md',
+      '22_统一身份认证解决方案.md',
+      '23_微服务技术解决方案.md',
+      '24_业务中台解决方案.md',
+      '25_云原生云平台解决方案.md',
+      '26_中台系统建设解决方案.md'
     ]
 
     return mapArr.map(i => {
