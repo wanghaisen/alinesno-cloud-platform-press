@@ -1385,7 +1385,7 @@ function genPlatformBusinessSidebar(type) {
     ]
   } else if (type == 5) {
     mapArr = [
-      '/platform/business/14_数据中台/05_数据中台管理体系.md',
+      // '/platform/business/14_数据中台/05_数据中台管理体系.md',
       '/platform/business/14_数据中台/06_数据上报服务.md',
       '/platform/business/14_数据中台/01_ETL在线调试平台.md',
       '/platform/business/14_数据中台/07_主数据管理服务.md',
