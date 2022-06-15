@@ -30,7 +30,8 @@
                     <div class="content">
                       <h3 class="item-title"> {{ item.name }} </h3>
                       <div class="item-img-panel">
-                        <img :src="item.icon" class="item-img" />
+                        <!-- <img :src="item.icon" class="item-img" /> -->
+                        <i :class="item.icon"></i>
                       </div>
                       <p class="item-desc">
                         {{ item.desc }}
@@ -58,29 +59,25 @@ export default {
       serviceArr: [
         {
           name: '中台私服部署',
-          icon:
-            'https://img.alicdn.com/tfs/TB1k3wVQXXXXXX8apXXXXXXXXXX-110-110.png',
+          icon: 'fas fa-shipping-fast',
           desc:
             '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
         },
         {
           name: '技术咨询指导',
-          icon:
-            'https://img.alicdn.com/tfs/TB1QukUQXXXXXanapXXXXXXXXXX-110-110.png',
+          icon: 'fas fa-file-signature',
           desc:
             '微服务整合指导，包括微服务集成，代码生成器使用和前端集成使用指导'
         },
         {
           name: '业务集成指导',
-          icon:
-            'https://img.alicdn.com/tfs/TB1k3wVQXXXXXX8apXXXXXXXXXX-110-110.png',
+          icon: 'fas fa-laptop-code',
           desc:
             '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
         },
         {
           name: '企业定制化开发',
-          icon:
-            'https://img.alicdn.com/tfs/TB1QukUQXXXXXanapXXXXXXXXXX-110-110.png',
+          icon: 'fas fa-swatchbook',
           desc:
             '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
         }
@@ -190,4 +187,17 @@ export default {
     line-height: 32px;
   }
 }
+
+.item-title {
+  line-height: 82px ;
+}
+
+.item-img-panel {
+    font-size: 3rem;
+    text-align: center;
+    color: #373d41;
+    margin-top: -20px !important;
+    padding-bottom: 20px !important ;
+}
+
 </style>

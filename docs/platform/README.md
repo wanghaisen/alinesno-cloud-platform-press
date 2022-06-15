@@ -46,54 +46,65 @@
 - 结合数据整合模块，进行数据元数据和主数据的抽取上报，集中到数据仓库和数据湖，形成数据资产能力
 - 中台能力和业务架构的体现从开放平台和新中台对外门户，形成行业业务沉淀，形成核心业务能力资产
 
-相应的市面上产品示例门户体现示例：
-
-- [钉钉](https://www.dingtalk.com)
-- [金蝶云苍穹](https://dev.kingdee.com/index/home)
-- [阿里云](https://www.aliyun.com)
+<!-- 相应的市面上产品示例门户体现示例： -->
+<!-- - [钉钉](https://www.dingtalk.com) -->
+<!-- - [金蝶云苍穹](https://dev.kingdee.com/index/home) -->
+<!-- - [阿里云](https://www.aliyun.com) -->
 
 ### 产品工程规划列表
 
 最终效果以中台演示为主，针对于中小团队有限的能力进行的建设，架构规划上需要进行一定的边界和制约。
 
-| 序号 | 业务线     | 产品                   | 状态 | 地址                            | 备注 |
-| ---- | ---------- | ---------------------- | ---- | ------------------------------- | ---- |
-| 1    | 技术中台   | 技术研发体系           |      | 文档                            |      |
-| 2    |            | 微服务研发引擎         |      | alinesno-cloud-core             |      |
-|      |            |                        |      |                                 |      |
-| 1    | 运维中台   | 自动化运维体系         |      | 文档                            |      |
-| 2    |            | 应用监控预警服务       |      |                                 |      |
-| 3    |            | 审计日志监控服务       |      | alinesno-cloud-logger           |      |
-| 4    |            | Ansible 自动化操作服务 |      | alinesno-cloud-operation        |      |
-|      |            |                        |      |                                 |      |
-| 1    | 研发中台   | 基础权限管理服务       |      | alinesno-cloud-authority        |      |
-| 2    |            | 云门户管理服务         |      | alinesno-cloud-platform         |      |
-| 2    |            | 会员管理服务           |      | alinesno-cloud-member           |      |
-| 3    |            | 通知管理服务           |      | alinesno-cloud-base-notice      |      |
-| 4    |            | 支付管理服务           |      | alinesno-cloud-base-pay         |      |
-| 5    |            | 文档打印管理服务       |      | alinesno-cloud-base-print       |      |
-| 6    |            | 存储管理服务           |      | alinesno-cloud-base-storage     |      |
-| 7    |            | 工作流管理服务         |      | alinesno-cloud-base-workflow    |      |
-| 8    |            | 网关管理服务           |      | alinesno-cloud-gateway          |      |
-| 8    |            | 中台连接器服务         |      | alinesno-cloud-open             |      |
-| 8    |            | 分布式定时任务服务     |      | alinesno-cloud-scheduler        |      |
-| 11   |            | 单点登陆管理服务       |      | alinesno-cloud-platform-cas     |      |
-| 13   |            | CMS 内容管理服务       |      | alinesno-cloud-cms              |      |
-|      |            |                        |      |                                 |      |
-| 1    | 数据中台   | 数据仓库体系           |      | 文档                            |      |
-| 2    |            | 元数据管理服务         |      | alinesno-cloud-data-metadata    |      |
-| 2    |            | 主数据管理服务         |      | alinesno-cloud-data-master      |      |
-| 2    |            | 数据集成服务           |      | alinesno-cloud-data-etl         |      |
-| 2    |            | 数据开放服务           |      | alinesno-cloud-data-open        |      |
-| 2    |            | 数据开发服务           |      | alinesno-cloud-data-develop     |      |
-| 3    |            | 数据分析展示服务       |      | alinesno-cloud-data-display     |      |
-|      |            |                        |      |                                 |      |
-| 1    | 物联网中台 | 网关服务服务           |      |                                 |      |
-| 2    |            | 物联网后台服务         |      |                                 |      |
-| 7    |            |                        |      |                                 |      |
-| 8    | 业务服务   | 低代码快速开发服务     |      | alinesno-cloud-lowcode          |      |
-| 9    |            | 代码生成器服务         |      | alinesno-cloud-initializr-admin |      |
-| 10   |            |                        |      |                                 |      |
+| 序号 |  业务线  | 产品                   |  状态  | 地址                                                               | 备注 |
+| :--: | :------: | ---------------------- | :----: | ------------------------------------------------------------------ | ---- |
+|  1   | 技术中台 | 技术研发体系           | 优化中 | [打开][devops]                                                     |      |
+|  2   |          | 微服务研发引擎         | 优化中 | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
+|  3   |          | 代码生成器服务         |        | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
+|      |          |                        |        |                                                                    |      |
+|  1   | 运维中台 | 自动化运维体系         |        | 文档                                                               |      |
+|  2   |          | 应用监控预警服务       |        |                                                                    |      |
+|  3   |          | 审计日志监控服务       |        | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
+|  4   |          | Ansible 自动化操作服务 |        | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+|      |          |                        |        |                                                                    |      |
+|  1   | 研发中台 | 权限资源引擎服务       | 优化中 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
+|  2   |          | 云门户管理服务         |        | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
+|  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
+|  3   |          | 通知管理服务           | 优化中 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
+|  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      |
+|  5   |          | 文档打印管理服务       | 优化中 | [alinesno-cloud-base-print][alinesno-cloud-base-print]             |      |
+|  6   |          | 存储管理服务           |        | alinesno-cloud-base-storage                                        |      |
+|  7   |          | 工作流管理服务         |        | alinesno-cloud-base-workflow                                       |      |
+|  8   |          | 网关管理服务           |        | alinesno-cloud-gateway                                             |      |
+|  9   |          | 中台连接器服务         |        | alinesno-cloud-open                                                |      |
+|  11  |          | 单点登陆管理服务       |        | alinesno-cloud-platform-cas                                        |      |
+|  12  |          | 内容管理服务           |        | alinesno-cloud-cms                                                 |      |
+|      |          |                        |        |                                                                    |      |
+|  1   | 数据中台 | 数据中台管理体系       |        | alinesno-cloud-data-studio                                         |      |
+|  2   |          | 数据上报服务           |  完成  | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
+|  3   |          | 主数据管理服务         |        | alinesno-cloud-data-mdn                                            |      |
+|  4   |          | 数据集成服务           |        | alinesno-cloud-data-etl                                            |      |
+|  5   |          | 数据开发服务           |        | alinesno-cloud-data-develop                                        |      |
+|  6   |          | 数据开放服务           |        | alinesno-cloud-data-open                                           |      |
+|      |          |                        |        |                                                                    |      |
+
+<!-- |  10  |          | 分布式定时任务服务     |        | alinesno-cloud-scheduler                                           |      | -->
+
+[devops]: ./paas/01_持续集成平台.md
+[alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
+[alinesno-cloud-logger]: #
+[alinesno-cloud-operation]: #
+[alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
+[alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
+[alinesno-cloud-platform]: ./business/13_研发中台/02_云门户管理平台.md
+[alinesno-cloud-member]: #
+[alinesno-cloud-base-notice]: ./business/13_研发中台/03_通知管理平台.md
+[alinesno-cloud-base-print]: ./business/13_研发中台/05_文档打印管理平台.md
+[alinesno-cloud-data-report]: ./business/14_数据中台/06_数据上报服务.md
+
+**相关产品使用和运营架构规划**:
+
+- 研发中台运营 [打开](../framework/)
+- 数据中台运营 [打开](../data/framework/)
 
 ## 其它
 
