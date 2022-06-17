@@ -368,6 +368,11 @@ module.exports = {
               title: '基础软件',
               collapsable: true,
               children: genBaseSoftwareSidebar()
+            },
+            {
+              title: '数据环境',
+              collapsable: true,
+              children: genDataEnvironmentSidebar()
             }
           ],
           '/env/development/': [
@@ -922,6 +927,19 @@ function genBaseSoftwareSidebar() {
     '/operation/19_ansible/01_Ansible源码安装.md',
     '/operation/22_elk/04_elk单机版本安装.md',
     '/operation/22_elk/05_elastalert安装.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
+function genDataEnvironmentSidebar() {
+  const mapArr = [
+    '/operation/39_Apache Hudi/05_Centos7部署CDH6.2.0.md',
+    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
+    '/operation/39_Apache Hudi/02_Apachekafka安装.md',
+    '/operation/39_Apache Hudi/03_scala安装.md',
+    '/operation/39_Apache Hudi/04_ApacheHudi安装.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1601,8 +1619,6 @@ function genDesignSidebar(menus) {
       '/design/overview/20_多业务整合建设方案.md',
       '/design/overview/16_新旧业务整合迁移方案.md'
     ]
-
-    debugger
 
     return mapArr.map(i => {
       return i
