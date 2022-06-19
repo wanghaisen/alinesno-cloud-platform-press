@@ -124,10 +124,10 @@ module.exports = {
             text: '开发者',
             items: [
               // { text: '中台连接器', link: '/connect/' },
-              { text: '经验分享', link: '/experience/' },
               { text: '新手入门', link: '/firstlearn/' },
               { text: '前端手册', link: '/front/' },
-              { text: '后端手册', link: '/technique/' }
+              { text: '后端手册', link: '/technique/' },
+              { text: '经验分享', link: '/experience/' }
             ]
           },
           // {
