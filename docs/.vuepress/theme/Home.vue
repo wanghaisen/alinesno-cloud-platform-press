@@ -309,7 +309,7 @@ $accentColor = #005bd4;
   .hero {
     text-align: center;
     padding: 4rem 0px;
-    background: url('/banner_bg.svg') center bottom / 1600px no-repeat;
+    background: url('/banner_bg.png') center bottom / 1600px no-repeat;
     background-repeat: no-repeat;
     background-position: center;
 
