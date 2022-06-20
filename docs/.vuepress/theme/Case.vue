@@ -1,79 +1,53 @@
 <template>
   <div class="container">
     <div class="col-md-12 text-center fh5co-heading" style="margin-top: 50px">
-      <h2>项目使用客户<i style="font-size:12px;">以下暂时为测试数据</i></h2>
+      <h2>项目使用客户</h2>
       <p>云管理体系、研发过程的 DevOps 体系、微服务治理体系和大数据体系，中台架构能力，灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，
         进而形成企业的业务和数据中台，通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。</p>
     </div>
     <div class="item-namespace">
         <div class="item-container">
-
             <div class="col-md-2 friend">
-                <a target="_blank" href="https://www.tiocloud.com/">
                 <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/tio.png"
+                    src="index_img/6.jpg"
                 />
-                </a>
             </div>
             <div class="col-md-2 friend">
-                <a target="_blank" href="http://actframework.org/">
                 <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/act.png"
+                    src="index_img/7.jpg"
                 />
-                </a>
             </div>
             <div class="col-md-2 friend">
-                <a target="_blank" href="http://ibeetl.com/">
                 <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/beetl.png"
+                    src="index_img/14.jpg"
                 />
-                </a>
-            </div>
+            </div>            
             <div class="col-md-2 friend">
-                <a target="_blank" href="http://www.voovan.org/">
                 <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/voovan.png"
+                    src="index_img/16.jpg"
                 />
-                </a>
-            </div>
+            </div>   
             <div class="col-md-2 friend">
-                <a target="_blank" href="https://dotnetchina.gitee.io/furion/">
-                <img src="https://dotnetchina.gitee.io/furion/img/furionlogo.png" />
-                &nbsp;Furion
-                </a>
-            </div>
-            <div class="col-md-2 friend">
-                <a target="_blank" href="https://www.xuxueli.com/xxl-job/">
                 <img
-                    src="https://cdn.jsdelivr.net/gh/looly/hutool-site/images/friends/xxl-logo.jpg"
+                    src="index_img/9.jpg"
                 />
-                &nbsp;XXL-JOB
-                </a>
-            </div>
+            </div>        
             <div class="col-md-2 friend">
-                <a target="_blank" href="https://opsli.com/">
-                <img src="https://www.opsli.com/logo.png" />
-                </a>
-            </div>
+                <img
+                    src="index_img/19.png"
+                />
+            </div>        
             <div class="col-md-2 friend">
-                <a target="_blank" href="https://www.eova.cn/">
-                <img src="https://www.eova.cn/favicon.ico" />
-                &nbsp;
-                <small> EOVA快速开发 </small>
-                </a>
-            </div>
+                <img
+                    src="index_img/20.png"
+                />
+            </div>     
             <div class="col-md-2 friend">
-                <a target="_blank" href="https://www.xiaonuo.vip">
-                <img src="https://doc.xiaonuo.vip/xiaonuo_logo.png" />
-                &nbsp;
-                <small> 小诺快速开发 </small>
-                </a>
-            </div>
-            <div class="col-md-2 friend">
-                <a target="_blank" href="https://gitee.com/matevip/matecloud">
-                <img src="https://cdn.mate.vip/matevip340x70.png" />
-                </a>
-            </div>
+                <img
+                    src="index_img/21.png"
+                />
+                <small> 创享科技 </small>
+            </div>                                       
         </div>
     </div>
   </div>
@@ -137,12 +111,12 @@
       color: #69c2c8;
       transition: 0.5s;
 
+    }
       img {
-        height: 3em;
+        height: 5em;
         vertical-align: middle;
         border: 0;
       }
-    }
   }
 }
 </style>
