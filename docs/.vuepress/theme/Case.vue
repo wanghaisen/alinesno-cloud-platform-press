@@ -1,53 +1,56 @@
 <template>
   <div class="container">
     <div class="col-md-12 text-center fh5co-heading" style="margin-top: 50px">
-      <h2>项目使用客户</h2>
-      <p>云管理体系、研发过程的 DevOps 体系、微服务治理体系和大数据体系，中台架构能力，灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，
-        进而形成企业的业务和数据中台，通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。</p>
+      <h2>所在客户项目列表</h2>
+      <p>
+          针对于中台所在项目中的客户列表，来自于多个主要客户的集成和项目中落实使用，这里主要列所在项目中的使用案例
+      </p>
     </div>
     <div class="item-namespace">
         <div class="item-container">
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/6.jpg"
+                    src="/case/7.jpg"
                 />
             </div>
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/7.jpg"
-                />
-            </div>
-            <div class="col-md-2 friend">
-                <img
-                    src="index_img/14.jpg"
+                    src="/case/14.jpg"
                 />
             </div>            
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/16.jpg"
+                    src="/case/16.jpg"
                 />
             </div>   
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/9.jpg"
+                    src="/case/9.jpg"
                 />
             </div>        
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/19.png"
+                    src="/case/19.png"
                 />
             </div>        
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/20.png"
+                    src="/case/6.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/20.png"
                 />
             </div>     
+            <!--
             <div class="col-md-2 friend">
                 <img
-                    src="index_img/21.png"
+                    src="/case/21.png"
                 />
                 <small> 创享物流 </small>
             </div>                                       
+            -->
         </div>
     </div>
   </div>
