@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="col-md-12 text-center fh5co-heading" style="margin-top: 50px">
-      <h2>所在客户项目列表</h2>
+      <h2>聚集客户品牌力量</h2>
       <p>
-          针对于中台所在项目中的客户列表，来自于多个主要客户的集成和项目中落实使用，这里主要列所在项目中的使用案例
+          针对于中台所在项目中的客户列表，来自于多个主要客户的集成和项目中落实使用，这里主要列所在项目中的使用案例 <i>排名不分先后</i>
       </p>
     </div>
     <div class="item-namespace">
