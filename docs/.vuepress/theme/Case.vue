@@ -46,7 +46,7 @@
                 <img
                     src="index_img/21.png"
                 />
-                <small> 创享科技 </small>
+                <small> 创享物流 </small>
             </div>                                       
         </div>
     </div>
