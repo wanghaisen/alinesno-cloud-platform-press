@@ -10,7 +10,67 @@
         <div class="item-container">
             <div class="col-md-2 friend">
                 <img
+                    src="/case/1.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/2.png"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/3.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/4.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/5.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/6.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
                     src="/case/7.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/8.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/9.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/10.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/11.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/12.jpg"
+                />
+            </div>
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/13.png"
                 />
             </div>
             <div class="col-md-2 friend">
@@ -20,14 +80,24 @@
             </div>            
             <div class="col-md-2 friend">
                 <img
+                    src="/case/15.png"
+                />
+            </div>   
+            <div class="col-md-2 friend">
+                <img
                     src="/case/16.jpg"
                 />
             </div>   
             <div class="col-md-2 friend">
                 <img
-                    src="/case/9.jpg"
+                    src="/case/17.jpg"
                 />
-            </div>        
+            </div>       
+            <div class="col-md-2 friend">
+                <img
+                    src="/case/18.jpg"
+                />
+            </div>   
             <div class="col-md-2 friend">
                 <img
                     src="/case/19.png"
@@ -35,14 +105,9 @@
             </div>        
             <div class="col-md-2 friend">
                 <img
-                    src="/case/6.jpg"
-                />
-            </div>
-        <!--    <div class="col-md-2 friend">
-                <img
                     src="/case/20.png"
                 />
-            </div> --!>     
+            </div>     
             <!--
             <div class="col-md-2 friend">
                 <img
