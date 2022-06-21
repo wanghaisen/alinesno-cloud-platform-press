@@ -195,4 +195,5 @@
 - 日志监控工具[plumelog](mybatis-plus)
 - 前端拖拉生成工具[generator](mybatis-plus)
 - 文档参考改造[vue-element-admin](mybatis-plus)
+- 数据统计工具[datar](mybatis-plus)
 - ...
