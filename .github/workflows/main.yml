@@ -13,7 +13,7 @@ jobs:
       ALIYUN_CR_HOST: registry.cn-shenzhen.aliyuncs.com
       ALIYUN_CR_NAMESPACE: alinesno-cloud
       PRO_NAME: alinesno-platform-press
-      PRO_VERSION: 0.0.1 
+      PRO_VERSION: 0.0.2
       EXPOSE_PORT: 81
     steps:
       - name: Checkout 🛎️
@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker rm -f ${{ env.PRO_NAME }} 
+            docker rm -f ${{ env.PRO_NAME }}
             docker pull ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
             docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
 
@@ -62,7 +62,7 @@ jobs:
       #     source: "k8s-dev.yaml,k8s-dev-ingress.yaml"
       #     target: "projects/${{ env.PRO_NAME }}"
 
-      # - name: Deploy Docker to K8S 
+      # - name: Deploy Docker to K8S
       #   uses: appleboy/ssh-action@master
       #   with:
       #     host: ${{ secrets.K8S_HOST }}
