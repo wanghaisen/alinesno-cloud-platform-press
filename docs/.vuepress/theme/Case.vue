@@ -38,11 +38,11 @@
                     src="/case/6.jpg"
                 />
             </div>
-            <div class="col-md-2 friend">
+        <!--    <div class="col-md-2 friend">
                 <img
                     src="/case/20.png"
                 />
-            </div>     
+            </div> --!>     
             <!--
             <div class="col-md-2 friend">
                 <img
