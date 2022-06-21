@@ -99,8 +99,8 @@ module.exports = {
           {
             text: '业务建设',
             items: [
-              { text: '组织架构', link: '/group/' },
-              { text: '业务中台', link: '/business/' }
+              { text: '组织架构', link: '/group/' }
+              //{ text: '业务中台', link: '/business/' }
               // { text: '建设材料', link: '/learn/' }
             ]
           },
