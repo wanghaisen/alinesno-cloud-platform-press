@@ -168,7 +168,7 @@ export default {
   },
   data() {
     return {
-      title: '全新一代企业级数字化PaaS平台',
+      title: '全新一代企业级数字化中台',
       saasTitle: '企业级数字化平台',
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       helpAll: [
@@ -331,7 +331,7 @@ $accentColor = #005bd4;
       max-width: 65rem;
       font-size: 1.25rem;
       line-height: 1.3;
-      color: lighten($textColor, 40%);
+      color: lighten($textColor, 80%);
       font-weight: bold;
     }
 
