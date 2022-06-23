@@ -331,7 +331,7 @@ $accentColor = #005bd4;
       max-width: 65rem;
       font-size: 1.25rem;
       line-height: 1.3;
-      color: lighten($textColor, 80%);
+      color: lighten($textColor, 20%);
       font-weight: bold;
     }
 
