@@ -1956,7 +1956,7 @@ function genSolutionSidebar(menus) {
   } else if (menus == 2) {
     // 平台架构
     const mapArr = [
-      //'/solution/06_团队数字化提升方案.md',
+      // '06_团队数字化提升方案.md',
       //'/solution/07_企业一体化PaaS平台.md',
       //'/solution/08_微服务技术管理方案.md',
       //'/solution/09_企业统一身份认证管理方案.md',
