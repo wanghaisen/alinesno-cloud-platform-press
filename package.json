@@ -34,7 +34,6 @@
     "vuepress-plugin-one-click-copy": "^1.0.2"
   },
   "dependencies": {
-    "@vuepress/shared-utils": "^1.9.7",
     "axios": "0.18.1",
     "blockadblock": "3.2.1",
     "sweetalert2": "9.10.9",
