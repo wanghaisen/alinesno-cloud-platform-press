@@ -29,7 +29,7 @@
 
 新中台模型是企业能力输出的的最佳唤醒和集中力体现，解封自己的能力沉淀，通过新中台模型体现和输出。
 
-<img src="https://pic3.zhimg.com/80/v2-cac22c326f7d08ccf2d0a10a23304362_720w.jpg" style="width:600px" />
+<img src="/framework/zhongtai_model.png" style="max-width:720px" />
 
 新中台基础模型框架
 
@@ -81,7 +81,7 @@
 
 行业模式，不仅仅是目前的业务维护，更多的是基于新中台架构行业发展地位和企业发展的基础。
 
-<img src="https://pic2.zhimg.com/80/v2-cfed9c7044751ac754c85e256c786309_720w.jpg" />
+<img src="/framework/s2b.png" style="max-width:720px" />
 
 ### 新解决方案
 
