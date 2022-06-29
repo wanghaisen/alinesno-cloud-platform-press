@@ -1,5 +1,4 @@
 var nav = require('./nav.js')
-const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 var { EcosystemNav, ComponentNav, BackendNav } = nav
 
 var utils = require('./utils.js')
@@ -12,14 +11,22 @@ module.exports = {
   base: '/',
   head: [
     [
-      'style',
-      {},
-      `a[title="站长统计"]{display:none}`, // 屏蔽文字
-      'meta',
+      'script',
       {
-        name: 'keywords',
-        content: '数字化、数字中台、业务中台、技术中台、微服务、业务架构'
+        type: 'text/javascript',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-V0D6KNXG35'
       }
+    ],
+    [
+      'script',
+      {},
+      `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-V0D6KNXG35');
+    `
     ],
     [
       'link',
@@ -41,9 +48,6 @@ module.exports = {
     '@vuepress/back-to-top',
     '@vuepress/nprogress',
     'vuepress-plugin-mermaidjs',
-    googleAnalyticsPlugin({
-      id: 'G-V0D6KNXG35'
-    }),
     'fulltext-search',
     [
       'one-click-copy', // 代码块复制按钮

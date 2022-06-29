@@ -22,7 +22,7 @@
   "author": "LuoXiaoDong",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.9.7",
-    "@vuepress/plugin-google-analytics": "^2.0.0-beta.48",
+    "@vuepress/plugin-google-analytics": "^1.9.7",
     "@vuepress/plugin-medium-zoom": "^1.9.7",
     "@vuepress/plugin-nprogress": "^1.9.7",
     "husky": "0.14.3",
@@ -37,7 +37,6 @@
     "axios": "0.18.1",
     "blockadblock": "3.2.1",
     "sweetalert2": "9.10.9",
-    "vue": "2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vuepress-plugin-flowchart": "^1.5.0",
     "vuepress-plugin-seo": "^0.1.4",
