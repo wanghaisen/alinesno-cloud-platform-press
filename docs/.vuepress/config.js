@@ -1,4 +1,5 @@
 var nav = require('./nav.js')
+const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 var { EcosystemNav, ComponentNav, BackendNav } = nav
 
 var utils = require('./utils.js')
@@ -26,20 +27,23 @@ module.exports = {
         rel: 'icon',
         href: '/favicon.ico'
       }
-    ],
-    // 添加cnzz统计
-    [
-      'script',
-      {
-        src: 'https://s9.cnzz.com/z_stat.php?id=1280849718&web_id=1280849718'
-      }
     ]
+    // 添加cnzz统计
+    // [
+    //   'script',
+    //   {
+    //     src: 'https://s9.cnzz.com/z_stat.php?id=1280849718&web_id=1280849718'
+    //   }
+    // ]
   ],
   // TODO 插件不生效的问题
   plugins: [
     '@vuepress/back-to-top',
     '@vuepress/nprogress',
     'vuepress-plugin-mermaidjs',
+    googleAnalyticsPlugin({
+      id: 'G-V0D6KNXG35'
+    }),
     'fulltext-search',
     [
       'one-click-copy', // 代码块复制按钮
