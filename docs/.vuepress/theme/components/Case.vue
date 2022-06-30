@@ -121,7 +121,7 @@
   </div>
 </template>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .item-namespace {
   width: calc(100% - 100px);
   margin: auto;

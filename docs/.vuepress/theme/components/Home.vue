@@ -10,8 +10,8 @@
         数字化转型的最佳平台，协助中小企业快速平台化、中台化、数字化
       </p>
 
-      <p v-if="data.actionText && data.actionLink" class="action">
-        <NavLink class="action-button" :item="actionLink" />
+      <p class="action">
+        <a href="/design/overview/" class="nav-link action-button">新中台建设模型 →</a>
       </p>
     </div>
 
@@ -153,7 +153,7 @@
 </template>
 
 <script>
-import NavLink from '@default-theme/NavLink.vue'
+// import NavLink from '@default-theme/NavLink.vue'
 import CaseTemp from './Case.vue'
 import HomeService from './HomeService.vue'
 import FooterTemp from './Footer.vue'
@@ -162,7 +162,7 @@ import { isGitee } from './utils'
 
 export default {
   components: {
-    NavLink,
+    // NavLink,
     HomeService,
     CaseTemp,
     FooterTemp
@@ -297,10 +297,14 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-@import '~@default-theme/styles/config.styl';
+<style lang="scss">
+// @import '~@default-theme/styles/config.styl';
 
-$accentColor = #005bd4;
+$accentColor: #005bd4;
+$textColor:#000; 
+$navbarHeight: 65px ;
+$MQMobile: 600px ;
+$MQMobileNarrow: 600px;
 
 .home {
   padding: $navbarHeight 0rem 0;

@@ -1,0 +1,18 @@
+@import 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' ;
+
+.page table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: auto;
+}
+
+.home{
+  padding: 0px !important ;
+}
+
+:root {
+  --nprogress-color: var(--c-text-accent);
+  --nprogress-z-index: 1031;
+}

@@ -21,14 +21,18 @@
                 企业技术支持服务
               </div>
               <center class="des" style="color: #fff">
-                提供全周期的技术支持服务，满足企业研发中台环境的搭建，包含部署指导，业务集成指导，二次开发指导还有过程答疑等，同步包括 业务整合，业务组开发使用指导，满足中小企业快速中台化，平台化的服务需求。
+                提供全周期的技术支持服务，满足企业研发中台环境的搭建，包含部署指导，业务集成指导，二次开发指导还有过程答疑等，同步包括
+                业务整合，业务组开发使用指导，满足中小企业快速中台化，平台化的服务需求。
               </center>
               <ul class="col clearfix">
-
-                <li class="colli" v-for="(item , index) in serviceArr" :key="index" >
+                <li
+                  class="colli"
+                  v-for="(item, index) in serviceArr"
+                  :key="index"
+                >
                   <a target="_blank">
                     <div class="content">
-                      <h3 class="item-title"> {{ item.name }} </h3>
+                      <h3 class="item-title">{{ item.name }}</h3>
                       <div class="item-img-panel">
                         <!-- <img :src="item.icon" class="item-img" /> -->
                         <i :class="item.icon"></i>
@@ -39,7 +43,6 @@
                     </div>
                   </a>
                 </li>
-
               </ul>
             </div>
           </div>
@@ -58,38 +61,33 @@ export default {
     return {
       serviceArr: [
         {
-          name: '中台私服部署',
-          icon: 'fas fa-shipping-fast',
-          desc:
-            '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
+          name: "中台私服部署",
+          icon: "fas fa-shipping-fast",
+          desc: "中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导",
         },
         {
-          name: '技术咨询指导',
-          icon: 'fas fa-file-signature',
-          desc:
-            '微服务整合指导，包括微服务集成，代码生成器使用和前端集成使用指导'
+          name: "技术咨询指导",
+          icon: "fas fa-file-signature",
+          desc: "微服务整合指导，包括微服务集成，代码生成器使用和前端集成使用指导",
         },
         {
-          name: '业务结合数据指导',
-          icon: 'fas fa-laptop-code',
-          desc:
-            '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
+          name: "业务结合数据指导",
+          icon: "fas fa-laptop-code",
+          desc: "中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导",
         },
         {
-          name: '企业定制化服务',
-          icon: 'fas fa-swatchbook',
-          desc:
-            '中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导'
-        }
-      ]
-    }
-  }
-}
+          name: "企业定制化服务",
+          icon: "fas fa-swatchbook",
+          desc: "中小团队针对于中台快速技术中台，研发中台，为中小团队中台化和平台化提供部署和采购服务器指导",
+        },
+      ],
+    };
+  },
+};
 </script>
 
-<style lang="stylus" scoped>
-
-.wb-zc-ybmod-brand-mod3-pc J_Module{
+<style lang="scss" scoped>
+.wb-zc-ybmod-brand-mod3-pc J_Module {
   margin-top: 30px;
 }
 
@@ -100,7 +98,7 @@ export default {
   padding-bottom: 80px;
   float: left;
   width: 100%;
-  margin-top: 0px ;
+  margin-top: 0px;
   padding-top: 20px;
   padding-bottom: 100px;
 
@@ -117,9 +115,9 @@ export default {
       margin-right: 13px;
       border-radius: 2px;
       margin-left: 13px;
-      // box-shadow: 1px 2px 10px 0px #000 ; 
-      border-radius: 5px ;
-      padding-bottom: 30px ;
+      // box-shadow: 1px 2px 10px 0px #000 ;
+      border-radius: 5px;
+      padding-bottom: 30px;
       width: calc(25% - 26px);
       background-color: #1d2124;
       background-size: cover;
@@ -174,7 +172,7 @@ export default {
   .title {
     text-align: center;
     font-size: 32px;
-    color: #373D41;
+    color: #373d41;
     font-weight: 700;
     line-height: 120px;
   }
@@ -189,15 +187,14 @@ export default {
 }
 
 .item-title {
-  line-height: 82px ;
+  line-height: 82px;
 }
 
 .item-img-panel {
-    font-size: 3rem;
-    text-align: center;
-    color: #373d41;
-    margin-top: -20px !important;
-    padding-bottom: 20px !important ;
+  font-size: 3rem;
+  text-align: center;
+  color: #373d41;
+  margin-top: -20px !important;
+  padding-bottom: 20px !important ;
 }
-
 </style>
