@@ -208,7 +208,6 @@ Positioning 处在第一位，因为他可以使一个元素脱离正常文本�
     height: 100px;
 
     /* Typography */
-    font: normal 13px "Helvetica Neue", sans-serif;
     line-height: 1.5;
     color: #333;
     text-align: center;

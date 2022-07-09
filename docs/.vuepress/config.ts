@@ -8,6 +8,20 @@ const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 import { clipboardPlugin } from "vuepress-plugin-clipboard";
 // const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 
+module.exports = {
+  build: {
+    rollupOptions: {
+        output:{
+            manualChunks(id) {
+              if (id.includes('node_modules')) {
+                  return id.toString().split('node_modules/')[1].split('/')[0].toString();
+              }
+          }
+        }
+    }
+  }
+}
+
 export default defineUserConfig({
   lang: 'zh-CN',
   title: '企业级ACP数字中台',
@@ -88,6 +102,7 @@ export default defineUserConfig({
     //   },
     // }),
   ],
+  
   theme: localTheme({
     logo: '/logo_1.png', // 注意图片放在 public 文件夹下
     docsDir: 'docs',
