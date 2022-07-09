@@ -14,16 +14,15 @@
           >
             <div
               class="module-wrap J_tb_lazyload"
-              data-spm-anchor-id="5176.7920199.709498.i0.4a4251f4wYpRyO"
               style="background-color: #373d41"
             >
               <div class="title" style="color: #fff; font-size: 24px">
                 企业技术支持服务
               </div>
-              <center class="des" style="color: #fff">
+              <div class="des" style="color: #fff; width:100%; text-align:center;">
                 提供全周期的技术支持服务，满足企业研发中台环境的搭建，包含部署指导，业务集成指导，二次开发指导还有过程答疑等，同步包括
                 业务整合，业务组开发使用指导，满足中小企业快速中台化，平台化的服务需求。
-              </center>
+              </div> 
               <ul class="col clearfix">
                 <li
                   class="colli"
