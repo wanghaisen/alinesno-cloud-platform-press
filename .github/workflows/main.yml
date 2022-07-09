@@ -14,7 +14,7 @@ jobs:
       ALIYUN_CR_NAMESPACE: alinesno-cloud
       PRO_NAME: alinesno-platform-press
       PRO_VERSION: 2.1.0
-      EXPOSE_PORT: 84
+      EXPOSE_PORT: 80
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
