@@ -8,20 +8,6 @@ const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 import { clipboardPlugin } from "vuepress-plugin-clipboard";
 // const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 
-module.exports = {
-  build: {
-    rollupOptions: {
-        output:{
-            manualChunks(id) {
-              if (id.includes('node_modules')) {
-                  return id.toString().split('node_modules/')[1].split('/')[0].toString();
-              }
-          }
-        }
-    }
-  }
-}
-
 export default defineUserConfig({
   lang: 'zh-CN',
   title: '企业级ACP数字中台',
@@ -37,6 +23,9 @@ export default defineUserConfig({
       align: 'top' , 
       color: '#fff'
     }),
+    '@renovamen/vuepress-plugin-baidu-tongji', {
+      'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
+    },
     docsearchPlugin({
       appId: '34YFD9IUQ2',
       apiKey: '9a9058b8655746634e01071411c366b8',
