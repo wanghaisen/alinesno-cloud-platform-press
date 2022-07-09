@@ -20,6 +20,8 @@
     },
     "devDependencies": {
         "@vuepress/plugin-docsearch": "^2.0.0-beta.48",
+        "@vuepress/plugin-google-analytics": "^2.0.0-beta.48",
+        "@vuepress/plugin-medium-zoom": "^2.0.0-beta.48",
         "@vuepress/plugin-register-components": "^2.0.0-beta.48",
         "dayjs": "^1.9.7",
         "inquirer": "^7.1.0",
@@ -31,7 +33,9 @@
         "vuepress-plugin-clipboard": "^2.1.1",
         "vuepress-plugin-comment": "^0.7.3",
         "vuepress-plugin-demo-block": "^0.7.2",
+        "vuepress-plugin-feed2": "^2.0.0-beta.85",
         "vuepress-plugin-fulltext-search": "^2.2.1",
+        "vuepress-plugin-md-enhance": "^2.0.0-beta.85",
         "vuepress-plugin-one-click-copy": "^1.0.2",
         "vuepress-plugin-thirdparty-search": "^1.0.2",
         "vuepress-plugin-zooming": "^1.1.7",
@@ -39,7 +43,6 @@
     },
     "dependencies": {
         "@renovamen/vuepress-plugin-baidu-tongji": "^0.2.0",
-        "@vuepress/plugin-google-analytics": "^2.0.0-beta.48",
         "@vuepress/plugin-nprogress": "^2.0.0-beta.48"
     }
 }

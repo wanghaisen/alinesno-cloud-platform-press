@@ -95,7 +95,7 @@ jobs:
           type: markdown
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
-            # 💯👨‍💻 alinesno-cloud-platform(${{ env.PRO_VERSION }}) 文档构建成功 🎉🎉🎉
+            ### 💯👨‍💻 alinesno-cloud-platform(${{ env.PRO_VERSION }}) 文档构建成功 🎉🎉🎉
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} success
             > ^_^ from github action message
       - name: maven build failure
@@ -106,6 +106,6 @@ jobs:
           type: markdown
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
-            # 💤🤷‍♀️ alinesno-cloud-platform(${{ env.PRO_VERSION }}) 文档构建失败 🙅‍♂️💣
+            ### 💤🤷‍♀️ alinesno-cloud-platform(${{ env.PRO_VERSION }}) 文档构建失败 🙅‍♂️💣
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} failure
             > (⋟﹏⋞)   from github action message

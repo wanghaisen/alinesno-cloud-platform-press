@@ -10,6 +10,14 @@
 
 .home{
   padding: 0px !important ;
+
+  .features{
+    border-top: 0px ;
+  }
+
+  .hero .action-button{
+    border-bottom: 0px;
+  }
 }
 
 :root {

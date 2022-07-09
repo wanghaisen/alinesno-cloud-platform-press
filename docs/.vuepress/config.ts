@@ -6,7 +6,9 @@ const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 import { clipboardPlugin } from "vuepress-plugin-clipboard";
-// const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
+import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+import { feedPlugin } from "vuepress-plugin-feed2";
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -22,6 +24,20 @@ export default defineUserConfig({
     clipboardPlugin({
       align: 'top' , 
       color: '#fff'
+    }),
+    mdEnhancePlugin({
+      // 启用流程图
+      flowchart: true,
+      // 启用 mermaid
+      mermaid: true,
+    }),
+    feedPlugin({
+      // 插件选项
+      hostname: 'http://alinesno-platform.linesno.com' , 
+      json: true
+    }),
+    mediumZoomPlugin({
+      // 配置项
     }),
     '@renovamen/vuepress-plugin-baidu-tongji', {
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
