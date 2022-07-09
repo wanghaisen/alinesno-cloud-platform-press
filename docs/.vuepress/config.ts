@@ -5,6 +5,7 @@ const { path } = require('@vuepress/utils')
 const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
+import { clipboardPlugin } from "vuepress-plugin-clipboard";
 // const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 
 export default defineUserConfig({
@@ -13,11 +14,15 @@ export default defineUserConfig({
   description: '能够灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，进而形成企业的业务和数据中台。通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。',
   base: '/',
   head: [
-    ['link',
-      { rel: 'icon', href: '/favicon.ico' }
+    [
+      'link', { rel: 'icon', href: '/favicon.png' }
     ],
   ],
   plugins: [
+    clipboardPlugin({
+      align: 'top' , 
+      color: '#fff'
+    }),
     docsearchPlugin({
       appId: '34YFD9IUQ2',
       apiKey: '9a9058b8655746634e01071411c366b8',
@@ -94,7 +99,7 @@ export default defineUserConfig({
     sidebarDepth: 0,
     lastUpdated: true, 
     lastUpdatedText: 'Last Updated',
-    contributors: true , 
+    contributors: false, 
     navbar: [
       // 嵌套 Group - 最大深度为 2
       {

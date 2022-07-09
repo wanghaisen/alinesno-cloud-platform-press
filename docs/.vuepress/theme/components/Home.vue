@@ -11,7 +11,7 @@
       </p>
 
       <p class="action">
-        <a href="/design/overview/" class="nav-link action-button">新中台建设模型 →</a>
+        <a href="/design/overview/" class="nav-link action-button router-link-active">新中台建设模型 →</a>
       </p>
     </div>
 
@@ -158,11 +158,14 @@ import CaseTemp from './Case.vue'
 import HomeService from './HomeService.vue'
 import FooterTemp from './Footer.vue'
 
+import AutoLink from '@theme/AutoLink.vue'
+
 import { isGitee } from './utils'
 
 export default {
   components: {
     // NavLink,
+    AutoLink ,
     HomeService,
     CaseTemp,
     FooterTemp

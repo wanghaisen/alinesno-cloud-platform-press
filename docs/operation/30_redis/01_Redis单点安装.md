@@ -1,6 +1,6 @@
 ## Redis 配置
 
-<p class="show-images"><img src="/images/undraw_Designer_by46.svg" width="40%" /></p>
+<!-- <p class="show-images"><img src="/images/undraw_Designer_by46.svg" width="40%" /></p> -->
 
 ### Redis 安装
 
@@ -42,10 +42,9 @@ make install
 cd redis-5.0.0/conf
 vim redis.conf
 daemonize yes --原为no,后台运行redis(修改后启动redis,不出现那种所谓的蛋糕图)
-如下图
 ```
 
-<p align="center"><img src="/images/redis_01.png" width="80%" /></p>
+<!-- <p align="center"><img src="/images/redis_01.png" width="80%" /></p> -->
 
 ## redis 启动
 
