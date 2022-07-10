@@ -9,6 +9,7 @@ import { clipboardPlugin } from "vuepress-plugin-clipboard";
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 import { feedPlugin } from "vuepress-plugin-feed2";
+import { readingTimePlugin } from "vuepress-plugin-reading-time2";
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -30,6 +31,9 @@ export default defineUserConfig({
       flowchart: true,
       // 启用 mermaid
       mermaid: true,
+    }),
+    readingTimePlugin({
+      // 你的选项
     }),
     feedPlugin({
       // 插件选项
