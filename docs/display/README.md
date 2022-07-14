@@ -14,15 +14,26 @@
 
 ## 演示地址
 
-企业级研发中台(ACP)使用场景介绍
+企业级研发中台(ACP)解决方案介绍
 
 <!-- <iframeVideo ihtml="https://player.bilibili.com/player.html?aid=895555408&bvid=BV1GA4y197Vf&cid=573996741&page=1"></iframeVideo> -->
+
+  <iframe
+    class="video-iframe"
+    width="700px"
+    height="500px"
+    frameborder="no"
+    scrolling="no"
+    seamless=""
+    allowfullscreen="allowfullscreen"
+    src="https:////player.bilibili.com/player.html?aid=812799519&bvid=BV1134y1W79q&cid=755760214&page=1"
+  ></iframe>
 
 这里列的是开源环境的演示地址，一般也使用于开发环境使用，通过租户注册成为成员，基于中台环境进一步进行开发项目
 
 | 序号 | 模块     | 内容名称                             |                           链接                           | 备注 |
 | :--: | -------- | ------------------------------------ | :------------------------------------------------------: | ---- |
-|  1   | 设计章节 | 企业级研发中台(ACP)使用场景介绍      | [打开](https://www.zhihu.com/zvideo/1491265068955893760) |      |
+|  1   | 设计章节 | 企业级研发中台(ACP)解决方案介绍     | [打开][1-1] |      |
 |  2   |          | 整体 PaaS 中台工程架构介绍           |                       [待录制](#)                        |      |
 |      |          |                                      |                                                          |      |
 |  2   | 组件使用 | 统一权限框架使用                     |                       [待录制](#)                        |      |
@@ -41,6 +52,8 @@
 |  2   |          | 离线和实时计算                       |                       [待录制](#)                        |      |
 |  2   |          | 数据提供服务                         |                       [待录制](#)                        |      |
 |      |          |                                      |                                                          |      |
+
+[1-1]: https://www.bilibili.com/video/BV1134y1W79q?share_source=copy_web&vd_source=9663643a5d2d697ea737732a0acc3c09
 
 ## 其它
 

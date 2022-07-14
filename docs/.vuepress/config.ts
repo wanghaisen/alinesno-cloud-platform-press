@@ -23,14 +23,16 @@ export default defineUserConfig({
   plugins: [
     clipboardPlugin({
       align: 'top' , 
-      color: '#fff'
+      color: '#fff' , 
+      successText: '复制成功!' , 
+      successTextColor: '#fff' 
     }),
-    mdEnhancePlugin({
-      // 启用流程图
-      flowchart: true,
-      // 启用 mermaid
-      mermaid: true,
-    }),
+    // mdEnhancePlugin({
+    //   // 启用流程图
+    //   flowchart: true,
+    //   // 启用 mermaid
+    //   mermaid: true,
+    // }),
     readingTimePlugin({
       // 你的选项
     }),
@@ -118,7 +120,7 @@ export default defineUserConfig({
     repoLabel: 'Github',
     docsBranch: '2.1.0',
     editLink: true,
-    editLinkText: '帮助我们改善此页面',
+    // editLinkText: '编辑页面',
     sidebarDepth: 0,
     lastUpdated: true, 
     lastUpdatedText: 'Last Updated',
@@ -539,11 +541,11 @@ export default defineUserConfig({
           collapsible: true,
           children: genSolutionSidebar(2)
         },
-        {
-          text: '成长解决方案',
-          collapsible: true,
-          children: genSolutionSidebar(1)
-        }
+        // {
+        //   text: '成长解决方案',
+        //   collapsible: true,
+        //   children: genSolutionSidebar(1)
+        // }
         // {
         //   text: '行业解决方案',
         //   collapsible: true,
@@ -1946,7 +1948,10 @@ function genOperationServiceSidebar() {
 function genSolutionSidebar(menus) {
   if (menus == 0) {
     // 平台介绍
-    const mapArr = ['/solution/']
+    const mapArr = [
+      '/solution/' , 
+      '/solution/26_企业数字中台整体方案.md',
+    ]
 
     return mapArr.map(i => {
       return i
