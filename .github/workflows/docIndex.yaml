@@ -8,14 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
-        uses: actions/checkout@v2
-       
-      - name: Upload Records 
-        uses: darrenjennings/algolia-docsearch-action@master
-        with:
-         algolia_application_id: ${{secrets.ALGOLIA_APPLICATION_ID}}
-         algolia_api_key: ${{secrets.ALGOLIA_ADMIN_API_KEY}}
-         file: ${{secrets.ALGOLIA_FILE_PATH}}
+        uses: actions/checkout@v2 
 
       - name: Add to index
         uses: ./.github/actions/add-index-record
