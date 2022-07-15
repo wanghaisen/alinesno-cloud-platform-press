@@ -16,3 +16,17 @@ jobs:
          algolia_application_id: ${{secrets.ALGOLIA_APPLICATION_ID}}
          algolia_api_key: ${{secrets.ALGOLIA_ADMIN_API_KEY}}
          file: ${{secrets.ALGOLIA_FILE_PATH}}
+
+      - name: Add to index
+        uses: ./.github/actions/add-index-record
+        with:
+          app_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          api_key: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          index_name: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          record: |
+            {
+              "title": "${{ github.event.issue.title }}", 
+              "url": "${{ github.event.issue.html_url }}", 
+              "labels": "${{ github.event.issue.labels }}",
+              "objectID": "${{ github.event.issue.number }}"
+            }
