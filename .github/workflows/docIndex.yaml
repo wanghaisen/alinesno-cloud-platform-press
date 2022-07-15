@@ -19,3 +19,10 @@ jobs:
           ADMIN_API_KEY: ${{secrets.ALGOLIA_ADMIN_API_KEY}}
           INDEX_NAME: ${{secrets.ALGOLIA_INDEX_NAME}}
           FILE_PATH: ${{secrets.ALGOLIA_FILE_PATH}}
+          
+      - name: Upload Records 
+        uses: darrenjennings/algolia-docsearch-action@master
+        with:
+         algolia_application_id: ${{secrets.ALGOLIA_APPLICATION_ID}}
+         algolia_api_key: ${{secrets.ALGOLIA_ADMIN_API_KEY}}
+         file: ${{secrets.ALGOLIA_FILE_PATH}}
