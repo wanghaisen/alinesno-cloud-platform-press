@@ -48,12 +48,9 @@ export default defineUserConfig({
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
     },
     docsearchPlugin({
-      appId: '34YFD9IUQ2',
-      apiKey: '9a9058b8655746634e01071411c366b8',
-      indexName: 'vuepress',
-      searchParameters: {
-        facetFilters: ['tags:v2'],
-      },
+      appId: 'SI4XZK527J',
+      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
+      indexName: 'alinesno-cloud-platform',
       locales: {
         '/zh/': {
           placeholder: '搜索文档',
