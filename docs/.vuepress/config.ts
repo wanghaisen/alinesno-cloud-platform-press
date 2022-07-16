@@ -59,7 +59,7 @@ export default defineUserConfig({
     docsearchPlugin({ 
       appId: 'SI4XZK527J',
       apiKey: 'b0df382dd6e02495ccca231de710a0c3',
-      indexName: 'acp',
+      indexName: 'alinesno-cloud-platform',
       locales: {
         "/": {
           placeholder: "search docs",
