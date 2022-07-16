@@ -23,3 +23,29 @@ jobs:
           touch .env
           sudo chmod +x ./scraper.sh
           ./scraper.sh
+
+      # 发送钉钉消息
+      - name: build success
+        if: ${{ success() }}
+        uses: fifsky/dingtalk-action@master
+        with:
+          url: https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.DING_TOKEN}}
+          type: markdown
+          at: ${{ secrets.DINGTALK_AT_USER }}
+          content: |
+            ### 💯👨‍💻 acp索引创建成功
+            project: algolia index (${{ env.PRO_VERSION }}) 
+            > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} success
+            > ^_^ from github action message
+      - name: maven build failure
+        if: ${{ failure() }}
+        uses: fifsky/dingtalk-action@master
+        with:
+          url: https://oapi.dingtalk.com/robot/send?access_token=${{ secrets.DING_TOKEN}}
+          type: markdown
+          at: ${{ secrets.DINGTALK_AT_USER }}
+          content: |
+            ### 💤🤷‍♀️ acp索引创建失败
+            project: algolia index (${{ env.PRO_VERSION }}) 
+            > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} failure
+            > (⋟﹏⋞)   from github action message
