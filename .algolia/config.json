@@ -1,6 +1,6 @@
 {
   "index_name": "alinesno-cloud-platform",
-  "start_urls": [{ "url": "http://alinesno-platform.linesno.com/" }],
+  "start_urls": [{ "url": "http://alinesno-platform.linesno.com/", "variables": { "lang": ["zh-CN"] } }],
   "initialIndexSettings": {
     "attributesForFaceting": ["type", "lang"],
     "attributesToRetrieve": ["hierarchy", "content", "anchor", "url"],
