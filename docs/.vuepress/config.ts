@@ -34,12 +34,6 @@ export default defineUserConfig({
       changefreq: 'daily' ,
 
     }),
-    // mdEnhancePlugin({
-    //   // 启用流程图
-    //   flowchart: true,
-    //   // 启用 mermaid
-    //   mermaid: true,
-    // }),
     readingTimePlugin({
       // 你的选项
     }),
@@ -57,11 +51,11 @@ export default defineUserConfig({
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
     },
     docsearchPlugin({
-      apiKey: "b0df382dd6e02495ccca231de710a0c3",
-      appId: "SI4XZK527J",
-      indexName: "alinesno_cloud_platform",
+      appId: 'HAT6A1ER66',
+      apiKey: '1c5e0970f29dd7423d668b1fd245a7e2',
+      indexName: 'acp_linesno',
       searchParameters: {
-        attributesToSnippet: ["lvl1:30", "content:25"],
+        facetFilters: ['tags:v2'],
       },
       locales: {
         "/": {
