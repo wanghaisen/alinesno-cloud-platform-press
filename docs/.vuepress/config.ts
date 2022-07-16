@@ -2,12 +2,12 @@ import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
 const { path } = require('@vuepress/utils')
 
-const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
-import { clipboardPlugin } from "vuepress-plugin-clipboard";
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
-import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+import { clipboardPlugin } from "vuepress-plugin-clipboard";
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+// import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
@@ -58,11 +58,8 @@ export default defineUserConfig({
     },
     docsearchPlugin({ 
       appId: 'SI4XZK527J',
-      apiKey: 'de3e76371cc64406463be7bffa324acf',
-      indexName: 'alinesno-cloud-platform',
-      searchParameters: {
-        attributesToSnippet: ["lvl0:30", "content:25"],
-      },
+      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
+      indexName: 'acp',
       locales: {
         "/": {
           placeholder: "search docs",
