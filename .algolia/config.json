@@ -1,5 +1,5 @@
 {
-  "index_name": "alinesno-cloud-platform",
+  "index_name": "alinesno_cloud_platform",
   "start_urls": [{ "url": "http://alinesno-platform.linesno.com/", "variables": { "lang": ["zh-CN"] } }],
   "selectors": {
     "lvl0": ".sidebar-heading.active",

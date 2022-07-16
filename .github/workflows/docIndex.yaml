@@ -1,9 +1,8 @@
 name: algolia-scraper
 on:
-  workflow_run:
-    workflows: ["Publish page"]
-    types:
-      - completed 
+  push:
+    branches:
+      - gh-algolia
   
 jobs:
   scrape:

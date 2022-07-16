@@ -2,6 +2,7 @@ import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
 const { path } = require('@vuepress/utils')
 
+<<<<<<< HEAD
 const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
@@ -9,6 +10,14 @@ const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 
 import { clipboardPlugin } from "vuepress-plugin-clipboard";
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+=======
+const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
+const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
+const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
+const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
+
+import { clipboardPlugin } from "vuepress-plugin-clipboard"; 
+>>>>>>> 8b46def28454463659e8846252777a29ed3f9d0f
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
@@ -58,12 +67,15 @@ export default defineUserConfig({
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
     },
     docsearchPlugin({
-      appId: 'SI4XZK527J',
-      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
-      indexName: 'acp',
+      apiKey: "b0df382dd6e02495ccca231de710a0c3",
+      appId: "SI4XZK527J",
+      indexName: "alinesno_cloud_platform",
+      searchParameters: {
+        attributesToSnippet: ["lvl1:30", "content:25"],
+      },
       locales: {
-        '/zh/': {
-          placeholder: '搜索文档',
+        "/": {
+          placeholder: "搜索文档",
           translations: {
             button: {
               buttonText: '搜索文档',
