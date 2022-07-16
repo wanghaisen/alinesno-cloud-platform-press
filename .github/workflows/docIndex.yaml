@@ -1,11 +1,10 @@
 name: algolia-scraper
 on:
-  push:
-    branches:
-      - 2.1.0
-  check_suite:
-    types: [completed]
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Publish page"]
+    types:
+      - completed 
+  
 jobs:
   scrape:
     runs-on: ubuntu-latest
