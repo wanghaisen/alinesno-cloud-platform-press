@@ -1,39 +1,52 @@
-{ 
-    "index_name": "alinesno-cloud-platform", 
-    "start_urls": ["http://alinesno-platform.linesno.com/"], 
-    "selectors": {
-      "lvl0": ".sidebar h3.version",
-      "lvl1": {
-        "selector": ".sidebar-heading.open span",
-        "global": true,
-        "default_value": "Documentation"
-      },
-      "lvl2": {
-        "selector": ".content__default h1",
-        "strip_chars": "#"
-      },
-      "lvl3": {
-        "selector": ".content__default h2",
-        "strip_chars": "#"
-      },
-      "lvl4": {
-        "selector": ".content__default h3",
-        "strip_chars": "#"
-      },
-      "lvl5": {
-        "selector": ".content__default h4",
-        "strip_chars": "#"
-      }, 
-      "text": ".content__default p, .content__default li", 
-      "lang": {
-        "selector": "/html/@lang",
-        "type": "xpath",
-        "global": true
-      }
-    },
-    "custom_settings": {
-      "attributesForFaceting": [
-        "tags:2.1.0"
-      ]
-    }
+{
+  "index_name": "alinesno-cloud-platform",
+  "start_urls": [{ "url": "http://alinesno-platform.linesno.com/", "variables": { "lang": ["zh-CN"] } }],
+  "selectors": {
+    "lvl0": ".sidebar-heading.active",
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "lvl5": ".theme-default-content h5",
+    "lvl6": ".theme-default-content h6",
+    "text": ".theme-default-content p, .theme-default-content li"
+  },
+  "initialIndexSettings": {
+    "attributesForFaceting": ["type", "lang"],
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url"],
+    "attributesToHighlight": ["hierarchy", "hierarchy_camel", "content"],
+    "attributesToSnippet": ["content:10"],
+    "camelCaseAttributes": ["hierarchy", "hierarchy_radio", "content"],
+    "searchableAttributes": [
+      "unordered(hierarchy_radio_camel.lvl0)",
+      "unordered(hierarchy_radio.lvl0)",
+      "unordered(hierarchy_radio_camel.lvl1)",
+      "unordered(hierarchy_radio.lvl1)",
+      "unordered(hierarchy_radio_camel.lvl2)",
+      "unordered(hierarchy_radio.lvl2)",
+      "unordered(hierarchy_radio_camel.lvl3)",
+      "unordered(hierarchy_radio.lvl3)",
+      "unordered(hierarchy_radio_camel.lvl4)",
+      "unordered(hierarchy_radio.lvl4)",
+      "unordered(hierarchy_radio_camel.lvl5)",
+      "unordered(hierarchy_radio.lvl5)",
+      "unordered(hierarchy_radio_camel.lvl6)",
+      "unordered(hierarchy_radio.lvl6)",
+      "unordered(hierarchy_camel.lvl0)",
+      "unordered(hierarchy.lvl0)",
+      "unordered(hierarchy_camel.lvl1)",
+      "unordered(hierarchy.lvl1)",
+      "unordered(hierarchy_camel.lvl2)",
+      "unordered(hierarchy.lvl2)",
+      "unordered(hierarchy_camel.lvl3)",
+      "unordered(hierarchy.lvl3)",
+      "unordered(hierarchy_camel.lvl4)",
+      "unordered(hierarchy.lvl4)",
+      "unordered(hierarchy_camel.lvl5)",
+      "unordered(hierarchy.lvl5)",
+      "unordered(hierarchy_camel.lvl6)",
+      "unordered(hierarchy.lvl6)",
+      "content"
+    ]
   }
+}
