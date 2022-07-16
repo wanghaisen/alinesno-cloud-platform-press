@@ -1,10 +1,13 @@
 [
+  {{- range $index, $entry := .Site.RegularPages }}
+  {{- if $index }}, {{ end }}
   {
-    "objectID": 1,
-    "url": "http://alinesno-platform.linesno.com/",
-    "title": "企业级ACP数字中台",
-    "summary": "企业级ACP数字中台",
-    "content": "企业级ACP数字中台",
-    "pubDate": "2022-06-01T11:25:45+08:00"
-  } 
+    "objectID": {{ .File.TranslationBaseName }},
+    "url": {{ .Permalink | jsonify }},
+    "title": {{ .Title | jsonify }},
+    "summary": {{ .Summary | jsonify }},
+    "content": {{ .Plain | jsonify }},
+    "pubDate": {{ .PublishDate | jsonify }}
+  }
+  {{- end }}
 ]
