@@ -5,9 +5,9 @@ const { path } = require('@vuepress/utils')
 const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
-import { clipboardPlugin } from "vuepress-plugin-clipboard";
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-// import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
+const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
+
+import { clipboardPlugin } from "vuepress-plugin-clipboard"; 
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
@@ -56,13 +56,16 @@ export default defineUserConfig({
     '@renovamen/vuepress-plugin-baidu-tongji', {
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
     },
-    docsearchPlugin({ 
-      appId: 'SI4XZK527J',
-      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
-      indexName: 'alinesno-cloud-platform',
+    docsearchPlugin({
+      apiKey: "b0df382dd6e02495ccca231de710a0c3",
+      appId: "SI4XZK527J",
+      indexName: "alinesno_cloud_platform",
+      searchParameters: {
+        attributesToSnippet: ["lvl1:30", "content:25"],
+      },
       locales: {
         "/": {
-          placeholder: "search docs",
+          placeholder: "搜索文档",
           translations: {
             button: {
               buttonText: "搜索文档",
