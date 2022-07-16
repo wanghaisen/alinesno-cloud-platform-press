@@ -8,22 +8,25 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+      ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+      ALGOLIA_SITE_URL: ${{ secrets.ALGOLIA_SITE_URL }}
+      ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }} 
     steps:
       - name: check out code 🛎
         uses: actions/checkout@v2 
-      - name: scrape the site 🧽
-        env:
-          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          ALGOLIA_SITE_URL: ${{ secrets.ALGOLIA_SITE_URL }}
-          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+
+      - name: clear algolia index 🧽
         run: |
           cd .algolia
-          touch .env
-          cat .env
+          pip install --upgrade 'algoliasearch>=2.0,<3.0'
+          python clear_index.py
+
+      - name: scrape the site 🧽 
+        run: |
+          cd .algolia
+          touch .env 
           sudo chmod +x ./scraper.sh
           ./scraper.sh
 
