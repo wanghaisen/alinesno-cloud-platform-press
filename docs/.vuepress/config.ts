@@ -58,7 +58,7 @@ export default defineUserConfig({
     },
     docsearchPlugin({ 
       appId: 'SI4XZK527J',
-      apiKey: 'b0df382dd6e02495ccca231de710a0c3',
+      apiKey: 'de3e76371cc64406463be7bffa324acf',
       indexName: 'alinesno-cloud-platform',
       searchParameters: {
         attributesToSnippet: ["lvl0:30", "content:25"],
