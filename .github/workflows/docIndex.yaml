@@ -1,9 +1,10 @@
 name: algolia-scraper
 
 on:
-  push:
-    branches:
-      - 2.1.0
+  workflow_run:
+    workflows: ['Publish page']
+    types:
+      - completed
   
 jobs:
   scrape:
@@ -40,7 +41,7 @@ jobs:
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
             ### 💯👨‍💻 acp索引创建成功
-            project: algolia index (${{ env.PRO_VERSION }}) 
+            project: algolia index
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} success
             > ^_^ from github action message
       - name: maven build failure
@@ -52,6 +53,6 @@ jobs:
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
             ### 💤🤷‍♀️ acp索引创建失败
-            project: algolia index (${{ env.PRO_VERSION }}) 
+            project: algolia index
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} failure
             > (⋟﹏⋞)   from github action message
