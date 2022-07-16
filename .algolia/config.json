@@ -1,6 +1,16 @@
 {
   "index_name": "alinesno-cloud-platform",
   "start_urls": [{ "url": "http://alinesno-platform.linesno.com/", "variables": { "lang": ["zh-CN"] } }],
+  "selectors": {
+    "lvl0": ".sidebar-heading.active",
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "lvl5": ".theme-default-content h5",
+    "lvl6": ".theme-default-content h6",
+    "text": ".theme-default-content p, .theme-default-content li"
+  },
   "initialIndexSettings": {
     "attributesForFaceting": ["type", "lang"],
     "attributesToRetrieve": ["hierarchy", "content", "anchor", "url"],
