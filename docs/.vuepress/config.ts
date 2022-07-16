@@ -57,7 +57,7 @@ export default defineUserConfig({
       'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
     },
     docsearchPlugin({
-      apiKey: "7fbc34d07880f1669be0a9c15e16d04d",
+      apiKey: "b0df382dd6e02495ccca231de710a0c3",
       appId: "SI4XZK527J",
       indexName: "alinesno_cloud_platform",
       searchParameters: {
