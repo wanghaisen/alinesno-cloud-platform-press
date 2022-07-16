@@ -16,9 +16,12 @@ jobs:
           ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
           ALGOLIA_SITE_URL: ${{ secrets.ALGOLIA_SITE_URL }}
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
         run: |
           cd .algolia
           touch .env
+          cat .env
           sudo chmod +x ./scraper.sh
           ./scraper.sh
 
