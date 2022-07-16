@@ -1,8 +1,9 @@
 name: algolia-scraper
+
 on:
   push:
     branches:
-      - gh-algolia
+      - 2.1.0
   
 jobs:
   scrape:
