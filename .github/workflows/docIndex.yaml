@@ -21,4 +21,4 @@ jobs:
         run: |
           cd .algolia
           touch .env
-          ./scrape.sh
+          ./scraper.sh
