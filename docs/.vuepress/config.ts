@@ -51,6 +51,9 @@ export default defineUserConfig({
       appId: 'SI4XZK527J',
       apiKey: 'b0df382dd6e02495ccca231de710a0c3',
       indexName: 'alinesno-cloud-platform',
+      searchParameters: {
+        attributesToSnippet: ["lvl1:30", "content:25"],
+      },
       locales: {
         '/zh/': {
           placeholder: '搜索文档',
