@@ -44,6 +44,7 @@
     },
     "dependencies": {
         "@renovamen/vuepress-plugin-baidu-tongji": "^0.2.0",
-        "@vuepress/plugin-nprogress": "^2.0.0-beta.48"
+        "@vuepress/plugin-nprogress": "^2.0.0-beta.48",
+        "vuepress-plugin-sitemap2": "^2.0.0-beta.86"
     }
 }

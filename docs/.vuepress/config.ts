@@ -9,6 +9,7 @@ import { clipboardPlugin } from "vuepress-plugin-clipboard";
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 import { feedPlugin } from "vuepress-plugin-feed2";
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
 
 export default defineUserConfig({
@@ -27,6 +28,12 @@ export default defineUserConfig({
       successText: '复制成功!' , 
       successTextColor: '#fff' 
     }),
+    sitemapPlugin({
+      // 配置选项
+      hostname: 'http://alinesno-platform.linesno.com' , 
+      changefreq: 'daily' , 
+
+    }),
     // mdEnhancePlugin({
     //   // 启用流程图
     //   flowchart: true,
@@ -39,7 +46,9 @@ export default defineUserConfig({
     feedPlugin({
       // 插件选项
       hostname: 'http://alinesno-platform.linesno.com' , 
-      json: true
+      json: true , 
+      atom: true , 
+      rss: true , 
     }),
     mediumZoomPlugin({
       // 配置项
@@ -52,11 +61,11 @@ export default defineUserConfig({
       apiKey: 'b0df382dd6e02495ccca231de710a0c3',
       indexName: 'alinesno-cloud-platform',
       searchParameters: {
-        attributesToSnippet: ["lvl1:30", "content:25"],
+        attributesToSnippet: ["lvl0:30", "content:25"],
       },
       locales: {
         "/": {
-          placeholder: "搜索文档",
+          placeholder: "search docs",
           translations: {
             button: {
               buttonText: "搜索文档",
