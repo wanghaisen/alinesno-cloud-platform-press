@@ -2,22 +2,12 @@ import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
 const { path } = require('@vuepress/utils')
 
-<<<<<<< HEAD
-const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
-const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
-const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
-const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
-
-import { clipboardPlugin } from "vuepress-plugin-clipboard";
-import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
-=======
 const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
 
 import { clipboardPlugin } from "vuepress-plugin-clipboard"; 
->>>>>>> 8b46def28454463659e8846252777a29ed3f9d0f
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
