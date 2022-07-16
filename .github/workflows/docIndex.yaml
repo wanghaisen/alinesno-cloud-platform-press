@@ -1,21 +1,24 @@
-name: Algolia Upload Records
+name: algolia-scraper
 on:
   push:
     branches:
       - 2.1.0
+  check_suite:
+    types: [completed]
+  workflow_dispatch:
 jobs:
-  algolia:
+  scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
-        uses: actions/checkout@v2 
-
-      - name: Upload Records
-        # 使用 Action
-        uses: iChochy/Algolia-Upload-Records@main
-        # 设置环境变量
+      - name: check out code 🛎
+        uses: actions/checkout@v2
+      - name: scrape the site 🧽
         env:
-          APPLICATION_ID: ${{secrets.ALGOLIA_APPLICATION_ID}}
-          ADMIN_API_KEY: ${{secrets.ALGOLIA_ADMIN_API_KEY}}
-          INDEX_NAME: ${{secrets.ALGOLIA_INDEX_NAME}}
-          FILE_PATH: docs/algolia.json
+          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          ALGOLIA_WRITE_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          ALGOLIA_SITE_URL: ${{ secrets.ALGOLIA_SITE_URL }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+        run: |
+          cd .algolia
+          touch .env
+          ./scrape.sh
