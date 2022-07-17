@@ -152,7 +152,7 @@ export default {
           }
 
           .item-desc {
-            font-size: 14px;
+            font-size: 1rem ;  
             color: #fff;
             padding: 10px;
             line-height: 24px;
