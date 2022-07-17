@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
-const { path } = require('@vuepress/utils')
+// const { path } = require('@vuepress/utils')
 
 const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
