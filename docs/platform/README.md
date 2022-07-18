@@ -59,16 +59,16 @@
 
 | 序号 |  业务线  | 产品                   |  状态  | 地址                                                               | 备注 |
 | :--: | :------: | ---------------------- | :----: | ------------------------------------------------------------------ | ---- |
-|  1   | 技术中台 | 技术研发体系           | 优化中 | [打开][devops]                                                     |      |
-|  2   |          | 微服务研发引擎         | 优化中 | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
-|  3   |          | 代码生成器服务         |        | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
+|  1   | 技术中台 | 技术研发体系           | 初稿 | [devops][devops]                                                     |      |
+|  2   |          | 微服务研发引擎         | 完成 | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
+|  3   |          | 代码生成器服务         |    完成    | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 运维中台 | 自动化运维体系         |        | 文档                                                               |      |
+|  1   | 运维中台 | 自动化运维体系         |   初稿     | [chatops][chatops]                                                              |      |
 |  2   |          | 应用监控预警服务       |        |                                                                    |      |
 |  3   |          | 审计日志监控服务       |        | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
 |  4   |          | Ansible 自动化操作服务 |        | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 研发中台 | 权限资源引擎服务       | 优化中 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
+|  1   | 研发中台 | 权限资源引擎服务       | 完成 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
 |  2   |          | 云门户管理服务         |        | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
 |  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |  3   |          | 通知管理服务           | 优化中 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
@@ -93,6 +93,7 @@
 
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
+[chatops]: ./paas/
 [alinesno-cloud-logger]: #
 [alinesno-cloud-operation]: #
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
