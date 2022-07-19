@@ -1430,7 +1430,7 @@ function genPlatformBusinessSidebar(type) {
     ]
   } else if (type == 6) {
     mapArr = [
-      '/platform/business/18_运维中台/04_自动化运维平台.md',
+      '/platform/business/18_运维中台/12_自动化运维体系.md',
       '/platform/business/18_运维中台/01_审计日志监控平台.md',
       '/platform/business/18_运维中台/02_Ansible自动化操作平台.md'
     ]
