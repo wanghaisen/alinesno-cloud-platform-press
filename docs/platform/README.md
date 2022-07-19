@@ -69,17 +69,15 @@
 |  4   |          | Ansible 自动化操作服务 |        | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
 |      |          |                        |        |                                                                    |      |
 |  1   | 研发中台 | 权限资源引擎服务       | 完成 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
-|  2   |          | 云门户管理服务         |        | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
-|  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
+|  2   |          | 云门户管理服务         | 完成       | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
+|  8   |          | 网关管理服务           |        | alinesno-cloud-gateway                                             |      | 
 |  3   |          | 通知管理服务           | 完成 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
-|  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      |
-|  5   |          | 文档打印管理服务       | 优化中 | [alinesno-cloud-base-print][alinesno-cloud-base-print]             |      |
+|  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      | 
 |  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
 |  7   |          | 工作流管理服务         |        | alinesno-cloud-base-workflow                                       |      |
-|  8   |          | 网关管理服务           |        | alinesno-cloud-gateway                                             |      |
-|  9   |          | 中台连接器服务         |        | alinesno-cloud-open                                                |      |
 |  11  |          | 单点登陆管理服务       |        | alinesno-cloud-platform-cas                                        |      |
 |  12  |          | 内容管理服务           |        | alinesno-cloud-cms                                                 |      |
+|  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |      |          |                        |        |                                                                    |      |
 |  1   | 数据中台 | 数据中台管理体系       |        | alinesno-cloud-data-studio                                         |      |
 |  2   |          | 数据上报服务           |  完成  | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
