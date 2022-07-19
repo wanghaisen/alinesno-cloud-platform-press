@@ -59,11 +59,11 @@
 
 | 序号 |  业务线  | 产品                   |  状态  | 地址                                                               | 备注 |
 | :--: | :------: | ---------------------- | :----: | ------------------------------------------------------------------ | ---- |
-|  1   | 技术中台 | 技术研发体系           | 初稿 | [devops][devops]                                                     |      |
+|  1   | 技术中台 | 技术研发体系           | 完成 | [devops][devops]                                                     |      |
 |  2   |          | 微服务研发引擎         | 完成 | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
 |  3   |          | 代码生成器服务         |    完成    | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 运维中台 | 自动化运维体系         |   初稿     | [chatops][chatops]                                                              |      |
+|  1   | 运维中台 | 自动化运维体系         |   完成     | [chatops][chatops]                                                              |      |
 |  2   |          | 应用监控预警服务       |        |                                                                    |      |
 |  3   |          | 审计日志监控服务       |        | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
 |  4   |          | Ansible 自动化操作服务 |        | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
