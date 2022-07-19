@@ -93,7 +93,7 @@
 
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
-[chatops]: ./paas/
+[chatops]: ./business/18_运维中台/12_自动化运维体系.md
 [alinesno-cloud-logger]: #
 [alinesno-cloud-operation]: #
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
