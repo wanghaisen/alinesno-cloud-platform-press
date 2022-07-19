@@ -64,27 +64,27 @@
 |  3   |          | 代码生成器服务         |    完成    | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
 |      |          |                        |        |                                                                    |      |
 |  1   | 运维中台 | 自动化运维体系         |   完成     | [chatops][chatops]                                                              |      |
-|  2   |          | 应用监控预警服务       |        |                                                                    |      |
-|  3   |          | 审计日志监控服务       |        | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
-|  4   |          | Ansible 自动化操作服务 |        | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+|  2   |          | 应用监控预警服务       |   编写中     |                                                                    |      |
+|  3   |          | 审计日志监控服务       |   编写中     | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
+|  4   |          | Ansible 自动化操作服务 |  编写中      | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
 |      |          |                        |        |                                                                    |      |
 |  1   | 研发中台 | 权限资源引擎服务       | 完成 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
 |  2   |          | 云门户管理服务         | 完成       | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
-|  8   |          | 网关管理服务           |        | alinesno-cloud-gateway                                             |      | 
+|  8   |          | 网关管理服务           |  编写中      | alinesno-cloud-gateway                                             |      | 
 |  3   |          | 通知管理服务           | 完成 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
-|  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      | 
+|  4   |          | 支付管理服务           |   编写中     | alinesno-cloud-base-pay                                            |      | 
 |  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
-|  7   |          | 工作流管理服务         |        | alinesno-cloud-base-workflow                                       |      |
-|  11  |          | 单点登陆管理服务       |        | alinesno-cloud-platform-cas                                        |      |
-|  12  |          | 内容管理服务           |        | alinesno-cloud-cms                                                 |      |
-|  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
+|  7   |          | 工作流管理服务         |  编写中      | alinesno-cloud-base-workflow                                       |      |
+|  11  |          | 单点登陆管理服务       |   编写中     | alinesno-cloud-platform-cas                                        |      |
+|  12  |          | 内容管理服务           |  编写中      | alinesno-cloud-cms                                                 |      |
+|  2   |          | 会员管理服务           |   编写中     | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 数据中台 | 数据中台管理体系       |        | alinesno-cloud-data-studio                                         |      |
+|  1   | 数据中台 | 数据中台管理体系       |    编写中    | alinesno-cloud-data-studio                                         |      |
 |  2   |          | 数据上报服务           |  完成  | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
-|  3   |          | 主数据管理服务         |        | alinesno-cloud-data-mdn                                            |      |
-|  4   |          | 数据集成服务           |        | alinesno-cloud-data-etl                                            |      |
-|  5   |          | 数据开发服务           |        | alinesno-cloud-data-develop                                        |      |
-|  6   |          | 数据开放服务           |        | alinesno-cloud-data-open                                           |      |
+|  3   |          | 主数据管理服务         |   编写中     | alinesno-cloud-data-mdn                                            |      |
+|  4   |          | 数据集成服务           |  编写中      | alinesno-cloud-data-etl                                            |      |
+|  5   |          | 数据开发服务           |   编写中     | alinesno-cloud-data-develop                                        |      |
+|  6   |          | 数据开放服务           |    编写中    | alinesno-cloud-data-open                                           |      |
 |      |          |                        |        |                                                                    |      |
 
 <!-- |  10  |          | 分布式定时任务服务     |        | alinesno-cloud-scheduler                                           |      | -->
