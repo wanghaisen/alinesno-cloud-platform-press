@@ -86,8 +86,7 @@
 |  5   |          | 数据开发服务           |   编写中     | alinesno-cloud-data-develop                                        |      |
 |  6   |          | 数据开放服务           |    编写中    | alinesno-cloud-data-open                                           |      |
 |      |          |                        |        |                                                                    |      |
-
-<!-- |  10  |          | 分布式定时任务服务     |        | alinesno-cloud-scheduler                                           |      | -->
+ 
 
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
