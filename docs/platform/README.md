@@ -74,7 +74,7 @@
 |  3   |          | 通知管理服务           | 优化中 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
 |  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      |
 |  5   |          | 文档打印管理服务       | 优化中 | [alinesno-cloud-base-print][alinesno-cloud-base-print]             |      |
-|  6   |          | 存储管理服务           |        | alinesno-cloud-base-storage                                        |      |
+|  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
 |  7   |          | 工作流管理服务         |        | alinesno-cloud-base-workflow                                       |      |
 |  8   |          | 网关管理服务           |        | alinesno-cloud-gateway                                             |      |
 |  9   |          | 中台连接器服务         |        | alinesno-cloud-open                                                |      |
@@ -99,6 +99,7 @@
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
 [alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
 [alinesno-cloud-platform]: ./business/13_研发中台/02_云门户管理平台.md
+[alinesno-cloud-base-storage]: ./platform/business/13_研发中台/06_存储管理平台.md
 [alinesno-cloud-member]: #
 [alinesno-cloud-base-notice]: ./business/13_研发中台/03_通知管理平台.md
 [alinesno-cloud-base-print]: ./business/13_研发中台/05_文档打印管理平台.md
