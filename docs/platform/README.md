@@ -71,7 +71,7 @@
 |  1   | 研发中台 | 权限资源引擎服务       | 完成 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
 |  2   |          | 云门户管理服务         |        | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
 |  2   |          | 会员管理服务           |        | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
-|  3   |          | 通知管理服务           | 优化中 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
+|  3   |          | 通知管理服务           | 完成 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
 |  4   |          | 支付管理服务           |        | alinesno-cloud-base-pay                                            |      |
 |  5   |          | 文档打印管理服务       | 优化中 | [alinesno-cloud-base-print][alinesno-cloud-base-print]             |      |
 |  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
