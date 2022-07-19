@@ -99,7 +99,7 @@
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
 [alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
 [alinesno-cloud-platform]: ./business/13_研发中台/02_云门户管理平台.md
-[alinesno-cloud-base-storage]: ./platform/business/13_研发中台/06_存储管理平台.md
+[alinesno-cloud-base-storage]: ./business/13_研发中台/06_存储管理平台.md
 [alinesno-cloud-member]: #
 [alinesno-cloud-base-notice]: ./business/13_研发中台/03_通知管理平台.md
 [alinesno-cloud-base-print]: ./business/13_研发中台/05_文档打印管理平台.md
