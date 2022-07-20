@@ -57,36 +57,37 @@
 
 最终效果以中台演示为主，针对于中小团队有限的能力进行的建设，架构规划上需要进行一定的边界和制约。
 
-| 序号 |  业务线  | 产品                   |  状态  | 地址                                                               | 备注 |
-| :--: | :------: | ---------------------- | :----: | ------------------------------------------------------------------ | ---- |
-|  1   | 技术中台 | 技术研发体系           | 完成 | [devops][devops]                                                     |      |
-|  2   |          | 微服务研发引擎         | 完成 | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
-|  3   |          | 代码生成器服务         |    完成    | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
+| 序号 | 业务线   | 产品                   | 状态   | 地址                                                               | 备注 |
+|:----:|:--------:|------------------------|:------:|--------------------------------------------------------------------|------|
+| 1    | 技术中台 | 技术研发体系           | 完成   | [devops][devops]                                                   |      |
+| 2    |          | 微服务研发引擎         | 完成   | [alinesno-cloud-core][alinesno-cloud-core]                         |      |
+| 3    |          | 代码生成器服务         | 完成   | [alinesno-cloud-initializr-admin][alinesno-cloud-initializr-admin] |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 运维中台 | 自动化运维体系         |   完成     | [chatops][chatops]                                                              |      |
-|  2   |          | 应用监控预警服务       |   编写中     |                                                                    |      |
-|  3   |          | 审计日志监控服务       |   编写中     | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
-|  4   |          | Ansible 自动化操作服务 |  编写中      | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+| 1    | 研发中台 | 权限资源引擎服务       | 完成   | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
+| 2    |          | 云门户管理服务         | 完成   | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
+| 3    |          | 网关管理服务           | 完成   | [alinesno-cloud-gateway][alinesno-cloud-gateway]                   |      |
+| 4    |          | 分布式消息管理服务     | 完成   | [alinesno-cloud-message][alinesno-cloud-message]                   |      |
+| 5    |          | 通知管理服务           | 完成   | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
+| 7    |          | 存储管理服务           | 完成   | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]         |      |
+| 8    |          | 工作流管理服务         | 编写中 | [alinesno-cloud-base-workflow][alinesno-cloud-base-workflow]                                       |      |
+| 9    |          | 单点登陆管理服务       | 完成   | [alinesno-cloud-platform-sso][alinesno-cloud-platform-sso]         |      |
+| 10   |          | 内容管理服务           | 初稿   | [alinesno-cloud-cms][alinesno-cloud-cms]                           |      |
+| 11   |          | 会员管理服务           | 初稿   | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 研发中台 | 权限资源引擎服务       | 完成 | [alinesno-cloud-authority][alinesno-cloud-authority]               |      |
-|  2   |          | 云门户管理服务         | 完成       | [alinesno-cloud-platform][alinesno-cloud-platform]                 |      |
-|  8   |          | 网关管理服务           |  编写中      | alinesno-cloud-gateway                                             |      | 
-|  3   |          | 通知管理服务           | 完成 | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
-|  4   |          | 支付管理服务           |   编写中     | alinesno-cloud-base-pay                                            |      | 
-|  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
-|  7   |          | 工作流管理服务         |  编写中      | alinesno-cloud-base-workflow                                       |      |
-|  11  |          | 单点登陆管理服务       |   完成     | [alinesno-cloud-platform-sso][alinesno-cloud-platform-sso]                                        |      |
-|  12  |          | 内容管理服务           |  初稿      | [alinesno-cloud-cms][alinesno-cloud-cms]                                               |      |
-|  2   |          | 会员管理服务           |   编写中     | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
+| 1    | 运维中台 | 自动化运维体系         | 完成   | [chatops][chatops]                                                 |      |
+| 2    |          | 审计日志监控服务       | 编写中 | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
+| 3    |          | Ansible 自动化操作服务 | 编写中 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+| 4    |          | 应用监控预警服务       | 编写中 |                                                                    |      |
 |      |          |                        |        |                                                                    |      |
-|  1   | 数据中台 | 数据中台管理体系       |    编写中    | alinesno-cloud-data-studio                                         |      |
-|  2   |          | 数据上报服务           |  完成  | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
-|  3   |          | 主数据管理服务         |   编写中     | alinesno-cloud-data-mdn                                            |      |
-|  4   |          | 数据集成服务           |  编写中      | alinesno-cloud-data-etl                                            |      |
-|  5   |          | 数据开发服务           |   编写中     | alinesno-cloud-data-develop                                        |      |
-|  6   |          | 数据开放服务           |    编写中    | alinesno-cloud-data-open                                           |      |
+| 1    | 数据中台 | 数据中台管理体系       | 编写中 | alinesno-cloud-data-studio                                         |      |
+| 2    |          | 数据上报服务           | 完成   | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
+| 3    |          | 主数据管理服务         | 编写中 | alinesno-cloud-data-mdn                                            |      |
+| 4    |          | 数据集成服务           | 编写中 | alinesno-cloud-data-etl                                            |      |
+| 5    |          | 数据开发服务           | 编写中 | alinesno-cloud-data-develop                                        |      |
+| 6    |          | 数据开放服务           | 编写中 | alinesno-cloud-data-open                                           |      |
 |      |          |                        |        |                                                                    |      |
- 
+
+<!-- | 6    |          | 支付管理服务           | 编写中 | alinesno-cloud-base-pay                                            |      | -->
 
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
@@ -99,10 +100,13 @@
 [alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
 [alinesno-cloud-platform]: ./business/13_研发中台/02_云门户管理平台.md
 [alinesno-cloud-base-storage]: ./business/13_研发中台/06_存储管理平台.md
-[alinesno-cloud-member]: #
 [alinesno-cloud-base-notice]: ./business/13_研发中台/03_通知管理平台.md
 [alinesno-cloud-base-print]: ./business/13_研发中台/05_文档打印管理平台.md
 [alinesno-cloud-data-report]: ./business/14_数据中台/06_数据上报服务.md
+[alinesno-cloud-message]: ./business/13_研发中台/15_分布式消息管理服务.md
+[alinesno-cloud-gateway]: ./business/13_研发中台/16_网关管理服务.md
+[alinesno-cloud-member]: ./business/13_研发中台/17_会员管理服务.md
+[alinesno-cloud-base-workflow]: ./business/13_研发中台/18_工作流管理服务.md
 
 **相关产品使用和运营架构规划**:
 
