@@ -75,8 +75,8 @@
 |  4   |          | 支付管理服务           |   编写中     | alinesno-cloud-base-pay                                            |      | 
 |  6   |          | 存储管理服务           |  完成      | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]                                        |      |
 |  7   |          | 工作流管理服务         |  编写中      | alinesno-cloud-base-workflow                                       |      |
-|  11  |          | 单点登陆管理服务       |   编写中     | alinesno-cloud-platform-cas                                        |      |
-|  12  |          | 内容管理服务           |  编写中      | alinesno-cloud-cms                                                 |      |
+|  11  |          | 单点登陆管理服务       |   完成     | [alinesno-cloud-platform-sso][alinesno-cloud-platform-sso]                                        |      |
+|  12  |          | 内容管理服务           |  初稿      | [alinesno-cloud-cms][alinesno-cloud-cms]                                               |      |
 |  2   |          | 会员管理服务           |   编写中     | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |      |          |                        |        |                                                                    |      |
 |  1   | 数据中台 | 数据中台管理体系       |    编写中    | alinesno-cloud-data-studio                                         |      |
@@ -91,8 +91,10 @@
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
 [chatops]: ./business/18_运维中台/12_自动化运维体系.md
+[alinesno-cloud-cms]: ./business/13_研发中台/14_CMS内容管理平台.md
 [alinesno-cloud-logger]: #
 [alinesno-cloud-operation]: #
+[alinesno-cloud-platform-sso]: ./business/13_研发中台/11_单点登陆管理平台.md
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
 [alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
 [alinesno-cloud-platform]: ./business/13_研发中台/02_云门户管理平台.md
