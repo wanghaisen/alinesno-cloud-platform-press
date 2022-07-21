@@ -153,7 +153,7 @@ export default defineUserConfig({
       {
         text: '业务建设',
         children: [
-          { text: '组织架构', link: '/group/' }
+          { text: '组织架构', link: '/group/01_部门建设/' }
         ]
       },
       {
@@ -565,6 +565,11 @@ export default defineUserConfig({
           text: '组织架构',
           collapsible: true,
           children: genGroupRuleSidebar(0)
+        },
+        {
+          text: '质量体系',
+          collapsible: true,
+          children: genGroupRuleSidebar(2)
         },
         {
           text: '考核标准',
@@ -1313,6 +1318,13 @@ function genGroupRuleSidebar(type) {
       '/group/03_考核标准/02_提升期考核.md',
       '/group/03_考核标准/03_代码规范考核.md',
       '/group/03_考核标准/04_架构师考核.md'
+    ]
+  }
+
+  if (type == 2) {
+    mapArr = [
+      '/group/02_管理体系/21_业务自检表.md',
+      '/group/02_管理体系/20_测试体系.md'
     ]
   }
 

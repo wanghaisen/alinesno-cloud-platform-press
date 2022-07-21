@@ -172,7 +172,7 @@ export default {
   },
   data() {
     return {
-      title: '全新一代企业级数字化中台',
+      title: '全新一代企业级中台系统',
       saasTitle: '企业级数字化平台',
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       helpAll: [
