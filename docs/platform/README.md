@@ -76,7 +76,7 @@
 |      |          |                        |        |                                                                    |      |
 | 1    | 运维中台 | 自动化运维体系         | 完成   | [chatops][chatops]                                                 |      |
 | 2    |          | 审计日志监控服务       | 编写中 | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
-| 3    |          | Ansible 自动化操作服务 | 编写中 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+| 3    |          | Ansible自动化操作服务 | 完成 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
 | 4    |          | 应用监控预警服务       | 编写中 |                                                                    |      |
 |      |          |                        |        |                                                                    |      |
 | 1    | 数据中台 | 数据中台管理体系       | 编写中 | alinesno-cloud-data-studio                                         |      |
@@ -93,8 +93,8 @@
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
 [chatops]: ./business/18_运维中台/12_自动化运维体系.md
 [alinesno-cloud-cms]: ./business/13_研发中台/14_CMS内容管理平台.md
-[alinesno-cloud-logger]: #
-[alinesno-cloud-operation]: #
+[alinesno-cloud-logger]: ./business/18_运维中台/01_审计日志监控平台.md
+[alinesno-cloud-operation]: ./business/18_运维中台/02_Ansible自动化操作平台.md
 [alinesno-cloud-platform-sso]: ./business/13_研发中台/11_单点登陆管理平台.md
 [alinesno-cloud-initializr-admin]: ./business/19_业务中台/01_代码生成脚手架.md
 [alinesno-cloud-authority]: ./business/13_研发中台/01_基础权限管理平台.md
