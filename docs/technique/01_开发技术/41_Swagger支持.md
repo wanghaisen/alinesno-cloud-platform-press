@@ -23,7 +23,7 @@ alinesno:
     title: 文档描述
     version: 2.1.2-RC
     scan-package: com.alinesno.cloud.base.demo.gateway
-    # scan-package: package1;package2 扫描多个包
+    # scan-package: package1;package2 扫描多个包，以英文;号进行分隔
 ```
 
 注意事项：
