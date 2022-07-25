@@ -32,6 +32,11 @@ alinesno:
 - 默认会扫描公共的前端包，即`alinesno-cloud-common-web-*`模块下的前端包
 - 开启 swagger 对启动速度有影响
 
+访问地址:
+```shell
+http://localhost:8080/swagger-ui.html
+```
+
 ### swagger-api 与网关的关系
 
 网关同步的接口是通过 swagger-api 接口进行同步，相应的接口开关与否通过网关平台进行管理的，
