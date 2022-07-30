@@ -9,3 +9,4 @@ Java EE 企业级快速开发平台，基于经典技术组合（Spring Boot、S
 - JDK >= 1.8
 - MySQL >= 5.5
 - Maven >= 3.0
+- node 15.9.0
