@@ -1197,7 +1197,8 @@ function genGatewaySidebar() {
   const mapArr = [
     '/technique/16_网关服务/01_网关场景构架.md',
     '/technique/16_网关服务/02_网关配置.md',
-    '/technique/16_网关服务/03_接口策略配置.md'
+    '/technique/16_网关服务/03_接口策略配置.md', 
+    '/technique/16_网关服务/04_网关功能集成.md'
   ]
   return mapArr.map(i => {
     return i
