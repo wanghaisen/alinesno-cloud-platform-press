@@ -1,4 +1,4 @@
-# 环境建设
+# 研发环境建设
 
 ## 概述
 
@@ -21,6 +21,23 @@
 - 这里不包含 cicd 工具，不使用 k8s，此部分属于技术体系[查看](#)
 - 部署以 docker 镜像部署，而非 k8s
 - 日志存储为单独服务器，不包含这上面
+
+## 基础环境要求
+
+研发中台基础环境要求按最小需求进行安装，以减少团队在应用层面上的最小部署负担
+
+- 【必须】mysql，查看安装文档 [打开][mysql]
+- 【必须】redis，查看安装文档 [打开][redis]
+- 【可选】minio，查看安装文档 [打开][minio]
+- 【可选】elasticsearch，查看安装文档 [打开][elasticsearch]
+
+
+> 可选是根据安装组件和规模进行安装
+
+[mysql]: /operation/08_mysql/01_MySQL单点安装.md
+[redis]: /operation/06_redis/01_Redis单点安装.md
+[minio]: /operation/27_minio/01_MinIO单机安装.md
+[elasticsearch]: /operation/22_elk/04_elk单机版本安装.md
 
 ## 其它
 

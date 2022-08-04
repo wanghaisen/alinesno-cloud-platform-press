@@ -407,20 +407,22 @@ export default defineUserConfig({
       ],
       '/env/development/': [
         {
-          text: '基础服务',
+          text: '研发中台安装',
           collapsible: true,
           children: genBaseServiceSidebar()
         },
-        {
-          text: '组件服务',
-          collapsible: true,
-          children: genToolsServiceSidebar()
-        },
-        {
-          text: '业务服务',
-          collapsible: true,
-          children: genBusinessServiceSidebar()
-        },
+
+        // {
+        //   text: '组件服务',
+        //   collapsible: true,
+        //   children: genToolsServiceSidebar()
+        // },
+        // {
+        //   text: '业务服务',
+        //   collapsible: true,
+        //   children: genBusinessServiceSidebar()
+        // },
+
         {
           text: '运维监控',
           collapsible: true,
@@ -933,6 +935,8 @@ function genBaseSoftwareSidebar() {
   const mapArr = [
     '/operation/05_jdk/01_Linux的JDK配置.md',
     '/operation/09_nginx/01_nginx单点安装.md',
+    '/operation/08_mysql/01_MySQL单点安装.md',
+    '/operation/06_redis/01_Redis单点安装.md',
     '/operation/09_nginx/04_kong单机安装.md',
     '/operation/07_kafka/01_Kafka单点安装.md',
     '/operation/08_mysql/04_MySQL网络安装.md',
@@ -1901,11 +1905,12 @@ function genDataMonitorSidebar(type) {
 // 基础服务
 function genBaseServiceSidebar() {
   const mapArr = [
-    '/env/development/01_统一权限服务.md',
-    '/env/development/02_研发门户服务.md',
-    '/env/development/14_Oauth2授权服务.md',
-    '/env/development/05_代码生成器服务.md',
-    '/env/development/03_门户管理服务.md'
+    '/env/development/',
+    '/env/development/install/21_安装流程.md',
+    '/env/development/install/22_在线安装.md',
+    '/env/development/install/23_离线安装.md',
+    '/env/development/install/24_Jenkinsfile安装.md',
+    '/env/development/install/25_Docker单独安装.md'
   ]
 
   return mapArr.map(i => {
