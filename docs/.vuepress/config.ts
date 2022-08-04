@@ -380,7 +380,7 @@ export default defineUserConfig({
       ],
       '/operation': [
         {
-          text: '自动化运维',
+          text: '技术研发体系',
           collapsible: true,
           children: genAutoOperationSidebar()
         },
@@ -1862,6 +1862,7 @@ function genDistributedLearnSidebar(type) {
 // 数据仓库
 function genDatahourceSidebar(type) {
   const mapArr = [
+    '/data/onedata/',
     '/data/onedata/01_数据仓库.md',
     '/data/onedata/04_元数据管理.md',
     '/data/onedata/02_实时环境.md',
