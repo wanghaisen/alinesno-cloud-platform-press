@@ -640,6 +640,11 @@ export default defineUserConfig({
           children: genDevTechniqueSidebar()
         },
         {
+          text: '运维监控',
+          collapsible: true,
+          children: genMonitorSidebar()
+        },
+        {
           text: '配置中心',
           collapsible: true,
           children: genConfigSidebar()
@@ -1077,6 +1082,23 @@ function genDevTechniqueSidebar() {
     return i
   })
 }
+
+/**
+ * 运维监控
+ */
+function genMonitorSidebar() {
+  const mapArr = [
+    '/technique/07_质量监控/',
+    '/technique/07_质量监控/06_prometheus监控.md',
+    '/technique/07_质量监控/01_ContiPerf压力测试.md',
+    '/technique/07_质量监控/03_链路跟踪.md',
+    '/technique/07_质量监控/02_数据库监控.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+}
+
 
 function genConfigSidebar() {
   const mapArr = [
