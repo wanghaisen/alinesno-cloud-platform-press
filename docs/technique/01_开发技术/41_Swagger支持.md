@@ -34,6 +34,7 @@ alinesno:
 
 访问地址:
 ```shell
+// 将8080端口改成后端应用的端口
 http://localhost:8080/swagger-ui.html
 ```
 
