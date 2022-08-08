@@ -1930,7 +1930,7 @@ function genBaseServiceSidebar() {
   const mapArr = [
     '/env/development/',
     '/env/development/install/21_安装流程.md',
-    '/env/development/install/22_在线安装.md',
+    // '/env/development/install/22_在线安装.md',
     '/env/development/install/25_Docker单独安装.md',
     '/env/development/install/24_Jenkinsfile安装.md'
 
