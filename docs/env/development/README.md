@@ -39,6 +39,20 @@
 [minio]: /operation/27_minio/01_MinIO单机安装.md
 [elasticsearch]: /operation/22_elk/04_elk单机版本安装.md
 
+## 安装方式
+
+这里主要集成多种安装方式，针对不同的场景，如下：
+
+- 【推荐】在线安装，[打开][online_install]
+- 【一般】离线安装，[打开][offline_install]
+- 【一般】源码安装，[打开][source_install]
+
+针对团队不同的情况进行选择安装。
+
+[online_install]: /env/development/install/21_安装流程.md
+[offline_install]: /env/development/install/25_Docker单独安装.md
+[source_install]: /env/development/install/24_Jenkinsfile安装.md
+
 ## 其它
 
 - 无
