@@ -39,6 +39,13 @@
 [minio]: /operation/27_minio/01_MinIO单机安装.md
 [elasticsearch]: /operation/22_elk/04_elk单机版本安装.md
 
+
+## 网络策略要求
+
+针对于内部网络安全等因素，需要开通的端口策略如下：
+
+> 待补充
+
 ## 安装方式
 
 这里主要集成多种安装方式，针对不同的场景，如下：
