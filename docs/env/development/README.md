@@ -27,8 +27,8 @@
 研发中台基础环境要求按最小需求进行安装，以减少团队在应用层面上的最小部署负担
 
 - 【必须】mysql，查看安装文档 [打开][mysql]
-- 【必须】redis，查看安装文档 [打开][redis]
-- 【可选】minio，查看安装文档 [打开][minio]
+- 【可选】redis，查看安装文档 [打开][redis]
+- 【必须】minio，查看安装文档 [打开][minio]
 - 【可选】elasticsearch，查看安装文档 [打开][elasticsearch]
 
 
