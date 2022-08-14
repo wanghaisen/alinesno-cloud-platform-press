@@ -1,6 +1,25 @@
-# MySQL 单点教程
+# MySQL8 单点教程
 
-### 安装
+## 你将获取
+
+- docker快速安装mysql8
+- 生产环境安装使用mysql8
+
+## docker快速体验
+
+以下快速体验只为开发过程临时使用，数据存储在docker里面，数据未做安全配置
+
+```shell
+docker run -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Admin123! --name mysql -d mysql:8.0.18
+```
+
+安装完成访问账号密码为：
+```shell
+账号: root
+密码: Admin123!
+```
+
+## 安装
 
 > 安装过程使用 root 操作
 
@@ -66,7 +85,7 @@ make -j `grep processor /proc/cpuinfo | wc -l`
 make install
 ```
 
-### 配置数据库
+## 配置数据库
 
 初始化数据库
 
