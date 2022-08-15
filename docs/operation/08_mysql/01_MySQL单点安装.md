@@ -19,7 +19,7 @@ docker run \
 	-d registry.cn-shenzhen.aliyuncs.com/alinesno-base/mysql:8.0.18
 ```
 
-查看运行状态
+以上配置，数据库的数据映射到本地`/opt/acp-mysql8`目录下，查看运行状态
 
 ```shell
 docker ps | grep mysql
