@@ -7,10 +7,22 @@
 
 ## docker快速体验
 
-以下快速体验只为开发过程临时使用，数据存储在docker里面，数据未做安全配置
+以下快速体验只为开发过程临时使用，数据未做安全配置
 
 ```shell
-docker run -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Admin123! --name mysql -d mysql:8.0.18
+docker run \
+	-p 3306:3306 \
+	-v /opt/acp-mysql8/data:/var/lib/mysql \
+  	-v /opt/acp-mysql8/my.cnf:/etc/mysql/conf.d/my.cnf \
+	-e MYSQL_ROOT_PASSWORD=Admin123! \
+	--name acp-mysql8 \
+	-d registry.cn-shenzhen.aliyuncs.com/alinesno-base/mysql:8.0.18
+```
+
+查看运行状态
+
+```shell
+docker ps | grep mysql
 ```
 
 安装完成访问账号密码为：
