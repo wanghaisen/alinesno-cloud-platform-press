@@ -1,4 +1,5 @@
 import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
 import { localTheme } from './theme'
 // const { path } = require('@vuepress/utils')
 
@@ -22,12 +23,12 @@ export default defineUserConfig({
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
   bundler: viteBundler({
-    viteOptions: {
-      // @ts-expect-error: vite 还没有给 ssr 配置项提供类型
+      viteOptions: {
       ssr: {
-        noExternal: ['foo-lib'],
+        noExternal: ['vuepress-plugin-clipboard'],
       },
-    },
+      },
+      vuePluginOptions: {},
   }),
   plugins: [
     clipboardPlugin({
