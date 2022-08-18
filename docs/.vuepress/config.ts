@@ -21,6 +21,14 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
+  bundler: viteBundler({
+    viteOptions: {
+      // @ts-expect-error: vite 还没有给 ssr 配置项提供类型
+      ssr: {
+        noExternal: ['foo-lib'],
+      },
+    },
+  }),
   plugins: [
     clipboardPlugin({
        align: 'top' ,
