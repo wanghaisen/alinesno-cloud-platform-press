@@ -7,7 +7,7 @@ const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
 
-// import { clipboardPlugin } from "vuepress-plugin-clipboard";
+import { clipboardPlugin } from "vuepress-plugin-clipboard";
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
@@ -22,12 +22,12 @@ export default defineUserConfig({
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
   plugins: [
-    // clipboardPlugin({
-      // align: 'top' ,
-      // color: '#fff' ,
-      // successText: '复制成功!' ,
-      // successTextColor: '#fff'
-    // }),
+    clipboardPlugin({
+      align: 'top' ,
+      color: '#fff' ,
+      successText: '复制成功!' ,
+      successTextColor: '#fff'
+    }),
     sitemapPlugin({
       // 配置选项
       hostname: 'http://alinesno-platform.linesno.com' ,
