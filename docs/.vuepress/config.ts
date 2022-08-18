@@ -2,12 +2,12 @@ import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
 // const { path } = require('@vuepress/utils')
 
-const { nprogressPlugin } = require('@vuepress/plugin-nprogress') 
+const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
 const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
 
-import { clipboardPlugin } from "vuepress-plugin-clipboard"; 
+// import { clipboardPlugin } from "vuepress-plugin-clipboard";
 import { feedPlugin } from "vuepress-plugin-feed2";
 import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 import { readingTimePlugin } from "vuepress-plugin-reading-time2";
@@ -22,12 +22,12 @@ export default defineUserConfig({
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
   plugins: [
-    clipboardPlugin({
-      align: 'top' ,
-      color: '#fff' ,
-      successText: '复制成功!' ,
-      successTextColor: '#fff'
-    }),
+    // clipboardPlugin({
+      // align: 'top' ,
+      // color: '#fff' ,
+      // successText: '复制成功!' ,
+      // successTextColor: '#fff'
+    // }),
     sitemapPlugin({
       // 配置选项
       hostname: 'http://alinesno-platform.linesno.com' ,
@@ -1223,7 +1223,7 @@ function genGatewaySidebar() {
   const mapArr = [
     '/technique/16_网关服务/01_网关场景构架.md',
     '/technique/16_网关服务/02_网关配置.md',
-    '/technique/16_网关服务/03_接口策略配置.md', 
+    '/technique/16_网关服务/03_接口策略配置.md',
     '/technique/16_网关服务/04_网关功能集成.md'
   ]
   return mapArr.map(i => {

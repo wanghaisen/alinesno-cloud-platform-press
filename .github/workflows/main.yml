@@ -23,15 +23,20 @@ jobs:
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
+          sudo chmod +x qiniu-upload.sh
+          ./qiniu-upload.sh
+
+      # - name: Deploy 🚀
+        # uses: JamesIves/github-pages-deploy-action@releases/v3
+        # with:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # BRANCH: gh-pages # The branch the action should deploy to.
+          # FOLDER: docs/.vuepress/dist # The folder the action should deploy.
+
+      - name: Upload Qiniu🚀
+        run: |
           yarn install
           yarn run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: docs/.vuepress/dist # The folder the action should deploy.
 
       - name: Build the Docker image
         run: |
@@ -96,7 +101,7 @@ jobs:
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
             ### 💯👨‍💻 文档构建成功
-            project: alinesno-cloud-platform(${{ env.PRO_VERSION }}) 
+            project: alinesno-cloud-platform(${{ env.PRO_VERSION }})
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} success
             > ^_^ from github action message
       - name: maven build failure
@@ -108,6 +113,6 @@ jobs:
           at: ${{ secrets.DINGTALK_AT_USER }}
           content: |
             ### 💤🤷‍♀️ 文档构建失败
-            project: alinesno-cloud-platform(${{ env.PRO_VERSION }}) 
+            project: alinesno-cloud-platform(${{ env.PRO_VERSION }})
             > Maven Build of [# ${{ env.PR_TITLE }}-${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} failure
             > (⋟﹏⋞)   from github action message
