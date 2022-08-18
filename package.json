@@ -6,6 +6,7 @@
     "repository": "https://github.com/alinesno-cloud/alinesno-cloud-platform-press",
     "author": "weixiaojin",
     "license": "Apache",
+    "type": "module",
     "scripts": {
         "dev": "vuepress dev docs",
         "build": "vuepress build docs",
