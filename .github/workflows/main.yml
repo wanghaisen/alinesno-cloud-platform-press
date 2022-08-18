@@ -31,9 +31,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '15.9.0'
-        run: |
-          yarn install
-          yarn run build
+      - run: yarn install
+      - run: npm run build --if-present
 
       # - name: Deploy 🚀
         # uses: JamesIves/github-pages-deploy-action@releases/v3
