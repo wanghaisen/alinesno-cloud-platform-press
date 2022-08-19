@@ -1,19 +1,13 @@
 import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
-
-// import { viteBundler } from '@vuepress/bundler-vite'
-// import { defineUserConfig } from '@vuepress/cli'
 // const { path } = require('@vuepress/utils')
 
-const { nprogressPlugin } = require('@vuepress/plugin-nprogress')
-const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
-const { mediumZoomPlugin } = require('@vuepress/plugin-medium-zoom')
-const { docsearchPlugin } = require("@vuepress/plugin-docsearch");
+import { nprogressPlugin } from '@vuepress/plugin-nprogress' 
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+import { docsearchPlugin } from "@vuepress/plugin-docsearch"
 
-// import { clipboardPlugin } from "vuepress-plugin-clipboard";
 import { feedPlugin } from "vuepress-plugin-feed2";
-import { sitemapPlugin } from "vuepress-plugin-sitemap2";
-// import { readingTimePlugin } from "vuepress-plugin-reading-time2";
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -25,21 +19,6 @@ export default defineUserConfig({
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
   plugins: [
-    // clipboardPlugin({
-       // align: 'top' ,
-       // color: '#fff' ,
-       // successText: '复制成功!' ,
-       // successTextColor: '#fff'
-    // }),
-    sitemapPlugin({
-      // 配置选项
-      hostname: 'http://alinesno-platform.linesno.com' ,
-      changefreq: 'daily' ,
-
-    }),
-    // readingTimePlugin({
-      // // 你的选项
-    // }),
     feedPlugin({
       // 插件选项
       hostname: 'http://alinesno-platform.linesno.com' ,
@@ -50,9 +29,6 @@ export default defineUserConfig({
     mediumZoomPlugin({
       // 配置项
     }),
-    '@renovamen/vuepress-plugin-baidu-tongji', {
-      'ba': 'd56b5be4e3fa14164ffdc68ade2beef9'
-    },
     docsearchPlugin({
       appId: 'HAT6A1ER66',
       apiKey: '1c5e0970f29dd7423d668b1fd245a7e2',
