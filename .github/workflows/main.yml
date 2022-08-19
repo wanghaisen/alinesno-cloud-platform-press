@@ -41,10 +41,10 @@ jobs:
           # BRANCH: gh-pages # The branch the action should deploy to.
           # FOLDER: docs/.vuepress/dist # The folder the action should deploy.
 
-#       - name: Upload Qiniu🚀
-#         run: |
-#           sudo chmod +x qiniu-upload.sh
-#           ./qiniu-upload.sh docs/.vuepress/dist
+      - name: Upload Qiniu🚀
+        run: |
+          sudo chmod +x qiniu-upload.sh
+          ./qiniu-upload.sh docs/.vuepress/dist
 
       - name: Build the Docker image
         run: |
