@@ -223,39 +223,39 @@ export default defineUserConfig({
           text: '中台演示',
           collapsible: true,
           children: genSolutionPlatformSidebar()
-        },
-        {
-          text: '组件演示',
-          collapsible: true,
-          children: genSolutionComponentSidebar()
-        },
-        {
-          text: '运维演示',
-          collapsible: true,
-          children: genSolutionOperationSidebar()
         }
+        // {
+        //   text: '组件演示',
+        //   collapsible: true,
+        //   children: genSolutionComponentSidebar()
+        // },
+        // {
+        //   text: '运维演示',
+        //   collapsible: true,
+        //   children: genSolutionOperationSidebar()
+        // }
       ],
       '/design/overview': [
         {
-          text: '平台介绍',
+          text: '中台介绍',
           collapsible: true,
           children: genDesignSidebar(1)
         },
-        {
-          text: '平台架构',
-          collapsible: true,
-          children: genDesignSidebar(2)
-        },
-        {
-          text: '项目规划',
-          collapsible: true,
-          children: genDesignSidebar(3)
-        },
-        {
-          text: '建设规划',
-          collapsible: true,
-          children: genDesignSidebar(4)
-        }
+        // {
+        //   text: '平台架构',
+        //   collapsible: true,
+        //   children: genDesignSidebar(2)
+        // },
+        // {
+        //   text: '项目规划',
+        //   collapsible: true,
+        //   children: genDesignSidebar(3)
+        // },
+        // {
+        //   text: '建设规划',
+        //   collapsible: true,
+        //   children: genDesignSidebar(4)
+        // }
       ],
       '/design/business': [
         {
@@ -1620,7 +1620,10 @@ function genDataOperationSidebar() {
 function genDesignSidebar(menus) {
   if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/design/overview/']
+    const mapArr = [
+      '/design/overview/',
+      '/design/overview/04_数字化战略架构.md'
+   ]
 
     return mapArr.map(i => {
       return i
@@ -1628,8 +1631,8 @@ function genDesignSidebar(menus) {
   } else if (menus == 2) {
     // 平台架构
     const mapArr = [
-      '/design/overview/04_数字化战略架构.md',
-      '/design/overview/05_技术平台架构设计.md'
+      '/design/overview/04_数字化战略架构.md'
+      // '/design/overview/05_技术平台架构设计.md'
     ]
 
     return mapArr.map(i => {
@@ -1725,8 +1728,8 @@ function genServiceSidebar() {
     '/framework/service/01_服务规划规范.md',
     '/framework/service/02_基础服务规划.md',
     '/framework/service/03_业务服务规划.md',
-    '/framework/service/04_应用服务规划.md',
-    '/framework/service/09_示例服务规划.md'
+    '/framework/service/04_应用服务规划.md'
+    // '/framework/service/09_示例服务规划.md'
   ]
   return mapArr.map(i => {
     return i
