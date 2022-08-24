@@ -1204,7 +1204,9 @@ function genGatewaySidebar() {
     '/technique/16_网关服务/02_网关配置.md',
     '/technique/16_网关服务/03_接口策略配置.md',
     '/technique/16_网关服务/04_网关功能集成.md',
-    '/technique/16_网关服务/05_管理接口.md'
+    '/technique/16_网关服务/05_管理接口.md',
+    '/technique/16_网关服务/06_路由管理.md',
+    '/technique/16_网关服务/07_授权管理.md'
   ]
   return mapArr.map(i => {
     return i
