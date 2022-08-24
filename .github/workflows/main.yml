@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       # 配置环境变量，包括阿里云镜像的名称，版本号，还有命名空间
       ALIYUN_CR_HOST: registry.cn-shenzhen.aliyuncs.com
