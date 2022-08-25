@@ -37,7 +37,7 @@ jobs:
 
       - name: Build Docs
         env:
-          NODE_OPTIONS: "--max-old-space-size=8192"
+          NODE_OPTIONS: "--max-old-space-size=6144"
         run: npm run docs:build
 
       - name: Build the Docker image
