@@ -153,7 +153,7 @@ export default defineUserConfig({
         ]
       },
       {
-        text: '商业授权',
+        text: '产品服务',
         link: '/prices/'
       },
       {
