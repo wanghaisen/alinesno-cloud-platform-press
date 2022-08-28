@@ -2,7 +2,7 @@ import { defineUserConfig } from 'vuepress'
 import { localTheme } from './theme'
 // const { path } = require('@vuepress/utils')
 
-import { nprogressPlugin } from '@vuepress/plugin-nprogress' 
+import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { docsearchPlugin } from "@vuepress/plugin-docsearch"
