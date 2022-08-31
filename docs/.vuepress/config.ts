@@ -224,16 +224,16 @@ export default defineUserConfig({
           collapsible: true,
           children: genSolutionPlatformSidebar()
         },
-        {
-          text: '组件演示',
-          collapsible: true,
-          children: genSolutionComponentSidebar()
-        },
-        {
-          text: '运维演示',
-          collapsible: true,
-          children: genSolutionOperationSidebar()
-        }
+        // {
+        //   text: '组件演示',
+        //   collapsible: true,
+        //   children: genSolutionComponentSidebar()
+        // },
+        // {
+        //   text: '运维演示',
+        //   collapsible: true,
+        //   children: genSolutionOperationSidebar()
+        // }
       ],
       '/design/overview': [
         {
@@ -402,28 +402,28 @@ export default defineUserConfig({
         //   children: genBusinessServiceSidebar()
         // },
 
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genOperationServiceSidebar()
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genOperationServiceSidebar()
+        // }
       ],
       '/data/onedata/': [
-        {
-          text: '数据仓库',
-          collapsible: true,
-          children: genDatahourceSidebar(0)
-        },
+        // {
+        //   text: '数据仓库',
+        //   collapsible: true,
+        //   children: genDatahourceSidebar(0)
+        // },
         {
           text: '数据治理',
           collapsible: true,
           children: genDataToolsSidebar(1)
         },
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genDataMonitorSidebar(2)
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genDataMonitorSidebar(2)
+        // }
       ],
       '/data/framework/': [
         {
@@ -446,26 +446,26 @@ export default defineUserConfig({
           collapsible: true,
           children: genDataWarehouseAnalyzeSidebar()
         },
-        {
-          text: '数据可视化',
-          collapsible: true,
-          children: genDataVisualSidebar()
-        },
-        {
-          text: '机器学习',
-          collapsible: true,
-          children: genMachineLearningSidebar()
-        },
+        // {
+        //   text: '数据可视化',
+        //   collapsible: true,
+        //   children: genDataVisualSidebar()
+        // },
+        // {
+        //   text: '机器学习',
+        //   collapsible: true,
+        //   children: genMachineLearningSidebar()
+        // },
         {
           text: '数据管理系统',
           collapsible: true,
           children: genDataManagerSidebar()
         },
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genDataOperationSidebar()
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genDataOperationSidebar()
+        // }
       ],
       '/platform/': [
         {
@@ -552,11 +552,11 @@ export default defineUserConfig({
           collapsible: true,
           children: genGroupRuleSidebar(2)
         },
-        {
-          text: '考核标准',
-          collapsible: true,
-          children: genGroupRuleSidebar(1)
-        }
+        // {
+        //   text: '考核标准',
+        //   collapsible: true,
+        //   children: genGroupRuleSidebar(1)
+        // }
       ],
       '/business/': [
         {
@@ -668,11 +668,11 @@ export default defineUserConfig({
           collapsible: true,
           children: genWorkflowSidebar()
         },
-        {
-          text: '支付服务',
-          collapsible: true,
-          children: genPaymentSidebar()
-        },
+        // {
+        //   text: '支付服务',
+        //   collapsible: true,
+        //   children: genPaymentSidebar()
+        // },
         {
           text: '自动化操作',
           collapsible: true,
@@ -1419,10 +1419,10 @@ function genPlatformBusinessSidebar(type) {
       '/platform/business/13_研发中台/01_基础权限管理平台.md',
       '/platform/business/13_研发中台/02_云门户管理平台.md',
       '/platform/business/13_研发中台/03_通知管理平台.md',
-      '/platform/business/13_研发中台/04_支付管理平台.md',
-      '/platform/business/13_研发中台/05_文档打印管理平台.md',
+      // '/platform/business/13_研发中台/04_支付管理平台.md',
+      // '/platform/business/13_研发中台/05_文档打印管理平台.md',
       '/platform/business/13_研发中台/06_存储管理平台.md',
-      '/platform/business/13_研发中台/07_工作流管理平台.md',
+      // '/platform/business/13_研发中台/07_工作流管理平台.md',
       '/platform/business/13_研发中台/08_数据开放平台.md',
       // '/platform/business/13_研发中台/09_分布式定时任务平台.md',
       '/platform/business/13_研发中台/11_单点登陆管理平台.md',
@@ -1515,10 +1515,10 @@ function genEnvSidebar(menus) {
 function genDataFrameworkSidebar() {
   const mapArr = [
     '/data/framework/',
-    '/data/framework/01_业务架构/02_数中建设目标.md',
+    // '/data/framework/01_业务架构/02_数中建设目标.md',
     '/data/framework/01_业务架构/03_业务架构设计.md',
-    '/data/framework/01_业务架构/04_技术架构设计.md',
-    '/data/framework/10_其它/01_注意事项.md'
+    // '/data/framework/01_业务架构/04_技术架构设计.md',
+    // '/data/framework/10_其它/01_注意事项.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1556,7 +1556,7 @@ function genDataWarehouseCollectSidebar() {
 
 function genDataWarehouseAnalyzeSidebar() {
   const mapArr = [
-    '/data/framework/05_数据分析/03_数据指标.md',
+    // '/data/framework/05_数据分析/03_数据指标.md',
     '/data/framework/05_数据分析/01_离线计算.md',
     '/data/framework/05_数据分析/02_实时计算.md'
   ]
@@ -1578,8 +1578,8 @@ function genDataVisualSidebar() {
 function genMachineLearningSidebar() {
   const mapArr = [
     '/data/framework/07_机器学习/04_推荐系统.md',
-    '/data/framework/07_机器学习/01_数据建模.md',
-    '/data/framework/07_机器学习/02_模型学习.md'
+    // '/data/framework/07_机器学习/01_数据建模.md',
+    // '/data/framework/07_机器学习/02_模型学习.md'
     // '/data/framework/07_机器学习/03_人物画像.md'
   ]
   return mapArr.map(i => {
@@ -1594,9 +1594,9 @@ function genDataManagerSidebar() {
     // '/data/framework/08_管理系统/07_数据开发平台.md',
     '/data/framework/08_管理系统/05_数据分析平台.md',
     '/data/framework/08_管理系统/06_数据治理平台.md',
-    '/data/framework/08_管理系统/01_指标管理系统.md',
-    '/data/framework/08_管理系统/02_数据质量中心.md',
-    '/data/framework/08_管理系统/04_数据开放平台.md'
+    // '/data/framework/08_管理系统/01_指标管理系统.md',
+    // '/data/framework/08_管理系统/02_数据质量中心.md',
+    // '/data/framework/08_管理系统/04_数据开放平台.md'
   ]
   return mapArr.map(i => {
     return i
