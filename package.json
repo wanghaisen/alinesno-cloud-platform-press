@@ -5,18 +5,19 @@
     "main": "index.js",
     "repository": "https://github.com/alinesno-cloud/alinesno-cloud-platform-press",
     "author": "weixiaojin",
-    "license": "Apache 2.0",
-      "scripts": {
+    "license": "Apache-2.0",
+    "scripts": {
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs",
         "test": "echo \"Error: no test specified\" && exit 1"
-      },
+    },
     "lint-staged": {
         "*.{json,css,md,vue}": [
             "git add"
         ]
     },
     "devDependencies": {
+        "@vuepress/bundler-vite": "^2.0.0-beta.50",
         "@vuepress/plugin-docsearch": "^2.0.0-beta.49",
         "@vuepress/plugin-google-analytics": "^2.0.0-beta.49",
         "@vuepress/plugin-medium-zoom": "^2.0.0-beta.49",

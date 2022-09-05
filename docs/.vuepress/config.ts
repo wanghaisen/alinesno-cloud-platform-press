@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
 import { localTheme } from './theme'
-// const { path } = require('@vuepress/utils')
 
 import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
@@ -18,6 +18,10 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
   plugins: [
     feedPlugin({
       // 插件选项
