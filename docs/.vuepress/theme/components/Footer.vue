@@ -15,7 +15,7 @@
             class="footer-text-product"
             style="padding-top: 10px; margin-bottom: 0px"
           >
-            <a href="javascript:void(0);"> alinesno-cloud-devops(ACD) </a>
+            <a href="javascript:void(0);"> alinesno-cloud-devops(ACOps) </a>
           </p>
           <p
             class="footer-text-product"

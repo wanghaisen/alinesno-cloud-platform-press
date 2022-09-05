@@ -129,18 +129,19 @@ export default defineUserConfig({
         text: '数字规划',
         children: [
           { text: '数字平台规划', link: '/design/overview/' },
+          { text: '组织建设规划', link: '/group/01_部门建设/' },
           { text: '研发中台规划', link: '/framework/' },
           { text: '数据中台规划', link: '/data/framework/' }
         ]
       },
+      // {
+      //   text: '业务建设',
+      //   children: [
+      //     { text: '组织架构', link: '/group/01_部门建设/' }
+      //   ]
+      // },
       {
-        text: '业务建设',
-        children: [
-          { text: '组织架构', link: '/group/01_部门建设/' }
-        ]
-      },
-      {
-        text: '环境建设',
+        text: '部署建设',
         children: [
           { text: '技术平台建设', link: '/operation/' },
           { text: '研发中台建设', link: '/env/development/' },
