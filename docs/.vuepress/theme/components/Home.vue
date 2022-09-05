@@ -20,7 +20,7 @@
         <span class="h4 mb-0">
           <h3>数字中台服务 ACP产品优势</h3>
           <p>
-            企业级研发中台服务 ACP（Alinesno Cloud Platform）是业务应用生命周期管理和监控的新一代中台， 为业务发展提供
+            ACP中台服务（Alinesno Cloud Platform）是业务应用生命周期管理和监控的新一代中台， 为业务发展提供
             基础的数字化架构 ，业务规范化和标准化，更好的沉淀企业业务资产和数据资产,形成行业的业务标准和 团队的一套解决方案，形成自己的核心竞争力
           </p>
         </span>
@@ -172,8 +172,8 @@ export default {
   },
   data() {
     return {
-      title: '全新一代企业级中台系统',
-      saasTitle: '企业级数字化平台',
+      title: '全新一代中台系统',
+      saasTitle: 'ACP数字化平台',
       saasUrl: 'http://v212.ui.saas.dev.lbxinhu.linesno.com:23456/',
       helpAll: [
         {
@@ -237,7 +237,7 @@ export default {
         {
           title: '一套技术DevOps研发体系',
           details:
-            '为企业基础架构和统一研发云平台，为企业提供统一研发平台， 低代码开发平台。整体平台从规范、组织、架构-、业务、持续集成、自动化、在线升级全方位企业级研发平台开发解决方案',
+            '为企业基础架构和统一研发云平台，为企业提供统一研发平台， 低代码开发平台。整体平台从规范、组织、架构-、业务、持续集成、自动化、在线升级全方位企业级数字中台研发解决方案',
           icon: 'fas fa-feather'
         },
         {
