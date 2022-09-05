@@ -1,4 +1,4 @@
-# 企业级数字化中台
+# ACP数字中台
 
 > 本基线主要为了学习交流学习使用，部分图片为网上获取，如有侵权，请说明
 
@@ -172,6 +172,5 @@
 - 自动化工具自动安装工具[kubeaz](mybatis-plus)
 - 日志监控工具[plumelog](mybatis-plus)
 - 前端拖拉生成工具[generator](mybatis-plus)
-- 文档参考改造[vue-element-admin](mybatis-plus)
-- 数据统计工具[datar](mybatis-plus)
+- 文档参考改造[vue-element-admin](mybatis-plus) 
 - ...
