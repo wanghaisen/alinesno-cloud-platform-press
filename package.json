@@ -1,7 +1,7 @@
 {
     "name": "alinenso-cloud-platform-press",
     "version": "2.1.0",
-    "description": "ACP中台服务 ACP（Alinesno Cloud Platform）是业务应用生命周期管理和监控的新一代中台",
+    "description": "ACP中台服务（Alinesno Cloud Platform）是业务应用生命周期管理和监控的新一代中台",
     "main": "index.js",
     "repository": "https://github.com/alinesno-cloud/alinesno-cloud-platform-press",
     "author": "weixiaojin",
