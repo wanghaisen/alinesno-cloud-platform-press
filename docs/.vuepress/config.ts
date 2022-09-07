@@ -213,7 +213,7 @@ export default defineUserConfig({
       ],
       '/prices/': [
         {
-          text: '授权说明',
+          text: '服务说明',
           collapsible: true,
           children: genPricesSidebar(0)
         },
