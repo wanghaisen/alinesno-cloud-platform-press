@@ -164,11 +164,7 @@ export default defineUserConfig({
       {
         text: '中台演示',
         link: '/display/'
-      },
-      {
-        text: '关于团队',
-        link: '/prices/04_商务沟通.md'
-      },              
+      },            
     ],
     sidebar: {
       '/firstlearn/': [
