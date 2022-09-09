@@ -105,7 +105,44 @@ cd /root/tools/spark-2.4.8-pure/bin
 
 在打印的日志中可找到结果值: Pi is roughly 3.1434191434191434
 
-7、启停spark
+7、上传jars到hdfs目录
+
+```java
+[root@hadoopmaster jars]# cd /root/tools/spark-2.4.8-pure/jars
+[root@hadoopmaster jars]# mv orc-core-1.5.5-nohive.jar orc-core-1.5.5-nohive.jar.bak
+[root@hadoopmaster jars]# hadoop fs -mkdir /spark2-jars
+[root@hadoopmaster jars]# hadoop dfs -put *.jar /spark2-jars
+WARNING: Use of this script to execute dfs is deprecated.
+WARNING: Attempting to execute replacement "hdfs dfs" instead.
+
+[root@hadoopmaster jars]# hadoop fs -ls /spark2-jars
+Found 133 items
+-rw-r--r--   3 root supergroup     325335 2022-09-05 15:31 /spark2-jars/RoaringBitmap-0.7.45.jar
+-rw-r--r--   3 root supergroup     134044 2022-09-05 15:30 /spark2-jars/aircompressor-0.10.jar
+-rw-r--r--   3 root supergroup     334662 2022-09-05 15:30 /spark2-jars/antlr4-runtime-4.7.jar
+-rw-r--r--   3 root supergroup      14766 2022-09-05 15:30 /spark2-jars/aopalliance-repackaged-2.4.0-b34.jar
+-rw-r--r--   3 root supergroup    1194003 2022-09-05 15:30 /spark2-jars/arpack_combined_all-0.1.jar
+-rw-r--r--   3 root supergroup      52037 2022-09-05 15:30 /spark2-jars/arrow-format-0.10.0.jar
+-rw-r--r--   3 root supergroup      79283 2022-09-05 15:30 /spark2-jars/arrow-memory-0.10.0.jar
+-rw-r--r--   3 root supergroup    1318940 2022-09-05 15:30 /spark2-jars/arrow-vector-0.10.0.jar
+-rw-r--r--   3 root supergroup     176285 2022-09-05 15:30 /spark2-jars/automaton-1.11-8.jar
+-rw-r--r--   3 root supergroup    1556863 2022-09-05 15:30 /spark2-jars/avro-1.8.2.jar
+-rw-r--r--   3 root supergroup     132989 2022-09-05 15:30 /spark2-jars/avro-ipc-1.8.2.jar
+-rw-r--r--   3 root supergroup     187052 2022-09-05 15:30 /spark2-jars/avro-mapred-1.8.2-hadoop2.jar
+-rw-r--r--   3 root supergroup     125330 2022-09-05 15:31 /spark2-jars/breeze-macros_2.12-0.13.2.jar
+-rw-r--r--   3 root supergroup   13319481 2022-09-05 15:31 /spark2-jars/breeze_2.12-0.13.2.jar
+-rw-r--r--   3 root supergroup      58633 2022-09-05 15:31 /spark2-jars/chill-java-0.9.3.jar
+-rw-r--r--   3 root supergroup     195811 2022-09-05 15:31 /spark2-jars/chill_2.12-0.9.3.jar
+-rw-r--r--   3 root supergroup     284184 2022-09-05 15:31 /spark2-jars/commons-codec-1.10.jar
+-rw-r--r--   3 root supergroup      71626 2022-09-05 15:31 /spark2-jars/commons-compiler-3.0.16.jar
+-rw-r--r--   3 root supergroup     632424 2022-09-05 15:31 /spark2-jars/commons-compress-1.20.jar
+-rw-r--r--   3 root supergroup     134595 2022-09-05 15:31 /spark2-jars/commons-crypto-1.0.0.jar
+-rw-r--r--   3 root supergroup     284220 2022-09-05 15:31 /spark2-jars/commons-lang-2.6.jar
+-rw-r--r--   3 root supergroup     479881 2022-09-05 15:31 /spark2-jars/commons-lang3-3.5.jar
+-rw-r--r--   3 root supergroup    2035066 2022-09-05 15:31 /spark2-jars/commons-math3-3.4.1.jar
+```
+
+8、启停spark
 
 ```java
 cd /root/tools/spark-2.4.8-pure/sbin
@@ -119,7 +156,7 @@ cd /root/tools/spark-2.4.8-pure/sbin
 ./stop-history-server.sh    
 ```
 
-8、开放防火墙端口
+9、开放防火墙端口
 
 如服务器开启防火墙，需要开放hadoop的前端端口
 

@@ -210,15 +210,32 @@ source /etc/profile
 ```
 [root@hadoopmaster jars]# pwd
 /root/tools/spark-2.4.8-pure/jars
-[root@hadoopmaster jars]# ls -alt |grep spark-network-common
--rw-r--r--.  1 hadoop hadoop  2393993 May  8  2021 spark-network-common_2.12-2.4.8.jar
-[root@hadoopmaster jars]# ls -alt |grep spark-core
--rw-r--r--.  1 hadoop hadoop  9183258 May  8  2021 spark-core_2.12-2.4.8.jar
+[root@hadoopmaster jars]# ll |grep scala-compiler
+-rw-r--r--. 1 hadoop hadoop 10672015 May  8  2021 scala-compiler-2.12.10.jar
 [root@hadoopmaster jars]# ls -alt |grep scala-library
 -rw-r--r--.  1 hadoop hadoop  5276900 May  8  2021 scala-library-2.12.10.jar
+[root@hadoopmaster jars]# ll |grep scala-reflect-
+-rw-r--r--. 1 hadoop hadoop  3678534 May  8  2021 scala-reflect-2.12.10.jar
+[root@hadoopmaster jars]# ll |grep spark-core
+-rw-r--r--. 1 hadoop hadoop  9183258 May  8  2021 spark-core_2.12-2.4.8.jar
+[root@hadoopmaster jars]# ll |grep spark-network-common
+-rw-r--r--. 1 hadoop hadoop  2393993 May  8  2021 spark-network-common_2.12-2.4.8.jar
+[root@hadoopmaster jars]# ll|grep spark-unsafe
+-rw-r--r--. 1 hadoop hadoop    49986 May  8  2021 spark-unsafe_2.12-2.4.8.jar
+[root@hadoopmaster jars]# ll |grep spark-yarn
+-rw-r--r--. 1 hadoop hadoop   326570 May  8  2021 spark-yarn_2.12-2.4.8.jar
+[root@hadoopmaster jars]# cp scala-compiler-2.12.10.jar /root/tools/hive-3.1.3/lib
 [root@hadoopmaster jars]# cp scala-library-2.12.10.jar /root/tools/hive-3.1.3/lib
+[root@hadoopmaster jars]# cp scala-reflect-2.12.10.jar /root/tools/hive-3.1.3/lib
 [root@hadoopmaster jars]# cp spark-core_2.12-2.4.8.jar /root/tools/hive-3.1.3/lib
 [root@hadoopmaster jars]# cp spark-network-common_2.12-2.4.8.jar /root/tools/hive-3.1.3/lib
+[root@hadoopmaster jars]# cp spark-unsafe_2.12-2.4.8.jar /root/tools/hive-3.1.3/lib
+[root@hadoopmaster jars]# cp spark-yarn_2.12-2.4.8.jar /root/tools/hive-3.1.3/lib
+[root@hadoopmaster jars]# 
+[root@hadoopmaster lib]# cd /root/tools/hive-3.1.3/lib
+[root@hadoopmaster lib]# [root@hadoopmaster lib]# ls -alt |grep orc-core
+-rw-r--r--.  1 hadoop hadoop   800832 Dec  5  2019 orc-core-1.5.8.jar
+[root@hadoopmaster lib]# hdfs dfs -put orc-core-1.5.8.jar /spark2-jars
 ```
 
 7)、配置hive-env.sh
@@ -408,7 +425,12 @@ spark.eventLog.enabled    true
 spark.eventLog.dir        hdfs://192.168.17.149:9000/spark2-history
 spark.executor.memory     1g
 spark.driver.memory       1g
+
+
+创建hdfs目录  hadoop fs -mkdir /spark2-history
 ```
+
+
 
 11)、初始化hive元数据库
 
@@ -448,5 +470,15 @@ public
 Time taken: 0.569 seconds, Fetched: 2 row(s)
 hive> 
 
+```
+
+13)、验证spark引擎
+
+```
+启动元数据服务 
+hive --service metastore &         ##元数据服务        netstat -anlp |grep 9083   重启前可杀掉进程再启动
+ 
+启动hiveserver2服务 
+hive --service hiveserver2 &        ##支持jdbc查询服务 netstat -anlp |grep 10000 重启前可杀掉进程再启动
 ```
 
