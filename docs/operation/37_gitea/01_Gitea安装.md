@@ -51,7 +51,7 @@ systemctl start gitea
 
 <img src="/operation/gitea/01_gitea.png" width="70%">
 
-配置完毕,等会儿会进入登录页,这时进行注册，第一个注册的用户会自动成为管理员
+配置完毕,等会儿会进入登录页，这时进行注册，第一个注册的用户会自动成为管理员
 <img src="/operation/gitea/02_gitea.png" width="70%">
 <img src="/operation/gitea/03_gitea.png" width="70%">
 
