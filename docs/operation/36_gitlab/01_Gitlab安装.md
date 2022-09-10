@@ -2,7 +2,7 @@
 
 ## 软件安装
 
-### 上传软件至 Linux 服务器`/home/alinesno/soft/`目录
+### 上传rpm文件至 Linux 服务器`/home/alinesno/soft/`目录
 
 > 此处用户可以使用 xftp 或者 xshell 等工具，书要简言
 
@@ -77,8 +77,13 @@ gitlab-ctl tail (服务)   // 例如 gitlab-ctl tail nginx
 cat  /etc/gitlab/initial_root_password
 
 获取密码后用 root/密码 登录
+
 ```
 
 <img src="/operation/gitlab/01_gitlab.png" width="70%">
 
 <img src="/operation/gitlab/02_gitlab.png" width="70%">
+
+## 其它
+
+- 无
