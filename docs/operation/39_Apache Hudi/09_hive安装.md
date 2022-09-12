@@ -241,6 +241,8 @@ source /etc/profile
 7)、配置hive-env.sh
 
 ```
+cp hive-env.sh.template hive-env.sh
+
 vi /root/tools/hive-3.1.3/conf/hive-env.sh
 
 #hadoop_home路径
