@@ -184,17 +184,17 @@ export default defineUserConfig({
           children: genFirestLearnSidebar(5)
         },
         {
-          text: '开发服务云',
+          text: '研发中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(2)
         },
         {
-          text: '流程服务云',
+          text: '业务中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(3)
         },
         {
-          text: '数据服务云',
+          text: '数据治理集成',
           collapsible: true,
           children: genFirestLearnSidebar(4)
         }
