@@ -2063,7 +2063,8 @@ function genPricesSidebar(menus) {
     })
   } else if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    // const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    const mapArr = ['/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
 
     return mapArr.map(i => {
       return i
