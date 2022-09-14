@@ -668,16 +668,16 @@ export default defineUserConfig({
           collapsible: true,
           children: genStorageSidebar()
         },
-        {
-          text: '流程服务',
-          collapsible: true,
-          children: genWorkflowSidebar()
-        },
-        {
-          text: '支付服务',
-          collapsible: true,
-          children: genPaymentSidebar()
-        },
+//         {
+//           text: '流程服务',
+//           collapsible: true,
+//           children: genWorkflowSidebar()
+//         },
+//         {
+//           text: '支付服务',
+//           collapsible: true,
+//           children: genPaymentSidebar()
+//         },
         {
           text: '自动化操作',
           collapsible: true,
