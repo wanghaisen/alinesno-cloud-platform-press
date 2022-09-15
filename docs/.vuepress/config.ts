@@ -164,7 +164,7 @@ export default defineUserConfig({
       {
         text: '中台演示',
         link: '/display/'
-      },            
+      },
     ],
     sidebar: {
       '/firstlearn/': [
@@ -949,11 +949,12 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_Apache Hudi/05_Centos7部署CDH6.2.0.md',
-    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
-    '/operation/39_Apache Hudi/02_Apachekafka安装.md',
+    '/operation/39_Apache Hudi/10_kafka安装.md',
     '/operation/39_Apache Hudi/03_scala安装.md',
-    '/operation/39_Apache Hudi/04_ApacheHudi安装.md'
+    '/operation/39_Apache Hudi/07_hadoop安装.md',
+    '/operation/39_Apache Hudi/08_spark安装.md',
+    '/operation/39_Apache Hudi/09_hive安装.md',
+    '/operation/39_Apache Hudi/06_Hudi安装.md'
   ]
   return mapArr.map(i => {
     return i

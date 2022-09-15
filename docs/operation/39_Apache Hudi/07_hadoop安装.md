@@ -8,7 +8,7 @@
 
 | 软件名称 | 版本号    |
 | -------- | --------- |
-| JDK      | 1.8.0_181 |
+| JDK      | 1.8.0_333 |
 
 ## 经验教训
 
@@ -25,19 +25,18 @@
 2、上传jdk8到服务器。安装后配置环境变量
 
 ```java
-rpm -ivh oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm
+--解压JDK包
+[root@hadoopmaster tools]#tar jdk-8u333-linux-x64.tar.gz
+[root@hadoopmaster tools]#cd  jdk1.8.0_333
     
-cd  /usr/java/
-    
-mv  jdk1.8.0_181-cloudera jdk1.8.0_181   
-    
+--设置JAVA_HOME    
 vi /etc/profile
     
 #java
-export JAVA_HOME=/usr/java/jdk1.8.0_181
+export JAVA_HOME=/root/tools/jdk1.8.0_333
 export JRE_HOME=$JAVA_HOME/jre
 export PATH=$PATH:$JAVA_HOME/bin
-export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar 
+export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
   
 ```
 
@@ -46,39 +45,96 @@ source /etc/profile  使环境配置生效
 3、设置免密登录
 
 ```java
-ssh-keygen -t rsa
+[root@hadoopmaster ~]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:TE38O5hS4GDvLMODQiZE8ia9RRcsvu2oGmaib3dlkxI root@hadoopmaster
+The key's randomart image is:
++---[RSA 2048]----+
+|o.  ..o. ..      |
+|.+ ...+ .o.      |
+|o +..o +....     |
+|.ooo. Eoo . .    |
+| +.  = +So o .   |
+|  . o B O o o    |
+|oo . o B o   .   |
+|=.. o o          |
+|o+oo .           |
++----[SHA256]-----+
+[root@hadoopmaster ~]# 
 
-ssh-copy-id -i root@localhost
+[root@hadoopmaster ~]# ssh-copy-id -i root@localhost
+/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:eYn30+9r1BeS+/iB5vVez5HRufAqv9PaMrfFuExfKWE.
+ECDSA key fingerprint is MD5:e8:43:ae:31:21:91:fa:25:bd:79:f6:7d:74:d7:3b:b2.
+Are you sure you want to continue connecting (yes/no)? yes
+/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@localhost's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'root@localhost'"
+and check to make sure that only the key(s) you wanted were added.
+
+[root@hadoopmaster ~]# 
 ```
 
 4、设置hostname,删除原来的设置localhost.localdomain 
 
 ```java
-cd /etc
-
-cp hostname hostname_20220903bak
-
-vi hostname
-
+[root@hadoopmaster ~]# cd /etc
+[root@hadoopmaster etc]# cp hostname hostname_20220914bak
+[root@hadoopmaster etc]# vi hostname
 hadoopmaster
 
+:wq! 保存后reboot服务器使设置的主机名生效
 ```
 
 5、设置hosts
 
 ```
-cd /etc
+[root@hadoopmaster etc]# ls -alt |grep host
+-rw-r--r--   1 root root       13 Sep 14 14:40 hostname
+-rw-r--r--   1 root root       24 Sep 14 14:39 hostname_20220914bak
+-rw-r--r--   1 root root      212 Sep 14 13:45 hosts
+-rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+-rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+[root@hadoopmaster etc]# cp hosts hosts_20220914bak
+[root@hadoopmaster etc]# vi hosts
+::1     localhost       localhost.localdomain   localhost6      localhost6.localdomain6
+127.0.0.1       localhost       localhost.localdomain   localhost4      localhost4.localdomain4
 
-cp hosts hosts_20220903bak
+172.17.49.195   iZwz9a7sd2zy3h5ytmvwp2Z hadoopmaster
 
-192.168.17.149 hadoopmaster
+:wq! 保存
+
+
+[root@hadoopmaster tools]# ping hadoopmaster
+PING iZwz9a7sd2zy3h5ytmvwp2Z (172.17.49.195) 56(84) bytes of data.
+64 bytes from iZwz9a7sd2zy3h5ytmvwp2Z (172.17.49.195): icmp_seq=1 ttl=64 time=0.013 ms
+64 bytes from iZwz9a7sd2zy3h5ytmvwp2Z (172.17.49.195): icmp_seq=2 ttl=64 time=0.022 ms
+64 bytes from iZwz9a7sd2zy3h5ytmvwp2Z (172.17.49.195): icmp_seq=3 ttl=64 time=0.021 ms
+^C
+--- iZwz9a7sd2zy3h5ytmvwp2Z ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev = 0.013/0.018/0.022/0.006 ms
+[root@hadoopmaster tools]# 
 
 ```
 
 4、解压hadoop安装包
 
 ```java
-cd /root/tools
+[root@hadoopmaster tools]# cd /root/tools
+[root@hadoopmaster tools]# tar -zxvf hadoop-3.3.4.tar.gz
 tar -xvzf hadoop-3.3.4.tar.gz  
 ```
 
@@ -104,41 +160,68 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 
 source  /etc/profile 使环境配置生效
 
-6、修改core-site.xml,在<configuration>中增加配置
+6、修改core-site.xml,在\<configuration>中增加如下\<property>
 
 ```java
-cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp core-site.xml core-site.xml_20220914bak
+[root@hadoopmaster hadoop]# vi core-site.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-cp core-site.xml core-site.xml_20220903bak
+    http://www.apache.org/licenses/LICENSE-2.0
 
-vi core-site.xml
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
 
-<property>
-<name>fs.default.name</name>
-<value>hdfs://192.168.17.149:9000</value>
-</property>
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+    <property>
+    <name>fs.default.name</name>
+    <value>hdfs://172.17.49.195:9000</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.root.groups</name>
+        <value>*</value>
+        <description>Allow the superuser oozie to impersonate any members of the group group1 and group2</description>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.root.hosts</name>
+        <value>*</value>
+        <description>The superuser can connect only from host1 and host2 to impersonate a user</description>
+    </property> 
+</configuration>
+~
+ 
 ```
 
-7、修改 hdfs-site.xml,在<configuration>中增加配置
+7、修改 hdfs-site.xml,在\<configuration>中增加如下\<property>
 
 ```java
-cd /root/tools/hadoop-3.3.4/etc/hadoop
-
-cp hdfs-site.xml hdfs-site.xml_20220903bak
-
-vi hdfs-site.xml
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp hdfs-site.xml hdfs-site.xml_20220914bak
+[root@hadoopmaster hadoop]# vi hdfs-site.xml
 
 <property>
-<name>dfs.namenode.name.dir</name>
-<value>/root/hadoop_store/hdfs/namenode2</value>
+    <name>dfs.namenode.name.dir</name>
+    <value>/root/hadoop_store/hdfs/namenode2</value>
 </property>
 <property>
-<name>dfs.datanode.data.dir</name>
-<value>/root/hadoop_store/hdfs/datanode2</value>
+    <name>dfs.datanode.data.dir</name>
+    <value>/root/hadoop_store/hdfs/datanode2</value>
 </property>
 <property>
-<name>dfs.http.address</name>
-<value>0.0.0.0:50070</value>
+    <name>dfs.http.address</name>
+    <value>0.0.0.0:50070</value>
 </property>
 
 ```
@@ -146,155 +229,150 @@ vi hdfs-site.xml
 保存后，创建对应的目录
 
 ```java
-mkdir -p /root/hadoop_store/hdfs/namenode2
-
-mkdir -p /root/hadoop_store/hdfs/namenode2
+[root@hadoopmaster hadoop]# mkdir -p /root/hadoop_store/hdfs/namenode2
+[root@hadoopmaster hadoop]# mkdir -p /root/hadoop_store/hdfs/datanode2
+[root@hadoopmaster hadoop]# 
 ```
 
-8、修改mapred-site.xml,在<configuration>中增加配置
+8、修改mapred-site.xml,在\<configuration>中增加如下\<property>
 
 ```
-cd /root/tools/hadoop-3.3.4/etc/hadoop
-
-cp mapred-site.xml  mapred-site.xml_20220903bak
-
-vi mapred-site.xml
-
-<property>
-<name>mapreduce.framework.name</name>
-<value>yarn</value>
-</property>
-<property>
-<name>mapreduce.job.tracker</name>
-<value>hdfs://192.167.17.149:8001</value>
-<final>true</final>
-</property>
-<property>
-<name>yarn.app.mapreduce.am.env</name>
-<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
-</property>
-<property>
-<name>mapreduce.map.env</name>
-<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
-</property>
-<property>
-<name>mapreduce.reduce.env</name>
-<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
-</property>
-
-<!--  开启jobhistory服务--> 
-<property>
-<name>mapreduce.jobhistory.address</name>
-<value>192.168.17.149:10020</value>
-</property>
-
-<property>
-<name>mapreduce.jobhistory.webapp.address</name>
-<value>192.168.17.149:19888</value>
-</property>
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp mapred-site.xml mapred-site.xml_20220914bak
+[root@hadoopmaster hadoop]# vi mapred-site.xml
+    <property>
+			<name>mapreduce.framework.name</name>
+			<value>yarn</value>
+	</property>
+	<property>
+			<name>mapreduce.job.tracker</name>
+			<value>hdfs://172.17.49.195:8001</value>
+			<final>true</final>
+	</property>
+	<property>
+			<name>yarn.app.mapreduce.am.env</name>
+			<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
+	</property>
+	<property>
+			<name>mapreduce.map.env</name>
+			<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
+	</property>
+	<property>
+			<name>mapreduce.reduce.env</name>
+			<value>HADOOP_MAPRED_HOME=/root/tools/hadoop-3.3.4</value>
+	</property>
+	
+	<!--  开启jobhistory服务--> 
+	<property>
+	   <name>mapreduce.jobhistory.address</name>
+	   <value>172.17.49.195:10020</value>
+	</property>
+	
+	<property>
+	   <name>mapreduce.jobhistory.webapp.address</name>
+	   <value>172.17.49.195:19888</value>
+	</property>
 
 ```
 
-9、修改yarn-site.xml,在<configuration>中增加配置
+9、修改yarn-site.xml,在\<configuration>中增加如下\<property>
 
 ```
-cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp yarn-site.xml yarn-site.xml_20220914bak
+[root@hadoopmaster hadoop]# vi yarn-site.xml
 
-cp yarn-site.xml yarn-site.xml_20220903bak
-
-vi yarn-site.xml
-
-<property>
-<!--  为mr程序提供shuffle服务 -->
-<name>yarn.nodemanager.aux-services</name>
-<value>mapreduce_shuffle</value>
-</property>
-<property>
-<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-<value>org.apache.hadoop.mapred.ShuffleHandler</value>
-</property>
-<property>
-<name>yarn.resourcemanager.resource-tracker.address</name>
-<value>192.168.17.149:8025</value>
-</property>
-<property>
-<name>yarn.resourcemanager.scheduler.address</name>
-<value>192.168.17.149:8030</value>
-</property>
-<property>
-<name>yarn.resourcemanager.address</name>
-<value>192.168.17.149:8050</value>
-</property>
-<!--日志聚集  -->
-<property>
+	<property>
+		<!--  为mr程序提供shuffle服务 -->
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.resource-tracker.address</name>
+		<value>172.17.49.195:8025</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.scheduler.address</name>
+		<value>172.17.49.195:8030</value>
+	</property>
+	<property>
+		<name>yarn.resourcemanager.address</name>
+		<value>172.17.49.195:8050</value>
+	</property>
+	<!--日志聚集  -->
+	<property>
     <name>yarn.log-aggregation-enable</name>
     <value>true</value>
-</property>
-<!-- 日志信息保存在文件系统上的最长时间  秒为单位-->
-<property>
+	</property>
+	<!-- 日志信息保存在文件系统上的最长时间  秒为单位-->
+	<property>
     <name>yarn.log-aggregation.retain-seconds</name>
     <value>640800</value>
-</property>
-
-<!-- Site specific YARN configuration properties -->
-<!--  resource,manager主节点所在机器 -->
-<property>
-<name>yarn.resourcemanager.hostname</name>
-<value>192.168.17.149</value>
-</property>
-<!--  一台NodeManager的总可用内存资源 -->
-<property>
-<name>yarn.nodemanager.resource.memory-mb</name>
-<value>12288</value>
-</property>
-<!--  一台NodeManager的总可用（逻辑）cpu核数 -->
-<property>
-<name>yarn.nodemanager.resource.cpu-vcores</name>
-<value>4</value>
-</property>
- 
-<!--  是否检查容器的虚拟内存使用超标情况 -->
-<property>
-  <name>yarn.nodemanager.vmem-check-enabled</name>
-  <value>false</value>
-</property>
- 
-<!--  容器的虚拟内存使用上限：与物理内存的比率 --> 
-<property>
-  <name>yarn.nodemanager.vmem-pmem-ratio</name>
-  <value>2.1</value>
-</property>
-
-<!--  container内存按照默认大小配置，即为最小1G，最大8G --> 
-<property>
-  <name>yarn.scheduler.minimum-allocation-mb</name>
-  <value>1024</value>
-</property>
-
-<property>
-  <name>yarn.scheduler.maximum-allocation-mb</name>
-  <value>8192</value>
-</property>
-
-<!--  开启jobhistory服务--> 
-<property>
-  <name>yarn.log.server.url</name>
-  <value>http://192.168.17.149:19888/jobhistory/logs/</value>
-</property>
+	</property>
+	
+	<!-- Site specific YARN configuration properties -->
+	<!--  resource,manager主节点所在机器 -->
+	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>172.17.49.195</value>
+	</property>
+	<!--  一台NodeManager的总可用内存资源 -->
+	<property>
+		<name>yarn.nodemanager.resource.memory-mb</name>
+		<value>12288</value>
+	</property>
+	<!--  一台NodeManager的总可用（逻辑）cpu核数 -->
+	<property>
+		<name>yarn.nodemanager.resource.cpu-vcores</name>
+		<value>4</value>
+	</property>
+	 
+	<!--  是否检查容器的虚拟内存使用超标情况 -->
+	<property>
+	  <name>yarn.nodemanager.vmem-check-enabled</name>
+	  <value>false</value>
+	</property>
+	 
+	<!--  容器的虚拟内存使用上限：与物理内存的比率 --> 
+	<property>
+	  <name>yarn.nodemanager.vmem-pmem-ratio</name>
+	  <value>2.1</value>
+	</property>
+	
+	<!--  container内存按照默认大小配置，即为最小1G，最大8G --> 
+	<property>
+	  <name>yarn.scheduler.minimum-allocation-mb</name>
+	  <value>1024</value>
+	</property>
+	
+	<property>
+	  <name>yarn.scheduler.maximum-allocation-mb</name>
+	  <value>8192</value>
+	</property>
+	
+	<!--  开启jobhistory服务--> 
+	<property>
+	  <name>yarn.log.server.url</name>
+	  <value>http://172.17.49.195:19888/jobhistory/logs/</value>
+	</property>
 
 ```
 
 10、修改hadoop-env.sh
 
 ```
-cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp hadoop-env.sh hadoop-env.sh_20220914bak
+[root@hadoopmaster hadoop]# vi hadoop-env.sh
 
-cp hadoop-env.sh hadoop-env.sh_20220903bak
+#  JAVA_HOME=/usr/java/testing hdfs dfs -ls  #在这行后增加如下配置 
+export JAVA_HOME=/root/tools/jdk1.8.0_333
 
-vi hadoop-env.sh
-
-export JAVA_HOME=/usr/java/jdk1.8.0_181
-
+# export HADOOP_HEAPSIZE_MAX=                 #在这行后增加如下配置 
 #<!--  设置hadoop heap 大小-->
 export HADOOP_HEAPSIZE=6000
 ```
@@ -302,29 +380,58 @@ export HADOOP_HEAPSIZE=6000
 11、修改yarn-env.sh
 
 ```
-cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
+[root@hadoopmaster hadoop]# cp yarn-env.sh yarn-env.sh_20220914bak
+[root@hadoopmaster hadoop]# vi yarn-env.sh
 
-cp yarn-env.sh yarn-env.sh_20220903bak
-
-vi yarn-env.sh
-
-YARN_HEAPSIZE=6000
+YARN_HEAPSIZE=6000  #在文件最后增加这个配置
 ```
 
 12、在目录服务服务器上进行格式化并设置权限
 
-hdfs namenode -format
-
-hadoop fs -chmod -R 777 /
+```
+[root@hadoopmaster hadoop]# hdfs namenode -format     #日志中出现如下提示，说明格式化成功
+2022-09-14 16:00:06,267 INFO common.Storage: Storage directory /root/hadoop_store/hdfs/namenode2 has been successfully formatted
+```
 
 13、启停hadoop
 
 ```java
-cd /root/tools/hadoop-3.3.4/bin
+[root@hadoopmaster bin]# cd /root/tools/hadoop-3.3.4/sbin
+[root@hadoopmaster sbin]# ./start-all.sh
+Starting namenodes on [hadoopmaster]
+Last login: Wed Sep 14 14:56:27 CST 2022 from 171.107.6.211 on pts/3
+hadoopmaster: Warning: Permanently added 'hadoopmaster,172.17.49.195' (ECDSA) to the list of known hosts.
+Starting datanodes
+Last login: Wed Sep 14 16:07:22 CST 2022 on pts/2
+Starting secondary namenodes [hadoopmaster]
+Last login: Wed Sep 14 16:07:24 CST 2022 on pts/2
+Starting resourcemanager
+Last login: Wed Sep 14 16:07:28 CST 2022 on pts/2
+Starting nodemanagers
+Last login: Wed Sep 14 16:07:32 CST 2022 on pts/2
+[root@hadoopmaster sbin]# jps
+12480 DataNode
+12722 SecondaryNameNode
+13123 NodeManager
+12339 NameNode
+12980 ResourceManager
+13455 Jps
+[root@hadoopmaster sbin]# ./mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+[root@hadoopmaster sbin]# jps
+12480 DataNode
+12722 SecondaryNameNode
+13123 NodeManager
+12339 NameNode
+13588 Jps
+12980 ResourceManager
+13527 JobHistoryServer
+[root@hadoopmaster sbin]# 
 
 ./start-all.sh   --启动hadoop服务
 ./stop-all.sh    --停止hadoop服务
-
 ./mr-jobhistory-daemon.sh start historyserver  --启动yarn日志功能
 ./mr-jobhistory-daemon.sh stop historyserver   --停止yarn日志功能
 ```
@@ -357,11 +464,11 @@ firewall-cmd --zone=public --add-port 19888/tcp --permanent
 --刷新防火墙
 firewall-cmd --reload
 
-hadoop前端： http://192.168.17.149:50070
+hadoop前端： http://172.17.49.195:50070
 
-yarn前端：   http://192.168.17.149:8088
+yarn前端：   http://172.17.49.195:8088
 
-yarn历史前端：http://192.168.17.149:19888
+yarn历史前端：http://172.17.49.195:19888
 
 ```
 
