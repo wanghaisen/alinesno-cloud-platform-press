@@ -8,12 +8,12 @@
 
 登录官网https://www.scala-lang.org/download/all.html
 
-下载 scala-2.12.15.tgz 并上传至 Linux 服务器/root/flink 目录。
+下载 scala-2.12.15.tgz 并上传至 Linux 服务器/root/tools 目录。
 
 1、解压
 
 ```bash
-cd /root/flink
+cd /root/tools
 tar -zxvf scala-2.12.15.tgz
 ```
 

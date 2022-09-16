@@ -90,6 +90,9 @@ log-bin=mysql-bin
 
 binlog-format=ROW
 
+#忽略大小写
+lower_case_table_names=1
+
 [mysqld_safe]
 log-error=/home/mysql/mariadb/mariadb.log
 pid-file=/home/mysql/mariadb/mariadb.pid
