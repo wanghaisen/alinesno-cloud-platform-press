@@ -23,9 +23,9 @@
 
 ​      下载 [mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar](https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar)
 
-2、在服务器上新建mysql用户及用户组，修改mysql用户的登录bin并设置密码
+2、在服务器上新建mysql用户、用户组、设置密码、创建相关目录
 
-```java
+```shell
 [root@hadoopmaster tools]# groupadd mysql
 [root@hadoopmaster tools]# useradd -g mysql -s /bin/bash mysql
 [root@hadoopmaster tools]# passwd mysql
@@ -49,7 +49,7 @@ passwd: all authentication tokens updated successfully.
 
 修改my.cnf配置
 
-```
+```shell
 [root@hadoopmaster etc]# cp my.cnf my.cnf_20220914bak
 [root@hadoopmaster etc]# vi my.cnf
 [mysqld]
@@ -111,7 +111,7 @@ socket=/home/mysql/mysql.sock
 
  3、上传安装包并解压mysql安装包
 
-```java
+```shell
 [root@hadoopmaster ~]# cd tools
 [root@hadoopmaster tools]# ls -alt
 total 825720
@@ -129,6 +129,7 @@ drwxr-xr-x   8 10143 10143      4096 Apr 26 14:03 jdk1.8.0_333
 drwxrwxr-x   6  2000  2000      4096 Sep 15  2021 scala-2.12.15
 drwxr-xr-x  13   501 mysql      4096 May  8  2021 spark-2.4.8-pure
 [root@hadoopmaster tools]# tar -xvf mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar
+[root@hadoopmaster tools]# ll
 mysql-community-client-8.0.28-1.el7.x86_64.rpm
 mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm
 mysql-community-common-8.0.28-1.el7.x86_64.rpm
@@ -146,7 +147,7 @@ mysql-community-test-8.0.28-1.el7.x86_64.rpm
 
 在安装前，先检查是否安装有mysql，如有则先卸载并清除相关文件。
 
-```java
+```shell
 [root@hadoopmaster tools]# rpm -qa | grep -i mysql   --检查是否已安装过mysql
 [root@hadoopmaster tools]#  rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm         --安装common
 warning: mysql-community-common-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
@@ -276,7 +277,7 @@ mysql-community-server-8.0.28-1.el7.x86_64
 
 5、配置mysql数据库
 
-```java
+```shell
 
 [mysql@hadoopmaster ~]$ sudo cat /var/log/mysqld.log | grep password      --查看数据库的密码
 2022-09-14T09:46:17.369421Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: Qj&VfWfH1.Zf
@@ -347,21 +348,21 @@ Bye
 
 2)、解压
 
-```java
+```shell
 [root@hadoopmaster tools]# tar -zxvf apache-hive-3.1.3-bin.tar.gz
 [root@hadoopmaster tools]# mv apache-hive-3.1.3-bin   hive-3.1.3    
 ```
 
 3)、创建hive的临时目录
 
-```java
+```shell
 [root@hadoopmaster tools]# mkdir -p /root/hiveTemp/operation_logs
 [root@hadoopmaster tools]# mkdir -p /root/hiveTemp/download
 ```
 
 4)、配置hive的环境变量
 
-```
+```shell
 vi /etc/profile
 
 #hive
@@ -380,7 +381,7 @@ source /etc/profile
 
 将jar包上传到hive的lib目录
 
-```java
+```shell
 [root@hadoopmaster lib]# pwd
 /root/tools/hive-3.1.3/lib
 [root@hadoopmaster lib]# ls -alt |grep mysql
@@ -391,7 +392,7 @@ source /etc/profile
 
 6)、将hive-on-spark依赖的spark包上传到hive的lib包
 
-```
+```shell
 [root@hadoopmaster jars]# pwd
 /root/tools/spark-2.4.8-pure/jars
 [root@hadoopmaster jars]# ll |grep scala-compiler
@@ -424,7 +425,7 @@ source /etc/profile
 
 7)、配置hive-env.sh，在文件后面增加如下配置
 
-```
+```shell
 [root@hadoopmaster conf]# cp hive-env.sh.template hive-env.sh
 [root@hadoopmaster conf]# cp hive-env.sh hive-env.sh_20220914bak
 [root@hadoopmaster conf]# vi hive-env.sh
@@ -445,7 +446,7 @@ export SPARK_HOME=/root/tools/spark-2.4.8-pure
 
 8)、配置hive-site.xml 
 
-```
+```shell
 [root@hadoopmaster conf]# cp hive-default.xml.template hive-site.xml
 [root@hadoopmaster conf]# cp hive-site.xml hive-site.xml_20220914bak
 [root@hadoopmaster conf]# vi hive-site.xml
@@ -498,7 +499,7 @@ export SPARK_HOME=/root/tools/spark-2.4.8-pure
     <value>7077</value>
   </property>
   
-  修改
+ 在hive-site.xml中修改如下配置
   <property>
     <name>hive.exec.scratchdir</name>
     <value>/tmp/hive</value>                        ->    <value>hdfs://172.17.49.195:9000/data/hive/tmp</value>
@@ -589,7 +590,7 @@ export SPARK_HOME=/root/tools/spark-2.4.8-pure
 
 9)、创建hive-site.xml 中需要的hdfs目录
 
-```
+```shell
 
 hadoop fs -mkdir /data
 hadoop fs -mkdir /data/hive
@@ -617,7 +618,7 @@ hadoop fs -mkdir /spark-logs[root@hadoopmaster tools]# hadoop fs -mkdir /data/hi
 
 10)、创建spark-defaults.conf
 
-```
+```shell
 [root@hadoopmaster conf]# touch spark-defaults.conf
 [root@hadoopmaster conf]# vi spark-defaults.conf
 spark.master              yarn
@@ -634,7 +635,7 @@ spark.driver.memory       1g
 
 11)、初始化hive元数据库
 
-```java
+```shell
 [root@hadoopmaster bin]# cd /root/tools/hive-3.1.3/bin
 [root@hadoopmaster bin]# schematool -dbType mysql -initSchema
 SLF4J: Class path contains multiple SLF4J bindings.
@@ -657,7 +658,7 @@ schemaTool completed
 
 12)、启动hive数据库
 
-```
+```shell
 [root@hadoopmaster bin]# hive
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/root/tools/hive-3.1.3/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
@@ -787,12 +788,12 @@ hive>
 
 8、启停hive服务
 
-```
+```shell
 启动元数据服务 
-hive --service metastore &         ##元数据服务        netstat -anlp |grep 9083   重启前可杀掉进程再启动
+nohup hive --service metastore &         ##元数据服务        netstat -anlp |grep 9083   重启前可杀掉进程再启动
  
 启动hiveserver2服务 
-hive --service hiveserver2 &        ##支持jdbc查询服务 netstat -anlp |grep 10000   重启前可杀掉进程再启动
+nohup hive --service hiveserver2 &        ##支持jdbc查询服务 netstat -anlp |grep 10000   重启前可杀掉进程再启动
 ```
 
 9、切换hive执行引擎

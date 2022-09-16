@@ -25,7 +25,7 @@
 
 2、解压spark安装包
 
-```java
+```shell
 cd /root/tools
 tar -xvzf spark-2.4.8-bin-without-hadoop-scala-2.12.tgz
 mv spark-2.4.8-bin-without-hadoop-scala-2.12 spark-2.4.8-pure    
@@ -33,7 +33,7 @@ mv spark-2.4.8-bin-without-hadoop-scala-2.12 spark-2.4.8-pure
 
 3、配置spark-defaults.conf，在文件最后增加配置
 
-```java
+```shell
 [root@hadoopmaster conf]# cd /root/tools/spark-2.4.8-pure/conf
 [root@hadoopmaster conf]# cp spark-defaults.conf.template spark-defaults.conf
 [root@hadoopmaster conf]# cp spark-defaults.conf spark-defaults.conf_20220915bak
@@ -80,7 +80,7 @@ mv spark-2.4.8-bin-without-hadoop-scala-2.12 spark-2.4.8-pure
 
 4、配置spark-env.sh，在文件最后增加配置
 
-```java
+```shell
 export SPARK_HOME=/root/tools/spark-2.4.8-pure
 export SCALA_HOME=/root/tools/scala-2.12.15
 export JAVA_HOME=/root/tools/jdk1.8.0_333
@@ -197,7 +197,7 @@ export YARN_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 
 5、配置spark环境变量
 
-```java
+```shell
 vi /etc/profile
     
 #spark
@@ -211,7 +211,7 @@ source /etc/profile  使环境配置生效
 
 6、测试 spark
 
-```java
+```shell
 [root@hadoopmaster conf]# cd /root/tools/spark-2.4.8-pure/bin
 [root@hadoopmaster bin]# ./run-example SparkPi 10
 2022-09-15 09:10:46,176 INFO spark.SecurityManager: Changing view acls to: root
@@ -231,7 +231,7 @@ Pi is roughly 3.1431991431991433
 
 7、上传jars到hdfs目录
 
-```java
+```shell
 [root@hadoopmaster spark-2.4.8-pure]# cd /root/tools/spark-2.4.8-pure/jars
 [root@hadoopmaster jars]# mv orc-core-1.5.5-nohive.jar orc-core-1.5.5-nohive.jar.bak
 [root@hadoopmaster jars]# hadoop fs -mkdir /spark2-jars
@@ -377,9 +377,11 @@ Found 133 items
 [root@hadoopmaster jars]# 
 ```
 
+
+
 8、启停spark
 
-```java
+```shell
 [root@hadoopmaster jars]# cd /root/tools/spark-2.4.8-pure/sbin
 [root@hadoopmaster sbin]# ./start-all.sh
 starting org.apache.spark.deploy.master.Master, logging to /root/tools/spark-2.4.8-pure/logs/spark-root-org.apache.spark.deploy.master.Master-1-hadoopmaster.out
@@ -410,7 +412,7 @@ localhost: starting org.apache.spark.deploy.worker.Worker, logging to /root/tool
 
 如服务器开启防火墙，需要开放hadoop的前端端口
 
-```
+```shell
 --查看防火墙状态
 systemctl status firewalld.service
 firewall-cmd --state

@@ -22,7 +22,7 @@
 
 需要以root用户部署Hadoop 、hive、flink
 
-1、浏览器中打开https://gitee.com/apache/Hudi.git,下载hudi源码并切换到0.12.0，
+1、浏览器中打开https://gitee.com/apache/Hudi.git,下载hudi源码并切换到0.12.0后，进行如下修改
 
 A、修改Hudi\pom.xml中kafka、hadoop、hive、spark2、scala12、scala.binary的版本
 
@@ -342,7 +342,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$SCALA_HOME/li
 
 ### 启动 flink 集群
 
-```
+```shell
 cd /root/tools/flink-1.14.5/bin
 
 --设置环境变量
@@ -389,7 +389,7 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 
 #### 修改 topic 的 partition 数
 
-```
+```shell
 cd /root/tools/kafka_2.12-3.2.0/bin
 ./kafka-topics.sh --bootstrap-server 172.17.49.195:9092 --alter --topic flinktest --partitions 5
 ```
@@ -402,7 +402,7 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 
 #### 使用 kafka-console-producer.sh 命令向 topic flinktest 发送消息
 
-```
+```shell
 cd /root/tools/kafka_2.12-3.2.0/bin
 sh kafka-console-producer.sh --broker-list 172.17.49.195:9092 --topic flinktest
 //生产端发消息
@@ -430,7 +430,7 @@ export HADOOP_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 
 #### 新建与 kafka 关联的表
 
-```sql
+```shell
 CREATE TABLE kafkatest (
    tinyint0 TINYINT
   ,smallint1 SMALLINT
@@ -486,13 +486,13 @@ Flink SQL> CREATE TABLE kafkatest (
 
 在 kafka 生产端，发消息后，可看到表接收到的数据
 
-```js
+```shell
 //生产端发消息
 {"tinyint0": 6, "smallint1": 223, "int2": 42999, "bigint3": 429450, "float4": 95.47324181659323, "double5": 340.5755392968011,"decimal6": 111.1111, "boolean7": true,  "char8": "dddddd", "varchar9": "buy0", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.810"}
 {"tinyint0": 7, "smallint1": 224, "int2": 43000, "bigint3": 429451, "float4": 95.47324181659324, "double5": 340.5755392968012,"decimal6": 111.1112, "boolean7": true,  "char8": "ddddde", "varchar9": "buy1", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.812"}
 ```
 
-```sql
+```shell
 select * from kafkatest;
 
 Flink SQL> select *from kafkatest ;
@@ -501,7 +501,7 @@ Flink SQL> select *from kafkatest ;
 
 #### 新建与 hudi 关联的表
 
-```sql
+```shell
 CREATE TABLE huditest(
 uuid VARCHAR(20),
 name VARCHAR(10),
@@ -550,7 +550,7 @@ Flink SQL> CREATE TABLE huditest(
 
 #### 插入数据
 
-```sql
+```shell
 INSERT INTO huditest VALUES
 ('1','张三',13,TIMESTAMP '2022-09-08 00:00:01','par1');
 INSERT INTO huditest VALUES
@@ -662,14 +662,14 @@ Found 4 items
 
 查看数据库是否开启bin_log。如没有开启，需要修改my.cnf文件，增加如下内容并重启
 
-```sql
+```shell
 log-bin=mysql-bin
 binlog-format=ROW
 ```
 
 在mysql客户端查看bin_log开启情况
 
-```sql
+```shell
 show variables like 'log_bin'
 
 create database test;
@@ -730,7 +730,7 @@ mysql>
 
 打开flinksql客户端并创建关联mysql的表
 
-```sql
+```shell
 CREATE TABLE users_source_mysql (
  id BIGINT PRIMARY KEY NOT ENFORCED
 ,name STRING
@@ -786,7 +786,7 @@ R Refresh                                      - Dec Refresh                    
 
 在hive中创建public数据库后，打开flinksql客户端。
 
-```
+```shell
 hive> create database public ;
 OK
 Time taken: 0.027 seconds
@@ -795,7 +795,7 @@ hive>
 
 
 
-```
+```shell
 CREATE TABLE nation_info(
  numeric_code     int
 ,national_name    string
@@ -971,7 +971,7 @@ Flink SQL>
 
 打开hive客户端,可查看到表数据
 
-```sql
+```shell
 select *  from public.nation_info ;
 
 20220905025642928       20220905025642928_0_1   44              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    44      俄罗斯族        Russ    RS
@@ -1028,7 +1028,7 @@ hive>
 
 查看hudi表的hdfs文件
 
-```sql
+```shell
 [root@hadoopmaster etc]# hadoop fs -ls hdfs:///user/flink/hudi/public/nation_info
 Found 3 items
 drwxr-xr-x   - root supergroup          0 2022-09-05 02:56 hdfs:///user/flink/hudi/public/nation_info/.hoodie

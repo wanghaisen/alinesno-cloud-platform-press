@@ -16,3 +16,16 @@
 cd /root/flink
 tar -zxvf scala-2.12.15.tgz
 ```
+
+2、配置环境变量
+
+```shell
+[root@hadoopmaster ~]# vi /etc/profile
+# /etc/profile
+#flink
+export SCALA_HOME=/root/tools/scala-2.12.15
+export PATH=$PATH:$SCALA_HOME/bin
+
+保存后，source /etc/profile 使配置生效
+```
+

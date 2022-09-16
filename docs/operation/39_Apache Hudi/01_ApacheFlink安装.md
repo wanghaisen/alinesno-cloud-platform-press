@@ -6,22 +6,22 @@
 
 ## Flink 依赖的环境
 
-| 软件名称 | 版本号    |
-| -------- | --------- |
-| hadoop   | 1.8.0_333 |
-| hive     | 3.1.3     |
-| SCALA    | 2.12.15   |
+| 软件名称 | 版本号  |
+| -------- | ------- |
+| hadoop   | 3.3.4   |
+| hive     | 3.1.3   |
+| SCALA    | 2.12.15 |
 
 ## Flink 安装
 
 登录官网https://flink.apache.org/downloads.html
 
-下载 flink-1.14.5-bin-scala_2.12.tgz 并上传 至 Linux 服务器/root/flink 目录。此服务器为 CDH6.2.0 的 dataNode 节点。
+下载 flink-1.14.5-bin-scala_2.12.tgz 并上传 至 Linux 服务器/root/tools 目录。要求服务器为hadoop 节点。
 
 1、解压
 
 ```bash
-cd /root/flink
+cd /root/tools
 tar -zxvf flink-1.14.5-bin-scala_2.12.tgz
 
 创建临时目录文件
@@ -32,9 +32,9 @@ mkdir -p /root/flink/flink-1.14.5/tmp/zookeeper
 2、修改配置文件 flink-conf.yaml
 
 ```shell
-cd /root/flink/flink-1.14.5/conf
+cd /root/tools/flink-1.14.5/conf
 vi flink-conf.yaml
-# 修改以下内容为4
+# 修改以下内容为8
 taskmanager.numberOfTaskSlots: 8
 
 # state.backend: filesystem  # 在下面增加
@@ -46,6 +46,9 @@ classloader.resolve-order: parent-first
 # fs.default-scheme # 在下面增加
 fs.default-scheme: hdfs:172.17.49.195:9000
 
+#rest.port: 8081  # 在下面增加
+rest.port: 8083
+
 # 在文件末尾增加
 classloader.check-leaked-classloader: false
 taskmanager.host: localhost
@@ -54,14 +57,22 @@ taskmanager.host: localhost
 3、修改配置文件 zoo.cfg
 
 ```bash
-cd /root/flink/flink-1.14.5/conf
+cd /root/tools/flink-1.14.5/conf
 vi zoo.cfg
 
 # dataDir=/tmp/zookeeper # 在下面增加
 dataDir=/root/flink/flink-1.14.5/tmp/zookeeper
 ```
 
-4、复制 hadoop 集群配置文件
+4、修改masters
+
+```shell
+[root@hadoopmaster conf]#cd /root/tools/flink-1.14.5/conf
+[root@hadoopmaster conf]# vi masters
+localhost:8081    #修改为localhost:8083，与flink-conf.yaml中修改后的rest.port一致
+```
+
+5、复制 hadoop 集群配置文件
 
 ```bash
 [root@hadoopmaster conf]# cd $HADOOP_HOME//etc/hadoop
@@ -112,9 +123,9 @@ drwxr-xr-x 2 1024 1024  4096 Jul 29 20:34 shellprofile.d
 [root@hadoopmaster hadoop]# cp hive-site.xml /root/tools/flink-1.14.5/conf
 ```
 
-5、启停
+6、启停
 
-```
+```shell
 [root@hadoopmaster ~]# cd /root/tools/flink-1.14.5/bin
 [root@hadoopmaster bin]# ls -alt
 total 2356

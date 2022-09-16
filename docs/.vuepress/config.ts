@@ -954,6 +954,7 @@ function genDataEnvironmentSidebar() {
     '/operation/39_Apache Hudi/07_hadoop安装.md',
     '/operation/39_Apache Hudi/08_spark安装.md',
     '/operation/39_Apache Hudi/09_hive安装.md',
+    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
     '/operation/39_Apache Hudi/06_Hudi安装.md'
   ]
   return mapArr.map(i => {

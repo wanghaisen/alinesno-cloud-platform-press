@@ -24,7 +24,7 @@
 
 2、上传jdk8到服务器。安装后配置环境变量
 
-```java
+```shell
 --解压JDK包
 [root@hadoopmaster tools]#tar jdk-8u333-linux-x64.tar.gz
 [root@hadoopmaster tools]#cd  jdk1.8.0_333
@@ -44,7 +44,7 @@ source /etc/profile  使环境配置生效
 
 3、设置免密登录
 
-```java
+```shell
 [root@hadoopmaster ~]# ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/root/.ssh/id_rsa): 
@@ -88,7 +88,7 @@ and check to make sure that only the key(s) you wanted were added.
 
 4、设置hostname,删除原来的设置localhost.localdomain 
 
-```java
+```shell
 [root@hadoopmaster ~]# cd /etc
 [root@hadoopmaster etc]# cp hostname hostname_20220914bak
 [root@hadoopmaster etc]# vi hostname
@@ -99,7 +99,7 @@ hadoopmaster
 
 5、设置hosts
 
-```
+```shell
 [root@hadoopmaster etc]# ls -alt |grep host
 -rw-r--r--   1 root root       13 Sep 14 14:40 hostname
 -rw-r--r--   1 root root       24 Sep 14 14:39 hostname_20220914bak
@@ -130,17 +130,17 @@ rtt min/avg/max/mdev = 0.013/0.018/0.022/0.006 ms
 
 ```
 
-4、解压hadoop安装包
+6、解压hadoop安装包
 
-```java
+```shell
 [root@hadoopmaster tools]# cd /root/tools
 [root@hadoopmaster tools]# tar -zxvf hadoop-3.3.4.tar.gz
 tar -xvzf hadoop-3.3.4.tar.gz  
 ```
 
-5、配置环境变量
+7、配置环境变量
 
-```
+```shell
 vi /etc/profile
 # HADOOP env variables
 export HDFS_NAMENODE_USER=root
@@ -160,9 +160,9 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 
 source  /etc/profile 使环境配置生效
 
-6、修改core-site.xml,在\<configuration>中增加如下\<property>
+8、修改core-site.xml,在\<configuration>中增加如下\<property>
 
-```java
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp core-site.xml core-site.xml_20220914bak
 [root@hadoopmaster hadoop]# vi core-site.xml
@@ -204,9 +204,9 @@ source  /etc/profile 使环境配置生效
  
 ```
 
-7、修改 hdfs-site.xml,在\<configuration>中增加如下\<property>
+9、修改 hdfs-site.xml,在\<configuration>中增加如下\<property>
 
-```java
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp hdfs-site.xml hdfs-site.xml_20220914bak
 [root@hadoopmaster hadoop]# vi hdfs-site.xml
@@ -228,15 +228,15 @@ source  /etc/profile 使环境配置生效
 
 保存后，创建对应的目录
 
-```java
+```shell
 [root@hadoopmaster hadoop]# mkdir -p /root/hadoop_store/hdfs/namenode2
 [root@hadoopmaster hadoop]# mkdir -p /root/hadoop_store/hdfs/datanode2
 [root@hadoopmaster hadoop]# 
 ```
 
-8、修改mapred-site.xml,在\<configuration>中增加如下\<property>
+10、修改mapred-site.xml,在\<configuration>中增加如下\<property>
 
-```
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp mapred-site.xml mapred-site.xml_20220914bak
 [root@hadoopmaster hadoop]# vi mapred-site.xml
@@ -275,9 +275,9 @@ source  /etc/profile 使环境配置生效
 
 ```
 
-9、修改yarn-site.xml,在\<configuration>中增加如下\<property>
+11、修改yarn-site.xml,在\<configuration>中增加如下\<property>
 
-```
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp yarn-site.xml yarn-site.xml_20220914bak
 [root@hadoopmaster hadoop]# vi yarn-site.xml
@@ -362,9 +362,9 @@ source  /etc/profile 使环境配置生效
 
 ```
 
-10、修改hadoop-env.sh
+12、修改hadoop-env.sh
 
-```
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp hadoop-env.sh hadoop-env.sh_20220914bak
 [root@hadoopmaster hadoop]# vi hadoop-env.sh
@@ -377,9 +377,9 @@ export JAVA_HOME=/root/tools/jdk1.8.0_333
 export HADOOP_HEAPSIZE=6000
 ```
 
-11、修改yarn-env.sh
+13、修改yarn-env.sh
 
-```
+```shell
 [root@hadoopmaster hadoop]# cd /root/tools/hadoop-3.3.4/etc/hadoop
 [root@hadoopmaster hadoop]# cp yarn-env.sh yarn-env.sh_20220914bak
 [root@hadoopmaster hadoop]# vi yarn-env.sh
@@ -387,16 +387,16 @@ export HADOOP_HEAPSIZE=6000
 YARN_HEAPSIZE=6000  #在文件最后增加这个配置
 ```
 
-12、在目录服务服务器上进行格式化并设置权限
+14、在目录服务服务器上进行格式化并设置权限
 
-```
+```shell
 [root@hadoopmaster hadoop]# hdfs namenode -format     #日志中出现如下提示，说明格式化成功
 2022-09-14 16:00:06,267 INFO common.Storage: Storage directory /root/hadoop_store/hdfs/namenode2 has been successfully formatted
 ```
 
-13、启停hadoop
+15、启停hadoop
 
-```java
+```shell
 [root@hadoopmaster bin]# cd /root/tools/hadoop-3.3.4/sbin
 [root@hadoopmaster sbin]# ./start-all.sh
 Starting namenodes on [hadoopmaster]
@@ -436,11 +436,11 @@ WARNING: Attempting to execute replacement "mapred --daemon start" instead.
 ./mr-jobhistory-daemon.sh stop historyserver   --停止yarn日志功能
 ```
 
-14、开放防火墙端口
+16、开放防火墙端口
 
 如服务器开启防火墙，需要开放hadoop的前端端口
 
-```
+```shell
 --查看防火墙状态
 systemctl status firewalld.service
 firewall-cmd --state
