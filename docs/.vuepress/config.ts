@@ -184,17 +184,17 @@ export default defineUserConfig({
           children: genFirestLearnSidebar(5)
         },
         {
-          text: '开发服务云',
+          text: '研发中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(2)
         },
         {
-          text: '流程服务云',
+          text: '业务中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(3)
         },
         {
-          text: '数据服务云',
+          text: '数据治理集成',
           collapsible: true,
           children: genFirestLearnSidebar(4)
         }
@@ -668,16 +668,16 @@ export default defineUserConfig({
           collapsible: true,
           children: genStorageSidebar()
         },
-        {
-          text: '流程服务',
-          collapsible: true,
-          children: genWorkflowSidebar()
-        },
-        {
-          text: '支付服务',
-          collapsible: true,
-          children: genPaymentSidebar()
-        },
+//         {
+//           text: '流程服务',
+//           collapsible: true,
+//           children: genWorkflowSidebar()
+//         },
+//         {
+//           text: '支付服务',
+//           collapsible: true,
+//           children: genPaymentSidebar()
+//         },
         {
           text: '自动化操作',
           collapsible: true,
@@ -2066,7 +2066,8 @@ function genPricesSidebar(menus) {
     })
   } else if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    // const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    const mapArr = ['/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
 
     return mapArr.map(i => {
       return i
