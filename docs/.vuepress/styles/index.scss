@@ -6,6 +6,16 @@
   overflow: auto;
 }
 
+.page .contributor-table{
+  width: 70% ; 
+  tr {
+     border-top: 0px !important ;
+    td {
+       border: 0px !important ;
+    }
+  }
+}
+
 .home{
   padding: 0px !important ;
 

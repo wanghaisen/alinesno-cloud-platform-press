@@ -7,13 +7,13 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     env:
       # 配置环境变量，包括阿里云镜像的名称，版本号，还有命名空间
       ALIYUN_CR_HOST: registry.cn-shenzhen.aliyuncs.com
       ALIYUN_CR_NAMESPACE: alinesno-cloud
       PRO_NAME: alinesno-platform-press
-      PRO_VERSION: 2.1.0
+      PRO_VERSION: 2.1.0-${{ github.run_number }}
       EXPOSE_PORT: 84
       #  添加cdn配置
       accessKey: ${{ secrets.QINIU_ACCESS_KEY }}
@@ -31,20 +31,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.17.0'
-      - run: npm install
-      - run: npm run docs:build  
 
-      # - name: Deploy 🚀
-        # uses: JamesIves/github-pages-deploy-action@releases/v3
-        # with:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # BRANCH: gh-pages # The branch the action should deploy to.
-          # FOLDER: docs/.vuepress/dist # The folder the action should deploy.
+      - name: Install Dependencies
+        run: npm i
 
-      - name: Upload Qiniu🚀
-        run: |
-          sudo chmod +x qiniu-upload.sh
-          ./qiniu-upload.sh docs/.vuepress/dist
+      - name: Build Docs
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+        run: npm run docs:build
 
       - name: Build the Docker image
         run: |
@@ -61,31 +55,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker rm -f ${{ env.PRO_NAME }}-${{ env.PRO_VERSION }}
+            docker rm -f ${{ env.PRO_NAME }}
             docker pull ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }}-${{ env.PRO_VERSION }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-
-      # - name: copy k8s yaml file via ssh password
-      #   uses: appleboy/scp-action@master
-      #   with:
-      #     host: ${{ secrets.K8S_HOST }}
-      #     username: ${{ secrets.K8S_HOST_USERNAME }}
-      #     password: ${{ secrets.K8S_HOST_PASSWORD }}
-      #     port: ${{ secrets.k8S_HOST_PORT }}
-      #     source: "k8s-dev.yaml,k8s-dev-ingress.yaml"
-      #     target: "projects/${{ env.PRO_NAME }}"
-
-      # - name: Deploy Docker to K8S
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.K8S_HOST }}
-      #     username: ${{ secrets.K8S_HOST_USERNAME }}
-      #     password: ${{ secrets.K8S_HOST_PASSWORD }}
-      #     port: ${{ secrets.k8S_HOST_PORT }}
-      #     script: |
-      #       kubectl version
-      #       kubectl apply -f projects/${{ env.PRO_NAME }}/k8s-dev.yaml
-      #       kubectl apply -f projects/${{ env.PRO_NAME }}/k8s-dev-ingress.yaml
+            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
 
       # 获取PR信息并将其添加到环境变量
       - name: set PR_INFO

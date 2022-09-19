@@ -1,8 +1,8 @@
 import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
 import { localTheme } from './theme'
-// const { path } = require('@vuepress/utils')
 
-import { nprogressPlugin } from '@vuepress/plugin-nprogress' 
+import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { docsearchPlugin } from "@vuepress/plugin-docsearch"
@@ -11,13 +11,17 @@ import { feedPlugin } from "vuepress-plugin-feed2";
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '企业级ACP数字中台',
+  title: 'ACP数字中台',
   description: '能够灵活满足企业数字化建设中各种场景的需要，更高效、专注的沉淀业务和数据能力，进而形成企业的业务和数据中台。通过能力的灵活组合，快速的应对当前快节奏的市场需求，助力企业数字化转型的成功。',
   base: '/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],
     ['link', { rel: 'stylesheet', href: 'http://static.cloud.linesno.com/asserts/vendors/fontawesome/css/all.css' }]
   ],
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
   plugins: [
     feedPlugin({
       // 插件选项
@@ -125,18 +129,19 @@ export default defineUserConfig({
         text: '数字规划',
         children: [
           { text: '数字平台规划', link: '/design/overview/' },
+          { text: '组织建设规划', link: '/group/01_部门建设/' },
           { text: '研发中台规划', link: '/framework/' },
           { text: '数据中台规划', link: '/data/framework/' }
         ]
       },
+      // {
+      //   text: '业务建设',
+      //   children: [
+      //     { text: '组织架构', link: '/group/01_部门建设/' }
+      //   ]
+      // },
       {
-        text: '业务建设',
-        children: [
-          { text: '组织架构', link: '/group/01_部门建设/' }
-        ]
-      },
-      {
-        text: '环境建设',
+        text: '部署建设',
         children: [
           { text: '技术平台建设', link: '/operation/' },
           { text: '研发中台建设', link: '/env/development/' },
@@ -153,7 +158,7 @@ export default defineUserConfig({
         ]
       },
       {
-        text: '商业授权',
+        text: '产品服务',
         link: '/prices/'
       },
       {
@@ -179,17 +184,17 @@ export default defineUserConfig({
           children: genFirestLearnSidebar(5)
         },
         {
-          text: '开发服务云',
+          text: '研发中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(2)
         },
         {
-          text: '流程服务云',
+          text: '业务中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(3)
         },
         {
-          text: '数据服务云',
+          text: '数据治理集成',
           collapsible: true,
           children: genFirestLearnSidebar(4)
         }
@@ -208,7 +213,7 @@ export default defineUserConfig({
       ],
       '/prices/': [
         {
-          text: '授权说明',
+          text: '服务说明',
           collapsible: true,
           children: genPricesSidebar(0)
         },
@@ -237,25 +242,25 @@ export default defineUserConfig({
       ],
       '/design/overview': [
         {
-          text: '平台介绍',
+          text: '中台介绍',
           collapsible: true,
           children: genDesignSidebar(1)
         },
-        {
-          text: '平台架构',
-          collapsible: true,
-          children: genDesignSidebar(2)
-        },
-        {
-          text: '项目规划',
-          collapsible: true,
-          children: genDesignSidebar(3)
-        },
-        {
-          text: '建设规划',
-          collapsible: true,
-          children: genDesignSidebar(4)
-        }
+        // {
+        //   text: '平台架构',
+        //   collapsible: true,
+        //   children: genDesignSidebar(2)
+        // },
+        // {
+        //   text: '项目规划',
+        //   collapsible: true,
+        //   children: genDesignSidebar(3)
+        // },
+        // {
+        //   text: '建设规划',
+        //   collapsible: true,
+        //   children: genDesignSidebar(4)
+        // }
       ],
       '/design/business': [
         {
@@ -1201,9 +1206,15 @@ function genMessageSidebar() {
 function genGatewaySidebar() {
   const mapArr = [
     '/technique/16_网关服务/01_网关场景构架.md',
-    '/technique/16_网关服务/02_网关配置.md',
-    '/technique/16_网关服务/03_接口策略配置.md',
-    '/technique/16_网关服务/04_网关功能集成.md'
+    // '/technique/16_网关服务/02_网关配置.md',
+    // '/technique/16_网关服务/03_接口策略配置.md',
+    // '/technique/16_网关服务/04_网关功能集成.md',
+    '/technique/16_网关服务/05_管理接口.md',
+    '/technique/16_网关服务/06_路由管理.md',
+    '/technique/16_网关服务/07_授权管理.md',
+    '/technique/16_网关服务/08_黑名单配置.md',
+    '/technique/16_网关服务/09_访问策略配置.md',
+    '/technique/16_网关服务/10_降级配置.md',
   ]
   return mapArr.map(i => {
     return i
@@ -1620,7 +1631,10 @@ function genDataOperationSidebar() {
 function genDesignSidebar(menus) {
   if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/design/overview/']
+    const mapArr = [
+      '/design/overview/',
+      '/design/overview/04_数字化战略架构.md'
+   ]
 
     return mapArr.map(i => {
       return i
@@ -1628,8 +1642,8 @@ function genDesignSidebar(menus) {
   } else if (menus == 2) {
     // 平台架构
     const mapArr = [
-      '/design/overview/04_数字化战略架构.md',
-      '/design/overview/05_技术平台架构设计.md'
+      '/design/overview/04_数字化战略架构.md'
+      // '/design/overview/05_技术平台架构设计.md'
     ]
 
     return mapArr.map(i => {
@@ -1725,8 +1739,8 @@ function genServiceSidebar() {
     '/framework/service/01_服务规划规范.md',
     '/framework/service/02_基础服务规划.md',
     '/framework/service/03_业务服务规划.md',
-    '/framework/service/04_应用服务规划.md',
-    '/framework/service/09_示例服务规划.md'
+    '/framework/service/04_应用服务规划.md'
+    // '/framework/service/09_示例服务规划.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2049,7 +2063,8 @@ function genPricesSidebar(menus) {
     })
   } else if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    // const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    const mapArr = ['/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
 
     return mapArr.map(i => {
       return i

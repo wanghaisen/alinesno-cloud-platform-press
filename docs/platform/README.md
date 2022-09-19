@@ -4,7 +4,7 @@
 
 ## 概述
 
-企业级研发中台服务 ACP , 研发中台产品体系架构规划和设计，为完成整体的中台产品进行的架构和产品的整体规划。
+ACP数字中台服务, 研发中台产品体系架构规划和设计，为完成整体的中台产品进行的架构和产品的整体规划。
 
 企业级研发中台服务 ACP（Alinesno Cloud Platform）是业务应用生命周期管理和监控的新一代中台，
 针对于大中小型团队合适的开发平台，支持微服务化、中台化、统一权限和基础能力管理，数据采集、计算、治理运营输出,统一业务规范，集成 DevOps 自动化流程，为业务发展提供基础的数字化架构
@@ -69,14 +69,11 @@
 | 4    |          | 分布式消息管理服务     | 完成   | [alinesno-cloud-message][alinesno-cloud-message]                   |      |
 | 5    |          | 通知管理服务           | 完成   | [alinesno-cloud-base-notice][alinesno-cloud-base-notice]           |      |
 | 7    |          | 存储管理服务           | 完成   | [alinesno-cloud-base-storage][alinesno-cloud-base-storage]         |      |
-| 8    |          | 工作流管理服务         | 编写中 | [alinesno-cloud-base-workflow][alinesno-cloud-base-workflow]                                       |      |
 | 9    |          | 单点登陆管理服务       | 完成   | [alinesno-cloud-platform-sso][alinesno-cloud-platform-sso]         |      |
-| 10   |          | 内容管理服务           | 初稿   | [alinesno-cloud-cms][alinesno-cloud-cms]                           |      |
-| 11   |          | 会员管理服务           | 初稿   | [alinesno-cloud-member][alinesno-cloud-member]                     |      |
 |      |          |                        |        |                                                                    |      |
 | 1    | 运维中台 | 自动化运维体系         | 完成   | [chatops][chatops]                                                 |      |
 | 2    |          | 审计日志监控服务       | 初稿 | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
-| 3    |          | Ansible自动化操作服务 | 完成 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
+| 3    |          | 自动化操作服务 | 完成 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
 | 4    |          | 应用监控预警服务       |初稿 |    [alinesno-cloud-monitor][alinesno-cloud-monitor]                   |      |
 |      |          |                        |        |                                                                    |      |
 | 1    | 数据中台 | 数据中台管理体系       | 编写中 | alinesno-cloud-data-studio                                         |      |
