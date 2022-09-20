@@ -64,11 +64,14 @@ admin.enableServer=false
 修改server.properties文件
 
 在#listeners=PLAINTEXT://:9092下面增加如下配置
-listeners=PLAINTEXT://172.17.49.195:9092
+listeners=PLAINTEXT://172.17.49.195:9092               #局域网地址
+advertised.listeners=PLAINTEXT://8.129.187.176:9092    #公网地址
 
-log.dirs=/tmp/kafka-logs          修改为 log.dirs=/root/tools/kafka_2.12-3.2.0/logs
+log.dirs=/tmp/kafka-logs                               #修改为 log.dirs=/root/tools/kafka_2.12-3.2.0/logs
 
-zookeeper.connect=localhost:2181  修改为 zookeeper.connect=172.17.49.195:2181
+zookeeper.connect=localhost:2181                       #修改为 zookeeper.connect=172.17.49.195:2181
+
+zookeeper.session.timeout.ms=400000                    #增加此配置项
 
 ```
 

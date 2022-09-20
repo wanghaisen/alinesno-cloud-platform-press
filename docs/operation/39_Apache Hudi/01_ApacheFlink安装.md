@@ -52,6 +52,9 @@ rest.port: 8083
 # 在文件末尾增加
 classloader.check-leaked-classloader: false
 taskmanager.host: localhost
+
+# taskmanager.memory.flink.size: 1280m 修改为
+taskmanager.memory.flink.size: 1280m
 ```
 
 3、修改配置文件 zoo.cfg
