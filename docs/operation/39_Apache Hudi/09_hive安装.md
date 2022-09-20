@@ -656,6 +656,59 @@ Initialization script hive-schema-3.1.0.mysql.sql
 Initialization script completed
 schemaTool completed
 [root@hadoopmaster bin]# 
+
+
+#修改hive元数据的注释字符集为UTF8
+[mysql@hadoopmaster ~]$  mysql -u root -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12371
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hive               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use hive;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql>  alter table COLUMNS_V2 modify column COMMENT varchar(256) character set utf8;              --修改为utf8字符集
+Query OK, 4553 rows affected, 1 warning (0.09 sec)
+Records: 4553  Duplicates: 0  Warnings: 1
+
+mysql> alter table TABLE_PARAMS modify column PARAM_VALUE mediumtext character set utf8;           --修改为utf8字符集
+Query OK, 125 rows affected, 1 warning (0.05 sec)
+Records: 125  Duplicates: 0  Warnings: 1
+
+mysql>  alter table PARTITION_PARAMS modify column PARAM_VALUE varchar(4000) character set utf8;   --修改为utf8字符集
+Query OK, 3 rows affected, 1 warning (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 1
+
+mysql> alter table PARTITION_KEYS modify column PKEY_COMMENT varchar(4000) character set utf8;     --修改为utf8字符集
+Query OK, 20 rows affected, 1 warning (0.05 sec)
+Records: 20  Duplicates: 0  Warnings: 1
+
+mysql> 
     
 ```
 
