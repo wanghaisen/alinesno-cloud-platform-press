@@ -4,6 +4,7 @@
 
 - 如何在 centos7 服务器上安装 sqoop
 - 从hive中导出数据到mysql
+- 将mysql表数据导入hive表
 
 ## sqoop 安装
 
@@ -304,5 +305,77 @@ mysql> select * from tb_unit limit 1 ;
 
 mysql> 
 
+```
+
+9、从mysql导入数据到hive
+
+```shell
+hive>  create table tb_unit_new(                #创建hive表
+    >   id bigint, 
+    >   area_code string, 
+    >   unit_code string, 
+    >   unit_caption string, 
+    >   dept_id string, 
+    >   dept_parent_areacode string, 
+    >   dept_parent string, 
+    >   dept_dept_class string, 
+    >   dept_lsgl string, 
+    >   unit_list string, 
+    >   unit_lsgx string, 
+    >   unit_order bigint, 
+    >   py_code string, 
+    >   wb_code string, 
+    >   is_zh string, 
+    >   is_fy string, 
+    >   unit_ip string)
+    > ROW FORMAT SERDE 
+    >   'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+    > WITH SERDEPROPERTIES ( 
+    >   'field.delim'='|', 
+    >   'serialization.format'='|', 
+    >   'serialization.null.format'='') 
+    > STORED AS INPUTFORMAT 
+    >   'org.apache.hadoop.mapred.TextInputFormat' 
+    > OUTPUTFORMAT 
+    >   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+    > ;
+OK
+Time taken: 0.046 seconds
+hive> 
+[root@hadoopmaster flink]# touch import_195.sh  #创建导入脚本
+[root@hadoopmaster flink]# vi import_195.sh
+sqoop import \
+--connect jdbc:mysql://172.17.49.195:3306/test \
+--username root \
+--password 'qaz123689' \
+--hive-import \
+--hive-table casinfo.tb_unit_new \
+--as-textfile \
+--fields-terminated-by '|' \
+--target-dir 'hdfs://172.17.49.195:9000/data/hive/warehouse/casinfo.db/tb_unit_new' \
+--delete-target-dir \
+--null-string '\\N' \
+--null-non-string '\\N' \
+--query 'select * from TB_UNIT where $CONDITIONS' \
+--split-by id \
+-m 2
+"import_195.sh" 15L, 432C written
+[root@hadoopmaster flink]# 
+[root@hadoopmaster flink]# sh import_195.sh   #执行导入脚本
+
+hive> select * from  tb_unit_new limit 10 ;   #查看导入结果
+OK
+18756   451081  4510250240      驮满村卫生室    450000055244    451081  450000000344    D600    NULL    0       NULL    50      TMCWSS  CISBTP  0       NULL    NULL
+18757   451081  4510250241      扶赖街卫生室    450000055246    451081  450000000344    D600    NULL    0       NULL    50      FLJWSS  RGTBTP  0       NULL    NULL
+18758   451081  4510250242      那多村卫生室    450000055248    451081  450000000344    D600    NULL    0       NULL    50      NDCWSS  VQSBTP  0       NULL    NULL
+18759   451081  4510250243      驮林村卫生室    450000055250    451081  450000000344    D600    NULL    0       NULL    50      TLCWSS  CSSBTP  0       NULL    NULL
+18760   451081  4510250244      大面村卫生室    450000055252    451081  450000000344    D600    NULL    0       NULL    50      DMCWSS  DDSBTP  0       NULL    NULL
+18761   451081  4510250245      那些村卫生室    450000055254    451081  450000000344    D600    NULL    0       NULL    50      NXCWSS  VHSBTP  0       NULL    NULL
+18762   451081  4510250246      德周村卫生室    450000055256    451081  450000000344    D600    NULL    0       NULL    50      DZCWSS  TMSBTP  0       NULL    NULL
+18763   451081  4510250247      大动村卫生室    450000055258    451081  450000000344    D600    NULL    0       NULL    50      DDCWSS  DFSBTP  0       NULL    NULL
+18764   451026  4510260030      明浪村卫生室    450000055340    451026  450000000346    D600    NULL    0       NULL    50      MLCWSS  JISBTP  0       NULL    NULL
+18765   451026  4510260031      弄约村卫生室    450000055376    451026  450000000346    D600    NULL    0       NULL    50      NYCWSS  GXSBTP  0       NULL    NULL
+Time taken: 0.101 seconds, Fetched: 10 row(s)
+hive> 
 ```
 
