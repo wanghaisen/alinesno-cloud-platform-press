@@ -210,7 +210,7 @@ general分页：设置server name/IP address、server port、timeout、username�
 settings分页：设置commands
 
 ```shell
-hive --define v_starttime=${day_key}  -f /home/liuguobing/shareshop/sh/sql/xf_order_load.sql > /home/liuguobing/shareshop/sh/log/xf_order_load_${day_key}.log 2>&1
+hive --define v_starttime=${day_key}  -f /home/liuguobing/shareshop/sh/sql/xf_order_load.sql > /home/liuguobing/shareshop/sh/log/xf_order_load_${day_key}.log 2>&1  && mv /home/liuguobing/datatest/xf_order_${v_starttime}.csv /home/liuguobing/datatest_bak
 ```
 
 <img :src="$withBase('/operation/kettle_018.png')">
