@@ -3,8 +3,8 @@
 ## 本内容你将获得
 
 - 通过kettle任务抽取mysql业务数据到hive表
-
 - 在线调度kettle任务
+- 定时删除历史数据文件
 
 
 
@@ -275,7 +275,26 @@ c)、查看定时调度结果
 
 <img :src="$withBase('/operation/kettle_027.png')">
 
- 
+###  4、定时删除历史数据文件
+
+```shell
+[root@hadoopmaster flink]# touch deleteHisFile.sh
+[root@hadoopmaster flink]# vi deleteHisFile.sh
+# !/bin/bash
+#删除1天前的数据文件
+find  /root/flink/data_bak -name "*.csv" -mtime +1 -exec -ok rm -rf {} \;
+
+~
+"deleteHisFile.sh" 3L, 117C written
+[root@hadoopmaster flink]# 
+[root@hadoopmaster flink]# crontab -e
+no crontab for root - using an empty one
+#每天的8:5分删除一天前的数据文件
+5 8 * * * sh /root/flink/deleteHisFile.sh > /root/flink/deleteHisFile.log
+"/tmp/crontab.RgL3Ix" 2L, 121C written
+crontab: installing new crontab
+[root@hadoopmaster flink]#     
+```
 
 ### 
 
