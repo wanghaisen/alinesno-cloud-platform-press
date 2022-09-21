@@ -649,7 +649,7 @@ SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 Metastore connection URL:        jdbc:mysql://172.17.49.195:3306/hive
 Metastore Connection Driver :    com.mysql.jdbc.Driver
 Metastore connection User:       hive
-Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+Loading class com.mysql.jdbc.Driver'. This is deprecated. The new driver class is com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 Starting metastore schema initialization to 3.1.0
 Initialization script hive-schema-3.1.0.mysql.sql
 
