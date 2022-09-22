@@ -123,6 +123,16 @@ drwxr-xr-x 2 1024 1024  4096 Jul 29 20:34 shellprofile.d
 -rw-r--r-- 1 1024 1024    10 Jul 29 20:34 workers
 [root@hadoopmaster hadoop]# cp hdfs-site.xml /root/tools/flink-1.14.5/conf
 [root@hadoopmaster hadoop]# cp core-site.xml /root/tools/flink-1.14.5/conf
+[root@hadoopmaster hadoop]# cd /root/tools/hive-3.1.3/conf
+[root@hadoopmaster conf]# ls -alt |grep hive
+-rw-r--r--  1 root root 301977 Sep 15 08:30 hive-site.xml
+-rw-r--r--  1 root root 300727 Sep 14 18:05 hive-site.xml_20220914bak
+-rw-r--r--  1 root root   2686 Sep 14 18:03 hive-env.sh
+-rw-r--r--  1 root root   2365 Sep 14 18:02 hive-env.sh_20220914bak
+-rw-r--r--  1 root root 300727 Apr  4 04:58 hive-default.xml.template
+-rw-r--r--  1 root root   3086 Sep  5  2020 hive-log4j2.properties.template
+-rw-r--r--  1 root root   2274 Oct 24  2019 hive-exec-log4j2.properties.template
+-rw-r--r--  1 root root   2365 Oct 24  2019 hive-env.sh.template
 [root@hadoopmaster hadoop]# cp hive-site.xml /root/tools/flink-1.14.5/conf
 ```
 
