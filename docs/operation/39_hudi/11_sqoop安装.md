@@ -3,8 +3,8 @@
 ## 本内容你将获得
 
 - 如何在 centos7 服务器上安装 sqoop
-- 从hive中导出数据到mysql
-- 将mysql表数据导入hive表
+- 验证从hive中导出数据到mysql
+- 验证将mysql表数据导入hive表
 
 ## sqoop 安装
 
@@ -170,7 +170,9 @@ hive> load data local inpath'/root/data/tb_unit.csv' overwrite into table casinf
 
 ```
 
-7、创建从hive导出数据到mysql的sh脚本并执行
+7、验证从hive中导出数据到mysql
+
+创建从hive导出数据到mysql的sh脚本并执行
 
 ```bash
 [root@hadoopmaster flink]# vi export_195.sh
@@ -307,7 +309,9 @@ mysql>
 
 ```
 
-9、从mysql导入数据到hive
+9、验证将mysql表数据导入hive表
+
+从mysql导入数据到hive
 
 ```shell
 hive>  create table tb_unit_new(                #创建hive表

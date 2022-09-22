@@ -154,6 +154,7 @@ export default defineUserConfig({
           { text: '新手入门', link: '/firstlearn/' },
           { text: '前端手册', link: '/front/' },
           { text: '后端手册', link: '/technique/' },
+          { text: '数据手册', link: '/dataSkill/' },
           { text: '经验分享', link: '/experience/' }
         ]
       },
@@ -684,6 +685,17 @@ export default defineUserConfig({
           children: genOperationDevopsSidebar()
         }
       ],
+      '/dataSkill/': [
+        {
+          text: '环境建设',
+          collapsible: true
+        },
+        {
+          text: '数据开发',
+          collapsible: true,
+          children: genDataSkillDevSidebar()
+        }
+      ],
       '/learn/': [
         {
           text: '人才团队建设',
@@ -949,17 +961,15 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_Apache Hudi/10_kafka安装.md',
-    '/operation/39_Apache Hudi/03_scala安装.md',
-    '/operation/39_Apache Hudi/07_hadoop安装.md',
-    '/operation/39_Apache Hudi/08_spark安装.md',
-    '/operation/39_Apache Hudi/09_hive安装.md',
-    '/operation/39_Apache Hudi/11_sqoop安装.md',
-    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
-    '/operation/39_Apache Hudi/06_Hudi安装.md',
-    '/operation/39_Apache Hudi/12_数据上报.md',
-    '/operation/39_Apache Hudi/13_数据仓库_hive建表说明.md',
-    '/operation/39_Apache Hudi/14_数据仓库_hive-导入数据.md'
+    '/operation/39_hudi/10_kafka安装.md',
+    '/operation/39_hudi/03_scala安装.md',
+    '/operation/39_hudi/07_hadoop安装.md',
+    '/operation/39_hudi/08_spark安装.md',
+    '/operation/39_hudi/09_hive安装.md',
+    '/operation/39_hudi/11_sqoop安装.md',
+    '/operation/39_hudi/01_ApacheFlink安装.md',
+    '/operation/39_hudi/06_Hudi安装.md',
+    '/operation/39_hudi/15_kettle安装.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2101,3 +2111,18 @@ function genExperienceSidebar(menus) {
     })
   }
 }
+
+
+function genDataSkillDevSidebar() {
+    const mapArr = [
+      '/dataskill/01_skill/03_数据上报.md',
+      '/dataskill/01_skill/04_在线抽取数据.md'
+    ]
+    return mapArr.map(i => {
+      return i
+    })
+}
+
+
+
+

@@ -3,8 +3,8 @@
 ## 本内容你将获得
 
 - 如何在 centos7 服务器上安装 hudi
-- 在 flinksql 中接收 kafka 消息，并将消息写入 hudi 表
-- 在 flinksql 中接收 mysql cdc 消息，并将消息写入 hudi 表
+- 在 flinksql 中接收 kafka 消息
+- 在 flinksql 中接收 mysql cdc 消息
 - 在 flinksql 中创建关联hudi的表，写入hudi表时同步到hive表
 
 ## Hudi 依赖的环境
@@ -364,7 +364,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$SCALA_HOME/li
 保存后，执行source profile，使环境变量生效
 ```
 
-## 调试1：flinksql 中接收 kafka 消息，并将消息写入 hudi 表
+## 在 flinksql 中接收 kafka 消息
 
 ### 启动 flink 集群
 
@@ -377,8 +377,6 @@ export HADOOP_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 --启动集群
 ./start-cluster.sh
 
---启动flinksql命令行工具
-./sql-client.sh embedded  
 ```
 
 ### 启动 kafka 集群
@@ -404,26 +402,6 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 ```bash
 cd /root/tools/kafka_2.12-3.2.0/bin
 ./kafka-topics.sh --list --bootstrap-server 172.17.49.195:9092
-```
-
-#### topic 删除
-
-```bash
-cd /root/tools/kafka_2.12-3.2.0/bin
-./kafka-topics.sh --delete --bootstrap-server 172.17.49.195:9092  --topic flinktest
-```
-
-#### 修改 topic 的 partition 数
-
-```shell
-cd /root/tools/kafka_2.12-3.2.0/bin
-./kafka-topics.sh --bootstrap-server 172.17.49.195:9092 --alter --topic flinktest --partitions 5
-```
-
-#### 查看 topic 的消息
-
-```bash
-./kafka-topics.sh --describe --bootstrap-server 172.17.49.195:9092
 ```
 
 #### 使用 kafka-console-producer.sh 命令向 topic flinktest 发送消息
@@ -457,31 +435,6 @@ export HADOOP_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 #### 新建与 kafka 关联的表
 
 ```shell
-CREATE TABLE kafkatest (
-   tinyint0 TINYINT
-  ,smallint1 SMALLINT
-  ,int2 INT
-  ,bigint3 BIGINT
-  ,float4 FLOAT
-  ,double5 DOUBLE
-  ,decimal6 DECIMAL(38,8)
-  ,boolean7 BOOLEAN
-  ,char8 STRING
-  ,varchar9 STRING
-  ,string10 STRING
-  ,timestamp11 STRING
-) WITH (
-    'connector' = 'kafka',   -- 使用 kafka connector
-    'topic' = 'flinktest',   -- kafka topic名称
-    'scan.startup.mode' = 'earliest-offset',  -- 从起始 offset 开始读取
-    'properties.bootstrap.servers' = '172.17.49.195:9092',  -- kafka broker 地址
-    'properties.group.id' = 'testgroup1',
-    'value.format' = 'json',
-    'value.json.fail-on-missing-field' = 'true',
-    'value.fields-include' = 'ALL'
-);
-
-
 Flink SQL> CREATE TABLE kafkatest (
 >    tinyint0 TINYINT
 >   ,smallint1 SMALLINT
@@ -525,166 +478,7 @@ Flink SQL> select *from kafkatest ;
 
 ```
 
-#### 新建与 hudi 关联的表
-
-```shell
-CREATE TABLE huditest(
-uuid VARCHAR(20),
-name VARCHAR(10),
-age INT,
-ts TIMESTAMP(3),
-`partition` VARCHAR(20)
-)
-PARTITIONED BY (`partition`)
-WITH (
-'connector' = 'hudi',
-'path' = 'hdfs:///user/flink/hudi/huditest',
-'table.type' = 'MERGE_ON_READ', -- this creates a MERGE_ON_READ table, by default is COPY_ON_WRITE
-'write.operation' = 'upsert',
-'hoodie.datasource.write.recordkey.field'= 'uuid',
-'write.precombine.field' = 'ts',
-'write.tasks'= '1',
-'compaction.tasks' = '1',
-'compaction.async.enabled' = 'true',
-'compaction.trigger.strategy' = 'num_commits',
-'compaction.delta_commits' = '1'
-);
-
-Flink SQL> CREATE TABLE huditest(
-> uuid VARCHAR(20),
-> name VARCHAR(10),
-> age INT,
-> ts TIMESTAMP(3),
-> `partition` VARCHAR(20)
-> )
-> PARTITIONED BY (`partition`)
-> WITH (
-> 'connector' = 'hudi',
-> 'path' = 'hdfs:///user/flink/hudi/huditest',
-> 'table.type' = 'MERGE_ON_READ', -- this creates a MERGE_ON_READ table, by default is COPY_ON_WRITE
-> 'write.operation' = 'upsert',
-> 'hoodie.datasource.write.recordkey.field'= 'uuid',
-> 'write.precombine.field' = 'ts',
-> 'write.tasks'= '1',
-> 'compaction.tasks' = '1',
-> 'compaction.async.enabled' = 'true',
-> 'compaction.trigger.strategy' = 'num_commits',
-> 'compaction.delta_commits' = '1'
-> );
-[INFO] Execute statement succeed.
-```
-
-#### 插入数据
-
-```shell
-INSERT INTO huditest VALUES
-('1','张三',13,TIMESTAMP '2022-09-08 00:00:01','par1');
-INSERT INTO huditest VALUES
-('2','李四',28,TIMESTAMP '2022-09-08 00:00:02','par1');
-INSERT INTO huditest VALUES
-('3','王五',35,TIMESTAMP '2022-09-08 00:00:03','par2');
-INSERT INTO huditest VALUES
-('4','赵六',41,TIMESTAMP '2022-09-08 00:00:04','par2');
-INSERT INTO huditest VALUES
-('5','钱七',58,TIMESTAMP '2022-09-08 00:00:05','par3');
-INSERT INTO huditest VALUES
-('6','吴八',60,TIMESTAMP '2022-09-08 00:00:06','par3');
-INSERT INTO huditest VALUES
-('7','陈九',18,TIMESTAMP '2022-09-08 00:00:07','par4');
-INSERT INTO huditest VALUES
-('8','潘十',19,TIMESTAMP '2022-09-08 00:00:08','par4');
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('1','张三',13,TIMESTAMP '2022-09-08 00:00:01','par1');
-[INFO] Submitting SQL update statement to the cluster...
-INSERT INTO huditest VALUES
-('2','李四',28,TIMESTAMP '2022-09-08 00:00:02','par1');
-INSERT INTO huditest VALUES
-('3','王五',35,TIMESTAMP '2022-09-08 00:00:03','par2');
-INSERT INTO huditest VALUES
-('4','赵六',41,TIMESTAMP '2022-09-08 00:00:04','par2');
-INSERT INTO huditest VALUES
-('5','钱七',58,TIMESTAMP '2022-09-08 00:00:05','par3');
-INSERT INTO huditest VALUES
-('6','吴八',60,TIMESTAMP '2022-09-08 00:00:06','par3');
-INSERT INTO huditest VALUES
-('7','陈九',18,TIMESTAMP '2022-09-08 00:00:07','par4');
-INSERT INTO huditest VALUES
-('8','潘十',19,TIMESTAMP '2022-09-08 00:00:08','par4');
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 32e4307d81f52830169b078bbe27fd59
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('2','李四',28,TIMESTAMP '2022-09-08 00:00:02','par1');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 5f8b569c9faad389b9160edd9620ee48
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('3','王五',35,TIMESTAMP '2022-09-08 00:00:03','par2');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: b5995c0091bc2dc43ce13bb11c29c4d7
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('4','赵六',41,TIMESTAMP '2022-09-08 00:00:04','par2');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: ad6b45d8f7e30915896b82fe7133ceac
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('5','钱七',58,TIMESTAMP '2022-09-08 00:00:05','par3');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 74e51cc7d05fe8171c26cc5533d29a6d
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('6','吴八',60,TIMESTAMP '2022-09-08 00:00:06','par3');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 8ee6cc65678a2745d0329d55f3fbfd48
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('7','陈九',18,TIMESTAMP '2022-09-08 00:00:07','par4');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: 26a052ba3f55368225be9537eceba86d
-
-Flink SQL> INSERT INTO huditest VALUES
-> ('8','潘十',19,TIMESTAMP '2022-09-08 00:00:08','par4');
-[INFO] Submitting SQL update statement to the cluster...
-[INFO] SQL update statement has been successfully submitted to the cluster:
-Job ID: a6533fc5a240e2937662b8453c904e91
-
-Flink SQL> 
-```
-
-#### 查看 hudi 表的 hdfs 文件变化
-
-验证在 hdfs 中新建了 hudi 表并写入了相应的数据
-
-```bash
-hadoop fs -ls hdfs:///user/flink/hudi/huditest
-hadoop fs -ls hdfs:///user/flink/hudi/huditest/par1
-
-
-[root@hadoopmaster ~]# hadoop fs -ls hdfs:///user/flink/hudi/huditest
-Found 5 items
-drwxr-xr-x   - root supergroup          0 2022-09-15 16:54 hdfs:///user/flink/hudi/huditest/.hoodie
-drwxr-xr-x   - root supergroup          0 2022-09-15 16:53 hdfs:///user/flink/hudi/huditest/par1
-drwxr-xr-x   - root supergroup          0 2022-09-15 16:54 hdfs:///user/flink/hudi/huditest/par2
-drwxr-xr-x   - root supergroup          0 2022-09-15 16:54 hdfs:///user/flink/hudi/huditest/par3
-drwxr-xr-x   - root supergroup          0 2022-09-15 16:54 hdfs:///user/flink/hudi/huditest/par4
-[root@hadoopmaster ~]# hadoop fs -ls hdfs:///user/flink/hudi/huditest/par1
-Found 4 items
--rw-r--r--   3 root supergroup        970 2022-09-15 16:53 hdfs:///user/flink/hudi/huditest/par1/.0d1580d9-49b4-4114-9711-f5fd1c2a7bbd_20220915165344104.log.1_0-1-0
--rw-r--r--   3 root supergroup        105 2022-09-15 16:53 hdfs:///user/flink/hudi/huditest/par1/.0d1580d9-49b4-4114-9711-f5fd1c2a7bbd_20220915165344104.log.2_1-0-1
--rw-r--r--   3 root supergroup         96 2022-09-15 16:53 hdfs:///user/flink/hudi/huditest/par1/.hoodie_partition_metadata
--rw-r--r--   3 root supergroup     435124 2022-09-15 16:53 hdfs:///user/flink/hudi/huditest/par1/0d1580d9-49b4-4114-9711-f5fd1c2a7bbd_0-1-0_20220915165346040.parquet
-[root@hadoopmaster ~]# 
-```
-
-## 调试2：flinksql 中接收 mysql变更消息
+## 在 flinksql 中接收 mysql cdc 消息
 
 查看数据库是否开启bin_log。如没有开启，需要修改/etc/my.cnf文件，增加如下内容并重启数据库
 
@@ -757,26 +551,6 @@ mysql>
 打开flinksql客户端并创建关联mysql的表
 
 ```shell
-CREATE TABLE users_source_mysql (
- id BIGINT PRIMARY KEY NOT ENFORCED
-,name STRING
-,birthday TIMESTAMP(3)
-,ts TIMESTAMP(3)
-) WITH(
-'connector' = 'mysql-cdc' ,
-'hostname'  = '172.17.49.195' ,
-'port'      = '3306' ,
-'username'  = 'root' ,
-'password'  = 'qaz123689' ,
-'server-time-zone'        = 'Asia/Shanghai' ,
-'debezium. snapshot.mode' = 'initial ' ,
-'database-name' = 'test' ,
-'table-name' = 'tbl_users'
-);
-
-select * from users_source_mysql ;
-
-
 Flink SQL> CREATE TABLE users_source_mysql (
 >  id BIGINT PRIMARY KEY NOT ENFORCED
 > ,name STRING
@@ -808,7 +582,7 @@ R Refresh                                      - Dec Refresh                    
 
 在mysql客户端修改表tbl_users信息、删除表信息、新增记录。flinksql客户端显示mysql表的变更。
 
-## 调试3：flinksql中创建hudi表，并映射到hive表
+## 在 flinksql 中创建关联hudi的表，写入hudi表时同步到hive表
 
 在hive中创建public数据库后，打开flinksql客户端。
 
@@ -822,94 +596,6 @@ hive>
 
 
 ```shell
-CREATE TABLE nation_info(
- numeric_code     int
-,national_name    string
-,roman_spelling   string
-,alphabetic_code  string
-,primary key(numeric_code) not enforced
-)WITH (
-  'connector' = 'hudi',
-  'path' = 'hdfs:///user/flink/hudi/public/nation_info',  --hudi表的hdfs存储路径
-  'table.type' = 'COPY_ON_WRITE',                         --写时复制模式   
-  'write.bucket_assign.tasks' = '1',
-  'write.tasks' = '1',
-  'hive_sync.enable'= 'true', -- 开启自动同步hive
-  'hive_sync.mode'= 'hms',    -- 自动同步hive模式，默认jdbc模式
-  'hive_sync.metastore.uris'= 'thrift://172.17.49.195:9083',   -- hive metastore地址
-  'hive_sync.jdbc_url' = 'jdbc:hive2://172.17.49.195:10000',   -- required, hiveServer地址
-  'hive_sync.table'= 'nation_info',      -- hive 新建表名
-  'hive_sync.db'= 'public',              -- hive 新建数据库名
-  'hive_sync.username'= 'hive',          -- hive 用户名
-  'hive_sync.password'= 'qaz123689',     -- hive 密码
-  'hive_sync.support_timestamp'= 'true'  -- 兼容hive timestamp类型
-);
-
-insert into nation_info VALUES
-(1,'汉族','Han','HA'),
-(2,'蒙古族','Mongol','MG'),
-(3,'回族','Hui','HU'),
-(4,'藏族','',''),
-(5,'维吾尔族','',''),
-(6,'苗族','Miao','MH'),
-(7,'彝族','',''),
-(8,'壮族','Zhuang','ZH'),
-(9,'布依族','Buyei','BY'),
-(10,'朝鲜族','Chosen','CS'),
-(11,'满族','Man','MA'),
-(12,'侗族','Dong','DO'),
-(13,'瑶族','',''),
-(14,'白族','Bai','BA'),
-(15,'土家族','Tujia','TJ'),
-(16,'哈尼族','Hani','HN'),
-(17,'哈萨克族','Kazak','KZ'),
-(18,'傣族','Dai','DA'),
-(19,'黎族','Li','LI'),
-(20,'傈僳族','Lisu','LS'),
-(21,'佤族','Va','VA'),
-(22,'畲族','',''),
-(23,'高山族','Gaoshan','GS'),
-(24,'拉祜族','Lahu','LH'),
-(25,'水族','Sui','SU'),
-(26,'东乡族','Dongxiang','DX'),
-(27,'纳西族','Naxi','NX'),
-(28,'景颇族','Jingpo','JP'),
-(29,'柯尔克孜族','Kirgiz','KG'),
-(30,'土族','Tu','TU'),
-(31,'达斡尔族','Daur','DU'),
-(32,'仫佬族','Mulao','ML'),
-(33,'羌族','Qiang','QI'),
-(34,'布朗族','Blang','BL'),
-(35,'撒拉族','',''),
-(36,'毛南族','Maonan','MN'),
-(37,'仡佬族','Gelao','GL'),
-(38,'锡伯族','',''),
-(39,'阿昌族','Achang','AC'),
-(40,'普米族','',''),
-(41,'塔吉克族','',''),
-(42,'怒族','Nu','NU'),
-(43,'乌孜别克族','Uzbek','UZ'),
-(44,'俄罗斯族','Russ','RS'),
-(45,'鄂温克族','Ewenki','EW'),
-(46,'德昂族','Deang','DE'),
-(47,'保安族','Bonan','BN'),
-(48,'裕固族','',''),
-(49,'京族','Gin','GI'),
-(50,'塔塔尔族','',''),
-(51,'独龙族','Derung','DR'),
-(52,'鄂伦春族','',''),
-(53,'赫哲族','Hezhen','HZ'),
-(54,'门巴族','Monba','MB'),
-(55,'珞巴族','Lhoba','LB'),
-(56,'基诺族','Jino','jN'),
-(57,'其他','',''),
-(58,'外国血统','','');
-
-insert into nation_info VALUES
-(101,'汉族测试','Han','HA'),
-(102,'蒙古族测试','Mongol','MG');
-
-
 [root@hadoopmaster bin]# ./sql-client.sh embedded  
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/root/tools/flink-1.14.5/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
