@@ -31,7 +31,7 @@ tar -xvzf spark-2.4.8-bin-without-hadoop-scala-2.12.tgz
 mv spark-2.4.8-bin-without-hadoop-scala-2.12 spark-2.4.8-pure    
 ```
 
-3、配置spark-defaults.conf，在文件最后增加配置
+3、配置spark-defaults.conf，在文件最后增加相关配置
 
 ```shell
 [root@hadoopmaster conf]# cd /root/tools/spark-2.4.8-pure/conf
@@ -410,24 +410,9 @@ localhost: starting org.apache.spark.deploy.worker.Worker, logging to /root/tool
 
 9、开放防火墙端口
 
-如服务器开启防火墙，需要开放hadoop的前端端口
+如服务器开启防火墙，可开放spark的前端端口
 
 ```shell
---查看防火墙状态
-systemctl status firewalld.service
-firewall-cmd --state
-
---临时关闭防火墙
-systemctl stop  firewalld.service
-
-systemctl start firewalld.serviece
-
---删除端口
-firewall-cmd --zone=public --remove-port 8088/tcp --permanent
-
---查看防火墙所有开放的端口
-firewall-cmd --zone=public  --list-ports
-
 --spark可开放的前端端口
 firewall-cmd --zone=public --add-port 18080/tcp  --permanent
  
@@ -435,7 +420,5 @@ firewall-cmd --zone=public --add-port 18080/tcp  --permanent
 firewall-cmd --reload
 
 spark历史前端：   http://192.168.17.149:18080
-
-
 ```
 

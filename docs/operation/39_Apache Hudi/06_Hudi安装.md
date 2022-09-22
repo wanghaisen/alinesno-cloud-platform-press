@@ -74,7 +74,7 @@ mvn clean install -DskipTests
 
 在Hudi\packaging\hudi-hadoop-mr-bundle\target目录下，得到 hudi-hadoop-mr-bundle-0.12.0.jar
 
-使用360压缩工具打开hudi-hadoop-mr-bundle-0.12.0.jar,修改hbase-default.xml、hbase-site.xml中的hbase版本及是否跳过
+使用压缩工具打开hudi-hadoop-mr-bundle-0.12.0.jar,修改hbase-default.xml、hbase-site.xml中的hbase版本及是否跳过
 
 ```Java
 <name>hbase.defaults.for.version</name>
@@ -84,14 +84,40 @@ mvn clean install -DskipTests
      <value>false</value>                           ->   <value>true</value>
 ```
 
-将hudi-hadoop-mr-bundle-0.12.0.jar 复制到 /root/tools/hive-3.1.3/auxlib、/root/tools/hive-3.1.3/lib目录。(创建auxlib目录)
+修改过程截图如下：
+
+1)、以压缩工具打开jar文件
+
+<img :src="$withBase('/operation/hudi_001.png')">
+
+2)、以记事本打开文件
+
+<img :src="$withBase('/operation/hudi_006.png')">
+
+3)、修改hbase-default.xml、hbase-site.xml文件中hbase的信息
+
+<img :src="$withBase('/operation/hudi_002.png')">
+
+4)、按照提示保存修改信息
+
+<img :src="$withBase('/operation/hudi_003.png')">
+
+5)、按照提示更新到jar包
+
+<img :src="$withBase('/operation/hudi_004.png')">
+
+6)、更新jar包
+
+<img :src="$withBase('/operation/hudi_005.png')">
+
+将hudi-hadoop-mr-bundle-0.12.0.jar 复制到 /root/tools/hive-3.1.3/auxlib、/root/tools/hive-3.1.3/lib目录。(如没有则创建auxlib目录)
 
 F、进入Hudi\packaging\hudi-hive-sync-bundle 目录，执行命令：
 mvn clean install -DskipTests
 
 在Hudi\packaging\hudi-hive-sync-bundle\target目录下，得到hudi-hive-sync-bundle-0.12.0.jar
 
-使用360压缩工具打开hudi-hive-sync-bundle-0.12.0.jar,修改hbase-default.xml、hbase-site.xml中的hbase版本及是否跳过
+使用压缩工具打开hudi-hive-sync-bundle-0.12.0.jar,修改hbase-default.xml、hbase-site.xml中的hbase版本及是否跳过
 
 ```Java
 <name>hbase.defaults.for.version</name>
@@ -183,7 +209,7 @@ D、修改flink-shaded\flink-shaded-hadoop-2-parent\flink-shaded-hadoop-2-uber\p
 
 将 flink-shaded-hadoop-2-uber-3.3.4-14.0.jar 上传到 /root/tools/flink-1.14.5/lib
 
-7、将编译和下载的 jar 包上传到 Flink、HIVE 的 lib 目录，最终如下
+7、将编译和下载的 jar 包上传到 Flink、HIVE 的 lib 目录后，最终如下
 
 ```bash
 [root@hadoopmaster lib]# pwd
@@ -361,9 +387,9 @@ export HADOOP_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 
 ```bash
 cd /root/tools/kafka_2.12-3.2.0/bin
-nohup sh kafka-server-start.sh ../config/server.properties &                               #非守护进程启动，容易异常死亡：
+nohup sh kafka-server-start.sh ../config/server.properties &                               #非守护进程启动，进程容易异常挂掉
 
-nohup sh kafka-server-start.sh -daemon ../config/server.properties 1>/dev/null 2>&1 &      #守护进程启动，防止异常死亡：
+nohup sh kafka-server-start.sh -daemon ../config/server.properties 1>/dev/null 2>&1 &      #守护进程启动，防止进程异常挂掉
 ```
 
 #### 创建 topic
@@ -660,7 +686,7 @@ Found 4 items
 
 ## 调试2：flinksql 中接收 mysql变更消息
 
-查看数据库是否开启bin_log。如没有开启，需要修改my.cnf文件，增加如下内容并重启
+查看数据库是否开启bin_log。如没有开启，需要修改/etc/my.cnf文件，增加如下内容并重启数据库
 
 ```shell
 log-bin=mysql-bin
@@ -972,20 +998,14 @@ Flink SQL>
 打开hive客户端,可查看到表数据
 
 ```shell
-select *  from public.nation_info ;
-
-20220905025642928       20220905025642928_0_1   44              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    44      俄罗斯族        Russ    RS
-20220905025642928       20220905025642928_0_2   45              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    45      鄂温克族        Ewenki  EW
-20220905025642928       20220905025642928_0_3   46              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    46      德昂族  Deang   DE
-20220905025642928       20220905025642928_0_4   47              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    47      保安族  Bonan   BN
-20220905025642928       20220905025642928_0_5   48              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    48      裕固族
-20220905025642928       20220905025642928_0_6   49              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    49      京族    Gin     GI
-20220905025642928       20220905025642928_0_7   50              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    50      塔塔尔族
-20220905025642928       20220905025642928_0_8   51              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    51      独龙族  Derung  DR
-20220905025642928       20220905025642928_0_9   52              67a6d28e-2804-4039-8e75-007e54903a2a_0-1-0_20220905025642928.parquet    52      鄂伦春族
-
-show create table public.nation_info ;
-
+hive> set hive.execution.engine=spark;
+hive> select *from public.nation_info where  numeric_code in (101,102);
+OK
+20220915171415714       20220915171415714_0_2   101             5f23eff2-16ba-499f-806d-6a0dd59777d5_0-1-0_20220915171415714.parquet    101     汉族测试        Han     HA
+20220915171415714       20220915171415714_0_3   102             5f23eff2-16ba-499f-806d-6a0dd59777d5_0-1-0_20220915171415714.parquet    102     蒙古族测试      Mongol  MG
+Time taken: 1.354 seconds, Fetched: 2 row(s)
+hive> show create table public.nation_info ;
+2022-09-14 15:59:49,151 INFO  [55c9a8f2-d526-4057-aa73-0ebb073a1440 main] exec.ListSinkOperator (Operator.java:logStats(1038)) - RECORDS_OUT_INTERMEDIATE:0, RECORDS_OUT_OPERATOR_LIST_SINK_0:27, 
 CREATE EXTERNAL TABLE `public.nation_info`(
   `_hoodie_commit_time` string COMMENT '', 
   `_hoodie_commit_seqno` string COMMENT '', 
@@ -1006,24 +1026,14 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  'hdfs://192.168.17.149:9000/user/flink/hudi/public/nation_info'
+  'hdfs://172.17.49.195:9000/user/flink/hudi/public/nation_info'
 TBLPROPERTIES (
-  'last_commit_time_sync'='20220905025642928', 
+  'last_commit_time_sync'='20220913210502766', 
   'spark.sql.sources.provider'='hudi', 
   'spark.sql.sources.schema.numParts'='1', 
   'spark.sql.sources.schema.part.0'='{"type":"struct","fields":[{"name":"_hoodie_commit_time","type":"string","nullable":true,"metadata":{}},{"name":"_hoodie_commit_seqno","type":"string","nullable":true,"metadata":{}},{"name":"_hoodie_record_key","type":"string","nullable":true,"metadata":{}},{"name":"_hoodie_partition_path","type":"string","nullable":true,"metadata":{}},{"name":"_hoodie_file_name","type":"string","nullable":true,"metadata":{}},{"name":"numeric_code","type":"integer","nullable":false,"metadata":{}},{"name":"national_name","type":"string","nullable":true,"metadata":{}},{"name":"roman_spelling","type":"string","nullable":true,"metadata":{}},{"name":"alphabetic_code","type":"string","nullable":true,"metadata":{}}]}', 
   'transient_lastDdlTime'='1662317806')
-  
-select count(*) from public.nation_info limit 1;
-
-
-hive> set hive.execution.engine=spark;
-hive> select *from public.nation_info where  numeric_code in (101,102);
-OK
-20220915171415714       20220915171415714_0_2   101             5f23eff2-16ba-499f-806d-6a0dd59777d5_0-1-0_20220915171415714.parquet    101     汉族测试        Han     HA
-20220915171415714       20220915171415714_0_3   102             5f23eff2-16ba-499f-806d-6a0dd59777d5_0-1-0_20220915171415714.parquet    102     蒙古族测试      Mongol  MG
-Time taken: 1.354 seconds, Fetched: 2 row(s)
-hive> 
+Time taken: 1.366 seconds, Fetched: 27 row(s)
 ```
 
 查看hudi表的hdfs文件

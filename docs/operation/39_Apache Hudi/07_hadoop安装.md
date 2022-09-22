@@ -12,7 +12,7 @@
 
 ## 经验教训
 
-  1、以 hadoop用户安装hadoop后，可正常运行。在调试flinksql获取kafka数据时，一直报org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonParseException: Unexpected character ('<' (code 60)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')。最终通过以root用户部署hadoop、flink解决。
+  1、以 hadoop用户安装hadoop后，可正常运行。在调试flinksql获取kafka数据时，一直报org.apache.flink.shaded.jackson2.com.fasterxml.jackson.core.JsonParseException: Unexpected character ('<' (code 60)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')。最终通过root用户部署hadoop、flink解决。
 
  2、以jdk11安装hadoop后，hdfs和yarn可正常运行，但部署hive时，无法启动。最终安装jdk8解决。
 
@@ -86,7 +86,7 @@ and check to make sure that only the key(s) you wanted were added.
 [root@hadoopmaster ~]# 
 ```
 
-4、设置hostname,删除原来的设置localhost.localdomain 
+4、设置hostname,删除原来设置的localhost.localdomain 
 
 ```shell
 [root@hadoopmaster ~]# cd /etc
@@ -387,7 +387,7 @@ export HADOOP_HEAPSIZE=6000
 YARN_HEAPSIZE=6000  #在文件最后增加这个配置
 ```
 
-14、在目录服务服务器上进行格式化并设置权限
+14、在nameNode服务器上进行格式化
 
 ```shell
 [root@hadoopmaster hadoop]# hdfs namenode -format     #日志中出现如下提示，说明格式化成功
@@ -448,6 +448,7 @@ firewall-cmd --state
 --临时关闭防火墙
 systemctl stop  firewalld.service
 
+--启动防火墙
 systemctl start firewalld.serviece
 
 --删除端口
@@ -457,9 +458,9 @@ firewall-cmd --zone=public --remove-port 8088/tcp --permanent
 firewall-cmd --zone=public  --list-ports
 
 --hadoop可开放的前端端口
-firewall-cmd --zone=public --add-port 50070/tcp --permanent
-firewall-cmd --zone=public --add-port 8088/tcp  --permanent
-firewall-cmd --zone=public --add-port 19888/tcp --permanent
+firewall-cmd --zone=public --add-port 50070/tcp --permanent   
+firewall-cmd --zone=public --add-port 8088/tcp  --permanent   
+firewall-cmd --zone=public --add-port 19888/tcp --permanent    
 
 --刷新防火墙
 firewall-cmd --reload

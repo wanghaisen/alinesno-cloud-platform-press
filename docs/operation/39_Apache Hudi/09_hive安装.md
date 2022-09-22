@@ -21,7 +21,7 @@
 
 ​      浏览器打开https://dev.mysql.com/downloads/mysql/链接，选择Archived Versions分页, Product version选择8.0.28，Operating System选择Red Hat Enterprise Linux / Oracle Linux ，OS version选择 Red Hat Enterprise Linux7 / Oracle Linux 7 (x86,64-bit)，在呈现的下载清单中，下载RPM Bundle。
 
-​      下载 [mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar](https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar)
+​       [mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar](https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar)
 
 2、在服务器上新建mysql用户、用户组、设置密码、创建相关目录
 
@@ -151,24 +151,24 @@ mysql-community-test-8.0.28-1.el7.x86_64.rpm
 在安装前，先检查是否安装有mysql，如有则先卸载并清除相关文件。
 
 ```shell
-[root@hadoopmaster tools]# rpm -qa | grep -i mysql   --检查是否已安装过mysql
-[root@hadoopmaster tools]#  rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm         --安装common
+[root@hadoopmaster tools]# rpm -qa | grep -i mysql   #检查是否已安装过mysql
+[root@hadoopmaster tools]# rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm         #安装common
 warning: mysql-community-common-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-common-8.0.28-1.e################################# [100%]
       
                     
-[root@hadoopmaster tools]# rpm -ivh mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm   --安装 client
+[root@hadoopmaster tools]# rpm -ivh mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm   #安装 client
 warning: mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-client-plugins-8.################################# [100%]                   
-[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm              --安装 libs
+[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm              #安装 libs
 warning: mysql-community-libs-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 error: Failed dependencies:
-        mariadb-libs is obsoleted by mysql-community-libs-8.0.28-1.el7.x86_64                 --提示已经过时
-[root@hadoopmaster tools]# yum -y remove mariadb-libs                                         --卸载
+        mariadb-libs is obsoleted by mysql-community-libs-8.0.28-1.el7.x86_64                 #提示已经过时
+[root@hadoopmaster tools]# yum -y remove mariadb-libs                                         #卸载
 Loaded plugins: fastestmirror
 Resolving Dependencies
 --> Running transaction check
@@ -219,28 +219,28 @@ Dependency Removed:
   postfix.x86_64 2:2.10.1-9.el7                                                                                 redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1                                                                                
 
 Complete!
-[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm                   --重新安装libs
+[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm                   #重新安装libs
 warning: mysql-community-libs-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-libs-8.0.28-1.el7################################# [100%]
-[root@hadoopmaster tools]# rpm -ivh mysql-community-client-8.0.28-1.el7.x86_64.rpm                 --安装client
+[root@hadoopmaster tools]# rpm -ivh mysql-community-client-8.0.28-1.el7.x86_64.rpm                 #安装client
 warning: mysql-community-client-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-client-8.0.28-1.e################################# [100%] 
-[root@hadoopmaster tools]# rpm -ivh  mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm        --安装 icu-data-files
+[root@hadoopmaster tools]# rpm -ivh  mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm        #安装 icu-data-files
 warning: mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-icu-data-files-8.################################# [100%]
-[root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm                 --安装 server
+[root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm                 #安装 server
 warning: mysql-community-server-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 error: Failed dependencies:
-        libaio.so.1()(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64               --提示缺少依赖    
-        libaio.so.1(LIBAIO_0.1)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     --提示缺少依赖  
-        libaio.so.1(LIBAIO_0.4)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     --提示缺少依赖  
-[root@hadoopmaster tools]# wget http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm  --下载依赖
+        libaio.so.1()(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64               #提示缺少依赖    
+        libaio.so.1(LIBAIO_0.1)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     #提示缺少依赖  
+        libaio.so.1(LIBAIO_0.4)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     #提示缺少依赖  
+[root@hadoopmaster tools]# wget http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm  #下载依赖
 --2022-09-14 17:34:33--  http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm
 Resolving mirror.centos.org (mirror.centos.org)... 111.90.139.14, 2406:da1a:fcb:2f01:b6e2:c6:795:b503
 Connecting to mirror.centos.org (mirror.centos.org)|111.90.139.14|:80... connected.
@@ -251,16 +251,16 @@ Saving to: ‘libaio-0.3.109-13.el7.x86_64.rpm’
 100%[==================================================================================================================================================================================================>] 24,744      70.0KB/s   in 0.3s   
 
 2022-09-14 17:34:34 (70.0 KB/s) - ‘libaio-0.3.109-13.el7.x86_64.rpm’ saved [24744/24744]
-[root@hadoopmaster tools]# rpm -ivh libaio-0.3.109-13.el7.x86_64.rpm                       --安装依赖
+[root@hadoopmaster tools]# rpm -ivh libaio-0.3.109-13.el7.x86_64.rpm                       #安装依赖
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:libaio-0.3.109-13.el7            ################################# [100%]
-[root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm         --重新安装 server
+[root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm         #重新安装 server
 warning: mysql-community-server-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 Preparing...                          ################################# [100%]
 Updating / installing...
    1:mysql-community-server-8.0.28-1.e################################# [100%]
-[root@hadoopmaster tools]# rpm -qa | grep mysql                           --确认mysql 的安装包
+[root@hadoopmaster tools]# rpm -qa | grep mysql                           #确认mysql 的安装包
 mysql-community-common-8.0.28-1.el7.x86_64
 mysql-community-icu-data-files-8.0.28-1.el7.x86_64
 mysql-community-client-plugins-8.0.28-1.el7.x86_64
@@ -270,21 +270,21 @@ mysql-community-server-8.0.28-1.el7.x86_64
 [root@hadoopmaster tools]#
        
  
---完成对mysql数据库的初始化和开机配置：
-[mysql@hadoopmaster ~]$ sudo mysqld --initialize;                        --初始化数据库
+#完成对mysql数据库的初始化和开机配置：
+[mysql@hadoopmaster ~]$ sudo mysqld --initialize;                        #初始化数据库
 [sudo] password for mysql: 
-[mysql@hadoopmaster ~]$ sudo chown mysql:mysql /var/lib/mysql -R;        --授权 
-[mysql@hadoopmaster ~]$ sudo systemctl start mysqld.service;             --启动mysql数据库
-[mysql@hadoopmaster ~]$ sudo systemctl enable mysqld;                    --来设置 mysql开机启动自动        
+[mysql@hadoopmaster ~]$ sudo chown mysql:mysql /var/lib/mysql -R;        #授权 
+[mysql@hadoopmaster ~]$ sudo systemctl start mysqld.service;             #启动mysql数据库
+[mysql@hadoopmaster ~]$ sudo systemctl enable mysqld;                    #来设置 mysql开机启动自动        
 ```
 
 5、配置mysql数据库
 
 ```shell
 
-[mysql@hadoopmaster ~]$ sudo cat /var/log/mysqld.log | grep password      --查看数据库的密码
+[mysql@hadoopmaster ~]$ sudo cat /var/log/mysqld.log | grep password      #查看数据库的密码
 2022-09-14T09:46:17.369421Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: Qj&VfWfH1.Zf
-[mysql@hadoopmaster ~]$ sudo mysql -u root -p                             --登陆数据库，密码为 Qj&VfWfH1.Zf
+[mysql@hadoopmaster ~]$ sudo mysql -u root -p                             #登陆数据库，密码为 Qj&VfWfH1.Zf
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
@@ -298,19 +298,19 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'qaz123689';  --修改数据库密码
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'qaz123689';  #修改数据库密码
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> create user 'root'@'%' identified with mysql_native_password by 'qaz123689';         --创建root用户并进行远程访问授权
+mysql> create user 'root'@'%' identified with mysql_native_password by 'qaz123689';         #创建root用户并进行远程访问授权
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> grant all privileges on *.* to 'root'@'%' with grant option;                         --创建root用户并进行远程访问授权
+mysql> grant all privileges on *.* to 'root'@'%' with grant option;                         #创建root用户并进行远程访问授权
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> flush privileges;                                                                    --刷新
+mysql> flush privileges;                                                                    #刷新
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> show variables like 'log_bin' ;                                                      --查看是否开启binlog功能
+mysql> show variables like 'log_bin' ;                                                      #查看是否开启binlog功能
 +---------------+-------+
 | Variable_name | Value |
 +---------------+-------+
@@ -318,28 +318,28 @@ mysql> show variables like 'log_bin' ;                                          
 +---------------+-------+
 1 row in set (0.00 sec)
 
-mysql> show master logs;                                                                    --查看是否开启binlog功能
+mysql> show master logs;                                                                    #查看是否开启binlog功能
 +---------------+-----------+-----------+
 | Log_name      | File_size | Encrypted |
 +---------------+-----------+-----------+
 | binlog.000001 |      1132 | No        |
 +---------------+-----------+-----------+
 1 row in set (0.00 sec)
-mysql> create database hive;                                                                --创建hives数据库
-mysql> create user 'hive'@'%' identified with mysql_native_password by 'qaz123689';         --创建hive用户并授权远程访问：
+mysql> create database hive;                                                                #创建hives数据库
+mysql> create user 'hive'@'%' identified with mysql_native_password by 'qaz123689';         #创建hive用户并授权远程访问：
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> grant all privileges on *.* to 'hive'@'%' with grant option;                         --创建hive用户并授权远程访问：
+mysql> grant all privileges on *.* to 'hive'@'%' with grant option;                         #创建hive用户并授权远程访问：
 Query OK, 0 rows affected (0.01 sec)
 
-mysql> flush privileges;                                                                    --刷新
+mysql> flush privileges;                                                                    #刷新
 Query OK, 0 rows affected (0.01 sec)
 
 mysql> exit
 Bye
  
-[mysql@hadoopmaster ~]$ sudo firewall-cmd --zone=public --add-port 3306/tcp --permanent     --开放mysql数据库端口
-[mysql@hadoopmaster ~]$ sudo firewall-cmd --reload                                          --刷新防火墙
+[mysql@hadoopmaster ~]$ sudo firewall-cmd --zone=public --add-port 3306/tcp --permanent     #开放mysql数据库端口
+[mysql@hadoopmaster ~]$ sudo firewall-cmd --reload                                          #刷新防火墙
 
 ```
 
@@ -846,10 +846,10 @@ hive>
 
 ```shell
 启动元数据服务 
-nohup hive --service metastore &         ##元数据服务        netstat -anlp |grep 9083   重启前可杀掉进程再启动
+nohup hive --service metastore &         ##元数据服务       netstat -anlp |grep 9083   重启前可杀掉进程再启动
  
 启动hiveserver2服务 
-nohup hive --service hiveserver2 &        ##支持jdbc查询服务 netstat -anlp |grep 10000   重启前可杀掉进程再启动
+nohup hive --service hiveserver2 &       ##支持jdbc查询服务 netstat -anlp |grep 10000   重启前可杀掉进程再启动
 ```
 
 9、切换hive执行引擎
