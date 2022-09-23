@@ -968,7 +968,7 @@ function genDataEnvironmentSidebar() {
     '/operation/39_hudi/08_spark安装.md',
     '/operation/39_hudi/09_hive安装.md',
     '/operation/39_hudi/11_sqoop安装.md',
-    '/operation/39_hudi/01_ApacheFlink安装.md',
+    '/operation/39_hudi/01_Flink安装.md',
     '/operation/39_hudi/06_Hudi安装.md',
     '/operation/39_hudi/15_kettle安装.md'
   ]
