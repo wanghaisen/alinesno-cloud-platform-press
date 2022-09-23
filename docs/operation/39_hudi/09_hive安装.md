@@ -121,16 +121,6 @@ total 825720
 -rw-r--r--   1 root  root  843008000 Sep 14 16:27 mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar
 drwxr-xr-x  11 root  root       4096 Sep 14 16:25 .
 -rw-r--r--   1 root  root    2476480 Sep 14 16:25 mysql-connector-java-8.0.28.jar
-drwxr-xr-x  11  1024  1024      4096 Sep 14 16:00 hadoop-3.3.4
-dr-xr-x---.  6 root  root       4096 Sep 14 15:36 ..
-drwxr-xr-x   2 root  root       4096 Sep 14 14:53 bak
-drwxr-xr-x   6 root  root       4096 Sep 14 14:52 zookeeper-3.6.2
-drwxr-xr-x  10 root  root       4096 Sep 14 14:51 hive-3.1.3
-drwxr-xr-x  12 root  root       4096 Jun 20 16:06 flink-1.14.4
-drwxr-xr-x   7 root  root       4096 May  3 20:56 kafka_2.12-3.2.0
-drwxr-xr-x   8 10143 10143      4096 Apr 26 14:03 jdk1.8.0_333
-drwxrwxr-x   6  2000  2000      4096 Sep 15  2021 scala-2.12.15
-drwxr-xr-x  13   501 mysql      4096 May  8  2021 spark-2.4.8-pure
 [root@hadoopmaster tools]# tar -xvf mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar
 [root@hadoopmaster tools]# ll
 mysql-community-client-8.0.28-1.el7.x86_64.rpm
@@ -152,88 +142,16 @@ mysql-community-test-8.0.28-1.el7.x86_64.rpm
 
 ```shell
 [root@hadoopmaster tools]# rpm -qa | grep -i mysql   #检查是否已安装过mysql
-[root@hadoopmaster tools]# rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm         #安装common
-warning: mysql-community-common-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-common-8.0.28-1.e################################# [100%]
-      
-                    
-[root@hadoopmaster tools]# rpm -ivh mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm   #安装 client
-warning: mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-client-plugins-8.################################# [100%]                   
-[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm              #安装 libs
+[root@hadoopmaster tools]# rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm           #安装common
+[root@hadoopmaster tools]# rpm -ivh mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm   #安装 client              
+[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm             #安装 libs
 warning: mysql-community-libs-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 error: Failed dependencies:
         mariadb-libs is obsoleted by mysql-community-libs-8.0.28-1.el7.x86_64                 #提示已经过时
 [root@hadoopmaster tools]# yum -y remove mariadb-libs                                         #卸载
-Loaded plugins: fastestmirror
-Resolving Dependencies
---> Running transaction check
----> Package mariadb-libs.x86_64 1:5.5.68-1.el7 will be erased
---> Processing Dependency: libmysqlclient.so.18()(64bit) for package: 2:postfix-2.10.1-9.el7.x86_64
---> Processing Dependency: libmysqlclient.so.18(libmysqlclient_18)(64bit) for package: 2:postfix-2.10.1-9.el7.x86_64
---> Running transaction check
----> Package postfix.x86_64 2:2.10.1-9.el7 will be erased
---> Processing Dependency: /usr/sbin/sendmail for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
---> Restarting Dependency Resolution with new changes.
---> Running transaction check
----> Package redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1 will be erased
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-============================================================================================================================================================================================================================================
- Package                                                     Arch                                               Version                                                         Repository                                             Size
-============================================================================================================================================================================================================================================
-Removing:
- mariadb-libs                                                x86_64                                             1:5.5.68-1.el7                                                  @anaconda                                             4.4 M
-Removing for dependencies:
- postfix                                                     x86_64                                             2:2.10.1-9.el7                                                  @anaconda                                              12 M
- redhat-lsb-core                                             x86_64                                             4.1-27.el7.centos.1                                             @base                                                  45 k
-
-Transaction Summary
-============================================================================================================================================================================================================================================
-Remove  1 Package (+2 Dependent packages)
-
-Installed size: 17 M
-Downloading packages:
-Running transaction check
-Running transaction test
-Transaction test succeeded
-Running transaction
-  Erasing    : redhat-lsb-core-4.1-27.el7.centos.1.x86_64                                                                                                                                                                               1/3 
-  Erasing    : 2:postfix-2.10.1-9.el7.x86_64                                                                                                                                                                                            2/3 
-  Erasing    : 1:mariadb-libs-5.5.68-1.el7.x86_64                                                                                                                                                                                       3/3 
-warning: /etc/my.cnf saved as /etc/my.cnf.rpmsave
-  Verifying  : redhat-lsb-core-4.1-27.el7.centos.1.x86_64                                                                                                                                                                               1/3 
-  Verifying  : 1:mariadb-libs-5.5.68-1.el7.x86_64                                                                                                                                                                                       2/3 
-  Verifying  : 2:postfix-2.10.1-9.el7.x86_64                                                                                                                                                                                            3/3 
-
-Removed:
-  mariadb-libs.x86_64 1:5.5.68-1.el7                                                                                                                                                                                                        
-
-Dependency Removed:
-  postfix.x86_64 2:2.10.1-9.el7                                                                                 redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1                                                                                
-
-Complete!
-[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm                   #重新安装libs
-warning: mysql-community-libs-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-libs-8.0.28-1.el7################################# [100%]
-[root@hadoopmaster tools]# rpm -ivh mysql-community-client-8.0.28-1.el7.x86_64.rpm                 #安装client
-warning: mysql-community-client-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-client-8.0.28-1.e################################# [100%] 
-[root@hadoopmaster tools]# rpm -ivh  mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm        #安装 icu-data-files
-warning: mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-icu-data-files-8.################################# [100%]
+[root@hadoopmaster tools]# rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm              #重新安装libs
+[root@hadoopmaster tools]# rpm -ivh mysql-community-client-8.0.28-1.el7.x86_64.rpm            #安装client 
+[root@hadoopmaster tools]# rpm -ivh  mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm   #安装 icu-data-files
 [root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm                 #安装 server
 warning: mysql-community-server-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
 error: Failed dependencies:
@@ -241,25 +159,8 @@ error: Failed dependencies:
         libaio.so.1(LIBAIO_0.1)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     #提示缺少依赖  
         libaio.so.1(LIBAIO_0.4)(64bit) is needed by mysql-community-server-8.0.28-1.el7.x86_64     #提示缺少依赖  
 [root@hadoopmaster tools]# wget http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm  #下载依赖
---2022-09-14 17:34:33--  http://mirror.centos.org/centos/7/os/x86_64/Packages/libaio-0.3.109-13.el7.x86_64.rpm
-Resolving mirror.centos.org (mirror.centos.org)... 111.90.139.14, 2406:da1a:fcb:2f01:b6e2:c6:795:b503
-Connecting to mirror.centos.org (mirror.centos.org)|111.90.139.14|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 24744 (24K) [application/x-rpm]
-Saving to: ‘libaio-0.3.109-13.el7.x86_64.rpm’
-
-100%[==================================================================================================================================================================================================>] 24,744      70.0KB/s   in 0.3s   
-
-2022-09-14 17:34:34 (70.0 KB/s) - ‘libaio-0.3.109-13.el7.x86_64.rpm’ saved [24744/24744]
 [root@hadoopmaster tools]# rpm -ivh libaio-0.3.109-13.el7.x86_64.rpm                       #安装依赖
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:libaio-0.3.109-13.el7            ################################# [100%]
 [root@hadoopmaster tools]# rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm         #重新安装 server
-warning: mysql-community-server-8.0.28-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID 3a79bd29: NOKEY
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:mysql-community-server-8.0.28-1.e################################# [100%]
 [root@hadoopmaster tools]# rpm -qa | grep mysql                           #确认mysql 的安装包
 mysql-community-common-8.0.28-1.el7.x86_64
 mysql-community-icu-data-files-8.0.28-1.el7.x86_64
@@ -268,8 +169,7 @@ mysql-community-client-8.0.28-1.el7.x86_64
 mysql-community-libs-8.0.28-1.el7.x86_64
 mysql-community-server-8.0.28-1.el7.x86_64
 [root@hadoopmaster tools]#
-       
- 
+   
 #完成对mysql数据库的初始化和开机配置：
 [mysql@hadoopmaster ~]$ sudo mysqld --initialize;                        #初始化数据库
 [sudo] password for mysql: 
@@ -594,16 +494,6 @@ export SPARK_HOME=/root/tools/spark-2.4.8-pure
 9)、创建hive-site.xml 中需要的hdfs目录
 
 ```shell
-
-hadoop fs -mkdir /data
-hadoop fs -mkdir /data/hive
-hadoop fs -mkdir /data/hive/warehouse
-hadoop fs -mkdir /data/hive/tmp
-hadoop fs -mkdir /data/hive/log
-hadoop fs -mkdir /spark-logs
-hadoop fs -mkdir /spark2-history
-hadoop fs -chmod -R 777 /
-
 [root@hadoopmaster tools]# hadoop fs -mkdir /data
 hadoop fs -mkdir /data/hive
 hadoop fs -mkdir /data/hive/warehouse
@@ -641,18 +531,6 @@ spark.driver.memory       1g
 ```shell
 [root@hadoopmaster bin]# cd /root/tools/hive-3.1.3/bin
 [root@hadoopmaster bin]# schematool -dbType mysql -initSchema
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/root/tools/hive-3.1.3/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/root/tools/hadoop-3.3.4/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
-Metastore connection URL:        jdbc:mysql://172.17.49.195:3306/hive
-Metastore Connection Driver :    com.mysql.jdbc.Driver
-Metastore connection User:       hive
-Loading class com.mysql.jdbc.Driver'. This is deprecated. The new driver class is com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-Starting metastore schema initialization to 3.1.0
-Initialization script hive-schema-3.1.0.mysql.sql
-
 Initialization script completed
 schemaTool completed
 [root@hadoopmaster bin]# 
@@ -716,21 +594,6 @@ mysql>
 
 ```shell
 [root@hadoopmaster bin]# hive
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/root/tools/hive-3.1.3/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/root/tools/hadoop-3.3.4/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
-which: no hbase in (/root/tools/jdk1.8.0_333/bin:/root/tools/scala-2.12.15/bin:/root/tools/flink-1.14.4/bin:/bin:/root/tools/jdk1.8.0_333/jre/bin:/bin:/root/tools/hive-3.1.3/bin:{SPARK_HOME}/bin:{HADOOP_HOME}/bin:/root/tools/spark-2.4.8-pure/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/scala-2.12.15/bin:/root/tools/flink-1.14.4/bin:/bin:/root/tools/jdk1.8.0_333/jre/bin:/bin:/root/tools/hive/hive-3.1.3/bin:{SPARK_HOME}/bin:{HADOOP_HOME}/bin:/root/tools/spark-2.4.8-pure/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/scala-2.12.15/bin:/root/tools/flink-1.14.4/bin:/bin:/root/tools/jdk1.8.0_333/jre/bin:/bin:/root/tools/hive/hive-3.1.3/bin:{SPARK_HOME}/bin:{HADOOP_HOME}/bin:/root/tools/spark-2.4.8-pure/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/scala-2.12.15/bin:/root/tools/flink-1.14.4/bin:/bin:/root/tools/jdk1.8.0_333/jre/bin:/bin:/root/tools/hivenew/hive-3.1.3/bin:{SPARK_HOME}/bin:{HADOOP_HOME}/bin:/root/tools/spark-2.4.8-pure/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/scala-2.12.15/bin:/root/tools/flink-1.14.4/bin:/bin:/root/tools/jdk1.8.0_333/jre/bin:/bin:/root/tools/hivenew/hive-3.1.3/bin:{SPARK_HOME}/bin:{HADOOP_HOME}/bin:/root/tools/spark-2.4.8-pure/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/zookeeper-3.6.2/bin:/root/tools/hadoop-3.3.4/sbin:/root/tools/hadoop-3.3.4/bin:/root/tools/hivenew/hive-3.1.3/sbin:/root/tools/hivenew/hive-3.1.3/bin::/root/bin:/root/tools/jdk1.8.0_333/bin:/root/tools/zookeeper-3.6.2/bin:/root/tools/hadoop-3.3.4/sbin:/root/tools/hadoop-3.3.4/bin:/root/tools/hivenew/hive-3.1.3/sbin:/root/tools/hivenew/hive-3.1.3/bin::/root/tools/jdk1.8.0_333/bin:/root/tools/zookeeper-3.6.2/bin:/root/tools/hadoop-3.3.4/sbin:/root/tools/hadoop-3.3.4/bin:/root/tools/hive/hive-3.1.3/sbin:/root/tools/hive/hive-3.1.3/bin::/root/tools/jdk1.8.0_333/bin:/root/tools/zookeeper-3.6.2/bin:/root/tools/hadoop-3.3.4/sbin:/root/tools/hadoop-3.3.4/bin:/root/tools/hive/hive-3.1.3/sbin:/root/tools/hive/hive-3.1.3/bin::/root/tools/jdk1.8.0_333/bin:/root/tools/zookeeper-3.6.2/bin:/root/tools/hadoop-3.3.4/sbin:/root/tools/hadoop-3.3.4/bin:/root/tools/hive-3.1.3/sbin:/root/tools/hive-3.1.3/bin:)
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/root/tools/hive-3.1.3/lib/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/root/tools/hadoop-3.3.4/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
-Hive Session ID = 21d18c33-90f8-41ae-96cc-c9f09133ca48
-
-Logging initialized using configuration in jar:file:/root/tools/hive-3.1.3/lib/hive-common-3.1.3.jar!/hive-log4j2.properties Async: true
-Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
 Hive Session ID = 10d4eef5-6774-4e05-b627-2d65c7e17921
 hive> show databases;
@@ -738,7 +601,6 @@ OK
 default
 Time taken: 0.536 seconds, Fetched: 1 row(s)
 hive> 
-
 ```
 
 7、验证spark引擎
@@ -746,32 +608,6 @@ hive>
 ```shell
 [root@hadoopmaster tools]# cd spark-2.4.8-pure       #进入spark目录
 [root@hadoopmaster spark-2.4.8-pure]# cd sbin        #进入sbin目录
-[root@hadoopmaster sbin]# ls -atl
-total 100
-drwxr-xr-x 15 501 mysql 4096 Sep 15 14:41 ..
-drwxr-xr-x  2 501 mysql 4096 May  8  2021 .
--rwxr-xr-x  1 501 mysql 2803 May  8  2021 slaves.sh
--rwxr-xr-x  1 501 mysql 1429 May  8  2021 spark-config.sh
--rwxr-xr-x  1 501 mysql 5689 May  8  2021 spark-daemon.sh
--rwxr-xr-x  1 501 mysql 1262 May  8  2021 spark-daemons.sh
--rwxr-xr-x  1 501 mysql 1190 May  8  2021 start-all.sh
--rwxr-xr-x  1 501 mysql 1274 May  8  2021 start-history-server.sh
--rwxr-xr-x  1 501 mysql 2050 May  8  2021 start-master.sh
--rwxr-xr-x  1 501 mysql 1877 May  8  2021 start-mesos-dispatcher.sh
--rwxr-xr-x  1 501 mysql 1423 May  8  2021 start-mesos-shuffle-service.sh
--rwxr-xr-x  1 501 mysql 1279 May  8  2021 start-shuffle-service.sh
--rwxr-xr-x  1 501 mysql 3151 May  8  2021 start-slave.sh
--rwxr-xr-x  1 501 mysql 1527 May  8  2021 start-slaves.sh
--rwxr-xr-x  1 501 mysql 1857 May  8  2021 start-thriftserver.sh
--rwxr-xr-x  1 501 mysql 1478 May  8  2021 stop-all.sh
--rwxr-xr-x  1 501 mysql 1056 May  8  2021 stop-history-server.sh
--rwxr-xr-x  1 501 mysql 1080 May  8  2021 stop-master.sh
--rwxr-xr-x  1 501 mysql 1227 May  8  2021 stop-mesos-dispatcher.sh
--rwxr-xr-x  1 501 mysql 1084 May  8  2021 stop-mesos-shuffle-service.sh
--rwxr-xr-x  1 501 mysql 1067 May  8  2021 stop-shuffle-service.sh
--rwxr-xr-x  1 501 mysql 1557 May  8  2021 stop-slave.sh
--rwxr-xr-x  1 501 mysql 1064 May  8  2021 stop-slaves.sh
--rwxr-xr-x  1 501 mysql 1066 May  8  2021 stop-thriftserver.sh
 [root@hadoopmaster sbin]# ./start-all.sh             #启动spark
 starting org.apache.spark.deploy.master.Master, logging to /root/tools/spark-2.4.8-pure/logs/spark-root-org.apache.spark.deploy.master.Master-1-hadoopmaster.out
 localhost: WARNING: log4j.properties is not found. HADOOP_CONF_DIR may be incomplete.

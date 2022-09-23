@@ -77,13 +77,6 @@ export HIVE_CONF_DIR=/root/tools/hive-3.1.3/conf
 export HADOOP_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HIVE_HOME/lib/*
 ~
-~
-~
-~
-~
-~
-~
-~
 "sqoop-env.sh" 41L, 1655C written
 [root@hadoopmaster conf]# 
 ```
@@ -205,45 +198,6 @@ sqoop export \
 [root@hadoopmaster flink]# 
 
 [root@hadoopmaster flink]# sh export_195.sh   #执行导出任务
-mysql: [Warning] Using a password on the command line interface can be insecure.
-Warning: /root/tools/sqoop-1.4.7/../hbase does not exist! HBase imports will fail.
-Please set $HBASE_HOME to the root of your HBase installation.
-Warning: /root/tools/sqoop-1.4.7/../hcatalog does not exist! HCatalog jobs will fail.
-Please set $HCAT_HOME to the root of your HCatalog installation.
-Warning: /root/tools/sqoop-1.4.7/../accumulo does not exist! Accumulo imports will fail.
-Please set $ACCUMULO_HOME to the root of your Accumulo installation.
-Warning: /root/tools/sqoop-1.4.7/../zookeeper does not exist! Accumulo imports will fail.
-Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation.
-2022-09-16 21:28:43,371 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7
-2022-09-16 21:28:43,402 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
-2022-09-16 21:28:43,519 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
-2022-09-16 21:28:43,523 INFO tool.CodeGenTool: Beginning code generation
-Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
-2022-09-16 21:28:44,156 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `TB_UNIT` AS t LIMIT 1
-2022-09-16 21:28:44,188 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `TB_UNIT` AS t LIMIT 1
-2022-09-16 21:28:44,197 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /root/tools/hadoop-3.3.4/lib
-2022-09-16 21:28:44,207 WARN orm.CompilationManager: HADOOP_MAPRED_HOME appears empty or missing
-Note: /tmp/sqoop-root/compile/0d0dc8829c24e1a5df0bfc12aedc4bb1/TB_UNIT.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-2022-09-16 21:28:45,475 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-root/compile/0d0dc8829c24e1a5df0bfc12aedc4bb1/TB_UNIT.jar
-2022-09-16 21:28:45,495 INFO mapreduce.ExportJobBase: Beginning export of TB_UNIT
-2022-09-16 21:28:45,495 INFO Configuration.deprecation: mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
-2022-09-16 21:28:45,589 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
-2022-09-16 21:28:46,487 INFO Configuration.deprecation: mapred.reduce.tasks.speculative.execution is deprecated. Instead, use mapreduce.reduce.speculative
-2022-09-16 21:28:46,491 INFO Configuration.deprecation: mapred.map.tasks.speculative.execution is deprecated. Instead, use mapreduce.map.speculative
-2022-09-16 21:28:46,491 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
-2022-09-16 21:28:46,597 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /172.17.49.195:8050
-2022-09-16 21:28:46,874 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/root/.staging/job_1663290548455_0208
-2022-09-16 21:28:49,842 INFO input.FileInputFormat: Total input files to process : 1
-2022-09-16 21:28:49,844 INFO input.FileInputFormat: Total input files to process : 1
-2022-09-16 21:28:50,681 INFO mapreduce.JobSubmitter: number of splits:1
-2022-09-16 21:28:50,707 INFO Configuration.deprecation: mapred.map.tasks.speculative.execution is deprecated. Instead, use mapreduce.map.speculative
-2022-09-16 21:28:50,788 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1663290548455_0208
-2022-09-16 21:28:50,788 INFO mapreduce.JobSubmitter: Executing with tokens: []
-2022-09-16 21:28:50,957 INFO conf.Configuration: resource-types.xml not found
-2022-09-16 21:28:50,957 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
-2022-09-16 21:28:51,008 INFO impl.YarnClientImpl: Submitted application application_1663290548455_0208
-2022-09-16 21:28:51,047 INFO mapreduce.Job: The url to track the job: http://hadoopmaster:8088/proxy/application_1663290548455_0208/
 2022-09-16 21:28:51,048 INFO mapreduce.Job: Running job: job_1663290548455_0208
 2022-09-16 21:28:57,118 INFO mapreduce.Job: Job job_1663290548455_0208 running in uber mode : false
 2022-09-16 21:28:57,119 INFO mapreduce.Job:  map 0% reduce 0%

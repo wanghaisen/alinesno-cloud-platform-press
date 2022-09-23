@@ -411,7 +411,6 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 sh kafka-console-producer.sh --broker-list 172.17.49.195:9092 --topic flinktest
 //生产端发消息
 {"tinyint0": 6, "smallint1": 223, "int2": 42999, "bigint3": 429450, "float4": 95.47324181659323, "double5": 340.5755392968011,"decimal6": 111.1111, "boolean7": true,  "char8": "dddddd", "varchar9": "buy0", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.810"}
-{"tinyint0": 7, "smallint1": 224, "int2": 43000, "bigint3": 429451, "float4": 95.47324181659324, "double5": 340.5755392968012,"decimal6": 111.1112, "boolean7": true,  "char8": "ddddde", "varchar9": "buy1", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.812"}
 ```
 
 #### 使用 kafka-console-consumer.sh 消费消息
@@ -467,7 +466,6 @@ Flink SQL> CREATE TABLE kafkatest (
 
 ```shell
 //生产端发消息
-{"tinyint0": 6, "smallint1": 223, "int2": 42999, "bigint3": 429450, "float4": 95.47324181659323, "double5": 340.5755392968011,"decimal6": 111.1111, "boolean7": true,  "char8": "dddddd", "varchar9": "buy0", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.810"}
 {"tinyint0": 7, "smallint1": 224, "int2": 43000, "bigint3": 429451, "float4": 95.47324181659324, "double5": 340.5755392968012,"decimal6": 111.1112, "boolean7": true,  "char8": "ddddde", "varchar9": "buy1", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.812"}
 ```
 
@@ -490,20 +488,6 @@ binlog-format=ROW
 在mysql客户端查看bin_log开启情况
 
 ```shell
-show variables like 'log_bin'
-
-create database test;
-
-create database test ;
-create table test.tbl_users(
- id bigint auto_increment primary key
-,name varchar(20) null
-,birthday timestamp default CURRENT_TIMESTAMP not null
-,ts timestamp default CURRENT_TIMESTAMP not null
-);
-
-insert into test.tbl_users(name) values('xiaoniu');
- 
 [mysql@hadoopmaster ~]$ sudo mysql -u root -p  
 [sudo] password for mysql: 
 Enter password: 
@@ -675,8 +659,6 @@ Flink SQL> insert into nation_info VALUES
 [INFO] Submitting SQL update statement to the cluster...
 [INFO] SQL update statement has been successfully submitted to the cluster:
 Job ID: ed3e34be09a0c71984d7dc26b33fdf54
-
-
 Flink SQL> 
 
 ```

@@ -688,7 +688,8 @@ export default defineUserConfig({
       '/dataSkill/': [
         {
           text: '环境建设',
-          collapsible: true
+          collapsible: true,
+          children: genDataSkillEevSidebar()
         },
         {
           text: '数据开发',
@@ -2113,14 +2114,30 @@ function genExperienceSidebar(menus) {
 }
 
 
+function genDataSkillEevSidebar(){
+  const mapArr = [
+    '/dataSkill/',
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+
 function genDataSkillDevSidebar() {
-    const mapArr = [
-      '/dataskill/01_skill/03_数据上报.md',
-      '/dataskill/01_skill/04_在线抽取数据.md'
-    ]
-    return mapArr.map(i => {
-      return i
-    })
+  const mapArr = [
+      '/dataSkill/01_skill/',
+      '/dataSkill/01_skill/01_数据上报.md',
+      '/dataSkill/01_skill/02_定时抽取数据.md',
+      // '/dataSkill/01_skill/03_开发抽取任务.md'
+      '/dataSkill/01_skill/04_实时数据入湖.md'
+
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
 }
 
 
