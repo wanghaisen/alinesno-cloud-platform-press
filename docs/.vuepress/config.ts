@@ -154,7 +154,7 @@ export default defineUserConfig({
           { text: '新手入门', link: '/firstlearn/' },
           { text: '前端手册', link: '/front/' },
           { text: '后端手册', link: '/technique/' },
-          { text: '数据手册', link: '/dataSkill/' },
+          { text: '数据手册', link: '/dataskill/' },
           { text: '经验分享', link: '/experience/' }
         ]
       },
@@ -685,7 +685,7 @@ export default defineUserConfig({
           children: genOperationDevopsSidebar()
         }
       ],
-      '/dataSkill/': [
+      '/dataskill/': [
         {
           text: '环境建设',
           collapsible: true,
@@ -2116,7 +2116,7 @@ function genExperienceSidebar(menus) {
 
 function genDataSkillEevSidebar(){
   const mapArr = [
-    '/dataSkill/',
+    '/dataskill/',
   ]
   return mapArr.map(i => {
     return i
@@ -2127,12 +2127,12 @@ function genDataSkillEevSidebar(){
 
 function genDataSkillDevSidebar() {
   const mapArr = [
-      '/dataSkill/01_skill/',
-      '/dataSkill/01_skill/01_数据上报.md',
-      '/dataSkill/01_skill/02_定时抽取数据.md',
+      '/dataskill/01_skill/',
+      '/dataskill/01_skill/01_数据上报.md',
+      '/dataskill/01_skill/02_定时抽取数据.md',
       // '/dataSkill/01_skill/03_开发抽取任务.md'
-      '/dataSkill/01_skill/04_实时数据入湖.md',
-      '/dataSkill/01_skill/05-数据开发.md'
+      '/dataskill/01_skill/04_实时数据入湖.md',
+      '/dataskill/01_skill/05-数据开发.md'
 
   ]
   return mapArr.map(i => {
