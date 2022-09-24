@@ -2131,7 +2131,8 @@ function genDataSkillDevSidebar() {
       '/dataSkill/01_skill/01_数据上报.md',
       '/dataSkill/01_skill/02_定时抽取数据.md',
       // '/dataSkill/01_skill/03_开发抽取任务.md'
-      '/dataSkill/01_skill/04_实时数据入湖.md'
+      '/dataSkill/01_skill/04_实时数据入湖.md',
+      '/dataSkill/01_skill/05-数据开发.md'
 
   ]
   return mapArr.map(i => {
