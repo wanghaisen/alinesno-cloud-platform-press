@@ -154,6 +154,7 @@ export default defineUserConfig({
           { text: '新手入门', link: '/firstlearn/' },
           { text: '前端手册', link: '/front/' },
           { text: '后端手册', link: '/technique/' },
+          { text: '数据手册', link: '/dataSkill/' },
           { text: '经验分享', link: '/experience/' }
         ]
       },
@@ -684,6 +685,18 @@ export default defineUserConfig({
           children: genOperationDevopsSidebar()
         }
       ],
+      '/dataSkill/': [
+        {
+          text: '环境建设',
+          collapsible: true,
+          children: genDataSkillEevSidebar()
+        },
+        {
+          text: '数据开发',
+          collapsible: true,
+          children: genDataSkillDevSidebar()
+        }
+      ],
       '/learn/': [
         {
           text: '人才团队建设',
@@ -949,11 +962,15 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_Apache Hudi/05_Centos7部署CDH6.2.0.md',
-    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
-    '/operation/39_Apache Hudi/02_Apachekafka安装.md',
-    '/operation/39_Apache Hudi/03_scala安装.md',
-    '/operation/39_Apache Hudi/04_ApacheHudi安装.md'
+    '/operation/39_hudi/10_kafka安装.md',
+    '/operation/39_hudi/03_scala安装.md',
+    '/operation/39_hudi/07_hadoop安装.md',
+    '/operation/39_hudi/08_spark安装.md',
+    '/operation/39_hudi/09_hive安装.md',
+    '/operation/39_hudi/11_sqoop安装.md',
+    '/operation/39_hudi/01_Flink安装.md',
+    '/operation/39_hudi/06_Hudi安装.md',
+    '/operation/39_hudi/15_kettle安装.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2095,3 +2112,35 @@ function genExperienceSidebar(menus) {
     })
   }
 }
+
+
+function genDataSkillEevSidebar(){
+  const mapArr = [
+    '/dataSkill/',
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+
+function genDataSkillDevSidebar() {
+  const mapArr = [
+      '/dataSkill/01_skill/',
+      '/dataSkill/01_skill/01_数据上报.md',
+      '/dataSkill/01_skill/02_定时抽取数据.md',
+      // '/dataSkill/01_skill/03_开发抽取任务.md'
+      '/dataSkill/01_skill/04_实时数据入湖.md',
+      '/dataSkill/01_skill/05-数据开发.md'
+
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+
+
+
