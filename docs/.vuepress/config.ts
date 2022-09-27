@@ -687,6 +687,16 @@ export default defineUserConfig({
       ],
       '/dataskill/': [
         {
+          text: '目录规划',
+          collapsible: true,
+          children: genDataSkillPlanSidebar()
+        },
+        {
+          text: '环境搭建',
+          collapsible: true,
+          children: genDataSkillEnvSidebar()
+        },
+        {
           text: '数据上报服务',
           collapsible: true,
           children: genDataSkillReportSidebar()
@@ -694,12 +704,22 @@ export default defineUserConfig({
         {
           text: '数据集成服务',
           collapsible: true,
-          children: genDataSkillEevSidebar()
+          children: genDataIntegrationSidebar()
+        } ,
+        {
+          text: '主数据管理',
+          collapsible: true,
+          children: genDataManSidebar()
         },
         {
           text: '数据开发服务',
           collapsible: true,
           children: genDataSkillDevSidebar()
+        },
+        {
+          text: '数据开放服务',
+          collapsible: true,
+          children: genDataOpenSidebar()
         }
       ],
       '/learn/': [
@@ -967,6 +987,7 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
+    '/operation/39_hudi/16_数据环境.md',
     '/operation/39_hudi/10_kafka安装.md',
     '/operation/39_hudi/03_scala安装.md',
     '/operation/39_hudi/07_hadoop安装.md',
@@ -975,8 +996,8 @@ function genDataEnvironmentSidebar() {
     '/operation/39_hudi/11_sqoop安装.md',
     '/operation/39_hudi/01_Flink安装.md',
     '/operation/39_hudi/06_Hudi安装.md',
-    '/operation/39_hudi/15_kettle安装.md',
-    '/operation/39_hudi/16_数据环境.md'
+    '/operation/39_hudi/15_kettle安装.md'
+
   ]
   return mapArr.map(i => {
     return i
@@ -2119,14 +2140,9 @@ function genExperienceSidebar(menus) {
   }
 }
 
-
-function genDataSkillEevSidebar(){
+function genDataSkillPlanSidebar(){
   const mapArr = [
-    '/dataskill/01_skill/02_数据集成服务-定时策略.md',
-    '/dataskill/01_skill/02_数据集成服务-任务分类.md',
-    '/dataskill/01_skill/02_数据集成服务-作业任务.md',
-    '/dataskill/01_skill/02_数据集成服务-转换任务.md',
-    '/dataskill/01_skill/02_数据集成服务-作业监控.md'
+    '/dataskill/00_plan/01_组件功能列表.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2134,16 +2150,9 @@ function genDataSkillEevSidebar(){
 
 }
 
-
-function genDataSkillDevSidebar() {
+function genDataSkillEnvSidebar(){
   const mapArr = [
-    '/dataskill/01_skill/05-数据开发服务-创建数据源.md',
-    '/dataskill/01_skill/05-数据开发服务-创建项目.md',
-    '/dataskill/01_skill/05-数据开发服务-创建工作流.md',
-    '/dataskill/01_skill/05-数据开发服务-调度工作流.md',
-    '/dataskill/01_skill/05-数据开发服务-查看工作流实例.md',
-    '/dataskill/01_skill/05-数据开发服务-查看任务实例.md',
-    // '/dataskill/01_skill/04_实时数据入湖.md',
+    '/dataskill/01_env/01_开发环境要求.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2153,11 +2162,45 @@ function genDataSkillDevSidebar() {
 
 function genDataSkillReportSidebar() {
   const mapArr = [
-    '/dataskill/01_skill/01_数据上报服务-上传导入模板.md',
-    '/dataskill/01_skill/01_数据上报服务-配置入库信息.md',
-    '/dataskill/01_skill/01_数据上报服务-开发部署数据入湖代码.md',
-    // '/dataskill/01_skill/01_数据上报服务-下载导入模板.md',
-    '/dataskill/01_skill/01_数据上报服务-上报数据.md'
+    '/dataskill/02_datareport/01_数据上报架构.md',
+    '/dataskill/02_datareport/02_数据上报示例.md',
+    '/dataskill/02_datareport/03_数据上报常见问题.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataIntegrationSidebar(){
+  const mapArr = [
+    '/dataskill/03_dataintegration/01_数据集成架构.md',
+    '/dataskill/03_dataintegration/02_当前集成功能.md',
+    '/dataskill/03_dataintegration/03_数据采集示例.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataManSidebar(){
+  const mapArr = [
+    '/dataskill/04_datamanage/01_主数据集成架构.md',
+    '/dataskill/04_datamanage/02_主数据使用场景.md',
+    '/dataskill/04_datamanage/03_主数据提供接口.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataSkillDevSidebar() {
+  const mapArr = [
+    '/dataskill/05_datadev/01_数据开发使用场景.md',
+    '/dataskill/05_datadev/02_数据计算示例.md'
+
   ]
   return mapArr.map(i => {
     return i
@@ -2166,5 +2209,14 @@ function genDataSkillReportSidebar() {
 }
 
 
+function genDataOpenSidebar(){
+  const mapArr = [
+    '/dataskill/06_dataopen/01_数据开放服务架构.md',
+    '/dataskill/06_dataopen/02_数据开放使用场景.md',
+    '/dataskill/06_dataopen/03_数据开放接口.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
 
-
+}
