@@ -154,6 +154,7 @@ export default defineUserConfig({
           { text: '新手入门', link: '/firstlearn/' },
           { text: '前端手册', link: '/front/' },
           { text: '后端手册', link: '/technique/' },
+          { text: '数据手册', link: '/dataskill/' },
           { text: '经验分享', link: '/experience/' }
         ]
       },
@@ -164,7 +165,7 @@ export default defineUserConfig({
       {
         text: '中台演示',
         link: '/display/'
-      },            
+      },
     ],
     sidebar: {
       '/firstlearn/': [
@@ -184,17 +185,17 @@ export default defineUserConfig({
           children: genFirestLearnSidebar(5)
         },
         {
-          text: '开发服务云',
+          text: '研发中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(2)
         },
         {
-          text: '流程服务云',
+          text: '业务中台集成',
           collapsible: true,
           children: genFirestLearnSidebar(3)
         },
         {
-          text: '数据服务云',
+          text: '数据治理集成',
           collapsible: true,
           children: genFirestLearnSidebar(4)
         }
@@ -228,7 +229,7 @@ export default defineUserConfig({
           text: '中台演示',
           collapsible: true,
           children: genSolutionPlatformSidebar()
-        }
+        },
         // {
         //   text: '组件演示',
         //   collapsible: true,
@@ -407,28 +408,28 @@ export default defineUserConfig({
         //   children: genBusinessServiceSidebar()
         // },
 
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genOperationServiceSidebar()
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genOperationServiceSidebar()
+        // }
       ],
       '/data/onedata/': [
-        {
-          text: '数据仓库',
-          collapsible: true,
-          children: genDatahourceSidebar(0)
-        },
+        // {
+        //   text: '数据仓库',
+        //   collapsible: true,
+        //   children: genDatahourceSidebar(0)
+        // },
         {
           text: '数据治理',
           collapsible: true,
           children: genDataToolsSidebar(1)
         },
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genDataMonitorSidebar(2)
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genDataMonitorSidebar(2)
+        // }
       ],
       '/data/framework/': [
         {
@@ -451,26 +452,26 @@ export default defineUserConfig({
           collapsible: true,
           children: genDataWarehouseAnalyzeSidebar()
         },
-        {
-          text: '数据可视化',
-          collapsible: true,
-          children: genDataVisualSidebar()
-        },
-        {
-          text: '机器学习',
-          collapsible: true,
-          children: genMachineLearningSidebar()
-        },
+        // {
+        //   text: '数据可视化',
+        //   collapsible: true,
+        //   children: genDataVisualSidebar()
+        // },
+        // {
+        //   text: '机器学习',
+        //   collapsible: true,
+        //   children: genMachineLearningSidebar()
+        // },
         {
           text: '数据管理系统',
           collapsible: true,
           children: genDataManagerSidebar()
         },
-        {
-          text: '运维监控',
-          collapsible: true,
-          children: genDataOperationSidebar()
-        }
+        // {
+        //   text: '运维监控',
+        //   collapsible: true,
+        //   children: genDataOperationSidebar()
+        // }
       ],
       '/platform/': [
         {
@@ -557,11 +558,11 @@ export default defineUserConfig({
           collapsible: true,
           children: genGroupRuleSidebar(2)
         },
-        {
-          text: '考核标准',
-          collapsible: true,
-          children: genGroupRuleSidebar(1)
-        }
+        // {
+        //   text: '考核标准',
+        //   collapsible: true,
+        //   children: genGroupRuleSidebar(1)
+        // }
       ],
       '/business/': [
         {
@@ -673,15 +674,52 @@ export default defineUserConfig({
           collapsible: true,
           children: genWorkflowSidebar()
         },
-        {
-          text: '支付服务',
-          collapsible: true,
-          children: genPaymentSidebar()
-        },
+        // {
+        //   text: '支付服务',
+        //   collapsible: true,
+        //   children: genPaymentSidebar()
+        // },
         {
           text: '自动化操作',
           collapsible: true,
           children: genOperationDevopsSidebar()
+        }
+      ],
+      '/dataskill/': [
+        {
+          text: '目录规划',
+          collapsible: true,
+          children: genDataSkillPlanSidebar()
+        },
+        {
+          text: '环境搭建',
+          collapsible: true,
+          children: genDataSkillEnvSidebar()
+        },
+        {
+          text: '数据上报服务',
+          collapsible: true,
+          children: genDataSkillReportSidebar()
+        },
+        {
+          text: '数据集成服务',
+          collapsible: true,
+          children: genDataIntegrationSidebar()
+        } ,
+        {
+          text: '主数据管理',
+          collapsible: true,
+          children: genDataManSidebar()
+        },
+        {
+          text: '数据开发服务',
+          collapsible: true,
+          children: genDataSkillDevSidebar()
+        },
+        {
+          text: '数据开放服务',
+          collapsible: true,
+          children: genDataOpenSidebar()
         }
       ],
       '/learn/': [
@@ -949,11 +987,17 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_Apache Hudi/05_Centos7部署CDH6.2.0.md',
-    '/operation/39_Apache Hudi/01_ApacheFlink安装.md',
-    '/operation/39_Apache Hudi/02_Apachekafka安装.md',
-    '/operation/39_Apache Hudi/03_scala安装.md',
-    '/operation/39_Apache Hudi/04_ApacheHudi安装.md'
+    '/operation/39_hudi/16_数据环境.md',
+    '/operation/39_hudi/10_kafka安装.md',
+    '/operation/39_hudi/03_scala安装.md',
+    '/operation/39_hudi/07_hadoop安装.md',
+    '/operation/39_hudi/08_spark安装.md',
+    '/operation/39_hudi/09_hive安装.md',
+    '/operation/39_hudi/11_sqoop安装.md',
+    '/operation/39_hudi/01_Flink安装.md',
+    '/operation/39_hudi/06_Hudi安装.md',
+    '/operation/39_hudi/15_kettle安装.md'
+
   ]
   return mapArr.map(i => {
     return i
@@ -1430,10 +1474,10 @@ function genPlatformBusinessSidebar(type) {
       '/platform/business/13_研发中台/01_基础权限管理平台.md',
       '/platform/business/13_研发中台/02_云门户管理平台.md',
       '/platform/business/13_研发中台/03_通知管理平台.md',
-      '/platform/business/13_研发中台/04_支付管理平台.md',
-      '/platform/business/13_研发中台/05_文档打印管理平台.md',
+      // '/platform/business/13_研发中台/04_支付管理平台.md',
+      // '/platform/business/13_研发中台/05_文档打印管理平台.md',
       '/platform/business/13_研发中台/06_存储管理平台.md',
-      '/platform/business/13_研发中台/07_工作流管理平台.md',
+      // '/platform/business/13_研发中台/07_工作流管理平台.md',
       '/platform/business/13_研发中台/08_数据开放平台.md',
       // '/platform/business/13_研发中台/09_分布式定时任务平台.md',
       '/platform/business/13_研发中台/11_单点登陆管理平台.md',
@@ -1526,10 +1570,10 @@ function genEnvSidebar(menus) {
 function genDataFrameworkSidebar() {
   const mapArr = [
     '/data/framework/',
-    '/data/framework/01_业务架构/02_数中建设目标.md',
+    // '/data/framework/01_业务架构/02_数中建设目标.md',
     '/data/framework/01_业务架构/03_业务架构设计.md',
-    '/data/framework/01_业务架构/04_技术架构设计.md',
-    '/data/framework/10_其它/01_注意事项.md'
+    // '/data/framework/01_业务架构/04_技术架构设计.md',
+    // '/data/framework/10_其它/01_注意事项.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1567,7 +1611,7 @@ function genDataWarehouseCollectSidebar() {
 
 function genDataWarehouseAnalyzeSidebar() {
   const mapArr = [
-    '/data/framework/05_数据分析/03_数据指标.md',
+    // '/data/framework/05_数据分析/03_数据指标.md',
     '/data/framework/05_数据分析/01_离线计算.md',
     '/data/framework/05_数据分析/02_实时计算.md'
   ]
@@ -1589,8 +1633,8 @@ function genDataVisualSidebar() {
 function genMachineLearningSidebar() {
   const mapArr = [
     '/data/framework/07_机器学习/04_推荐系统.md',
-    '/data/framework/07_机器学习/01_数据建模.md',
-    '/data/framework/07_机器学习/02_模型学习.md'
+    // '/data/framework/07_机器学习/01_数据建模.md',
+    // '/data/framework/07_机器学习/02_模型学习.md'
     // '/data/framework/07_机器学习/03_人物画像.md'
   ]
   return mapArr.map(i => {
@@ -1605,9 +1649,9 @@ function genDataManagerSidebar() {
     // '/data/framework/08_管理系统/07_数据开发平台.md',
     '/data/framework/08_管理系统/05_数据分析平台.md',
     '/data/framework/08_管理系统/06_数据治理平台.md',
-    '/data/framework/08_管理系统/01_指标管理系统.md',
-    '/data/framework/08_管理系统/02_数据质量中心.md',
-    '/data/framework/08_管理系统/04_数据开放平台.md'
+    // '/data/framework/08_管理系统/01_指标管理系统.md',
+    // '/data/framework/08_管理系统/02_数据质量中心.md',
+    // '/data/framework/08_管理系统/04_数据开放平台.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2063,7 +2107,8 @@ function genPricesSidebar(menus) {
     })
   } else if (menus == 1) {
     // 平台介绍
-    const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    // const mapArr = ['/prices/01_版本内容.md', '/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
+    const mapArr = ['/prices/02_授权协议.md' , '/prices/04_商务沟通.md']
 
     return mapArr.map(i => {
       return i
@@ -2093,4 +2138,85 @@ function genExperienceSidebar(menus) {
       return i
     })
   }
+}
+
+function genDataSkillPlanSidebar(){
+  const mapArr = [
+    '/dataskill/00_plan/01_组件功能列表.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataSkillEnvSidebar(){
+  const mapArr = [
+    '/dataskill/01_env/01_开发环境要求.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataSkillReportSidebar() {
+  const mapArr = [
+    '/dataskill/02_datareport/01_数据上报架构.md',
+    '/dataskill/02_datareport/02_数据上报示例.md',
+    '/dataskill/02_datareport/03_数据上报常见问题.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataIntegrationSidebar(){
+  const mapArr = [
+    '/dataskill/03_dataintegration/01_数据集成架构.md',
+    '/dataskill/03_dataintegration/02_当前集成功能.md',
+    '/dataskill/03_dataintegration/03_数据采集示例.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataManSidebar(){
+  const mapArr = [
+    '/dataskill/04_datamanage/01_主数据集成架构.md',
+    '/dataskill/04_datamanage/02_主数据使用场景.md',
+    '/dataskill/04_datamanage/03_主数据提供接口.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+function genDataSkillDevSidebar() {
+  const mapArr = [
+    '/dataskill/05_datadev/01_数据开发使用场景.md',
+    '/dataskill/05_datadev/02_数据计算示例.md'
+
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
+}
+
+
+function genDataOpenSidebar(){
+  const mapArr = [
+    '/dataskill/06_dataopen/01_数据开放服务架构.md',
+    '/dataskill/06_dataopen/02_数据开放使用场景.md',
+    '/dataskill/06_dataopen/03_数据开放接口.md'
+  ]
+  return mapArr.map(i => {
+    return i
+  })
+
 }
