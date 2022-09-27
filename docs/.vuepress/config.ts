@@ -967,6 +967,7 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
+    '/operation/39_hudi/16_数据环境.md',
     '/operation/39_hudi/10_kafka安装.md',
     '/operation/39_hudi/03_scala安装.md',
     '/operation/39_hudi/07_hadoop安装.md',
@@ -975,8 +976,8 @@ function genDataEnvironmentSidebar() {
     '/operation/39_hudi/11_sqoop安装.md',
     '/operation/39_hudi/01_Flink安装.md',
     '/operation/39_hudi/06_Hudi安装.md',
-    '/operation/39_hudi/15_kettle安装.md',
-    '/operation/39_hudi/16_数据环境.md'
+    '/operation/39_hudi/15_kettle安装.md'
+
   ]
   return mapArr.map(i => {
     return i
@@ -2122,6 +2123,7 @@ function genExperienceSidebar(menus) {
 
 function genDataSkillEevSidebar(){
   const mapArr = [
+    '/dataskill/01_skill/02_数据集成服务-概述.md',
     '/dataskill/01_skill/02_数据集成服务-定时策略.md',
     '/dataskill/01_skill/02_数据集成服务-任务分类.md',
     '/dataskill/01_skill/02_数据集成服务-作业任务.md',
@@ -2137,13 +2139,13 @@ function genDataSkillEevSidebar(){
 
 function genDataSkillDevSidebar() {
   const mapArr = [
+    '/dataskill/01_skill/05-数据开发服务-概述.md',
     '/dataskill/01_skill/05-数据开发服务-创建数据源.md',
     '/dataskill/01_skill/05-数据开发服务-创建项目.md',
     '/dataskill/01_skill/05-数据开发服务-创建工作流.md',
     '/dataskill/01_skill/05-数据开发服务-调度工作流.md',
     '/dataskill/01_skill/05-数据开发服务-查看工作流实例.md',
-    '/dataskill/01_skill/05-数据开发服务-查看任务实例.md',
-    // '/dataskill/01_skill/04_实时数据入湖.md',
+    '/dataskill/01_skill/05-数据开发服务-查看任务实例.md'
   ]
   return mapArr.map(i => {
     return i
@@ -2153,10 +2155,10 @@ function genDataSkillDevSidebar() {
 
 function genDataSkillReportSidebar() {
   const mapArr = [
+    '/dataskill/01_skill/01_数据上报服务-概述.md',
     '/dataskill/01_skill/01_数据上报服务-上传导入模板.md',
     '/dataskill/01_skill/01_数据上报服务-配置入库信息.md',
     '/dataskill/01_skill/01_数据上报服务-开发部署数据入湖代码.md',
-    // '/dataskill/01_skill/01_数据上报服务-下载导入模板.md',
     '/dataskill/01_skill/01_数据上报服务-上报数据.md'
   ]
   return mapArr.map(i => {
