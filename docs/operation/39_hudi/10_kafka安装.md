@@ -94,3 +94,6 @@ tcp6       0      0 172.17.49.195:2181      172.17.49.195:58404     ESTABLISHED 
 ./kafka-server-stop.sh        #停止kafka
 ```
 
+## 其他
+
+- 无
