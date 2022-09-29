@@ -142,11 +142,12 @@ export default defineUserConfig({
       // },
       {
         text: '部署建设',
-        children: [
-          { text: '技术平台建设', link: '/operation/' },
-          { text: '数字中台建设', link: '/env/development/' }
-          // { text: '数据中台建设', link: '/data/onedata/' }
-        ]
+        link: '/operation/'
+        // children: [
+        //   { text: '技术平台建设', link: '/operation/' },
+        //   { text: '数字中台建设', link: '/env/development/' }
+        //   // { text: '数据中台建设', link: '/data/onedata/' }
+        // ]
       },
       {
         text: '开发者',
@@ -388,6 +389,11 @@ export default defineUserConfig({
           text: '数据环境',
           collapsible: true,
           children: genDataEnvironmentSidebar()
+        },
+        {
+          text: '数字中台',
+          collapsible: true,
+          children: genBaseServiceSidebar()
         }
       ],
       '/env/development/': [

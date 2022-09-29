@@ -13,7 +13,8 @@ jobs:
       ALIYUN_CR_HOST: registry.cn-shenzhen.aliyuncs.com
       ALIYUN_CR_NAMESPACE: alinesno-cloud
       PRO_NAME: alinesno-platform-press
-      PRO_VERSION: 2.1.0-${{ github.run_number }}
+      # PRO_VERSION: 2.1.0-${{ github.run_number }}
+      PRO_VERSION: 2.1.0
       EXPOSE_PORT: 84
       #  添加cdn配置
       accessKey: ${{ secrets.QINIU_ACCESS_KEY }}
