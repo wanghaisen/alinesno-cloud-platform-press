@@ -2,6 +2,10 @@
 
 > 此为当前中台开发环境的部署方式
 
+## 工程示例
+
+源码安装前后端发布示例[打开](https://gitee.com/alinesno-cloud/alinesno-demo-gateway-open/tree/master/demo-deploy)
+
 ## 概述
 
 源码型安装是基于客户型的源码安装形式，主要针对的使用场景是客户源码型采购的客户进行安装，
