@@ -1823,10 +1823,10 @@ function genTechniqueSidebar() {
  */
 function genSolutionPlatformSidebar() {
   const mapArr = [
-    '/display/',
+    '/display/'
     // '/display/platform/04_研发中台服务.md',
-    '/display/platform/02_数据中台服务.md',
-    '/display/platform/03_运维平台.md'
+    // '/display/platform/02_数据中台服务.md',
+    // '/display/platform/03_运维平台.md'
   ]
 
   return mapArr.map(i => {
