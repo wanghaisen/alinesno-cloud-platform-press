@@ -144,8 +144,8 @@ export default defineUserConfig({
         text: '部署建设',
         children: [
           { text: '技术平台建设', link: '/operation/' },
-          { text: '研发中台建设', link: '/env/development/' },
-          { text: '数据中台建设', link: '/data/onedata/' }
+          { text: '数字中台建设', link: '/env/development/' }
+          // { text: '数据中台建设', link: '/data/onedata/' }
         ]
       },
       {
@@ -987,6 +987,7 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
+    // '/operation/39_hudi/16_数据环境.md',
     '/operation/39_hudi/03_scala安装.md',
     '/operation/39_hudi/07_hadoop安装.md',
     '/operation/39_hudi/08_spark安装.md',
@@ -995,6 +996,7 @@ function genDataEnvironmentSidebar() {
     '/operation/39_hudi/01_Flink安装.md',
     '/operation/39_hudi/06_Hudi安装.md',
     '/operation/39_hudi/15_kettle安装.md'
+
   ]
   return mapArr.map(i => {
     return i
@@ -1965,8 +1967,8 @@ function genBaseServiceSidebar() {
     '/env/development/',
     '/env/development/install/21_安装流程.md',
     // '/env/development/install/22_在线安装.md',
-    '/env/development/install/25_Docker单独安装.md'
-    // '/env/development/install/24_Jenkinsfile安装.md'
+    '/env/development/install/25_Docker单独安装.md',
+    '/env/development/install/24_Jenkinsfile安装.md'
 
   ]
 
