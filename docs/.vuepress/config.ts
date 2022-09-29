@@ -144,8 +144,8 @@ export default defineUserConfig({
         text: '部署建设',
         children: [
           { text: '技术平台建设', link: '/operation/' },
-          { text: '研发中台建设', link: '/env/development/' },
-          { text: '数据中台建设', link: '/data/onedata/' }
+          { text: '数字中台建设', link: '/env/development/' }
+          // { text: '数据中台建设', link: '/data/onedata/' }
         ]
       },
       {
@@ -987,7 +987,7 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_hudi/16_数据环境.md',
+    // '/operation/39_hudi/16_数据环境.md',
     '/operation/39_hudi/10_kafka安装.md',
     '/operation/39_hudi/03_scala安装.md',
     '/operation/39_hudi/07_hadoop安装.md',
