@@ -36,14 +36,14 @@ jobs:
         run: npm i
 
       - name: Build Docs
-        env:
-          NODE_OPTIONS: "--max-old-space-size=8192"
+        # env:
+        #   NODE_OPTIONS: "--max-old-space-size=8192"
         run: npm run docs:build
 
       - name: Build the Docker image
         run: |
           docker version
-          docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-shenzhen.aliyuncs.com
+          docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} ${{ env.ALIYUN_CR_HOST }}
           docker build . --file Dockerfile --tag ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
           docker push ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
 
