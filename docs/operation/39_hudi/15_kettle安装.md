@@ -1,62 +1,52 @@
 # kettle安装
 
+## 概述
+
+   kettle是一款JAVA开发的ETL工具，用于从数据源抽取、清洗和转换数据到数据仓库
+
 ## 本内容你将获得
 
-- 如在安装kettle开发工具
+- kettle环境变量配置
+- 添加数据库java连接包
 
-##  安装kettle
+##  软件安装
 
-a)、 下载pdi-ce-8.2.0.0-342.zip并解压
+##### 说明
 
-b)、 配置环境变量
+- kettle依赖 Java环境
 
-- 此电脑 --> 右键 --> 属性
+### 安装kettle
 
-<img :src="$withBase('/operation/kettle_001.png')">
+<br/>
 
+<img :src="$withBase('/operation/kettle_004.png')" >
 
+配置说明：
 
-- 高级系统设置
+- 下载pdi-ce-8.2.0.0-342.zip并解压
 
-<img :src="$withBase('/operation/kettle_002.png')">
+- 新增环境变量 PENTAHO_JAVA_HOME
 
+- 新增环境变量 kettle_home
 
+##### 添加jar包
 
-- 环境变量
+下载当前数据库对应版本的java连接包放到lib目录
 
-<img :src="$withBase('/operation/kettle_003.png')">
+<img :src="$withBase('/operation/kettle_002.png')" style="zoom:33%">
 
+<br/>
 
+<br/>
 
-新增变量 PENTAHO_JAVA_HOME= C:\Program Files\Java\jre1.8.0_181 
+### 启动kettle
 
-<img :src="$withBase('/operation/kettle_004.png')">
+进入data-integration目录，运行Spoon.bat
 
-
-
-新增变量 kettle_home = F:\kettle\pdi-ce-8.2.0.0-342\data-integration
-
-<img :src="$withBase('/operation/kettle_005.png')">
-
-c)、 更新mysql连接包
-
-查询mysql数据库的版本。下载对应版本的mysql连接包，如mysql-connector-java-5.1.15-bin.jar。放到pdi-ce-8.2.0.0-342\data-integration\lib目录。
-
-
-
-## 使用kettle
-
-### 1、编写kettle任务
-
-#### a)、 在kettle目录pdi-ce-8.2.0.0-342\data-integration下，点击Spoon.bat
-
-#### b)、进入kettle主界面
-
-<img :src="$withBase('/operation/kettle_007.png')">  
-
-#### c)、在kettle中新建作业和转换任务，完成后的界面如下
-
-<img :src="$withBase('/operation/kettle_008.png')">
+<img :src="$withBase('/operation/kettle_001.png')" style="zoom:33%">
 
 
 
+## 其他
+
+- 无

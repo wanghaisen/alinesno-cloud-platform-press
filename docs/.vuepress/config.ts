@@ -987,8 +987,6 @@ function genBaseSoftwareSidebar() {
 
 function genDataEnvironmentSidebar() {
   const mapArr = [
-    '/operation/39_hudi/16_数据环境.md',
-    '/operation/39_hudi/10_kafka安装.md',
     '/operation/39_hudi/03_scala安装.md',
     '/operation/39_hudi/07_hadoop安装.md',
     '/operation/39_hudi/08_spark安装.md',
@@ -997,7 +995,6 @@ function genDataEnvironmentSidebar() {
     '/operation/39_hudi/01_Flink安装.md',
     '/operation/39_hudi/06_Hudi安装.md',
     '/operation/39_hudi/15_kettle安装.md'
-
   ]
   return mapArr.map(i => {
     return i

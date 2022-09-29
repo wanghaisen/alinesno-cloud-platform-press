@@ -1,4 +1,4 @@
-# Hudi 安装
+# hudi 安装
 
 ## 本内容你将获得
 
@@ -724,3 +724,6 @@ drwxr-xr-x   - root supergroup          0 2022-09-15 17:14 hdfs:///user/flink/hu
 [root@hadoopmaster sbin]# 
 ```
 
+## 其他
+
+- 无
