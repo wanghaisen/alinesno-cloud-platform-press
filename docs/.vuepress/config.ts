@@ -2152,7 +2152,7 @@ function genExperienceSidebar(menus) {
 
 function genDataSkillPlanSidebar(){
   const mapArr = [
-    '/dataskill/00_plan/01_组件功能列表.md'
+    '/dataskill/','/dataskill/00_plan/01_组件功能列表.md'
   ]
   return mapArr.map(i => {
     return i
