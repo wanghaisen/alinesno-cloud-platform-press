@@ -12,6 +12,7 @@ jobs:
       # 配置环境变量，包括镜像的名称，版本号，还有命名空间 
       PRO_NAME: alinesno-platform-press
       PRO_VERSION: 2.1.0-${{ github.run_number }} 
+      DOCKER_HUB_NAMESPACE: luoandong
       EXPOSE_PORT: 84 
       #  添加cdn配置
       accessKey: ${{ secrets.QINIU_ACCESS_KEY }}
@@ -50,7 +51,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+          tags: ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
           labels: ${{ steps.meta.outputs.labels }} 
 
       - name: Deploy Docker multiple command 
@@ -62,8 +63,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker rm -f ${{ env.PRO_NAME }}
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+            docker pull ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
       # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署到docker-hub _end >>>>>>>>>>>>>>>>>>>>>>>>>>
 
       # 获取PR信息并将其添加到环境变量
