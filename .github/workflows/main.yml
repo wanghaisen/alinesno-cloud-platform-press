@@ -38,49 +38,50 @@ jobs:
         run: npm i
 
       - name: Build Docs
-        # env:
-        #   NODE_OPTIONS: "--max-old-space-size=8192"
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
         run: npm run docs:build
 
       # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署发布到aliyubn-os_start >>>>>>>>>>>>>>>>>>>>>>>>>>
-      - name: Build the Docker image
-        if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
-        run: |
-          docker version
-          docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} ${{ env.ALIYUN_CR_HOST }}
-          docker build . --file Dockerfile --tag ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-          docker push ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+      # - name: Build the Docker image
+      #   if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
+      #   run: |
+      #     docker version
+      #     docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} ${{ env.ALIYUN_CR_HOST }}
+      #     docker build . --file Dockerfile --tag ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+      #     docker push ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
 
-      - name: Deploy Docker multiple command
-        if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            docker rm -f ${{ env.PRO_NAME }}
-            docker pull ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署发布到aliyubn-os_start >>>>>>>>>>>>>>>>>>>>>>>>>>
-
-      # 部署到docker-hub  
+      # - name: Deploy Docker multiple command
+      #   if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     port: ${{ secrets.PORT }}
+      #     script: |
+      #       docker rm -f ${{ env.PRO_NAME }}
+      #       docker pull ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+      #       docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署发布到aliyubn-os_end >>>>>>>>>>>>>>>>>>>>>>>>>>
+ 
+      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署到docker-hub _start >>>>>>>>>>>>>>>>>>>>>>>>>>
       - name: Log in to Docker Hub
-        if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
+        # if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build && Push DockerHub
-        if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
+        # if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
-          tags: ${{ env.PRO_VERSION }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
           labels: ${{ steps.meta.outputs.labels }} 
+      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署到docker-hub _end >>>>>>>>>>>>>>>>>>>>>>>>>>
 
       # 获取PR信息并将其添加到环境变量
       - name: set PR_INFO
