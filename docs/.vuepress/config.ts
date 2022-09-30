@@ -142,11 +142,12 @@ export default defineUserConfig({
       // },
       {
         text: '部署建设',
-        children: [
-          { text: '技术平台建设', link: '/operation/' },
-          { text: '数字中台建设', link: '/env/development/' }
-          // { text: '数据中台建设', link: '/data/onedata/' }
-        ]
+        link: '/operation/'
+        // children: [
+        //   { text: '技术平台建设', link: '/operation/' },
+        //   { text: '数字中台建设', link: '/env/development/' }
+        //   // { text: '数据中台建设', link: '/data/onedata/' }
+        // ]
       },
       {
         text: '开发者',
@@ -388,6 +389,11 @@ export default defineUserConfig({
           text: '数据环境',
           collapsible: true,
           children: genDataEnvironmentSidebar()
+        },
+        {
+          text: '数字中台',
+          collapsible: true,
+          children: genBaseServiceSidebar()
         }
       ],
       '/env/development/': [
@@ -1817,10 +1823,10 @@ function genTechniqueSidebar() {
  */
 function genSolutionPlatformSidebar() {
   const mapArr = [
-    '/display/',
+    '/display/'
     // '/display/platform/04_研发中台服务.md',
-    '/display/platform/02_数据中台服务.md',
-    '/display/platform/03_运维平台.md'
+    // '/display/platform/02_数据中台服务.md',
+    // '/display/platform/03_运维平台.md'
   ]
 
   return mapArr.map(i => {
@@ -1964,12 +1970,17 @@ function genDataMonitorSidebar(type) {
 // 基础服务
 function genBaseServiceSidebar() {
   const mapArr = [
-    '/env/development/',
-    '/env/development/install/21_安装流程.md',
+    // '/env/development/',
+    // '/env/development/install/21_安装流程.md',
     // '/env/development/install/22_在线安装.md',
-    '/env/development/install/25_Docker单独安装.md',
-    '/env/development/install/24_Jenkinsfile安装.md'
+    // '/env/development/install/25_Docker单独安装.md',
+    // '/env/development/install/24_Jenkinsfile安装.md'
 
+    '/operation/81_install/',
+    '/operation/81_install/21_安装流程.md', 
+    '/operation/81_install/24_Jenkinsfile安装.md',
+    '/operation/81_install/25_Docker单独安装.md'
+    
   ]
 
   return mapArr.map(i => {
