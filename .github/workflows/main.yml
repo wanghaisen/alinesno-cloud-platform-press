@@ -9,14 +9,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-18.04
     env:
-      # 配置环境变量，包括阿里云镜像的名称，版本号，还有命名空间
-      ALIYUN_CR_HOST: registry.cn-shenzhen.aliyuncs.com
-      ALIYUN_CR_NAMESPACE: alinesno-cloud
+      # 配置环境变量，包括镜像的名称，版本号，还有命名空间 
       PRO_NAME: alinesno-platform-press
       PRO_VERSION: 2.1.0-${{ github.run_number }} 
-      EXPOSE_PORT: 84
-      # 镜像发布配置（aliyun-cr/docker-hub)
-      DEPLOY_ENV: docker-hub 
+      EXPOSE_PORT: 84 
       #  添加cdn配置
       accessKey: ${{ secrets.QINIU_ACCESS_KEY }}
       secretKey: ${{ secrets.QINIU_SECRET_KEY }}
@@ -41,46 +37,33 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=8192"
         run: npm run docs:build
-
-      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署发布到aliyubn-os_start >>>>>>>>>>>>>>>>>>>>>>>>>>
-      # - name: Build the Docker image
-      #   if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
-      #   run: |
-      #     docker version
-      #     docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} ${{ env.ALIYUN_CR_HOST }}
-      #     docker build . --file Dockerfile --tag ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-      #     docker push ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-
-      # - name: Deploy Docker multiple command
-      #   if: ${{ env.DEPLOY_ENV }} == 'aliyun-cr'
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.PORT }}
-      #     script: |
-      #       docker rm -f ${{ env.PRO_NAME }}
-      #       docker pull ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-      #       docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.ALIYUN_CR_HOST }}/${{ env.ALIYUN_CR_NAMESPACE }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
-      # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署发布到aliyubn-os_end >>>>>>>>>>>>>>>>>>>>>>>>>>
  
       # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署到docker-hub _start >>>>>>>>>>>>>>>>>>>>>>>>>>
-      - name: Log in to Docker Hub
-        # if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
+      - name: Log in to Docker Hub 
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: Build && Push DockerHub
-        # if: ${{ env.DEPLOY_ENV }} == 'docker-hub'
+      - name: Build && Push DockerHub 
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
           labels: ${{ steps.meta.outputs.labels }} 
+
+      - name: Deploy Docker multiple command 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker rm -f ${{ env.PRO_NAME }}
+            docker pull ${{ env.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
+            docker run -p ${{ env.EXPOSE_PORT }}:80 --name ${{ env.PRO_NAME }} --restart="always" -d ${{ env.DOCKER_HUB_USERNAME }}/${{ env.PRO_NAME }}:${{ env.PRO_VERSION }}
       # -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 部署到docker-hub _end >>>>>>>>>>>>>>>>>>>>>>>>>>
 
       # 获取PR信息并将其添加到环境变量
@@ -108,6 +91,7 @@ jobs:
             project: alinesno-cloud-platform(${{ env.PRO_VERSION }})
             > Maven Build of [# ${{ env.PRO_VERSION }}](${{ env.PR_URL }}) by ${{ env.PR_USER }} success
             > ^_^ from github action message
+
       - name: maven build failure
         if: ${{ failure() }}
         uses: fifsky/dingtalk-action@master
