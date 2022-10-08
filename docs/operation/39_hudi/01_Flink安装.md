@@ -44,7 +44,7 @@ state.backend: rocksdb
 classloader.resolve-order: parent-first
 
 # fs.default-scheme # 在下面增加
-fs.default-scheme: hdfs:172.17.49.195:9000
+fs.default-scheme: hdfs:192.168.17.149:9000
 
 #rest.port: 8081  # 在下面增加
 rest.port: 8083
