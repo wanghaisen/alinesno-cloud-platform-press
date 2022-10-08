@@ -126,8 +126,8 @@ sudo systemctl enable mysqld;                                          #来设�
 su - mysql
 sudo cat /var/log/mysqld.log | grep password      #查看数据库的密码
 sudo mysql -u root -p                             #登陆数据库
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'qaz123689';   #修改数据库密码
-create user 'root'@'%' identified with mysql_native_password by 'qaz123689';          #创建root用户
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'qsdb%67$0l8';   #修改数据库密码
+create user 'root'@'%' identified with mysql_native_password by 'qsdb%67$0l8';          #创建root用户
 grant all privileges on *.* to 'root'@'%' with grant option;                          #远程访问授权
 flush privileges;                                                                     #刷新
 show variables like 'log_bin' ;                                                       #查看是否开启binlog功能
@@ -238,7 +238,7 @@ vi hive-site.xml
 #在hive-site.xml的后面增加如下配置
   <property>
    <name>spark.master</name>
-   <value>spark://172.17.49.195:7077</value>
+   <value>spark://192.168.17.149:7077</value>
   </property>
   <property>
 	<name>hive.enable.spark.execution.engine</name>
@@ -254,7 +254,7 @@ vi hive-site.xml
   </property>
   <property>
 	<name>spark.enentLog.dir</name>
-	<value>hdfs://172.17.49.195:9000/spark-logs</value>
+	<value>hdfs://192.168.17.149:9000/spark-logs</value>
   </property>
   <property>
 	<name>spark.serializer</name>
@@ -268,7 +268,7 @@ vi hive-site.xml
   <!-- Spark3 依赖库位置，在YARN 上运行的任务需要从HDFS 中查找依赖jar 文件 -->
   <property>
     <name>spark.yarn.jars</name>
-    <value>hdfs://172.17.49.195:9000/spark2-jars/*</value>
+    <value>hdfs://192.168.17.149:9000/spark2-jars/*</value>
   </property>
 
    <!-- Hive3 和Spark2 连接超时时间 -->
@@ -292,7 +292,7 @@ vi hive-site.xml
  
   <property>
     <name>hive.exec.scratchdir</name>
-    <value>hdfs://172.17.49.195:9000/data/hive/tmp</value>           #旧： <value>/tmp/hive</value>     
+    <value>hdfs://192.168.17.149:9000/data/hive/tmp</value>           #旧： <value>/tmp/hive</value>     
   </property>
  
   <property>
@@ -307,17 +307,17 @@ vi hive-site.xml
 
   <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>hdfs://172.17.49.195:9000/data/hive/warehouse</value>     #旧：/user/hive/warehouse           
+    <value>hdfs://192.168.17.149:9000/data/hive/warehouse</value>     #旧：/user/hive/warehouse           
   </property>
    
   <property>
     <name>javax.jdo.option.ConnectionPassword</name>                 #旧： mine
-    <value>qaz123689</value>                              
+    <value>qsdb%67$0l8</value>                              
   </property>
   
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:mysql://172.17.49.195:3306/hive</value>               #旧：jdbc:derby:;databaseName=metastore_db;create=true 
+    <value>jdbc:mysql://192.168.17.149:3306/hive</value>               #旧：jdbc:derby:;databaseName=metastore_db;create=true 
   </property>
 
   <property>
@@ -337,7 +337,7 @@ vi hive-site.xml
  
   <property>
     <name>hive.querylog.location</name>
-    <value>hdfs://172.17.49.195:9000/data/hive/log</value>            #旧：${system:java.io.tmpdir}/${system:user.name}  
+    <value>hdfs://192.168.17.149:9000/data/hive/log</value>            #旧：${system:java.io.tmpdir}/${system:user.name}  
   </property>
  
   <property>
@@ -386,7 +386,7 @@ spark.master              yarn
 # 启用日志聚合
 spark.eventLog.enabled    true
 # 保存日志的HDFS 路径
-spark.eventLog.dir        hdfs://172.17.49.195:9000/spark2-history
+spark.eventLog.dir        hdfs://192.168.17.149:9000/spark2-history
 spark.executor.memory     1g
 spark.driver.memory       1g
 

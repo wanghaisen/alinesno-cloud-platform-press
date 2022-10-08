@@ -49,12 +49,12 @@ admin.enableServer=false
 修改server.properties文件
 
 在#listeners=PLAINTEXT://:9092下面增加如下配置
-listeners=PLAINTEXT://172.17.49.195:9092               #局域网地址
-advertised.listeners=PLAINTEXT://8.129.187.176:9092    #公网地址
+listeners=PLAINTEXT://192.168.17.149:9092               #局域网地址
+advertised.listeners=PLAINTEXT://192.168.17.149:9092    #公网地址
 
 log.dirs=/tmp/kafka-logs                               #修改为 log.dirs=/root/tools/kafka_2.12-3.2.0/logs
 
-zookeeper.connect=localhost:2181                       #修改为 zookeeper.connect=172.17.49.195:2181
+zookeeper.connect=localhost:2181                       #修改为 zookeeper.connect=192.168.17.149:2181
 
 zookeeper.session.timeout.ms=400000                    #增加此配置项
 
@@ -68,8 +68,8 @@ zookeeper.session.timeout.ms=400000                    #增加此配置项
 [root@hadoopmaster bin]#nohup sh  kafka-server-start.sh -daemon ../config/server.properties  1>/dev/null 2>&1 &        #启动kafka
 [root@hadoopmaster bin]# netstat -anlp |grep 2181                                             #检查zookeeper端口
 tcp6       0      0 :::2181                 :::*                    LISTEN      21901/java          
-tcp6       0      0 172.17.49.195:58404     172.17.49.195:2181      ESTABLISHED 22263/java          
-tcp6       0      0 172.17.49.195:2181      172.17.49.195:58404     ESTABLISHED 21901/java          
+tcp6       0      0 192.168.17.149:58404     192.168.17.149:2181      ESTABLISHED 22263/java          
+tcp6       0      0 192.168.17.149:2181      192.168.17.149:58404     ESTABLISHED 21901/java          
 [root@hadoopmaster bin]# 
 [root@hadoopmaster bin]# jps      #检查kafka进程是否启动
 12480 DataNode

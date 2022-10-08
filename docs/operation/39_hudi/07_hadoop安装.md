@@ -33,7 +33,7 @@ ssh-copy-id -i root@localhost
 ```shell
 cd /etc
 vi hosts
-172.17.49.195   iZwz9a7sd2zy3h5ytmvwp2Z hadoopmaster
+192.168.17.149 hadoopmaster
 ```
 
 保存后，ping hadoopmaster 进行网络测试
@@ -117,7 +117,7 @@ cd /root/tools/hadoop-3.3.4/etc/hadoop
 vi core-site.xml
    <property>
         <name>fs.default.name</name>
-        <value>hdfs://172.17.49.195:9000</value>
+        <value>hdfs://192.168.17.149:9000</value>
     </property>
     <property>
         <name>hadoop.proxyuser.root.groups</name>
@@ -175,7 +175,7 @@ vi mapred-site.xml
 	</property>
 	<property>
 			<name>mapreduce.job.tracker</name>
-			<value>hdfs://172.17.49.195:8001</value>
+			<value>hdfs://192.168.17.149:8001</value>
 			<final>true</final>
 	</property>
 	<property>
@@ -194,12 +194,12 @@ vi mapred-site.xml
 	<!--  开启jobhistory服务--> 
 	<property>
 	   <name>mapreduce.jobhistory.address</name>
-	   <value>172.17.49.195:10020</value>
+	   <value>192.168.17.149:10020</value>
 	</property>
 	
 	<property>
 	   <name>mapreduce.jobhistory.webapp.address</name>
-	   <value>172.17.49.195:19888</value>
+	   <value>192.168.17.149:19888</value>
 	</property>
 ```
 
@@ -222,15 +222,15 @@ vi yarn-site.xml
 	</property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
-		<value>172.17.49.195:8025</value>
+		<value>192.168.17.149:8025</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.scheduler.address</name>
-		<value>172.17.49.195:8030</value>
+		<value>192.168.17.149:8030</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
-		<value>172.17.49.195:8050</value>
+		<value>192.168.17.149:8050</value>
 	</property>
 	<!--日志聚集  -->
 	<property>
@@ -247,7 +247,7 @@ vi yarn-site.xml
 	<!--  resource,manager主节点所在机器 -->
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>172.17.49.195</value>
+		<value>192.168.17.149</value>
 	</property>
 	<!--  一台NodeManager的总可用内存资源 -->
 	<property>
@@ -286,7 +286,7 @@ vi yarn-site.xml
 	<!--  开启jobhistory服务--> 
 	<property>
 	  <name>yarn.log.server.url</name>
-	  <value>http://172.17.49.195:19888/jobhistory/logs/</value>
+	  <value>http://192.168.17.149:19888/jobhistory/logs/</value>
 	</property>
 
 ```

@@ -242,7 +242,7 @@ nohup sh kafka-server-start.sh -daemon ../config/server.properties 1>/dev/null 2
 
 ```bash
 cd /root/tools/kafka_2.12-3.2.0/bin
-./kafka-topics.sh --create --bootstrap-server 172.17.49.195:9092 --replication-factor 1 --partitions 1 --topic flinktest
+./kafka-topics.sh --create --bootstrap-server 192.168.17.149:9092 --replication-factor 1 --partitions 1 --topic flinktest
 ```
 
 <br/>
@@ -251,7 +251,7 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 
 ```bash
 cd /root/tools/kafka_2.12-3.2.0/bin
-./kafka-topics.sh --list --bootstrap-server 172.17.49.195:9092
+./kafka-topics.sh --list --bootstrap-server 192.168.17.149:9092
 ```
 
 <br/>
@@ -260,7 +260,7 @@ cd /root/tools/kafka_2.12-3.2.0/bin
 
 ```shell
 cd /root/tools/kafka_2.12-3.2.0/bin
-sh kafka-console-producer.sh --broker-list 172.17.49.195:9092 --topic flinktest
+sh kafka-console-producer.sh --broker-list 192.168.17.149:9092 --topic flinktest
 //生产端发消息
 {"tinyint0": 6, "smallint1": 223, "int2": 42999, "bigint3": 429450, "float4": 95.47324181659323, "double5": 340.5755392968011,"decimal6": 111.1111, "boolean7": true,  "char8": "dddddd", "varchar9": "buy0", "string10": "buy1", "timestamp11": "2021-09-13 03:08:50.810"}
 ```
@@ -271,7 +271,7 @@ sh kafka-console-producer.sh --broker-list 172.17.49.195:9092 --topic flinktest
 
 ```bash
 cd /root/tools/kafka_2.12-3.2.0/bin
-sh kafka-console-consumer.sh --bootstrap-server 172.17.49.195:9092   --topic flinktest --from-beginning
+sh kafka-console-consumer.sh --bootstrap-server 192.168.17.149:9092   --topic flinktest --from-beginning
 ```
 
 <br/>
@@ -309,7 +309,7 @@ Flink SQL> CREATE TABLE kafkatest (
 >     'connector' = 'kafka',   -- 使用 kafka connector
 >     'topic' = 'flinktest',   -- kafka topic名称
 >     'scan.startup.mode' = 'earliest-offset',  -- 从起始 offset 开始读取
->     'properties.bootstrap.servers' = '172.17.49.195:9092',  -- kafka broker 地址
+>     'properties.bootstrap.servers' = '192.168.17.149:9092',  -- kafka broker 地址
 >     'properties.group.id' = 'testgroup1',
 >     'value.format' = 'json',
 >     'value.json.fail-on-missing-field' = 'true',
@@ -353,7 +353,7 @@ Flink SQL> CREATE TABLE users_source_mysql (
 > ,ts TIMESTAMP(3)
 > ) WITH(
 > 'connector' = 'mysql-cdc' ,
-> 'hostname'  = '172.17.49.195' ,
+> 'hostname'  = '192.168.17.149' ,
 > 'port'      = '3306' ,
 > 'username'  = 'root' ,
 > 'password'  = 'qaz123689' ,
@@ -399,8 +399,8 @@ Flink SQL> CREATE TABLE nation_info(
 >   'write.tasks' = '1',
 >   'hive_sync.enable'= 'true', -- 开启自动同步hive
 >   'hive_sync.mode'= 'hms',    -- 自动同步hive模式，默认jdbc模式
->   'hive_sync.metastore.uris'= 'thrift://172.17.49.195:9083',   -- hive metastore地址
->   'hive_sync.jdbc_url' = 'jdbc:hive2://172.17.49.195:10000',   -- required, hiveServer地址
+>   'hive_sync.metastore.uris'= 'thrift://192.168.17.149:9083',   -- hive metastore地址
+>   'hive_sync.jdbc_url' = 'jdbc:hive2://192.168.17.149:10000',   -- required, hiveServer地址
 >   'hive_sync.table'= 'nation_info',      -- hive 新建表名
 >   'hive_sync.db'= 'public',              -- hive 新建数据库名
 >   'hive_sync.username'= 'hive',          -- hive 用户名
@@ -449,7 +449,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  'hdfs://172.17.49.195:9000/user/flink/hudi/public/nation_info'
+  'hdfs://192.168.17.149:9000/user/flink/hudi/public/nation_info'
 TBLPROPERTIES (
   'last_commit_time_sync'='20220913210502766', 
   'spark.sql.sources.provider'='hudi', 
