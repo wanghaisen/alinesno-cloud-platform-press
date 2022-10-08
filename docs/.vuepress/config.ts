@@ -366,7 +366,7 @@ export default defineUserConfig({
       ],
       '/operation': [
         {
-          text: '技术研发体系',
+          text: '部署规划',
           collapsible: true,
           children: genAutoOperationSidebar()
         },
@@ -928,9 +928,10 @@ function genSceneSidebar() {
 function genAutoOperationSidebar() {
   const mapArr = [
     '/operation/',
+    '/operation/document/04_部署架构.md',
     '/operation/document/01_基础规则.md',
     // '/operation/env.md',
-    '/operation/document/01_自动化操作脚本.md'
+    // '/operation/document/01_自动化操作脚本.md'
   ]
   return mapArr.map(i => {
     return i
@@ -1977,10 +1978,10 @@ function genBaseServiceSidebar() {
     // '/env/development/install/24_Jenkinsfile安装.md'
 
     '/operation/81_install/',
-    '/operation/81_install/21_安装流程.md', 
+    '/operation/81_install/21_安装流程.md',
     '/operation/81_install/24_Jenkinsfile安装.md',
     '/operation/81_install/25_Docker单独安装.md'
-    
+
   ]
 
   return mapArr.map(i => {
