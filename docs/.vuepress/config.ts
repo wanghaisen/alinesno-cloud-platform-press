@@ -326,21 +326,21 @@ export default defineUserConfig({
           collapsible: true,
           children: genPlanSidebar()
         },
-        {
-          text: '项目管理',
-          collapsible: true,
-          children: genManagerSidebar()
-        },
+        // {
+        //   text: '项目管理',
+        //   collapsible: true,
+        //   children: genManagerSidebar()
+        // },
         {
           text: '服务规划',
           collapsible: true,
           children: genServiceSidebar()
-        },
-        {
-          text: '平台管理',
-          collapsible: true,
-          children: genFrameworkManagerSidebar()
         }
+        // {
+        //   text: '平台管理',
+        //   collapsible: true,
+        //   children: genFrameworkManagerSidebar()
+        // }
       ],
       '/front/': [
         {
@@ -457,7 +457,7 @@ export default defineUserConfig({
           text: '数仓分析',
           collapsible: true,
           children: genDataWarehouseAnalyzeSidebar()
-        },
+        }
         // {
         //   text: '数据可视化',
         //   collapsible: true,
@@ -468,11 +468,11 @@ export default defineUserConfig({
         //   collapsible: true,
         //   children: genMachineLearningSidebar()
         // },
-        {
-          text: '数据管理系统',
-          collapsible: true,
-          children: genDataManagerSidebar()
-        },
+        // {
+        //   text: '数据管理系统',
+        //   collapsible: true,
+        //   children: genDataManagerSidebar()
+        // },
         // {
         //   text: '运维监控',
         //   collapsible: true,

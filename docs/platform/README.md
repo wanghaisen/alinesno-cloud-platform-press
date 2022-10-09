@@ -74,20 +74,22 @@ ACP数字中台服务, 研发中台产品体系架构规划和设计，为完成
 | 1    | 运维中台 | 自动化运维体系         | 完成   | [chatops][chatops]                                                 |      |
 | 2    |          | 审计日志监控服务       | 初稿 | [alinesno-cloud-logger][alinesno-cloud-logger]                     |      |
 | 3    |          | 自动化操作服务 | 完成 | [alinesno-cloud-operation][alinesno-cloud-operation]               |      |
-| 4    |          | 应用监控预警服务       |初稿 |    [alinesno-cloud-monitor][alinesno-cloud-monitor]                   |      |
 |      |          |                        |        |                                                                    |      |
-| 1    | 数据中台 | 数据中台管理体系       | 编写中 | alinesno-cloud-data-studio                                         |      |
+| 1    | 数据中台 | 数据中台管理体系       | 初稿 | [alinesno-cloud-data-studio][alinesno-cloud-data-studio]                                         |      |
 | 2    |          | 数据上报服务           | 完成   | [alinesno-cloud-data-report][alinesno-cloud-data-report]           |      |
 | 3    |          | 主数据管理服务         | 编写中 | alinesno-cloud-data-mdn                                            |      |
-| 4    |          | 数据集成服务           | 编写中 | alinesno-cloud-data-etl                                            |      |
+| 4    |          | 数据集成服务           | 编写中 | [alinesno-cloud-data-etl][alinesno-cloud-ata-etl]                                            |      |
 | 5    |          | 数据开发服务           | 编写中 | alinesno-cloud-data-develop                                        |      |
 | 6    |          | 数据开放服务           | 编写中 | alinesno-cloud-data-open                                           |      |
 |      |          |                        |        |                                                                    |      |
 
+<!-- | 4    |          | 应用监控预警服务       |初稿 |    [alinesno-cloud-monitor][alinesno-cloud-monitor]                   |      | -->
 <!-- | 6    |          | 支付管理服务           | 编写中 | alinesno-cloud-base-pay                                            |      | -->
 
 [devops]: ./paas/01_持续集成平台.md
 [alinesno-cloud-core]: ./business/12_技术中台/01_微服务研发引擎.md
+[alinesno-cloud-data-studio]: ./business/14_数据中台/05_数据中台管理体系.md
+[alinesno-cloud-data-etl]: ./business/14_数据中台/01_ETT在线调试平台.md
 [chatops]: ./business/18_运维中台/12_自动化运维体系.md
 [alinesno-cloud-cms]: ./business/13_研发中台/14_CMS内容管理平台.md
 [alinesno-cloud-monitor]: ./business/18_运维中台/04_自动化运维平台.md
